@@ -68,12 +68,9 @@ export function GigPreview({ gig }) {
                 </Box>
                 <div>{gig.owner && gig.owner.rate}</div>
                 <div className='ratings-count'>({gig.owner && gig.owner.ratingsCount})</div>
-
             </div>
-
         </div>
-
-        <footer>
+        {/* <footer> */}
             <div className="btn-container">
                 <button onClick={onHandleHeart} className="fa-solid heart" title="save to my list" style={heart ? { color: "#f74040", transition: "color .6s ease" } : { color: "#b5b6ba", transition: "color .6s ease" }}></button>
             </div>
@@ -84,7 +81,7 @@ export function GigPreview({ gig }) {
                     <sup></sup>
                 </span>
             </Link>
-        </footer>
+        {/* </footer> */}
     </>
     )
 }

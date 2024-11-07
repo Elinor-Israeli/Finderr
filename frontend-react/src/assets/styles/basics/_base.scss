@@ -20,8 +20,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 img {
-    display: block;
-    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 5 / 3;
 }
 
 p {
@@ -30,6 +31,7 @@ p {
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 a:hover {
@@ -37,9 +39,11 @@ a:hover {
 }
 
 ul {
-    list-style: none;
     padding: 0;
+    margin: 0;
+    list-style: none;
 }
+
 
 input {
     max-width: 100%;

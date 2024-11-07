@@ -1,6 +1,6 @@
-import { storageService } from './async-storage.service'
-import { utilService } from './util.service'
-import { userService } from './user.service'
+import { storageService } from '../async-storage.service'
+import { utilService } from '../util.service' 
+import { userService } from '../user' 
 
 const STORAGE_KEY = 'gig'
 _createGigs()
@@ -70,6 +70,83 @@ async function save(gig) {
     return savedGig
 }
 
+function getGigSlides() {
+    return [
+        {
+            url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_305,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png',
+            desc: 'Build your brand',
+            category: 'Logo Design'
+        },
+        {
+            url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_305,dpr_2.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png',
+            desc: 'Customize your site',
+            category: 'WordPress'
+        },
+        {
+            url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_305,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png',
+            desc: 'hare your message',
+            category: 'Voice Over'
+        },
+        {
+            url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png',
+            desc: 'Engage your audience',
+            category: 'Video Explainer'
+        },
+        {
+            url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png',
+            desc: 'Reach more customers',
+            category: 'Social Media'
+        },
+        {
+            url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741668/seo-2x.png',
+            desc: 'Unlock growth online',
+            category: 'SEO'
+        },
+        {
+            url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/illustration-2x.png',
+            desc: 'Color your dreams',
+            category: 'Illustration'
+        },
+        {
+            url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741674/translation-2x.png',
+            desc: 'Go global',
+            category: 'Translation'
+        },
+        {
+            url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/data-entry-2x.png',
+            desc: 'Learn your business',
+            category: 'Data Entry'
+        },
+        {
+            url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/book-covers-2x.png',
+            desc: 'Showcase your story',
+            category: 'Book Covers'
+        }
+    ]
+}
+
+function getGigSelling() {
+    return [
+        {
+            title: 'The best for every budget',
+            desc: 'Find high-quality services at every price point. No hourly rates, just project-based pricing.'
+        },
+        {
+            title: 'Quality work done quickly',
+            desc: 'Find the right freelancer to begin working on your project within minutes.'
+        },
+        {
+            title: 'Protected payments, every time',
+            desc: 'Always know what you\'ll pay upfront. Your payment isn\'t released until you approve the work.'
+        },
+        {
+            title: '24/7 support',
+            desc: 'Questions? Our round-the-clock support team is available to help anytime, anywhere.'
+        }
+    ]
+}
+
+
 function _createGigs() {
     let gigs = utilService.loadFromStorage(STORAGE_KEY)
     if (!gigs || !gigs.length) {
@@ -80,7 +157,7 @@ function _createGigs() {
                 price: 15,
                 owner: {
                     _id: "u102",
-                    fullname: "Dudu Sa",
+                    fullname: "Boya",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
                     level: "basic/premium",
                     rate: 5
@@ -106,7 +183,7 @@ function _createGigs() {
                 price: 12,
                 owner: {
                     _id: "u102",
-                    fullname: "Dudu Sa",
+                    fullname: "Boya",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
                     level: "basic/premium",
                     rate: 5
@@ -132,7 +209,7 @@ function _createGigs() {
                 price: 18,
                 owner: {
                     _id: "u102",
-                    fullname: "Dudu Sa",
+                    fullname: "Boya",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
                     level: "basic/premium",
                     rate: 5
@@ -184,7 +261,7 @@ function _createGigs() {
                 price: 20,
                 owner: {
                     _id: "u106",
-                    fullname: "Bobo Basa",
+                    fullname: "Anita Bath",
                     imgUrl: 'https://cdn.pixabay.com/photo/2018/01/21/14/16/woman-3096664_960_720.jpg',
                     level: "basic/premium",
                     rate: 1
@@ -264,7 +341,7 @@ function _createGigs() {
                 price: 25,
                 owner: {
                     _id: "u109",
-                    fullname: "Quti Vvfa",
+                    fullname: "Bill Loney",
                     imgUrl: 'https://cdn.pixabay.com/photo/2018/03/12/20/57/woman-3220835_960_720.jpg',
                     level: "basic/premium",
                     rate: 4
@@ -317,7 +394,7 @@ function _createGigs() {
                 price: 17,
                 owner: {
                     _id: "u111",
-                    fullname: "Bobo Basa",
+                    fullname: "Anita Bath",
                     imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/03/35/girl-1867092_960_720.jpg',
                     level: "basic/premium",
                     rate: 4
@@ -344,7 +421,7 @@ function _createGigs() {
                 price: 15,
                 owner: {
                     _id: "u112",
-                    fullname: "Dudu Sa",
+                    fullname: "Boya",
                     imgUrl: 'https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg',
                     level: "basic/premium",
                     rate: 5
@@ -451,7 +528,7 @@ function _createGigs() {
                 price: 20,
                 owner: {
                     _id: "u116",
-                    fullname: "Bobo Basa",
+                    fullname: "Anita Bath",
                     imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg',
                     level: "basic/premium",
                     rate: 1
@@ -534,7 +611,7 @@ function _createGigs() {
                 price: 25,
                 owner: {
                     _id: "u119",
-                    fullname: "Quti Vvfa",
+                    fullname: "Bill Loney",
                     imgUrl: 'https://cdn.pixabay.com/photo/2018/11/08/23/52/man-3803551_960_720.jpg',
                     level: "basic/premium",
                     rate: 4
@@ -588,7 +665,7 @@ function _createGigs() {
                 price: 17,
                 owner: {
                     _id: "u121",
-                    fullname: "Bobo Basa",
+                    fullname: "Anita Bath",
                     imgUrl: 'https://cdn.pixabay.com/photo/2015/01/12/10/45/man-597178_960_720.jpg',
                     level: "basic/premium",
                     rate: 4

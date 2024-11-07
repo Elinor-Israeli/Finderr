@@ -1,22 +1,21 @@
-.car-list {
+.gig-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: .5em;
+    margin-bottom: 3rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 
-    li {
-        display: grid;
-        grid-template-columns: max-content auto;
-        padding: .5em;
-        background-color: $clr2;
+    @media (min-width: $mobile-breakpoint) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 
-        color: $clr6;
+    @media (min-width: $padded-break-narrow) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
-        .actions {
-            justify-self: end;
-
-            button {
-                padding: .3em .5em;
-            }
-        }
+    @media (min-width: $padded-break-normal) {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: $width-breakpoint;
+        gap: 2rem;
     }
 }

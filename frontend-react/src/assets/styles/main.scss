@@ -1,19 +1,19 @@
-// // Setup
-// @import "setup/variables";
-// @import "setup/functions";
-// @import "setup/mixins";
-// @import "setup/typography";
+// Setup
+@import "setup/variables";
+@import "setup/functions";
+@import "setup/mixins";
+@import "setup/typography";
 
-// // Basics
-// @import "basics/helpers";
-// @import "basics/layout";
-// @import "basics/helpers";
-// @import "basics/base";
-// // @import "basics/links";
-// @import "basics/forms";
+// Basics
+@import "basics/helpers";
+@import "basics/layout";
+@import "basics/helpers";
+@import "basics/base";
+// @import "basics/links";
+@import "basics/forms";
 
 
-// // pages
+// pages
 
 // @import "pages/AboutUs";
 // @import "pages/HomePage";
@@ -23,9 +23,9 @@
 // @import "pages/TaskDetails";
 // @import "pages/LoginSignup";
 
-// // Components
-// @import "cmps/list";
-// @import "cmps/preview";
+// Components
+@import "cmps/list";
+@import "cmps/GigPreview";
 
 // @import "cmps/AppHeader";
 // @import "cmps/AppFooter";
@@ -35,5 +35,6 @@
 // @import "cmps/ReviewEdit";
 // @import "cmps/ReviewList";
 // @import "cmps/ReviewPreview";
-// @import "cmps/CarList";
+@import "cmps/GigList";
+@import "cmps/GigIndex";
 // @import "cmps/CarPreview";

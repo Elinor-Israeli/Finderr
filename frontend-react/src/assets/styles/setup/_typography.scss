@@ -1,0 +1,28 @@
+// Colors
+$clr1: #1dbf73; //main clr
+$clr2: #404145; // headlines
+$clr3: #fff; // bgc
+$clr4: #ffb33e; // star review
+
+$clr5: #62646a; // font clr
+$clr6: #b5b6ba; // btn & heart
+$clr7: #e4e5e7; // border
+$clr8: #c5c6c9; // border search
+$clr9: #fafafa;
+$clr10: #f7f8fa; // border
+$clr11: #dadbdd; // review border
+$clr12: #e4e5e7; // divider
+$clr13: #74767e;  //link color
+
+// LAYOUT
+$layoutPadding: 32px;
+
+// Breakpoints
+$mobile-breakpoint: 600px;
+$narrow-breakpoint: 900px;
+$normal-breakpoint: 1160px;
+$width-breakpoint: 1400px;
+
+$padded-break-narrow: $narrow-breakpoint + $layoutPadding * 2;
+$padded-break-normal: $normal-breakpoint + $layoutPadding * 2;
+$padded-break-wide: $width-breakpoint + $layoutPadding * 2;

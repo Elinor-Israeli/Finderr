@@ -1,0 +1,42 @@
+.gig-index {
+    min-height: 80vh;
+
+    h1 {
+        font-size: rem(26px);
+        font-family: macan-semibold;
+        margin-top: 30px;
+    }
+
+    p {
+        color: $clr5;
+        font-size: rem(14px);
+        line-height: calc(22 / 14);
+        font-family: macan-semibold;
+        margin-bottom: em(25px, 14px);
+    }
+}
+
+.filter-sort {
+    margin-bottom: .5em;
+    background-color: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 1em 0;
+    transition: background-color .3s ease;
+
+}
+
+.filter-sort-container {
+    @include flex;
+    font-size: rem(12px);
+
+    @media (min-width: $mobile-breakpoint) {
+        font-size: 1rem;
+    }
+}
+
+.filter-sort-shadow {
+    background-color: $clr3;
+    box-shadow: 0 .266px 1.13052px rgba(0, 0, 0, .069), 0 .89345px 3.79717px rgba(0, 0, 0, .101), 0 5px 17px rgba(0, 0, 0, .17);
+}

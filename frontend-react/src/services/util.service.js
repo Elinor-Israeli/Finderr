@@ -1,3 +1,16 @@
+export const utilService = {
+    makeId,
+    makeLorem,
+    getRandomIntInclusive,
+    debounce,
+    randomPastTime,
+    saveToStorage,
+    loadFromStorage,
+    // formatTime
+}
+
+
+
 export function makeId(length = 6) {
     var txt = ''
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'

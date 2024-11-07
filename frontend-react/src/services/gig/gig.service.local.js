@@ -332,7 +332,7 @@ function _createGigs() {
                     "proffesional",
                     "accessible"
                 ],
-                likedByUsers: ['mini-user'] // for user-wishlist : use $in
+                likedByUsers: ['mini-user'] 
             },
 
             {

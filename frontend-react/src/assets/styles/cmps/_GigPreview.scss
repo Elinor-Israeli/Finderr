@@ -2,8 +2,8 @@
     @include flex;
     flex-direction: column;
     border: 1px solid $clr7;
-    min-width: rem(245px);
-    min-height: rem(370px);
+    min-width: rem(225px);
+    min-height: rem(300px);
 
     a:hover {
         // color: $clr1;
@@ -89,10 +89,10 @@
 
     footer {
         // width: 100%;
-        // padding: .625em .75em;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        // // padding: .625em .75em;
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
         // button {
         //     margin: 0;
         //     padding: 0;
@@ -109,17 +109,23 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: start;
+        align-items: flex-start ;
         font-size: 1.125em;
         line-height: 1.3;
-
+        
         sup {
             top: 2px;
-            margin-left: 1px;
+            // margin-left: 14.625em;
             font-size: 70%;
             line-height: 0;
             position: relative;
             vertical-align: super;
+        }
+
+        span {
+            &.price-margin {
+                left: auto ;
+            }
         }
 
         &:hover {

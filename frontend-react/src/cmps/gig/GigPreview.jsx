@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Rating from '@mui/material/Rating'
 
-// import { SlideGigPreview } from '../slide/slide-gig-preview'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { updateGig } from '../../store/actions/gig.actions'
@@ -80,9 +79,9 @@ export function GigPreview({ gig }) {
             </div>
             <Link className="price" to={`/gig/${gig._id}`}>
                 {/* <small>Starting at</small> */}
-                <span>
-                    ${gig.price}
-                    <sup>00</sup>
+                <span className='price-margin'>
+                ${gig.price.toFixed(2)}
+                    <sup></sup>
                 </span>
             </Link>
         </footer>

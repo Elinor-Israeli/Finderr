@@ -1,0 +1,26 @@
+.app-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 3.5rem;
+
+    padding: rem(10px) 1rem;
+    background-color: $clr4;
+
+    p {
+        margin: 0;
+    }
+    
+    span {
+        font-size: .8em;
+        
+        &.local-services {
+            color: $clr1;
+        }
+        
+        &.remote-services {
+            color: $clr5;
+        }
+    }
+}

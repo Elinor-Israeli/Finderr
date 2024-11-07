@@ -1,0 +1,17 @@
+.review-list li {
+    grid-template-columns: 1fr 2.5em;
+    align-items: start;
+
+    > * {
+        grid-row: 1;
+    }
+    
+    .actions {
+        grid-column: 2;
+
+        button {
+            margin: 0;
+        }
+    }
+    
+}

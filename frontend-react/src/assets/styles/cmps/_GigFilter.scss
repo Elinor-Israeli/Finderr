@@ -1,0 +1,66 @@
+.car-filter {
+    display: grid;
+    grid-template-columns: 1fr 5em 5em auto;
+    align-items: center;
+    gap: 0 .5em;
+
+    background-color: $clr4;
+    padding: .5em;
+
+    h3 {
+        grid-column: 1 / -1;
+        font-size: rem(14px);
+        margin: 0;
+    }
+
+    & :not(h3) {
+        cursor: pointer;
+    }
+
+    input:is([type="text"], [type="number"]){
+        height: 1.8em;
+        border: none;
+        border-block-end: 1px solid $gray1;
+    
+        &:focus {
+            outline: none;
+            background-color: $gray1;
+        }
+    }
+
+
+    .btn-clear {
+        grid-column: 4;
+    }
+
+    .sort-field, .sort-dir {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        // margin-inline-start: .4em;
+
+        font-size: .8em;
+    }
+
+    .sort-dir {
+        grid-column: 2 / 3;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    label {
+        span {
+            font-size: .9em;
+            padding: 0.1em 0.3em;
+            outline: 1px solid $gray1;
+        }
+
+        &:has(:checked) span  {
+            background-color: $clr3;
+            color: $gray1;
+        }
+    }
+}

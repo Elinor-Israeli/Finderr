@@ -1,0 +1,61 @@
+.app-header {
+    display: flex;
+    min-height: 3.5rem;
+
+    background-color: $clr4;
+    padding: rem(10px) 1rem;
+    
+    nav {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 1em;
+        
+        font-size: .8em;
+
+        .active {
+            color: $clr1;
+        }
+
+        .logo {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-inline-end: 2em;
+        }
+
+        .login-link {
+            margin-inline-start: auto;
+        }
+
+        button {
+            margin-inline-end: 0;
+        }
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        margin-inline-start: auto;
+
+        color: $clr1;
+
+        .score {
+            padding: 8px;
+            background-color: $clr2;
+            border-radius: 50%;
+            margin: 10px;
+
+            color: $clr6;
+        }
+
+        img {
+            width: 32px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
+        
+        .btn-link {
+            color: $clr2;
+        }
+    }
+}

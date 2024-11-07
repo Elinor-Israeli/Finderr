@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Rating from '@mui/material/Rating'
 import { FaRegHeart } from "react-icons/fa";
+import { TbBrandZoom } from "react-icons/tb";
 
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
@@ -50,13 +51,18 @@ export function GigPreview({ gig }) {
                 <SlideGigPreview gig={gig} />
                 <div className="btn-container">
                     <button
-                        onClick={(e) => {
-                            e.preventDefault() //* by preventDefault
-                            e.stopPropagation() //* on the heart the link is off
+                        onClick={(ev) => {
+                            ev.preventDefault() //* by preventDefault
+                            ev.stopPropagation() //* on the heart the link is off
                             onHandleHeart()
                         }}
                         title="save to my list"
-                        style={heart ? { color: "#f74040", transition: "color .6s ease" } : { color: "#b5b6ba", transition: "color .6s ease" }}>
+                        style={{
+                            color: heart ? "#f74040" : "#b5b6ba",
+                            transition: "color .6s ease",
+                            fontSize: '34px' //* the size of the heart icon 
+                        }}
+                    >
                         <FaRegHeart />
                     </button>
                 </div>
@@ -85,7 +91,7 @@ export function GigPreview({ gig }) {
                             readOnly
                         />
                     </Box>
-                    <div>{gig.owner && gig.owner.rate}</div>
+                    <div className='rate-num'>{gig.owner && gig.owner.rate}</div>
                     <div className='ratings-count'>({gig.owner && gig.owner.ratingsCount})</div>
                 </div>
                 <Link className="price" to={`/gig/${gig._id}`}>
@@ -94,6 +100,10 @@ export function GigPreview({ gig }) {
                         <sup></sup>
                     </span>
                 </Link>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <TbBrandZoom />
+                    Offers video consultations
+                </div>
             </div>
         </>
     )

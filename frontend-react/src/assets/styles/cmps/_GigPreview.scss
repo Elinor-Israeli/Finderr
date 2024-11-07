@@ -83,15 +83,24 @@
         color: $clr4;
         display: flex;
         margin: 8px 0px 0px;
+        font-size: 16px;
+     
 
         div:last-child {
             margin-left: em(5px, 14px);
         }
 
+        .rate-num {
+            padding: 0px 0px 0px 4px;
+            // font-size: 16px;
+            color: $clr6;
+        }
+
         .ratings-count {
             color: $clr6;
             font-family: macan-light;
-
+        //    top: -5px;
+            padding: 0px 0px 0px 4px;
         }
     }
 

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Rating from '@mui/material/Rating'
+import { FaRegHeart } from "react-icons/fa";
 
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
@@ -21,6 +22,7 @@ export function GigPreview({ gig }) {
         }
     }, [user])
 
+    //* i tell him down ⬇️ in how many words
     function getTxtToShow(txt, length) {
         return (txt.length < length) ? txt : txt.substring(0, length + 1) + '...'
     }
@@ -43,46 +45,57 @@ export function GigPreview({ gig }) {
     }
 
     return (
-     <>
-        <Link to={`/gig/${gig._id}`} className="img-container">
-            <SlideGigPreview gig={gig} />
-        </Link>
-
-        <div className="content">
-            <div className="owner-info">
-                <img src={gig.owner && gig.owner.imgUrl} alt="" />
-                <div className="owner">
-                    <Link to={`/user/${gig.owner._id}`}>{gig.owner && gig.owner.fullname}</Link>
-                    {/* <span>{gig.owner && gig.owner.level}</span> */}
-                </div>
-            </div>
-            <Link className="title" to={`/gig/${gig._id}`}>
-                <div className="long-txt">
-                    <span>{getTxtToShow(gig.title, 60)}</span>
+        <>
+            <Link to={`/gig/${gig._id}`} className="img-container">
+                <SlideGigPreview gig={gig} />
+                <div className="btn-container">
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault() //* by preventDefault
+                            e.stopPropagation() //* on the heart the link is off
+                            onHandleHeart()
+                        }}
+                        title="save to my list"
+                        style={heart ? { color: "#f74040", transition: "color .6s ease" } : { color: "#b5b6ba", transition: "color .6s ease" }}>
+                        <FaRegHeart />
+                    </button>
                 </div>
             </Link>
-            <div className="rate">
-                <Box sx={{ '& > legend': { mt: 2 } }}>
-                    <Rating value={gig.owner.rate} name="half-rating-read" size="small"
-                        precision={0.5} max={1} readOnly />
-                </Box>
-                <div>{gig.owner && gig.owner.rate}</div>
-                <div className='ratings-count'>({gig.owner && gig.owner.ratingsCount})</div>
+            <div className="content">
+                <div className="owner-info">
+                    <img src={gig.owner && gig.owner.imgUrl} alt="" />
+                    <div className="owner">
+                        <Link to={`/user/${gig.owner._id}`}>{gig.owner && gig.owner.fullname}</Link>
+                        {/* <span>{gig.owner && gig.owner.level}</span> */}
+                    </div>
+                </div>
+                <Link className="title" to={`/gig/${gig._id}`}>
+                    <div className="long-txt">
+                        <span>{getTxtToShow(gig.title, 60)}</span>
+                    </div>
+                </Link>
+                <div className="rate">
+                    <Box sx={{ '& > legend': { mt: '5px', marginTop: '5px', color: 'black' }, '& .MuiRating-icon': { color: 'black' } }}>
+                        <Rating
+                            value={gig.owner.rate}
+                            name="half-rating-read"
+                            size="small"
+                            precision={0.5}
+                            max={1}
+                            readOnly
+                        />
+                    </Box>
+                    <div>{gig.owner && gig.owner.rate}</div>
+                    <div className='ratings-count'>({gig.owner && gig.owner.ratingsCount})</div>
+                </div>
+                <Link className="price" to={`/gig/${gig._id}`}>
+                    <span className='price-margin'>
+                        ${gig.price.toFixed(2)}
+                        <sup></sup>
+                    </span>
+                </Link>
             </div>
-        </div>
-        {/* <footer> */}
-            <div className="btn-container">
-                <button onClick={onHandleHeart} className="fa-solid heart" title="save to my list" style={heart ? { color: "#f74040", transition: "color .6s ease" } : { color: "#b5b6ba", transition: "color .6s ease" }}></button>
-            </div>
-            <Link className="price" to={`/gig/${gig._id}`}>
-                {/* <small>Starting at</small> */}
-                <span className='price-margin'>
-                ${gig.price.toFixed(2)}
-                    <sup></sup>
-                </span>
-            </Link>
-        {/* </footer> */}
-    </>
+        </>
     )
 }
 

@@ -14,6 +14,7 @@
     }
 
     .img-container {
+        position: relative;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px !important;
@@ -22,6 +23,13 @@
         overflow: hidden;
     }
 
+    .btn-container {
+        position: absolute;
+        top: 10px; 
+        right: 10px; 
+        z-index: 1; 
+    }
+    
     .content {
         width: 100%;
         display: flex;
@@ -33,7 +41,7 @@
         .title {
             min-height: em(59px, 16px);
             line-height: calc(22 / 16);
-            padding-bottom: em(15px, 16px);
+            // padding-bottom: em(15px, 16px);
         }
     }
 
@@ -42,7 +50,7 @@
         line-height: calc(18 / 14);
         display: flex;
         align-items: center;
-        padding-bottom: .857em;
+        margin: 12px 0px 0px;
 
         img {
             width: 1.7em;
@@ -75,6 +83,7 @@
         font-size: rem(14px);
         color: $clr4;
         display: flex;
+        margin: 8px 0px 0px;
 
         div:last-child {
             margin-left: em(5px, 14px);
@@ -88,34 +97,35 @@
     }
 
     // footer {
-       
-        // button {
-        //     margin: 0;
-        //     padding: 0;
-        //     background-color: transparent;
-        //     color: $clr6;
-        // }
 
-        // button:first-of-type {
-        //     padding-right: .5em;
-        // }
+    // button {
+    //     margin: 0;
+    //     padding: 0;
+    //     background-color: transparent;
+    //     color: $clr6;
+    // }
+
+    // button:first-of-type {
+    //     padding-right: .5em;
+    // }
+}
+
+.price {
+    width: 100%;
+    @include flex;
+    align-items: flex-end;
+    font-size: 1.125em;
+    line-height: 1.3;
+
+    span {
+        &.price-margin {
+            left: auto;
+        }
     }
 
-    .price {
-        width: 100%;
-        @include flex;
-        align-items: flex-end;
-        font-size: 1.125em;
-        line-height: 1.3;
-        
-        span {
-            &.price-margin {
-                left: auto ;
-            }
-        }
+    &:hover {
+        text-decoration: none;
+    }
 
-        &:hover {
-            text-decoration: none;
-        }
     // }
 }

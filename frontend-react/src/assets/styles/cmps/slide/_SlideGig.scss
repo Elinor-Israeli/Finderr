@@ -10,6 +10,10 @@
         max-height: 200px;
     }
 
+    .image-slides {
+        border-radius: 10px;
+    }
+
     overflow: hidden;
 
     &:hover {
@@ -25,9 +29,15 @@
         }
     }
 
+
+    // .icon-arrow {
+
+    // }
+
     .prev,
     .next {
         display: none; 
+        // content: › ;
         position: absolute;
         top: 50%;
         font-size: 2rem;

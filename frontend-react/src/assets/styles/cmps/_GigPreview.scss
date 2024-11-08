@@ -1,7 +1,8 @@
 .gig-preview {
-    @include flex;
+    display: flex;
+    align-items: center;
     flex-direction: column;
-    border: 1px solid $clr7;
+    border: 1px solid white;
     min-width: rem(225px);
     min-height: rem(300px);
 
@@ -21,6 +22,7 @@
         border-bottom-left-radius: 10px !important;
         border-radius: 10px;
         overflow: hidden;
+        // width: 125%;
     }
 
     .btn-container {

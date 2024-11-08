@@ -72,12 +72,12 @@ export function GigPreview({ gig }) {
                     <img src={gig.owner && gig.owner.imgUrl} alt="" />
                     <div className="owner">
                         <Link to={`/user/${gig.owner._id}`}>{gig.owner && gig.owner.fullname}</Link>
-                        {/* <span>{gig.owner && gig.owner.level}</span> */}
+                        <span>{gig.owner && gig.owner.level}</span>
                     </div>
                 </div>
                 <Link className="title" to={`/gig/${gig._id}`}>
                     <div className="long-txt">
-                        <span>{getTxtToShow(gig.title, 60)}</span>
+                        <span>{getTxtToShow(gig.title, 55)}</span>
                     </div>
                 </Link>
                 <div className="rate">

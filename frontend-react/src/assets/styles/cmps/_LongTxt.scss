@@ -1,0 +1,12 @@
+button.button-longText {
+    border: none; 
+    text-decoration: underline;
+    margin: 15px 0px 0px ;
+    font-weight: 600;
+    padding: 0;
+&:hover {
+        border: none;
+        color: black;
+        background: none;
+    }
+}

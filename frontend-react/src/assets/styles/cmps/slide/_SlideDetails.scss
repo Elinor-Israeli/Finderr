@@ -1,0 +1,65 @@
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+    position: relative;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 40%;
+    background-color: $clr3;
+    color: $clr5;
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+    text-align: center;
+
+    &:hover {
+        color: $clr5;
+    }
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    transform: translate(50%, 0);
+}
+
+.prev {
+    transform: translate(-50%, 0);
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    margin-right: em(5px, 16px);
+}
+
+.demo {
+    opacity: 0.25;
+    max-width: 100px;
+}
+
+.demo-active {
+    opacity: 0.9;
+    max-width: 100px;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}

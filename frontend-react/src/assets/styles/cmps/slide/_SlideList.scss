@@ -1,0 +1,110 @@
+.main-slider-container {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-bottom: 6rem;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    white-space: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    animation: scroll linear;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-card {
+    height: 345px;
+    display: inline-block;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+
+    :not([overflow]) {
+        margin-right: 3%;
+    }
+
+    img {
+        height: 345px;
+        width: 100%;
+        border-radius: rem(4px);
+
+        &:hover {
+            opacity: .85;
+        }
+    }
+
+    // Breakpoints- card//
+    @media (min-width:1240px) {
+        width: 20%;
+    }
+
+    @media (max-width:1240px) {
+        width: 25%;
+    }
+
+    @media (max-width:1060px) {
+        width: 33%;
+    }
+
+    @media (max-width:960px) {
+        width: 50%;
+    }
+
+    @media (max-width:600px) {
+        width: 75%;
+    }
+
+    // Text-card//
+    h4 {
+        font-family: macan-bold;
+        font-size: 1.5rem;
+        position: absolute;
+        color: $clr3;
+        padding: .6em;
+        z-index: 4;
+        cursor: pointer;
+        line-height: 130%;
+    }
+
+    small {
+        font-family: macan-light;
+        font-size: .875rem;
+        display: block;
+        line-height: 1.4;
+    }
+}
+
+//btn//
+.slide-btn {
+    z-index: 2;
+    color: $clr5;
+    background-color: $clr3;
+    border-radius: 50%;
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+
+    @include for-mobile-layout {
+        display: none;
+    }
+}
+
+.next {
+    right: 0;
+}
+
+.prev {
+    left: 0;
+}

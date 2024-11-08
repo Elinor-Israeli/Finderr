@@ -100,10 +100,10 @@ export function GigPreview({ gig }) {
                         <sup></sup>
                     </span>
                 </Link>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                {/* <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                     <TbBrandZoom />
                     Offers video consultations
-                </div>
+                </div> */}
             </div>
         </>
     )

@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { IoIosArrowDropright } from "react-icons/io";
+import { IoIosArrowDropleft } from "react-icons/io";
 
 export function SlideGigPreview({ gig }) {
     let slides = gig.imgUrl
@@ -27,15 +29,46 @@ export function SlideGigPreview({ gig }) {
         setIsDynamic(slideIndex)
     }
 
-    return <div className="gig-preview-img">
-        <div className="prev fa-solid chevron-left" onClick={(ev) => plusSlides(ev, -1)}></div>
-        <img src={slides[slideIndex]} />
-        <div className="next fa-solid chevron-right" onClick={(ev) => plusSlides(ev, 1)}></div>
+    return (
+        <div className="gig-preview-img">
+            {/* Left Arrow (previous slide) */}
+            <div
+                className="prev"
+                onClick={(ev) => plusSlides(ev, -1)}
+            >
+                {/* <IoIosArrowDropleft style={{ fontSize: '2rem' }} /> */}
+            </div>
 
-        <ul className="dot-container">
-            {slides.map((slide, slideIndex) => (
-                <li className={isDynamic === slideIndex ? "dot dot-active" : "dot"} key={slideIndex} onClick={(ev) => onDot(ev, slideIndex)}></li>
-            ))}
-        </ul>
-    </div>
+            {/* Image */}
+            <img src={slides[slideIndex]} alt="Gig Preview" />
+
+            {/* Right Arrow (next slide) */}
+            <div
+  className="next"
+  onClick={(ev) => plusSlides(ev, 1)}
+//   style={{
+//     // background: 'transparent url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/search_perseus/apps/carousel-arrows.b9dde63.svg) no-repeat',
+//     backgroundSize: 'contain', // Makes sure the background scales nicely
+//     backgroundPosition: 'center', // Centers the background image
+//     width: '70px', // Set an appropriate width for the div
+//     display: 'flex', // Flexbox to center the icon
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   }}
+>
+  {/* <IoIosArrowDropright style={{ fontSize: '10rem', width: 'auto', height: 'auto' }} /> */}
+</div>
+
+            {/* Dot Navigation */}
+            <ul className="dot-container">
+                {slides.map((slide, slideIndex) => (
+                    <li
+                        key={slideIndex}
+                        className={isDynamic === slideIndex ? "dot dot-active" : "dot"}
+                        onClick={(ev) => onDot(ev, slideIndex)}
+                    ></li>
+                ))}
+            </ul>
+        </div>
+    )
 }

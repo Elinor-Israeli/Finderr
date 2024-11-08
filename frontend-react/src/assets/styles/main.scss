@@ -15,13 +15,19 @@
 
 // pages
 
-// @import "pages/AboutUs";
+@import "pages/GigDetails";
 // @import "pages/HomePage";
 // @import "pages/CarIndex";
 // @import "pages/ReviewIndex";
 // @import "pages/UserDetails";
 // @import "pages/TaskDetails";
 // @import "pages/LoginSignup";
+
+// slide
+@import "cmps/slide/SlideGig";
+@import "cmps/slide/SlideList";
+@import "cmps/slide/DetailsCarousel";
+@import "cmps/slide/SlideDetails";
 
 // Components
 @import "cmps/list";

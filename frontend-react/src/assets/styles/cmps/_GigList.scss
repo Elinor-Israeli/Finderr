@@ -6,21 +6,23 @@
 
     @media (min-width: $mobile-breakpoint) {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        grid-column-gap: 24px;
     }
 
     @media (min-width: $narrow-breakpoint) {
         grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 24px;
     }
 
     @media (min-width: $normal-breakpoint) {
         grid-template-columns: repeat(4, 1fr);
-        max-width: $width-breakpoint;
-        gap: 2rem;
-    }
-    @media (min-width: $width-breakpoint) {
-        grid-template-columns: repeat(5, 1fr);
-        max-width: $width-breakpoint;
-        gap: 2rem;
-    }
+        grid-column-gap: 24px;
+        }
+
+    // @media (min-width: $width-breakpoint) {
+    //     grid-template-columns: repeat(5, 1fr);
+    //     max-width: $width-breakpoint;
+    //     gap: 5rem;
+    //     row-gap: 40;
+    // }
 }

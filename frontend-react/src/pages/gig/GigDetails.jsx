@@ -60,7 +60,7 @@ export function GigDetails() {
     // return //<section className='main-gig-details'>
     return <section className="gig-details">
         <div className="gig-details-preview gig-details-info">
-            <nav>{`🏠 /Graphics & design / Logo Design`}</nav>
+            <nav>{`🏠 / Graphics & design / Logo Design`}</nav>
             <h1>{gig.title}</h1>
             <div className="owner-details">
                 <img src={imgUrl} alt="user-img" />
@@ -78,7 +78,43 @@ export function GigDetails() {
         </div>
 
         <div className="gig-description gig-details-info">
+            <div className="gig-about">
+                <h3>About This Gig</h3>
+                <p>{gig.description}</p>
+                <p style={{ backgroundColor: '#ffecd1' }}>What you'll get:</p>
+                <p>Professional, Clean, Modern & Stunning WordPress Website
 
+                    All Devices are Responsive and User Friendly
+
+                    E-commerce and Payment method integration
+
+                    Social Media integration and Live Chat
+
+                    Speed Optimization & SSL Certificate Installation
+
+                    Domain and Hosting Setup
+
+                    WordPress and Plugins Installation
+
+                    Use Demo Copy right free graphic</p>
+                     //! add another description2
+                     //! border (like hr)
+                    //! review
+                    //! style to fix 
+
+                <p style={{ backgroundColor: '#ffecd1' }}>Why should hire me :</p>
+
+                <ul>
+                    <li>Best Quality & Fast Delivery</li>
+                    <li>24/7 available & Good communication</li>
+                    <li>30 Days of Free ongoing Support</li>
+                    <li>Unlimited Revisions</li>
+                    <li>Free Video instruction on how to update website</li>
+                </ul>
+                <p>This service is amazing and impressive, Right? I can guarantee you the Quality of work.</p>
+                <p>Still not sure we're a good fit?<span style={{ backgroundColor: '#ffecd1' }}> Contact me to schedule a Zoom call.</span></p>
+                <p>{fullname}</p>
+            </div>
             <div className="gig-about-owner">
                 <h3>About The Seller</h3>
                 <div className="owner-details">
@@ -133,15 +169,12 @@ export function GigDetails() {
                 {/* <hr /> */}
                 <article>{gig.about}</article>
             </div>
-            <div className="gig-about">
-                <h3>About This Gig</h3>
-                <p>{gig.description}</p>
-            </div>
+
             {/* <ReviewIndex gig={gig} />
             {isChat && <GigChat gig={gig} onSetChat={onSetChat} />} */}
 
         </div>
-       {/* </section> */}
+        {/* </section> */}
         <GigCard gig={gig} onSetChat={onSetChat} />
     </section >
 }

@@ -1,61 +1,78 @@
 .app-header {
-    display: flex;
-    min-height: 3.5rem;
+    // background-color: $clr1;
+    padding: 32px;
+    border-bottom: 1px solid #e4e5e7;
+    height: 80px;
+    width: 100%;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #fff; 
+    align-items: center;
 
-    background-color: $clr4;
-    padding: rem(10px) 1rem;
-    
-    nav {
+
+    .app-header-nav {
         display: flex;
-        width: 100%;
         align-items: center;
-        gap: 1em;
-        
-        font-size: .8em;
+        justify-content: space-between;
+    }
 
-        .active {
+    .gig-header-link {
+        color: $clr5;
+        text-decoration: none;
+        transition: color 70ms cubic-bezier(.75, 0, .25, 1);
+        &:hover {
             color: $clr1;
         }
-
-        .logo {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-inline-end: 2em;
-        }
-
-        .login-link {
-            margin-inline-start: auto;
-        }
-
-        button {
-            margin-inline-end: 0;
-        }
     }
 
-    .user-info {
-        display: flex;
-        align-items: center;
-        margin-inline-start: auto;
+    
+    nav {
+        font-size: .8em;
+        background-color: $clr3;
+    }
 
+    nav .active {
         color: $clr1;
 
-        .score {
-            padding: 8px;
-            background-color: $clr2;
-            border-radius: 50%;
-            margin: 10px;
+        background-color: transparent;
+        border: 1px solid $clr1;
+        color: $clr1;
+        padding: 10px 16px;
+        border-radius: 4px;
+        transition: background-color 70ms cubic-bezier(.75, 0, .25, 1);
 
-            color: $clr6;
-        }
-
-        img {
-            width: 32px;
-            aspect-ratio: 1;
-            border-radius: 50%;
-        }
-        
-        .btn-link {
-            color: $clr2;
+        &:hover {
+            background-color: $clr1;
         }
     }
+    
+.join-btn {
+    text-decoration: none;
+    border-color: #1dbf73;
+    border: 1px solid;
+    color: #1dbf73;  
+    padding: 12px 24px;  
+    font-weight: 700;  
+    font-size: 1rem;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    transition: color .5s ease, border .5s ease; 
+line-height: 14px;
+
+    &:hover {
+        background-color: #17a55a;  
+        color:white;
+        
+    }
+
+    /* On mobile, reduce font size slightly for better fit */
+    @media (max-width: 768px) {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
+
+}
+
+
+

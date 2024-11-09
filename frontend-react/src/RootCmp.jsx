@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router'
+import { AppHeader } from './cmps/AppHeader'
 
 import { HomePage } from './pages/HomePage'
 import { GigIndex } from './pages/gig/GigIndex'
@@ -9,7 +10,7 @@ import { GigDetails } from './pages/gig/GigDetails'
 export function RootCmp() {
     return (
         <div className="main-container">
-            {/* <AppHeader /> */}
+            <AppHeader />
             {/* <UserMsg /> */}
 
             <main>

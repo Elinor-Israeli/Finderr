@@ -54,18 +54,50 @@ export function GigDetails() {
         <div className="loader"></div>
     </div>
 
+    const levelNumber = parseInt(gig.owner.level.replace(/\D/g, ''), 10)
     const { imgUrl, fullname, rate, level, country } = gig.owner
     const displayCountry = country ? country : 'Unknown'
 
     // return //<section className='main-gig-details'>
     return <section className="gig-details">
         <div className="gig-details-preview gig-details-info">
-            <nav>{`🏠 / Graphics & design / Logo Design`}</nav>
+            <nav className='nav-links'>
+                <Link to="/"><i>🏠</i></Link>
+                {' / '}
+                <Link to="/graphics-design"><i>Graphics & design</i></Link>
+                {' / '}
+                <Link to="/gig"><i>Logo Design</i></Link>
+            </nav>
             <h1>{gig.title}</h1>
             <div className="owner-details">
                 <img src={imgUrl} alt="user-img" />
                 <p>{fullname}</p>
-                <p>{level}</p>
+                <p
+                    style={{
+                        // color: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',
+                        backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit'
+                    }}
+                >
+                    {gig.owner.level === 'level 3' ? 'Top Rated' : `Level: ${gig.owner.level}`}
+                    {[...Array(3)].map((_, idx) => (
+                        <svg
+                            key={idx}
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 10 10"
+                            width="10"
+                            height="10"
+                            fill={idx < gig.owner.rate ? "black" : "gray"}
+                            style={{
+                                marginLeft: "4px",
+                                backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',
+                                fontFamily: 'macan-semibold' //! here
+                            }}
+                            className='owner-level'
+                        >
+                            <path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z" />
+                        </svg>
+                    ))}
+                </p>
                 <span className="divider"></span>
                 <div className="star-preview">
                     <StarRating value={rate} />
@@ -82,25 +114,12 @@ export function GigDetails() {
                 <h3>About This Gig</h3>
                 <p>{gig.description}</p>
                 <p style={{ backgroundColor: '#ffecd1' }}>What you'll get:</p>
-                <p>Professional, Clean, Modern & Stunning WordPress Website
-
-                    All Devices are Responsive and User Friendly
-
-                    E-commerce and Payment method integration
-
-                    Social Media integration and Live Chat
-
-                    Speed Optimization & SSL Certificate Installation
-
-                    Domain and Hosting Setup
-
-                    WordPress and Plugins Installation
-
-                    Use Demo Copy right free graphic</p>
-                     //! add another description2
-                     //! border (like hr)
-                    //! review
-                    //! style to fix 
+                <p>{gig.description2}</p>
+                     //^ add another description2
+                //^ border (like hr)
+                //! review
+                //! style to fix 
+                //! randomNum for premium
 
                 <p style={{ backgroundColor: '#ffecd1' }}>Why should hire me :</p>
 
@@ -136,7 +155,7 @@ export function GigDetails() {
                 <p style={{ margin: '0px 0px 16px' }}><strong>Expert in:</strong></p>
                 <div className='expert-style'>
                     <p className="expert-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style={{ color: 'blue' }}>
+                        <svg className='blue-ball' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style={{ color: 'blue' }}>
                             <path fillRule="evenodd" d="M8.203.432a1.89 1.89 0 0 0-2.406 0l-1.113.912a1.9 1.9 0 0 1-.783.384l-1.395.318c-.88.2-1.503.997-1.5 1.915l.007 1.456c0 .299-.065.594-.194.863L.194 7.59a1.98 1.98 0 0 0 .535 2.388l1.12.903c.231.185.417.422.543.692l.615 1.314a1.91 1.91 0 0 0 2.166 1.063l1.392-.33c.286-.068.584-.068.87 0l1.392.33a1.91 1.91 0 0 0 2.166-1.063l.615-1.314c.126-.27.312-.507.542-.692l1.121-.903c.707-.57.93-1.563.535-2.388l-.625-1.309a2 2 0 0 1-.194-.863l.006-1.456a1.95 1.95 0 0 0-1.5-1.915L10.1 1.728a1.9 1.9 0 0 1-.784-.384zm2.184 5.883a.74.74 0 0 0 0-1.036.71.71 0 0 0-1.018 0L6.565 8.135 5.095 6.73a.71.71 0 0 0-1.018.032.74.74 0 0 0 .032 1.036L6.088 9.69a.71.71 0 0 0 1.001-.016z" clipRule="evenodd"></path>
                         </svg>
                         Brand Style Guides
@@ -169,6 +188,7 @@ export function GigDetails() {
                 {/* <hr /> */}
                 <article>{gig.about}</article>
             </div>
+            <li>Unlimited Revisions</li>
 
             {/* <ReviewIndex gig={gig} />
             {isChat && <GigChat gig={gig} onSetChat={onSetChat} />} */}

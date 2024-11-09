@@ -8,12 +8,13 @@ const gigs = [
             "fullname": "lofty",
             "country": "India",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d93001bdcba7f9235745299f61850b71-1657200241990/24f7d64e-5d25-41b3-8175-c79ea47e35d1.jpg",
-            "level": "basic/premium",
+            "level": "level 2",
             "rate": 4.8,
             "ratingsCount": 4
         },
         "daysToMake": 2,
         "description": "I'm Alpa. I am running loftydesignshop studio on the Fiverr platform with more than 4 years of experience. We are a creative team. We help buyers to provide their business identity through their logo.",
+        "description2": "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
         "imgUrl": [
             "https://res.cloudinary.com/dnjusxgg3/image/upload/v1677748995/do-modern-minimalist-logo-design-for-your-business_ekv75g.jpg",
             "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/d563f1245ae0132d4c1ca21f533b62e5-1673262633/27428_Vadken%20medical_JK_M-01/do-modern-minimalist-logo-design-for-your-business.jpg",
@@ -39,6 +40,7 @@ const gigs = [
         },
         "daysToMake": 1,
         "description": "Welcome, I can provide you with a modern, elegant, minimal, luxury, flat, and minimal logo design for your brand. A minimal logo can well represent your brand and is easy to remember which targets the brand recognition factor. To make it easier for you to make a decision, I can do any of the following styles: Minimal Logo, Luxury, Elegant, Initials, Typographic, Abstract, Geometric Shapes.",
+        "description2": "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
         "imgUrl": [
             "https://res.cloudinary.com/dnjusxgg3/image/upload/v1677749338/design-a-modern-and-luxury-minimalist-logo_ticxqi.jpg",
             "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20201210/PDF%201_ubdtfh.jpg",
@@ -153,7 +155,7 @@ const gigs = [
             "fullname": "loftydesignshop",
             "country": "India",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d93001bdcba7f9235745299f61850b71-1657200241990/24f7d64e-5d25-41b3-8175-c79ea47e35d1.jpg",
-            "level": "basic/premium",
+            "level": "level 2",
             "rate": 4.8,
             "ratingsCount": 4
         },
@@ -204,7 +206,7 @@ const gigs = [
             "fullname": "loftydesignshop",
             "country": "India",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d93001bdcba7f9235745299f61850b71-1657200241990/24f7d64e-5d25-41b3-8175-c79ea47e35d1.jpg",
-            "level": "basic/premium",
+            "level": "level 2",
             "rate": 4.8,
             "ratingsCount": 4
         },
@@ -377,7 +379,7 @@ const gigs = [
             "fullname": "lofty",
             "country": "India",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d93001bdcba7f9235745299f61850b71-1657200241990/24f7d64e-5d25-41b3-8175-c79ea47e35d1.jpg",
-            "level": "basic/premium",
+            "level": "level 2",
             "rate": 4.8,
             "ratingsCount": 4
         },
@@ -403,7 +405,7 @@ const gigs = [
             "fullname": "lofty",
             "country": "India",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d93001bdcba7f9235745299f61850b71-1657200241990/24f7d64e-5d25-41b3-8175-c79ea47e35d1.jpg",
-            "level": "basic/premium",
+            "level": "level 2",
             "rate": 4.8,
             "ratingsCount": 4
         },
@@ -525,7 +527,7 @@ const users = [
         "password": "secret",
         "country": "India",
         "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d93001bdcba7f9235745299f61850b71-1657200241990/24f7d64e-5d25-41b3-8175-c79ea47e35d1.jpg",
-        "level": "basic/premium",
+        "level": "level 2",
         "rate": 4.8,
         "reviews": [
             {
@@ -886,7 +888,7 @@ const emptyGig = {
         "fullname": "",
         "country": "",
         "imgUrl": "",
-        "level": "basic/premium",
+        "level": "level 2",
         "rate": 4.8
     },
     "daysToMake": 2,

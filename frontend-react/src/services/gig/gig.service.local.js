@@ -159,11 +159,12 @@ function _createGigs() {
                     _id: "u102",
                     fullname: "Boya",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 3",
                     rate: 5
                 },
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
+                description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
                 imgUrl: [
                     "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123020_960_720.jpg",
                     "https://cdn.pixabay.com/photo/2022/01/30/18/28/lines-6981892_960_720.jpg",
@@ -185,11 +186,12 @@ function _createGigs() {
                     _id: "u102",
                     fullname: "Boya",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 1",
                     rate: 5
                 },
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
+                description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
                 imgUrl: [
                     "https://cdn.pixabay.com/photo/2023/01/10/10/33/path-7709452_960_720.png",
                     "https://cdn.pixabay.com/photo/2022/08/01/18/35/ocean-7358753_960_720.jpg",
@@ -211,11 +213,12 @@ function _createGigs() {
                     _id: "u102",
                     fullname: "Boya",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 3",
                     rate: 5
                 },
                 daysToMake: 1,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
+                description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
                 imgUrl: [
                     "https://cdn.pixabay.com/photo/2022/11/15/04/54/automotive-7593064_960_720.jpg",
                     "https://cdn.pixabay.com/photo/2022/12/17/19/04/house-7662218_960_720.png",
@@ -237,7 +240,7 @@ function _createGigs() {
                     _id: "u105",
                     fullname: "Jo Bara",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/08/06/15/13/woman-2593366_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 3",
                     rate: 5
                 },
                 daysToMake: 4,
@@ -263,7 +266,7 @@ function _createGigs() {
                     _id: "u106",
                     fullname: "Anita Bath",
                     imgUrl: 'https://cdn.pixabay.com/photo/2018/01/21/14/16/woman-3096664_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 3",
                     rate: 1
                 },
                 daysToMake: 5,
@@ -290,7 +293,7 @@ function _createGigs() {
                     _id: "u107",
                     fullname: "Zozo Ta",
                     imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/16/01/woman-1846127_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 3",
                     rate: 3.5
                 },
                 daysToMake: 2,
@@ -316,11 +319,12 @@ function _createGigs() {
                     _id: "u108",
                     fullname: "Mumu Asa",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 3",
                     rate: 3
                 },
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
+                description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
                 imgUrl: [
                     "https://cdn.pixabay.com/photo/2022/06/21/16/18/orange-7276122_960_720.jpg",
                     "https://cdn.pixabay.com/photo/2019/12/18/18/03/angel-4704518_960_720.png",
@@ -343,11 +347,12 @@ function _createGigs() {
                     _id: "u109",
                     fullname: "Bill Loney",
                     imgUrl: 'https://cdn.pixabay.com/photo/2018/03/12/20/57/woman-3220835_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 3",
                     rate: 4
                 },
                 daysToMake: 7,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
+                description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
                 imgUrl: [
                     "https://cdn.pixabay.com/photo/2016/04/01/09/24/automobile-1299344_960_720.png",
                     "https://cdn.pixabay.com/photo/2013/07/12/19/31/cadillac-154920_960_720.png",
@@ -369,7 +374,7 @@ function _createGigs() {
                     _id: "u130",
                     fullname: "Nura Kersa",
                     imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/05/46/young-woman-1867618_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 3",
                     rate: 1
                 },
                 daysToMake: 6,
@@ -396,7 +401,7 @@ function _createGigs() {
                     _id: "u111",
                     fullname: "Anita Bath",
                     imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/03/35/girl-1867092_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 2",
                     rate: 4
                 },
                 daysToMake: 3,
@@ -423,7 +428,7 @@ function _createGigs() {
                     _id: "u112",
                     fullname: "Boya",
                     imgUrl: 'https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 2",
                     rate: 5
                 },
                 daysToMake: 2,
@@ -449,7 +454,7 @@ function _createGigs() {
                     _id: "u113",
                     fullname: "Ssudu Dda",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 1",
                     rate: 4
                 },
                 daysToMake: 3,
@@ -476,7 +481,7 @@ function _createGigs() {
                     _id: "u114",
                     fullname: "Puki Dfa",
                     imgUrl: 'https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 2",
                     rate: 2
                 },
                 daysToMake: 1,
@@ -503,7 +508,7 @@ function _createGigs() {
                     _id: "u115",
                     fullname: "Jo Bara",
                     imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/09/38/adult-1868750_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 2",
                     rate: 5
                 },
                 daysToMake: 4,
@@ -530,7 +535,7 @@ function _createGigs() {
                     _id: "u116",
                     fullname: "Anita Bath",
                     imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 2",
                     rate: 1
                 },
                 daysToMake: 5,
@@ -558,7 +563,7 @@ function _createGigs() {
                     _id: "u117",
                     fullname: "Zozo Ta",
                     imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 2",
                     rate: 2
                 },
                 daysToMake: 2,
@@ -585,7 +590,7 @@ function _createGigs() {
                     _id: "u118",
                     fullname: "Mumu Asa",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/04/01/21/06/portrait-2194457_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 2",
                     rate: 3
                 },
                 daysToMake: 2,
@@ -613,7 +618,7 @@ function _createGigs() {
                     _id: "u119",
                     fullname: "Bill Loney",
                     imgUrl: 'https://cdn.pixabay.com/photo/2018/11/08/23/52/man-3803551_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 2",
                     rate: 4
                 },
                 daysToMake: 7,
@@ -640,7 +645,7 @@ function _createGigs() {
                     _id: "u120",
                     fullname: "Nura Kersa",
                     imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 2",
                     rate: 1
                 },
                 daysToMake: 6,
@@ -667,7 +672,7 @@ function _createGigs() {
                     _id: "u121",
                     fullname: "Anita Bath",
                     imgUrl: 'https://cdn.pixabay.com/photo/2015/01/12/10/45/man-597178_960_720.jpg',
-                    level: "basic/premium",
+                    level: "level 2",
                     rate: 4
                 },
                 daysToMake: 3,

@@ -47,11 +47,15 @@
         }
     }
 
-    .owner-info {
+    .owner-info { //! here (list)
         font-size: rem(14px);
         line-height: calc(18 / 14);
         display: flex;
-        align-items: center;
+        // justify-content: space-between;
+        // align-items: flex-start;
+        // flex-direction: row;
+
+        // align-items: center;
         margin: 12px 0px 0px;
 
         img {
@@ -59,7 +63,16 @@
             height: 1.7em;
             border-radius: 50%;
         }
+        .owner-level {
+            display: flex;
+            font: '400 14px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif'
+
+            // align-items: center; 
+            // margin-left: 4px; 
+        }
     }
+
+    
 
     .owner {
         display: flex;

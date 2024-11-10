@@ -10,7 +10,7 @@ import { GigDetails } from './pages/gig/GigDetails'
 export function RootCmp() {
     return (
         <div className="main-container">
-            <AppHeader />
+            {/* <AppHeader /> */}
             {/* <UserMsg /> */}
 
             <main>
@@ -18,10 +18,10 @@ export function RootCmp() {
                     <Route path="" element={<HomePage />} />
                     <Route path="/gig" element={<GigIndex />} />
                     <Route path="/gig/:gigId" element={<GigDetails />} />
-
+                    
                 </Routes>
             </main>
-            {/* <AppFooter /> */}
+            <AppFooter />
         </div>
     )
 }

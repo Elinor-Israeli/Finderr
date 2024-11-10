@@ -1,19 +1,15 @@
-// .home-page {
-//     background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449beda884aa8f9f72023e2d8b3fd-1705308514872/hero-lg-x1.png');
-//     background-size: cover;  /* Ensure the image covers the entire area */
-//     background-position: center;  /* Center the background image */
-//     background-repeat: no-repeat;  /* Prevent the image from repeating */
-//     height: 100vh;  /* Make the background cover the entire viewport height */
-// }
 .home-page{
     background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449beda884aa8f9f72023e2d8b3fd-1705308514872/hero-lg-x1.png');
     background-repeat: no-repeat;
         background-size: cover;
         border-radius: 16px;
-        height: 370px;
-        // width:1s500px;
+        height: 500px;
+        width:1400px;
         padding: 0;
         position: relative;
+        margin: 41px;
+        justify-self: center;
+
     top: 0;
     .hero-msg {
         font-size: 60px;
@@ -25,36 +21,26 @@
     }
 }
 
-
-// .hero-img {
-//     width: 100%;
-//     height: 100%;
-//     background-color: #023a15;
-//     background-position: center;
-//     background-size: cover;
-//     position: absolute;
-//     animation: fade 2s linear;
-//     transition: opacity .9s;
-// }
 .hero-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    position: absolute;
+    position: relative;
+    justify-content: center;
+    margin: 0 0 16px;
     top: 0;
     left: 0;
     bottom: 0;
-    right: 0;
+    right: 10;
     z-index: 1;
     padding: $layoutPadding;
     h1 {
         color: $clr3;
         font-size: 2.5rem;
-        span:last-of-type {
-            display: block;
-        }
-        i {
-            // padding: .4em;
-        }
+        font-weight: normal       
+        // i {
+        //     padding: .4em;
+        // }
     }
 }
 .trusted-by{

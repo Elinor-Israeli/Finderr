@@ -3,13 +3,18 @@
     justify-content: center;
     color: #999;
     // margin: 50px 0px;
-    padding: 32px 24px 0px ;
+    // padding: 32px 24px 0px ;
     display: flex;
     flex-wrap: wrap;
 
     img {
         width: 24px;
         height: 24px;
+    }
+
+    ul {
+        padding: 0px 0px 40px;
+
     }
 
     .container {
@@ -24,6 +29,7 @@
                 flex-direction: column;
                 color: #74767e;
                 gap: 20px;
+                // padding: 0px 0px 40px;
 
 
                 h2 {
@@ -41,11 +47,14 @@
                 }
 
                 li {
-                    padding: 20px 0;
+                    padding: 0px 0px 16px;
                     list-style: none;
 
                     a {
                         text-decoration: none;
+                        color: #74767e;
+                        transition: color .2s;
+                        font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
                     }
                     &:hover {
                         text-decoration: underline;
@@ -56,7 +65,8 @@
         }
 
         hr {
-            margin: 50px 0px;
+            // margin: 50px 0px;
+            margin: 0;
             height: 0px;
             border: 1px solid rgb(237, 235, 235);
         }
@@ -112,7 +122,10 @@
 }
 @media only screen and (max-width: 600px) {
     .footer {
-        padding: 20px;
+        div.container {
+            padding:24px;
+        }
+     
     }
 
     .bottom {
@@ -196,11 +209,20 @@
     rotate: 180deg;
 }
 
+div.top{
+        padding: 32px 24px 0px ; 
+}
+
+
+
 @media only screen and (max-width: 900px) {
     .footer .container .top {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         row-gap: 20px;
         column-gap: 20px;
+        // padding-bottom: 24px;
+        // padding-top: 64px;
+        padding: 64px 32px 24px;
     }
 }

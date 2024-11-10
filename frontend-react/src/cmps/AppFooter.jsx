@@ -80,10 +80,10 @@ export function AppFooter() {
                             <a href="https://pro.fiverr.com/cp/project-partner?source=footer" target="_blank" rel="noopener">Project Management Service</a>
                         </ul>
                     </div>
-                    <div className="item">
+                    {/* <div className="item"> */}
                         {/* <h2>More From Fiverr</h2> */}
                         {/* <Accordion title="More From Fiverr"> */}
-                            <ul>
+                            {/* <ul>
                                 <li><a href="#">Fiverr Enterprise</a></li>
                                 <li><a href="#">Fiverr Business</a></li>
                                 <li><a href="#">Fiverr Pro</a></li>
@@ -97,9 +97,9 @@ export function AppFooter() {
                                 <li><a href="#">Learn</a></li>
                                 <li><a href="#">Online Courses</a></li>
                                 <li><a href="#">Working Not Working</a></li>
-                            </ul>
-                        {/* </Accordion> */}
-                    </div>
+                            </ul> */}
+                        {/* </Accordion> */} //! here Accordion
+                    {/* </div> */}
                 </div>
                 <hr />
                 <div className="bottom">

@@ -18,7 +18,8 @@ const gigs = [
         "imgUrl": [
             "https://res.cloudinary.com/dnjusxgg3/image/upload/v1677748995/do-modern-minimalist-logo-design-for-your-business_ekv75g.jpg",
             "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/d563f1245ae0132d4c1ca21f533b62e5-1673262633/27428_Vadken%20medical_JK_M-01/do-modern-minimalist-logo-design-for-your-business.jpg",
-            "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/ae80a50afc70ce3f177a22c9362ee394-1673346768/27447_Chaussures_RD_KC_M-01/do-modern-minimalist-logo-design-for-your-business.jpg"
+            "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/ae80a50afc70ce3f177a22c9362ee394-1673346768/27447_Chaussures_RD_KC_M-01/do-modern-minimalist-logo-design-for-your-business.jpg",
+            "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/378248214/original/99e4871876679239674652a835c72bc80afb937e/create-ai-based-assets-to-enhance-your-brand-or-website.jpg"
         ],
         "tags": [
             "graphic-design",
@@ -44,7 +45,8 @@ const gigs = [
         "imgUrl": [
             "https://res.cloudinary.com/dnjusxgg3/image/upload/v1677749338/design-a-modern-and-luxury-minimalist-logo_ticxqi.jpg",
             "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20201210/PDF%201_ubdtfh.jpg",
-            "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/0a7f819428568645cf5069d59c28dc10-1674551944/Mockup%20/design-a-modern-and-luxury-minimalist-logo.jpg"
+            "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/0a7f819428568645cf5069d59c28dc10-1674551944/Mockup%20/design-a-modern-and-luxury-minimalist-logo.jpg",
+            "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/378248214/original/99e4871876679239674652a835c72bc80afb937e/create-ai-based-assets-to-enhance-your-brand-or-website.jpg"
         ],
         "tags": [
             "graphic-design",

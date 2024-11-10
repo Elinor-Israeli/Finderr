@@ -10,6 +10,9 @@ export function GigCard({ gig, onSetChat }) {
         if (num === 3) setProgram(3)
     }
 
+    const randomDiscount = Math.floor(Math.random() * (25 - 5 + 1)) + 5
+
+
     return (
         <div className="gig-details-side">
             <div className="gig-program">
@@ -37,7 +40,7 @@ export function GigCard({ gig, onSetChat }) {
                 {program === 1 && (
                     <div className="gig-program-info">
                         <h2 className="gig-program-price">${gig.price}</h2>
-                        <p>Save up to 15% with Subscribe to Save</p>
+                        <p>Save up to {randomDiscount}% with <span style={{ color: 'green' }}>Subscribe to Save</span></p>
                         <p>
                             <span className="gig-program-basic"> Basic  1 </span>
                             {gig.title}

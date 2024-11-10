@@ -87,12 +87,16 @@
     h3 {
         font-family: macan-bold;
         font-size: rem(20px);
-        padding-bottom: em(25px, 20px);
+        padding: 20px 0px 25px;
     }
 
     .gig-about {
         border-bottom: 1px solid $clr12;
         margin-bottom: em(36px, 16px);
+
+        .about-gig-header {
+            margin: 0;
+        }
 
         p {
             margin-bottom: em(20px, 16px);
@@ -253,3 +257,35 @@
     list-style-image: none;
     font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
+
+.gig-about-filter {
+    color: #62646a;
+    font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+}
+
+// .row-item {
+//     display: flex;
+//     flex-direction: column;
+//     margin-bottom: 10px;
+//   }
+
+@media screen and (max-width: 600px) { //! here (not working)
+    .responsive-list {
+      display: block;  
+    }
+  
+    .row-item {
+      width: 100%; 
+      margin-bottom: 10px;
+    }
+  
+    .spaced {
+      margin-left: 0;
+    }
+  }

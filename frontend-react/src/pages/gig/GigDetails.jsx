@@ -9,7 +9,7 @@ import { SlideDetails } from '../../cmps/slide/slide-details'
 import { StarRating } from '../../cmps/review/StarRating'
 import { GigCard } from '../../cmps/gig/GigCard'
 import { LongTxt } from '../../cmps/LongTxt'
-// import { ReviewIndex } from '../../cmps/review/review-index'
+import { ReviewIndex } from '../../cmps/review/ReviewIndex'
 
 
 export function GigDetails() {
@@ -108,21 +108,14 @@ export function GigDetails() {
                 <SlideDetails gig={gig} />
             </div>
         </div>
-
         <div className="gig-description gig-details-info">
+            <ReviewIndex gig={gig} />
             <div className="gig-about">
-                <h3>About This Gig</h3>
+               <h3 className='about-gig-header'>About This Gig</h3>
                 <p>{gig.description}</p>
                 <p style={{ backgroundColor: '#ffecd1' }}>What you'll get:</p>
                 <p>{gig.description2}</p>
-                     //^ add another description2
-                //^ border (like hr)
-                //! review
-                //! style to fix 
-                //! randomNum for premium
-
                 <p style={{ backgroundColor: '#ffecd1' }}>Why should hire me :</p>
-
                 <ul>
                     <li>Best Quality & Fast Delivery</li>
                     <li>24/7 available & Good communication</li>
@@ -134,8 +127,21 @@ export function GigDetails() {
                 <p>Still not sure we're a good fit?<span style={{ backgroundColor: '#ffecd1' }}> Contact me to schedule a Zoom call.</span></p>
                 <p>{fullname}</p>
             </div>
+            <div className="gig-about-filter">
+                <ul style={{ display: 'flex', justifyContent: 'space-between', padding: '0px 0px 20px' }}>
+                    <li className="row-item">
+                        <p>Platform:</p><li>WordPress</li>
+                    </li>
+                    <li className="row-item">
+                        <p>Website Type:</p><li>Business</li>
+                    </li>
+                    <li className="row-item spaced">
+                        <p>Service Type:</p><li>New Design</li>
+                    </li>
+                </ul>
+            </div>
             <div className="gig-about-owner">
-                <h3>About The Seller</h3>
+                <h3>About the seller</h3>
                 <div className="owner-details">
                     <img src={imgUrl} alt="user-img" />
 
@@ -188,10 +194,8 @@ export function GigDetails() {
                 {/* <hr /> */}
                 <article>{gig.about}</article>
             </div>
-            <li>Unlimited Revisions</li>
-
-            {/* <ReviewIndex gig={gig} />
-            {isChat && <GigChat gig={gig} onSetChat={onSetChat} />} */}
+            {/* <ReviewIndex gig={gig} /> */}
+            {/* {isChat && <GigChat gig={gig} onSetChat={onSetChat} />} */} //* later
 
         </div>
         {/* </section> */}

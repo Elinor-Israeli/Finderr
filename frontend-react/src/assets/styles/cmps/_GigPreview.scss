@@ -59,9 +59,9 @@
         margin: 12px 0px 0px;
 
         img {
-            width: 1.7em;
-            height: 1.7em;
-            border-radius: 50%;
+            width: em(20px, 14px);
+            height: em(20px, 14px); 
+            border-radius: 50%; 
         }
         .owner-level {
             display: flex;

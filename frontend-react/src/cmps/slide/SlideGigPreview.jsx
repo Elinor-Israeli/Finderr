@@ -38,7 +38,7 @@ export function SlideGigPreview({ gig }) {
                 <div className="prev" onClick={(ev) => plusSlides(ev, -1)}>
                     <IoIosArrowBack />
                 </div>
-                <img src={slides[slideIndex]} alt="Gig Preview" className='image-slides' />
+                <img src={slides[slideIndex]} alt="Gig Preview" className='image-slides' /> //! here (Swallows the image)
 
                 <div className="next" onClick={(ev) => plusSlides(ev, 1)}>
                     <IoIosArrowForward />

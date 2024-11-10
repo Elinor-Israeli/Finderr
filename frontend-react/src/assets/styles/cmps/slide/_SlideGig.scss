@@ -35,6 +35,10 @@
 
     // }
 
+    img {
+        position: relative; //! here (the next is moving down on mobile)
+    }
+
     .prev,
     .next {
         display: none; 

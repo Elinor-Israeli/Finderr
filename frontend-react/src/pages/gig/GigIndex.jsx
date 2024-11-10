@@ -8,7 +8,7 @@ import { GigList } from '../../cmps/gig/GigList'
 // import { SortyBy } from '../../cmps/gig/sort-by'
 import { loadGigs } from '../../store/actions/gig.actions' 
 import { SET_FILTER } from '../../store/reducers/gig.reducer' 
-import { SortBy } from '../../cmps/SortBy'
+// import { SortBy } from '../../cmps/SortBy'
 
 export function GigIndex() {
     const filterByFromStore = useSelector(storeState => storeState.gigModule.filterBy)
@@ -59,8 +59,8 @@ export function GigIndex() {
     if (!gigs.length && isLoading) return <div>loading...</div>
     return <section className="gig-index full main-layout">
             <div className="filter-sort-container">
-                {/* <TopFilterBar onSetFilter={onSetFilter} /> */}
-                <SortBy onSort={onSort} />
+                {/* <TopFilter onSetFilter={onSetFilter} /> */}
+                {/* <SortBy onSort={onSort} /> */}
             </div>
         <GigList gigs={gigs} />
     </section>

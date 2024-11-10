@@ -8,71 +8,100 @@
     cursor: pointer;
 }
 
-/* Next & previous buttons */
-.prev,
-.next {
-    cursor: pointer;
-    padding: 10px;
-    position: absolute;
-    top: 40%;
-    background-color: $clr3;
-    color: $clr5;
-    border-radius: 50%;
-    width: 3em;
-    height: 3em;
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
-    text-align: center;
 
-    &:hover {
+    .prev,
+    .next {
+        cursor: pointer;
+        // padding: 10px;
+        position: absolute;
+        top: 40%;
+        background-color: $clr3;
         color: $clr5;
+        border-radius: 50%;
+        width: 2.5em;
+        height: 2.5em;
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+
+        &:hover {
+            color: $clr5;
+        }
     }
-}
 
-/* Position the "next button" to the right */
-.next {
-    right: 0;
-    transform: translate(50%, 0);
-}
-
-.prev {
-    transform: translate(-50%, 0);
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.column {
-    float: left;
-    margin-right: em(5px, 16px);
-}
-
-.demo {
-    opacity: 0.25;
-    max-width: 100px;
-}
-
-.demo-active {
-    opacity: 0.9;
-    max-width: 100px;
-}
-
-.active,
-.demo:hover {
-    opacity: 1;
-}
-
-.my-slides {
-    cursor: pointer;
-}
-
-img {
-    transition: transform 0.2s ease-in-out;
-
-    &:hover {
-        transform: scale(1.04);
+    .next {
+        right: 0;
+        transform: translate(50%, 0);
     }
-}
 
+    .prev {
+        transform: translate(-50%, 0);
+    }
+
+    img {
+        position: relative;
+        transition: transform 0.2s ease-in-out;
+    }
+
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .column {
+        float: left;
+        margin-right: em(5px, 16px);
+    }
+
+    .demo {
+        opacity: 0.25;
+        max-width: 100px;
+    }
+
+    .demo-active {
+        opacity: 0.9;
+        max-width: 100px;
+    }
+
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }
+
+    .my-slides {
+        cursor: pointer;
+        background-color: #f5f5f5;
+        border: 1px solid #efeff0;
+        position: relative;
+
+        a.next.fa-solid.chevron-right {
+            //! here (mobile the next & prev moving down)
+            position: absolute;
+        }
+
+        img {
+            position: relative;
+            transition: transform 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.02);
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .prev,
+        .next {
+            top: 40%;
+        }
+    }
+
+    // span {
+    //     background: transparent url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/search_perseus/apps/carousel-arrows.b9dde63.svg) no-repeat;
+    // }

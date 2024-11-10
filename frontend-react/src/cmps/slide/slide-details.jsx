@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
 
 export function SlideDetails({ gig }) {
     let slides = gig.imgUrl
     const [slideIndex, setSlideIndex] = useState(0)
     const [isDynamic, setIsDynamic] = useState(0)
 
-    // Next/previous controls
+    // Next/prev controls forword and back 
     function plusSlides(n) {
         if (slideIndex === slides.length - 1 && n === 1) {
             setSlideIndex(0)
@@ -32,9 +33,8 @@ export function SlideDetails({ gig }) {
                 <img src={slides[slideIndex]} />
             </div>
 
-            <a className="prev fa-solid chevron-left" onClick={() => plusSlides(-1)}></a>
-            <a className="next fa-solid chevron-right" onClick={() => plusSlides(1)}></a>
-
+            <a className="prev fa-solid chevron-left" onClick={() => plusSlides(-1)}><IoIosArrowBack /></a>
+            <a className="next fa-solid chevron-right" onClick={() => plusSlides(1)}><IoIosArrowForward /></a>
             <div className="row">
                 {slides.map((slide, index) => {
                     return <div className="column" key={index}>

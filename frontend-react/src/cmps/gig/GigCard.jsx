@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { IoIosArrowRoundForward } from "react-icons/io"; //! here
 
 export function GigCard({ gig, onSetChat }) {
     const [program, setProgram] = useState(1)
@@ -81,12 +82,9 @@ export function GigCard({ gig, onSetChat }) {
                                 <span>Vector file</span>
                             </li>
                         </ul>
-                        <Link
-                            className="gig-program-link-continue"
-                            to={`/payment/${gig._id}`}
-                        >
+                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
                             Continue
-                            <span className="fa-solid arrow-rigth"></span>
+                            <span className="fa-solid arrow-rigth">→</span>
                         </Link>
                     </div>
                 )}
@@ -133,12 +131,9 @@ export function GigCard({ gig, onSetChat }) {
                                 <span>Vector file</span>
                             </li>
                         </ul>
-                        <Link
-                            className="gig-program-link-continue"
-                            to={`/payment/${gig._id}`}
-                        >
+                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
                             Continue
-                            <span className="fa-solid arrow-rigth"></span>
+                            <span className="fa-solid arrow-rigth">→</span>
                         </Link>
                     </div>
                 )}
@@ -158,7 +153,7 @@ export function GigCard({ gig, onSetChat }) {
                             </span>
                             <span>1 Days Delivery</span>1 Days Delivery
                             <span className="fa-solid arrows-rotate"></span>
-                                <span>Unlimited Revisions</span>
+                            <span>Unlimited Revisions</span>
                         </p>
                         <ul>
                             <li>
@@ -190,15 +185,18 @@ export function GigCard({ gig, onSetChat }) {
                                 <span>Vector file</span>
                             </li>
                         </ul>
-                        <Link
-                            className="gig-program-link-continue"
-                            to={`/payment/${gig._id}`}
-                        >
+                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
                             Continue
-                            <span className="fa-solid arrow-rigth"></span>
+                            <span className="fa-solid arrow-rigth">→</span>
                         </Link>
                     </div>
+
                 )}
+                <a href="/compare-packages" className="center-container">
+                    <button className="compare-packages-button">
+                        Compare packages
+                    </button>
+                </a>
             </div>
 
             <div
@@ -206,7 +204,7 @@ export function GigCard({ gig, onSetChat }) {
                 className="contact-seller"
                 onClick={() => onSetChat()}
             >
-                <button className="contact-seller-btn">Contact Seller</button>
+                <button className="contact-seller-btn">Contact me</button>
             </div>
         </div>
     )

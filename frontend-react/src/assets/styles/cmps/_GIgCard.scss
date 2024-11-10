@@ -1,11 +1,34 @@
 .gig-details-side {
-  width: 100%;
+  // min-width: 550px; 
   height: fit-content;
   order: 2;
   margin-bottom: em(32px, 16px);
   margin-left: -10px;
+  flex-grow: 1;
+  flex-direction: column;
   // margin-left: em(157px, 16px);
 
+
+
+  // @media (max-width: 1850px) {
+  //   min-width: 450px;
+  // }
+
+  @media (min-width: 1650px) {
+    min-width: 450px;
+  }
+
+  @media (min-width: 1450px) {
+    min-width: 400px;
+  }
+
+  // @media (max-width: 1350px) {
+  //   min-width: 300px;
+  // }
+
+  @media (min-width: 1850px) {
+    min-width: 550px; 
+  }
 
 
 
@@ -43,7 +66,7 @@
   }
 
   button {
-    height: 64px;
+    height: 80px;
     background-color: transparent;
     color: $clr5;
     flex-basis: 33.9%;
@@ -66,6 +89,7 @@
   .gig-program-price {
     color: $clr2;
     font-family: macan-bold;
+    font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
     padding-bottom: 3px;
     font-size: 28px;
   }
@@ -98,6 +122,7 @@
 
 .gig-program-link-continue {
   width: 100%;
+  display: inline-block;
   background-color: $clr14;
   color: $clr15;
   border-radius: 4px;
@@ -108,12 +133,13 @@
 
   &:hover {
     text-decoration: none;
-    background-color: rgba(5, 5, 5, 0.8); 
+    background-color: rgba(5, 5, 5, 0.8);
   }
 
   span {
     float: right;
   }
+
 }
 
 .contact-seller {
@@ -142,17 +168,72 @@
 }
 
 .svg-payment {
-  padding: 0px 12px 0px 0px ;
+  padding: 0px 12px 0px 0px;
   margin-top: -5px;
 }
 
-li{
+li {
   align-items: center;
 }
 
-span.svg-payment { 
+span.svg-payment {
   top: -5px;
-} 
+}
 
 .delivery-time {
-  padding: 0px 12px 0px 0px ;}
+  padding: 0px 12px 0px 0px;
+}
+
+
+.gig-program-link-continue {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  width: 100%;
+
+  .arrow-rigth {
+
+    margin-left: auto;
+    order: 1;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 100%;
+    text-align: center;
+    color: #fff;
+    // vertical-align: middle;     
+  }
+}
+
+.compare-packages-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  padding: 0px 24px 12px;
+  // color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.center-container a {
+  text-decoration: none;
+}

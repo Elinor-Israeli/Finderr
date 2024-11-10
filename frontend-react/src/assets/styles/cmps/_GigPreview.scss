@@ -27,13 +27,13 @@
 
     .btn-container {
         position: absolute;
-        top: 10px; 
-        right: 10px; 
-        z-index: 1; 
+        top: 10px;
+        right: 10px;
+        z-index: 1;
     }
-    
+
     .content {
-       
+
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -47,10 +47,14 @@
         }
     }
 
-    .owner-info { //! here (list)
+    .owner-info {
+        //! here (list)
         font-size: rem(14px);
         line-height: calc(18 / 14);
         display: flex;
+        align-items: center;
+        // justify-content: space-between;
+
         // justify-content: space-between;
         // align-items: flex-start;
         // flex-direction: row;
@@ -60,24 +64,47 @@
 
         img {
             width: em(20px, 14px);
-            height: em(20px, 14px); 
-            border-radius: 50%; 
+            height: em(20px, 14px);
+            border-radius: 50%;
         }
+
         .owner-level {
             display: flex;
             font: '400 14px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif'
 
-            // align-items: center; 
-            // margin-left: 4px; 
+                // align-items: center; 
+                // margin-left: 4px; 
         }
     }
 
-    
 
     .owner {
         display: flex;
-        flex-direction: column;
-        padding-left: .5em;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+
+        // .owner:nth-child(2) {
+        //     margin-left: em(115px, 14px);
+        // }
+
+        .owner-level-container {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            justify-content: flex-start;
+
+            // p {
+            //     margin-left: auto;
+            // }
+
+
+            .owner-level-preview {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
 
         span {
             font-family: macan-light;
@@ -100,7 +127,7 @@
         display: flex;
         margin: 8px 0px 0px;
         font-size: 16px;
-     
+
 
         div:last-child {
             margin-left: em(5px, 14px);
@@ -115,7 +142,7 @@
         .ratings-count {
             color: $clr6;
             font-family: macan-light;
-        //    top: -5px;
+            //    top: -5px;
             padding: 0px 0px 0px 4px;
         }
     }
@@ -210,4 +237,3 @@
 // .dot-active {
 //     background-color: #fff;
 // }
-

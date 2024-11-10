@@ -45,6 +45,7 @@ export function GigPreview({ gig }) {
         }
     }
 
+    const levelNumber = parseInt(gig.owner.level.replace(/\D/g, ''), 10)
     return (
         <>
             <Link to={`/gig/${gig._id}`} className="img-container">
@@ -72,12 +73,27 @@ export function GigPreview({ gig }) {
                     <img src={gig.owner && gig.owner.imgUrl} alt="" />
                     <div className="owner">
                         <Link to={`/user/${gig.owner._id}`}>{gig.owner && gig.owner.fullname}</Link>
-                        {/* <span>{gig.owner && gig.owner.level}</span> */}
+                        <p>
+                    Level: {levelNumber}
+                    {[...Array(3)].map((_, idx) => (
+                        <svg
+                            key={idx}
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 10 10"
+                            width="10"
+                            height="10"
+                            fill={idx < levelNumber ? "black" : "gray"}
+                            style={{ marginLeft: "4px" }}
+                        >
+                            <path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z" />
+                        </svg>
+                    ))}
+                </p>
                     </div>
                 </div>
                 <Link className="title" to={`/gig/${gig._id}`}>
                     <div className="long-txt">
-                        <span>{getTxtToShow(gig.title, 60)}</span>
+                        <span>{getTxtToShow(gig.title, 55)}</span>
                     </div>
                 </Link>
                 <div className="rate">

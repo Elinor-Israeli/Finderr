@@ -10,6 +10,11 @@
         max-height: 200px;
     }
 
+    .image-slides {
+        border-radius: 10px;
+        // cursor: pointer;
+    }
+
     overflow: hidden;
 
     &:hover {
@@ -25,9 +30,19 @@
         }
     }
 
+
+    // .icon-arrow {
+
+    // }
+
+    img {
+        position: relative; //! here (the next is moving down on mobile)
+    }
+
     .prev,
     .next {
         display: none; 
+        // content: › ;
         position: absolute;
         top: 50%;
         font-size: 2rem;

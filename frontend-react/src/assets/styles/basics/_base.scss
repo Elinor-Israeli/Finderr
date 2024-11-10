@@ -10,7 +10,7 @@ html {
 body {
     max-width: 1024px;
     margin: 0 auto;
-
+    font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: rem(18px);
 }
@@ -49,3 +49,15 @@ ul {
 input {
     max-width: 100%;
 }
+
+.thumbnail>img {
+    background: transparent url(https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg) no-repeat 50%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 140px;
+    min-width: 140px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    width: 100%;
+}  

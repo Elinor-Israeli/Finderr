@@ -35,9 +35,11 @@
     }
 
     img {
-        height: 345px;
-        width: 100%;
-        border-radius: rem(4px);
+        img {
+            width: em(20px, 14px);
+            height: em(20px, 14px); 
+            border-radius: 50%; 
+        }
 
         &:hover {
             opacity: .85;

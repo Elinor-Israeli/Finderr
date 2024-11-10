@@ -1,0 +1,142 @@
+.gig-details-side {
+    width: 100%;
+    height: fit-content;
+    order: 2;
+    margin-bottom: em(32px, 16px);
+    margin-left: -10px;
+    // margin-left: em(157px, 16px);
+
+
+ 
+
+    // @media (min-width: $narrow-breakpoint) {
+    //     margin-left: rem(127px);
+    // }
+  
+    // @media (min-width: $normal-breakpoint) {
+    //     margin-left: rem(90px);
+    // }
+
+  
+    @media (min-width: $narrow-breakpoint) {
+      grid-area: aside;
+      position: sticky;
+      top: 32px;
+    //   margin-left: 0;
+
+    }
+  }
+  
+  .gig-program {
+    height: fit-content;
+    color: $clr5;
+    border: 1px solid $clr7;
+  }
+  
+  .gig-program-name {
+    display: flex;
+  
+    .active-basic {
+      background-color: #fff;
+      border-bottom: 3px solid $clr14;
+      color: $clr14;
+    }
+  
+    button {
+      height: 64px;
+      background-color: transparent;
+      color: $clr5;
+      flex-basis: 33.9%;
+      border-bottom: 2px solid transparent;
+      transition: all .6s;
+      background-color: #fafafa;
+      color: #74767e;
+  
+      &:not(:last-of-type) {
+        border-right: 1px solid $clr7;
+      }
+    }
+  }
+  
+  .gig-program-info {
+    padding: 36px 26px;
+    border-top: 1px solid $clr7;
+    width: 100%;
+  
+    .gig-program-price {
+      color: $clr2;
+      font-family: macan-bold;
+      padding-bottom: 3px;
+      font-size: 28px;
+    }
+  
+    .delivery span {
+      padding-inline-end: .5em;
+  
+      &::before {
+        padding-right: .5em;
+      }
+    }
+  
+    p,
+    ul {
+      margin-bottom: em(24px, 16px);
+    }
+  
+    .gig-program-subscribe {
+      color: #026a5d;
+    }
+  
+    .gig-program-basic {
+      font-family: macan-bold; 
+    }
+  
+    .green-check {
+      color: $clr1;
+    }
+  }
+  
+  .gig-program-link-continue {
+    width: 100%;
+    background-color: $clr14;
+    color: $clr15;
+    border-radius: 4px;
+    line-height: 1;
+    padding: 12px 24px;
+    text-align: center;
+    display: inline-block;
+  
+    &:hover {
+        text-decoration: none;
+        background-color: rgba(5, 5, 5, 0.8); // Transparent background color (example color)
+      }
+  
+    span {
+      float: right;
+    }
+  }
+  
+  .contact-seller {
+    box-sizing: border-box;
+    margin-top: 16px;
+    width: 100%;
+    background-color: $clr9;
+    text-align: center;
+    padding: 24px;
+  
+    button {
+      width: 100%;
+      padding: 12px 24px;
+      margin: 0;
+      background-color: transparent;
+      color: $clr2;
+      font-family: macan-semibold;
+      border: 1px solid $clr2;
+      border-radius: 4px
+    }
+  
+    button:hover {
+      background-color: $clr5;
+      color: $clr3;
+    }
+  }

@@ -73,8 +73,15 @@ export function GigDetails() {
             <div className="owner-details">
                 <img src={imgUrl} alt="user-img" />
                 <p>{fullname}</p>
-                <p className='owner-level-container'>
-                    Level: {levelNumber}
+                <p className='owner-level-container'
+                    style={{
+                        backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',
+                        marginLeft: '10px',
+                    }}
+                    >
+                    {/* Level: {levelNumber} */}
+                    {gig.owner.level === 'level 3' ? 'Top Rated' : ` ${gig.owner.level}`}
+
                     {[...Array(3)].map((_, idx) => (
                         <svg
                             key={idx}
@@ -146,19 +153,19 @@ export function GigDetails() {
                     <div className="seller-info">
                         <p className="seller-name">{fullname}</p>
                         <div className="seller-rating-level">
-                             {/* <div></div> */}
+                            {/* <div></div> */}
                             <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#222325" viewBox="0 0 16 16">
-                        <path
-                            fillRule="evenodd"
-                            d="M16 6.2c0 .182-.125.353-.25.484l-3.49 3.57.826 5.04c.01.07.01.131.01.202 0 .262-.115.504-.394.504a.76.76 0 0 1-.385-.121L8 13.499l-4.317 2.38a.8.8 0 0 1-.385.121c-.279 0-.404-.242-.404-.504 0-.07.01-.131.02-.202l.826-5.04-3.5-3.57C.125 6.554 0 6.382 0 6.2c0-.302.298-.423.538-.463L5.365 5 7.53.413C7.615.222 7.779 0 8 0s.385.222.471.413l2.164 4.588 4.826.736c.231.04.539.16.539.463"
-                            clipRule="evenodd"
-                            style={{ transform: "translateX(-5px)" }}
-                        />
-                    </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#222325" viewBox="0 0 16 16">
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M16 6.2c0 .182-.125.353-.25.484l-3.49 3.57.826 5.04c.01.07.01.131.01.202 0 .262-.115.504-.394.504a.76.76 0 0 1-.385-.121L8 13.499l-4.317 2.38a.8.8 0 0 1-.385.121c-.279 0-.404-.242-.404-.504 0-.07.01-.131.02-.202l.826-5.04-3.5-3.57C.125 6.554 0 6.382 0 6.2c0-.302.298-.423.538-.463L5.365 5 7.53.413C7.615.222 7.779 0 8 0s.385.222.471.413l2.164 4.588 4.826.736c.231.04.539.16.539.463"
+                                        clipRule="evenodd"
+                                        style={{ transform: "translateX(-5px)" }}
+                                    />
+                                </svg>
                             </div>
-                        <span className="rate padding">{rate.toFixed(1)} (reviews) | </span>
-                        {/* <span className="rate">{rate}</span> */}
+                            <span className="rate padding">{rate.toFixed(1)} (reviews) | </span>
+                            {/* <span className="rate">{rate}</span> */}
                             <p
                                 style={{
                                     backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',
@@ -166,7 +173,7 @@ export function GigDetails() {
                                 }}
                                 className="seller-level"
                             >
-                                {gig.owner.level === 'level 3' ? 'Top Rated' : `Level: ${gig.owner.level}`}
+                                {gig.owner.level === 'level 3' ? 'Top Rated' : ` ${gig.owner.level}`}
                                 {[...Array(3)].map((_, idx) => (
                                     <svg
                                         key={idx}
@@ -174,7 +181,7 @@ export function GigDetails() {
                                         viewBox="0 0 10 10"
                                         width="10"
                                         height="10"
-                                        fill={idx < gig.owner.rate ? "black" : "gray"}
+                                        fill={idx < levelNumber ? "black" : "gray"}
                                         style={{
                                             marginLeft: "4px",
                                             backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',

@@ -14,7 +14,7 @@
         cursor: pointer;
         // padding: 10px;
         position: absolute;
-        top: 40%;
+        top: 35%;
         background-color: $clr3;
         color: $clr5;
         border-radius: 50%;
@@ -34,11 +34,11 @@
 
     .next {
         right: 0;
-        transform: translate(50%, 0);
+        // transform: translate(50%, 0);
     }
 
     .prev {
-        transform: translate(-50%, 0);
+        // transform: translate(-50%, 0);
     }
 
     img {
@@ -98,7 +98,14 @@
 
         .prev,
         .next {
-            top: 40%;
+            top: 35%;
+        }
+    }
+    @media screen and (max-width: 568px) {
+
+        .prev,
+        .next {
+            top: 22%;
         }
     }
 

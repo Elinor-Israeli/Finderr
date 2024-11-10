@@ -82,7 +82,7 @@
 }
 
 .gig-program-info {
-  padding: 36px 26px;
+  padding: 32px 24px 0px;
   border-top: 1px solid $clr7;
   width: 100%;
 
@@ -99,6 +99,10 @@
 
     &::before {
       padding-right: .5em;
+    }
+
+    .delivery-time span  {
+
     }
   }
 
@@ -182,6 +186,10 @@ span.svg-payment {
 
 .delivery-time {
   padding: 0px 12px 0px 0px;
+  // margin: 5PX;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 }
 
 
@@ -209,7 +217,7 @@ span.svg-payment {
   justify-content: center;
   align-items: center;
   align-self: center;
-  padding: 0px 24px 12px;
+  padding: 12px 0px 0px;
   // color: white;
   border: none;
   border-radius: 4px;
@@ -227,7 +235,7 @@ span.svg-payment {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-
+padding: 0px 24px 20px;
 
   &:hover {
     text-decoration: none;
@@ -236,4 +244,10 @@ span.svg-payment {
 
 .center-container a {
   text-decoration: none;
+}
+
+@media screen and (max-width: 900px) {
+  .compare-packages-button {
+    display: none;
+  }
 }

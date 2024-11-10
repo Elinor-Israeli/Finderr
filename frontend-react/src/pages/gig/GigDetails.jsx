@@ -10,6 +10,7 @@ import { StarRating } from '../../cmps/review/StarRating'
 import { GigCard } from '../../cmps/gig/GigCard'
 import { LongTxt } from '../../cmps/LongTxt'
 import { ReviewIndex } from '../../cmps/review/ReviewIndex'
+import { Accordion } from '../../cmps/Accordion'
 
 
 export function GigDetails() {
@@ -111,7 +112,7 @@ export function GigDetails() {
         <div className="gig-description gig-details-info">
             <ReviewIndex gig={gig} />
             <div className="gig-about">
-               <h3 className='about-gig-header'>About This Gig</h3>
+                <h3 className='about-gig-header'>About This Gig</h3>
                 <p>{gig.description}</p>
                 <p style={{ backgroundColor: '#ffecd1' }}>What you'll get:</p>
                 <p>{gig.description2}</p>
@@ -194,6 +195,15 @@ export function GigDetails() {
                 {/* <hr /> */}
                 <article>{gig.about}</article>
             </div>
+            <div>
+                <Accordion title="FAQ" className='accordion-title'>
+                    <p style={{padding:'20px 0px'}}>What types of artwork can you create using AI?</p>
+                    <p>
+                        I can create a wide range of artwork, including portraits, landscapes, concept designs, abstract art, book covers, product visualizations, and more. If you can imagine it, I can bring it to life using AI.
+                    </p>
+                </Accordion>
+            </div>
+
             {/* <ReviewIndex gig={gig} /> */}
             {/* {isChat && <GigChat gig={gig} onSetChat={onSetChat} />} */} //* later
 

@@ -176,7 +176,7 @@
 
 /** TITLE CONTAINER */
 .accordion .title-container {
-    cursor: pointer;
+    cursor: default;
     display: flex;
     padding: 1em var(--margin);
 }
@@ -195,7 +195,6 @@
 .accordion .content {
     max-height: 0;
     font-size: 1.1em;
-    padding: 0 var(--margin);
     overflow: hidden;
 
 }

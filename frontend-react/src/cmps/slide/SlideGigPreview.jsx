@@ -29,7 +29,7 @@ export function SlideGigPreview({ gig }) {
         setSlideIndex(slideIndex)
         setIsDynamic(slideIndex)
     }
-
+//  ! here (Swallows the image)
     return (
         // <div className="next fa-solid chevron-right" onClick={(ev) => plusSlides(ev, 1)}></div>
 
@@ -38,7 +38,7 @@ export function SlideGigPreview({ gig }) {
                 <div className="prev" onClick={(ev) => plusSlides(ev, -1)}>
                     <IoIosArrowBack />
                 </div>
-                <img src={slides[slideIndex]} alt="Gig Preview" className='image-slides' /> //! here (Swallows the image)
+                <img src={slides[slideIndex]} alt="Gig Preview" className='image-slides' />
 
                 <div className="next" onClick={(ev) => plusSlides(ev, 1)}>
                     <IoIosArrowForward />

@@ -1,0 +1,11 @@
+.review-app-all {
+
+    .next-to-bar {
+        padding: 0px 8px;   
+    }
+
+    .review-header-all {
+        @include flex;
+        padding: 0 0 12px;
+    }
+}

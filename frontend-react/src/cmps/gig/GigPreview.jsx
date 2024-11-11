@@ -96,6 +96,7 @@ export function GigPreview({ gig }) {
                             </span>
                         </div>
                     </div>
+                    
                 </div>
                 <Link className="title" to={`/gig/${gig._id}`}>
                     <div className="long-txt">

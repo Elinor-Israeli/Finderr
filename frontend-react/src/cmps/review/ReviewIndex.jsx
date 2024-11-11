@@ -6,6 +6,7 @@ import { ReviewList } from './ReviewList'
 export function ReviewIndex({ gig }) {
     const [userReviews, setUserReviews] = useState(null)
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 600)
+    // const [currentReviewIndex, setCurrentReviewIndex] = useState(0)
     //* i did here becouse in the scss it did not work somehow
     useEffect(() => {
         loadUserReviews()
@@ -26,7 +27,9 @@ export function ReviewIndex({ gig }) {
     }
 
     if (!userReviews) return <div>loading...</div>
-
+    const nextReview = () => {
+        setCurrentReviewIndex((prevIndex) => (prevIndex + 1) % userReviews.length)
+    }
 
     return (
         // <section className="review-app">
@@ -50,7 +53,11 @@ export function ReviewIndex({ gig }) {
                         <a href="#">See all reviews</a>
                     </div>
                 </header>
-                <ReviewList userReviews={userReviews} />
+                <ReviewList 
+                userReviews={userReviews} 
+                // currentReviewIndex={currentReviewIndex}
+            />
+                        {/* <button onClick={nextReview} className="next-review-button">Next</button> */}
             </section>
         )
     )

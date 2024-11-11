@@ -11,9 +11,12 @@ import { GigCard } from '../../cmps/gig/GigCard'
 import { LongTxt } from '../../cmps/LongTxt'
 import { ReviewIndex } from '../../cmps/review/ReviewIndex'
 import { Accordion } from '../../cmps/Accordion'
+import { ReviewAll } from '../../cmps/review/ReviewAll'
+import { GiRoundStar } from 'react-icons/gi'
+import { Rating } from '@mui/material'
 
 
-export function GigDetails() {
+export function GigDetails({ userReviews }) {
     const { gigId } = useParams()
     const navigate = useNavigate()
     const [gig, setGig] = useState()
@@ -63,23 +66,24 @@ export function GigDetails() {
     return <section className="gig-details">
         <div className="gig-details-preview gig-details-info">
             <nav className='nav-links'>
-                <Link to="/"><i>🏠</i></Link>
+                <Link to="/"><i style={{ fontFamily: 'macan-light' }}>🏠</i></Link>
                 {' / '}
-                <Link to="/graphics-design"><i>Graphics & design</i></Link>
+                <Link to="/graphics-design"><i style={{ fontFamily: 'macan-light' }}>Graphics & design</i></Link>
                 {' / '}
-                <Link to="/gig"><i>Logo Design</i></Link>
+                <Link to="/gig"><i style={{ fontFamily: 'macan-light' }}>Logo Design</i></Link>
             </nav>
-            <h1>{gig.title}</h1>
+            <h1 className='gig-details-title'>{gig.title}</h1>
             <div className="owner-details">
                 <img src={imgUrl} alt="user-img" />
-                <p>{fullname}</p>
-                <p
+                <p style={{ fontFamily: 'macan-light' }}>{fullname}</p>
+                <p className='owner-level-container'
                     style={{
-                        // color: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',
-                        backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit'
+                        backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',
+                        marginLeft: '10px',
                     }}
                 >
-                    {gig.owner.level === 'level 3' ? 'Top Rated' : `Level: ${gig.owner.level}`}
+                    {/* Level: {levelNumber} */}
+                    {gig.owner.level === 'level 3' ? 'Top Rated' : ` ${gig.owner.level}`}
                     {[...Array(3)].map((_, idx) => (
                         <svg
                             key={idx}
@@ -87,22 +91,22 @@ export function GigDetails() {
                             viewBox="0 0 10 10"
                             width="10"
                             height="10"
-                            fill={idx < gig.owner.rate ? "black" : "gray"}
-                            style={{
-                                marginLeft: "4px",
-                                backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',
-                                fontFamily: 'macan-semibold' //! here
-                            }}
-                            className='owner-level'
+                            fill={idx < levelNumber ? "black" : "gray"}
+                            style={{ marginLeft: "4px" }}
+                            className='owner-level-preview'
                         >
                             <path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z" />
                         </svg>
                     ))}
                 </p>
+                {/* owner-level */}
                 <span className="divider"></span>
                 <div className="star-preview">
-                    <StarRating value={rate} />
-                    <span className="rate padding">{rate}</span>
+                    {/* <GiRoundStar /> */}
+                    <StarRating  value={gig.owner.rate}/>   {/* <GiRoundStar style={{ marginLeft: '8px' }} /> */}
+                    <span className="rate padding">
+                        ({userReviews ? userReviews.length : 1} reviews)
+                    </span>
                 </div>
             </div>
             <div className="thumbnail">
@@ -141,22 +145,59 @@ export function GigDetails() {
                     </li>
                 </ul>
             </div>
-            <div className="gig-about-owner">
-                <h3>About the seller</h3>
-                <div className="owner-details">
-                    <img src={imgUrl} alt="user-img" />
-
-                    <div className="owner-content">
-                        <p className="owner-fullname">{fullname}</p>
-                        <div className="star-preview">
-                            <StarRating value={rate} />
-                            <span className="rate padding">{rate}</span>
+            <div className="seller-about">
+                <h3>Get to know {gig.owner.fullname}</h3>
+                <div className="seller-details">
+                    <img src={imgUrl} alt="user-img" className="seller-image" />
+                    <div className="seller-info">
+                        <p className="seller-name">{fullname}</p>
+                        <div className="seller-rating-level">
+                            {/* <div></div> */}
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#222325" viewBox="0 0 16 16">
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M16 6.2c0 .182-.125.353-.25.484l-3.49 3.57.826 5.04c.01.07.01.131.01.202 0 .262-.115.504-.394.504a.76.76 0 0 1-.385-.121L8 13.499l-4.317 2.38a.8.8 0 0 1-.385.121c-.279 0-.404-.242-.404-.504 0-.07.01-.131.02-.202l.826-5.04-3.5-3.57C.125 6.554 0 6.382 0 6.2c0-.302.298-.423.538-.463L5.365 5 7.53.413C7.615.222 7.779 0 8 0s.385.222.471.413l2.164 4.588 4.826.736c.231.04.539.16.539.463"
+                                        clipRule="evenodd"
+                                        style={{ transform: "translateX(-5px)" }}
+                                    />
+                                </svg>
+                            </div>
+                            <span className="rate padding">{rate.toFixed(1)} (reviews) | </span>
+                            {/* <span className="rate">{rate}</span> */}
+                            <p
+                                style={{
+                                    backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',
+                                    marginLeft: '10px',
+                                }}
+                                className="seller-level"
+                            >
+                                {gig.owner.level === 'level 3' ? 'Top Rated' : ` ${gig.owner.level}`}
+                                {[...Array(3)].map((_, idx) => (
+                                    <svg
+                                        key={idx}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 10 10"
+                                        width="10"
+                                        height="10"
+                                        fill={idx < levelNumber ? "black" : "gray"}
+                                        style={{
+                                            marginLeft: "4px",
+                                            backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',
+                                            fontFamily: 'macan-semibold'
+                                        }}
+                                        className="level-star"
+                                    >
+                                        <path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z" />
+                                    </svg>
+                                ))}
+                            </p>
                         </div>
                         {gig && <button><Link to={`/user/${gig.owner._id}`}>Contact Me</Link></button>}
                     </div>
                 </div>
             </div>
-
+            {/* owner-level */}
             <div className="owner-description">
                 <p style={{ margin: '0px 0px 24px' }}>Stefan is part of the Fiverr Pro catalog and has been hand-picked by a dedicated Fiverr Pro team for their skills and expertise.</p>
                 <p style={{ margin: '0px 0px 16px' }}><strong>Expert in:</strong></p>
@@ -197,18 +238,20 @@ export function GigDetails() {
             </div>
             <div>
                 <Accordion title="FAQ" className='accordion-title'>
-                    <p style={{padding:'20px 0px'}}>What types of artwork can you create using AI?</p>
+                    <p style={{ padding: '20px 0px' }}>What types of artwork can you create using AI?</p>
                     <p>
                         I can create a wide range of artwork, including portraits, landscapes, concept designs, abstract art, book covers, product visualizations, and more. If you can imagine it, I can bring it to life using AI.
                     </p>
                 </Accordion>
             </div>
+            <ReviewAll gig={gig} />
 
             {/* <ReviewIndex gig={gig} /> */}
-            {/* {isChat && <GigChat gig={gig} onSetChat={onSetChat} />} */} //* later
+            {/* {isChat && <GigChat gig={gig} onSetChat={onSetChat} />} //* later */}
 
         </div>
         {/* </section> */}
+
         <GigCard gig={gig} onSetChat={onSetChat} />
     </section >
 }

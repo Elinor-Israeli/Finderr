@@ -3,24 +3,25 @@ display: flex;
 justify-content: space-between;
     width: 100%;
     font-family: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
-font-weight: 700;
-padding: 0px 0px 25px;
-align-items: center;
-align-self: center;
-border: 0;
-margin: 0;
-outline: 0;
-&a:hover {
-    text-decoration: underline;
-}
+    font-weight: 700;
+    padding: 0px 0px 25px;
+    align-items: center;
+    align-self: center;
+    border: 0;
+    margin: 0;
+    outline: 0;
 
-.reviews-header {
-    display: none;
-
-    @media (max-width: 600px) {
-            display: block; 
-            display: none;
+    &a:hover {
+        text-decoration: underline;
     }
-}
+
+    .reviews-header {
+        display: none;
+
+        @media (max-width: 600px) {
+            display: block;
+            display: none;
+        }
+    }
 
 }

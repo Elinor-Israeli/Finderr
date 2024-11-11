@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { IoIosArrowRoundForward } from "react-icons/io"; //! here
 
 export function GigCard({ gig, onSetChat }) {
     const [program, setProgram] = useState(1)
@@ -11,7 +12,6 @@ export function GigCard({ gig, onSetChat }) {
     }
 
     const randomDiscount = Math.floor(Math.random() * (25 - 5 + 1)) + 5
-
 
     return (
         <div className="gig-details-side">
@@ -46,37 +46,45 @@ export function GigCard({ gig, onSetChat }) {
                             {gig.title}
                         </p>
                         <p className="delivery">
-                            <span className="fa-regular clock">3 Days Delivery</span>
+                            <span className="delivery-time fa-regular clock">
+                                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"></path>
+                                    <path d="M9 4H7v5h5V7H9V4z"></path>
+                                </svg>
+                            </span>
+                            <span>
+                                3 Days Delivery
+                            </span>
                             <span className="fa-solid arrows-rotate">3 Revisions</span>
                         </p>
                         <ul>
                             <li>
-                                <span className="green-check fa-solid fa-check"></span>
+                                <span className="svg-payment green-check fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path></svg>
+                                </span>
                                 <span> 1 concept included </span>
                             </li>
                             <li>
-                                <span className="green-check fa-solid fa-check"></span>
+                                <span className="svg-payment green-check fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path></svg></span>
                                 <span>Include source file</span>
                             </li>
                             <li>
-                                <span className="green-check fa-solid fa-check"></span>
+                                <span className="svg-payment green-check fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path></svg></span>
                                 <span>Logo transparency</span>
                             </li>
                             <li>
-                                <span className="fa-solid fa-check"></span>
+                                <span className="svg-payment fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" style={{ fill: 'gray' }}>
+                                    <path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path>
+                                </svg></span>
                                 <span>Include 3D mockup</span>
                             </li>
                             <li>
-                                <span className="fa-solid fa-check fa-check"></span>
+                                <span className="svg-payment fa-solid fa-check fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path></svg></span>
                                 <span>Vector file</span>
                             </li>
                         </ul>
-                        <Link
-                            className="gig-program-link-continue"
-                            to={`/payment/${gig._id}`}
-                        >
+                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
                             Continue
-                            <span className="fa-solid arrow-rigth"></span>
+                            <span className="fa-solid arrow-rigth">→</span>
                         </Link>
                     </div>
                 )}
@@ -88,39 +96,44 @@ export function GigCard({ gig, onSetChat }) {
                             <span className="gig-program-basic">Standard2 </span>
                             {gig.title}
                         </p>
-
                         <p className="delivery">
-                            <span className="fa-regular clock">2 Days Delivery</span>
+                            <span className="fa-regular clock"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"></path>
+                                <path d="M9 4H7v5h5V7H9V4z"></path>
+                            </svg>
+                            </span>
+                            <span>2 Days Delivery</span>
                             <span className="fa-solid arrows-rotate">5 Revisions</span>
                         </p>
                         <ul>
                             <li>
-                                <span className="green-check fa-solid fa-check"></span>
+                                <span className="svg-payment green-check fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path></svg></span>
                                 <span> 2 concept included </span>
                             </li>
                             <li>
-                                <span className="green-check fa-solid fa-check"></span>
+                                <span className="svg-payment green-check fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path></svg></span>
                                 <span>Include source file</span>
                             </li>
                             <li>
-                                <span className="green-check fa-solid fa-check"></span>
+                                <span className="svg-payment green-check fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" style={{ fill: 'gray' }}>
+                                    <path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path>
+                                </svg></span>
                                 <span>Logo transparency</span>
                             </li>
                             <li>
-                                <span className="fa-solid fa-check"></span>
+                                <span className="svg-payment fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path></svg></span>
                                 <span>Include 3D mockup</span>
                             </li>
                             <li>
-                                <span className="fa-solid fa-check"></span>
+                                <span className="svg-payment fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" style={{ fill: 'gray' }}>
+                                    <path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path>
+                                </svg></span>
                                 <span>Vector file</span>
                             </li>
                         </ul>
-                        <Link
-                            className="gig-program-link-continue"
-                            to={`/payment/${gig._id}`}
-                        >
+                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
                             Continue
-                            <span className="fa-solid arrow-rigth"></span>
+                            <span className="fa-solid arrow-rigth">→</span>
                         </Link>
                     </div>
                 )}
@@ -133,40 +146,57 @@ export function GigCard({ gig, onSetChat }) {
                             {gig.title}
                         </p>
                         <p className="delivery">
-                            <span className="fa-regular clock">1 Days Delivery</span>
-                            <span className="fa-solid arrows-rotate">Unlimited Revisions</span>
+                            <span className="svg-payment fa-regular clock"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"></path>
+                                <path d="M9 4H7v5h5V7H9V4z"></path>
+                            </svg>
+                            </span>
+                            <span>1 Days Delivery</span>1 Days Delivery
+                            <span className="fa-solid arrows-rotate"></span>
+                            <span>Unlimited Revisions</span>
                         </p>
                         <ul>
                             <li>
-                                <span className="green-check fa-solid fa-check"></span>
+                                <span className="green-check fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" style={{ fill: 'gray' }}>
+                                    <path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path>
+                                </svg>
+                                </span>
                                 <span> 3 concept included </span>
                             </li>
                             <li>
-                                <span className="green-check fa-solid fa-check"></span>
+                                <span className="svg-payment green-check fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" style={{ fill: 'gray' }}>
+                                    <path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path>
+                                </svg>
+                                </span>
                                 <span>Include source file</span>
                             </li>
                             <li>
-                                <span className="green-check fa-solid fa-check"></span>
+                                <span className="svg-payment green-check fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" style={{ fill: 'gray' }}>
+                                    <path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path>
+                                </svg></span>
                                 <span>Logo transparency ++ Social Media Kit</span>
                             </li>
                             <li>
-                                <span className="fa-solid fa-check"></span>
+                                <span className="svg-payment fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path></svg></span>
                                 <span>VIP Support</span>
                             </li>
                             <li>
-                                <span className="fa-solid fa-check"></span>
+                                <span className="svg-payment fa-solid fa-check"><svg width="16" height="16" viewBox="0 0 11 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M3.645 8.102.158 4.615a.536.536 0 0 1 0-.759l.759-.758c.21-.21.549-.21.758 0l2.35 2.349L9.054.416c.21-.21.55-.21.759 0l.758.758c.21.21.21.55 0 .759L4.403 8.102c-.209.21-.549.21-.758 0Z"></path></svg></span>
                                 <span>Vector file</span>
                             </li>
                         </ul>
-                        <Link
-                            className="gig-program-link-continue"
-                            to={`/payment/${gig._id}`}
-                        >
+                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
                             Continue
-                            <span className="fa-solid arrow-rigth"></span>
+                            <span className="fa-solid arrow-rigth">→</span>
                         </Link>
                     </div>
+
                 )}
+                <a href="/compare-packages" className="center-container">
+                    <button className="compare-packages-button">
+                        Compare packages
+                    </button>
+                </a>
             </div>
 
             <div
@@ -174,7 +204,7 @@ export function GigCard({ gig, onSetChat }) {
                 className="contact-seller"
                 onClick={() => onSetChat()}
             >
-                <button className="contact-seller-btn">Contact Seller</button>
+                <button className="contact-seller-btn">Contact me</button>
             </div>
         </div>
     )

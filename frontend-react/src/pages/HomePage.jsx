@@ -6,17 +6,15 @@ export function HomePage() {
             <div className="hero-container">
                 <div className="main-header">
                     <h1 className="hero-msg">
-                        Scale your professional <br />work force with<i> freelance</i>
+                        Scale your professional <br/>work force with<i> freelance</i>
                     </h1>
-                    <div class="search-bar">
-                        <input type="text" class="search-input" placeholder="Search for any service..." />
-                        <button class="search-btn"><svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className="search-bar">
+                        <input type="text" className="search-input" placeholder="Search for any service..." />
+                        <button className="search-btn"><svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg></button>
                     </div>
 
-                    {/* <input type="search" class="long-placeholder" autocomplete="off" placeholder="Search for any service..." value=""></input>
-                    <button class="sPdE5j4 zUvc8Si co-white submit-button flex-center bg-co-green-700"><div class="submit-button-icon"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="m15.89 14.653-3.793-3.794a.37.37 0 0 0-.266-.109h-.412A6.499 6.499 0 0 0 6.5 0C2.91 0 0 2.91 0 6.5a6.499 6.499 0 0 0 10.75 4.919v.412c0 .1.04.194.11.266l3.793 3.794a.375.375 0 0 0 .531 0l.707-.707a.375.375 0 0 0 0-.53ZM6.5 11.5c-2.763 0-5-2.238-5-5 0-2.763 2.237-5 5-5 2.762 0 5 2.237 5 5 0 2.762-2.238 5-5 5Z"></path></svg></div></button> */}
                     <section className="trusted-by">
                         <span>Trusted by: </span>
                         <svg width="70" height="14" viewBox="0 0 96 20"

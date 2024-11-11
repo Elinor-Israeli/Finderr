@@ -8,12 +8,75 @@
     font-size: 16px;
     background-color: #fff; 
     align-items: center;
+    margin: 0 0 16px;
+    font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+.logo {
+    // font-family: macan-regular;;
+    font-size: 2.5em;
+    letter-spacing: -0.02em;
+    margin-left: 100px;
 
+    color: gray;
+    .span {
+        color: #1dbf73;
+    }
+}
 
+    .search-bar-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+        margin-left: 30px;
+        width: 100%;
+        border-color: #c5c6c9;
+        color: #62646a;
+        
+        .search-input-header {
+            width: 100%;
+            padding: 12px 20px;  
+            font-size: 16px;
+            border: 1px solid #dcdfe3;  
+            border-radius: 4px;  
+            outline: none;  
+            box-sizing: border-box;
+            padding-right: 50px;  
+            
+        }
+        
+        .search-btn-header {
+            position: absolute;
+            right: 0px;  
+            top: 50%;
+            transform: translateY(-50%);
+            background-color:#222325; 
+            border-radius: 12px;
+            width:43px;
+            border-radius: 0 4px 4px 0;
+            height: 43px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            
+            // &:hover {
+            //    background-color: #00732e;  
+            // }
+        }
+    }
+    
     .app-header-nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 60px; 
+        .controllers{
+            display: flex;
+            gap: 20px; 
+            align-items: center; 
+    
+        }
     }
 
     .gig-header-link {
@@ -75,4 +138,30 @@ line-height: 14px;
 }
 
 
-
+// @media (min-width: 1400px) {
+//     .app-header {
+//         background-image: url(https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/678686c…-1705999902381/hero-xl-x1.png);
+//         height: 500px;
+//     }
+// }
+// @media only screen and (min-width: 1160px) {
+//     .app-header {
+//         background-image: url(https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449b…-1705308514872/hero-lg-x1.png);
+//         height: 438px;
+//     }
+// }
+// @media only screen and (min-width: 900px) {
+//     .app-header {
+//         background-image: url(https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449b…-1705308514875/hero-md-x1.png);
+//         background-repeat: no-repeat;
+//         background-size: cover;
+//         border-radius: 16px;
+//         height: 370px;
+//         padding: 0;
+//     }
+// }
+// @media only screen and (min-width: 600px) {
+//     .app-header {
+//         padding: 48px 40px;
+//     }
+// }

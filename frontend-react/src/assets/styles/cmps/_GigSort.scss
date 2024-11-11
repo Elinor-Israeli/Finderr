@@ -1,0 +1,99 @@
+.gig-sort {
+    @include flex;
+    position: relative;
+  
+    .sort-by {
+      cursor: pointer;
+      font-family: macan-bold;
+      text-transform: capitalize;
+      margin-left: em(6px);
+    }
+  
+    .sort-by-options {
+      font-family: macan-regular;
+      position: absolute;
+      right: 0;
+      background-color: $clr3;
+      padding: em(12px) em(24px);
+      border-radius: em(4px);
+      border: 1px solid #e4e5e7;
+      box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.2s, transform 0.2s ease-out, visibility 0s 0.2s;
+  
+      &.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: opacity 0.2s, transform 0.2s ease-out;
+      }
+  
+      .sort-option {
+        &:first-child {
+          margin-bottom: 1em;
+        }
+  
+        label {
+          display: inline-block;
+          cursor: pointer;
+          width: 100%;
+          padding-left: em(24px);
+          position: relative;
+          font-size: 1.2rem;
+  
+          &:focus {
+            outline: 2px solid black;
+          }
+        }
+  
+        input {
+          display: none;
+        }
+  
+        .checked-input {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: em(16px);
+          height: em(16px);
+          border: 2px solid #ccc;
+          border-radius: 50%;
+          background-color: #fff;
+          transition: background-color 0.3s ease, border-color 0.3s ease;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            width: em(8px);
+            height: em(8px);
+            border-radius: 50%;
+            background-color: black;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+          }
+        }
+  
+        input:checked + label .checked-input {
+          border-color: black;
+          background-color: black;
+  
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  
+  .sort-by-options.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.2s, transform 0.2s ease-out;
+  }
+  

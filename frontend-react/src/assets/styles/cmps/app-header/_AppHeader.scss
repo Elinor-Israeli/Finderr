@@ -1,6 +1,7 @@
 .app-header {
     // background-color: $clr1;
-    padding: 32px;
+    
+    padding: 20px 235px;
     border-bottom: 1px solid #e4e5e7;
     height: 80px;
     width: 100%;
@@ -8,13 +9,15 @@
     font-size: 16px;
     background-color: #fff; 
     align-items: center;
-    margin: 0 0 16px;
+    // margin: 16px 0 0 16px;
+    // margin-left: 215px;
+    // margin-right: 215px;
     font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 .logo {
-    // font-family: macan-regular;;
+    font-family: macan-regular;;
     font-size: 2.5em;
     letter-spacing: -0.02em;
-    margin-left: 100px;
+    // margin-left: 100px;
 
     color: gray;
     .span {
@@ -24,12 +27,12 @@
 
     .search-bar-header {
         display: flex;
-        align-items: center;
+        // align-items: center;
         justify-content: center;
         position: relative;
         max-width: 500px;
-        margin: 0 auto;
-        margin-left: 30px;
+        // margin: 0 auto;
+        // margin-left: 30px;
         width: 100%;
         border-color: #c5c6c9;
         color: #62646a;
@@ -40,10 +43,9 @@
             font-size: 16px;
             border: 1px solid #dcdfe3;  
             border-radius: 4px;  
-            outline: none;  
+            // outline: none;  
             box-sizing: border-box;
-            padding-right: 50px;  
-            
+            // padding-right: 50px; 
         }
         
         .search-btn-header {
@@ -70,10 +72,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 60px; 
+        padding: 5px 0;
+        // gap: 60px; 
         .controllers{
             display: flex;
-            gap: 20px; 
+            // gap: 20px; 
             align-items: center; 
     
         }
@@ -135,6 +138,22 @@ line-height: 14px;
     }
 }
 
+}
+
+.nav-links {
+    color: #222325;
+    transition: color .2s;
+    list-style: none;
+    list-style-image: none;
+    // padding: 4px 0px 4px 6px;
+    padding: 60px 0px 60px ;
+    margin-top: 15px;
+    font-weight: lighter;
+    // margin-bottom: 15px;
+
+
+    font-family: boi;
+    font: 400 18px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 

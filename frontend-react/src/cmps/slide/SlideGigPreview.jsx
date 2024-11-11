@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { IoIosArrowDropright } from "react-icons/io";
-import { IoIosArrowDropleft } from "react-icons/io";
+// import { IoIosArrowDropright } from "react-icons/io";
+// import { IoIosArrowDropleft } from "react-icons/io";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 export function SlideGigPreview({ gig }) {
@@ -62,3 +62,4 @@ export function SlideGigPreview({ gig }) {
         </div>
     )
 }
+

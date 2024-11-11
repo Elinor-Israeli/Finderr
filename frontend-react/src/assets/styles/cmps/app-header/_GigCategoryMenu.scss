@@ -1,0 +1,24 @@
+.category-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;  
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.category-btn.left {
+    left: 0;
+}
+
+.category-btn.right {
+    right: 0;
+}
+
+.categories-menu-package__categories {
+    display: flex;
+    overflow-x: scroll;
+    white-space: nowrap;
+}

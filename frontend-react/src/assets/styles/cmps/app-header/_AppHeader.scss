@@ -1,78 +1,67 @@
-.app-header {
-    // background-color: $clr1;
-    padding: 32px;
-    border-bottom: 1px solid #e4e5e7;
-    height: 80px;
-    width: 100%;
-    font-weight: 700;
-    font-size: 16px;
-    background-color: #fff; 
+.app-header-nav {
+    @include flex;
+    padding: 1em 0;
+    color: $clr13;
+
+    .logo {
+        color: $clr2;
+    }
+}
+
+.menu-toggle-btn {
+    font-size: rem(24px);
+    line-height: 1;
+    margin-right: em(15px, 24px);
+}
+
+.app-header-aside {
+    flex-basis: 50%;
+    @include flex;
+
+    @media (max-width: $narrow-breakpoint) {
+        flex-basis: 100%;
+    }
+}
+
+.app-header-main {
+    flex-basis: 50%;
+    display: flex;
     align-items: center;
+    justify-content: flex-end;
+    text-align: end;
+    font-family: macan-semibold;
 
-
-    .app-header-nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .gig-header-link {
-        color: $clr5;
-        text-decoration: none;
-        transition: color 70ms cubic-bezier(.75, 0, .25, 1);
-        &:hover {
-            color: $clr1;
-        }
-    }
-
-    
-    nav {
-        font-size: .8em;
-        background-color: $clr3;
-    }
-
-    nav .active {
+    a:hover {
         color: $clr1;
-
-        background-color: transparent;
-        border: 1px solid $clr1;
-        color: $clr1;
-        padding: 10px 16px;
-        border-radius: 4px;
-        transition: background-color 70ms cubic-bezier(.75, 0, .25, 1);
-
-        &:hover {
-            background-color: $clr1;
-        }
-    }
-    
-.join-btn {
-    text-decoration: none;
-    border-color: #1dbf73;
-    border: 1px solid;
-    color: #1dbf73;  
-    padding: 12px 24px;  
-    font-weight: 700;  
-    font-size: 1rem;  
-    border-radius: 5px;  
-    cursor: pointer;  
-    transition: color .5s ease, border .5s ease; 
-line-height: 14px;
-
-    &:hover {
-        background-color: #17a55a;  
-        color:white;
-        
     }
 
-    /* On mobile, reduce font size slightly for better fit */
-    @media (max-width: 768px) {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+    &>* {
+        margin-inline-start: em(24px, 16px);
+    }
+
+    .user-header-img {
+        line-height: 1;
+    }
+
+    .user-header-img,
+    .user-orders {
+        position: relative;
+    }
+
+    img {
+        border-radius: 50%;
+        width: em(32px, 16px);
+        height: em(32px, 16px);
+        cursor: pointer;
+    }
+
+    @media (max-width: $narrow-breakpoint) {
+        flex-basis: 0%;
     }
 }
 
+.logo svg {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
 }
-
-
-

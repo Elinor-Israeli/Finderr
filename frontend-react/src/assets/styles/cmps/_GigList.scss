@@ -1,8 +1,13 @@
+
 .gig-list {
     display: grid;
     margin-bottom: 3rem;
     grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
     gap: 1rem;
+
+   
 
     @media (min-width: $mobile-breakpoint) {
         grid-template-columns: repeat(2, 1fr);
@@ -20,9 +25,10 @@
         }
 
     // @media (min-width: $width-breakpoint) {
-    //     grid-template-columns: repeat(5, 1fr);
+    //     grid-template-columns: repeat(4, 1fr);
     //     max-width: $width-breakpoint;
-    //     gap: 5rem;
-    //     row-gap: 40;
+    //     gap: 2.22rem;
+    //     // row-gap: 24px;
     // }
 }
+

@@ -23,6 +23,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            opacity: 1;
+            
         }
 
         .dot {
@@ -41,7 +43,7 @@
 
     .prev,
     .next {
-        display: none; 
+        opacity: 0;
         // content: › ;
         position: absolute;
         top: 50%;
@@ -52,6 +54,7 @@
         transform: translateY(-50%);
         width: 30px; 
         height: 30px;
+        
     }
 
     .prev {
@@ -70,18 +73,18 @@
         position: absolute;
         bottom: 10px;
         left: 50%;
-        transform: translateX(-50%);
+        // transform: translateX(-50%);
         display: flex;
         list-style-type: none;
-        padding: 0;
+        // padding: 0;
         justify-content: center;
     }
 
     .dot {
         cursor: pointer;
-        width: 10px;
-        height: 10px;
-        margin: 0 5px;
+        width: 8px;
+        height: 8px;
+        margin: 0 2px;
         background-color: rgba(255, 255, 255, 0.5); 
         border-radius: 50%;
         transition: background-color 0.6s ease;

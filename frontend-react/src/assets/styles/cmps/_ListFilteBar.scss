@@ -1,0 +1,231 @@
+.top-filter-bar {
+    @include flex;
+    // z-index: 1111;
+
+    .active-filter {
+        background-color: #e8faf4;
+        border-color: #a6eaca;
+        transition: all 0.5s;
+    }
+
+    .filter-daysToMake-btns {
+        align-items: center;
+        border-top: 1px solid #e4e5e7;
+        // display: -webkit-box;
+        // display: -webkit-flex;
+        // display: -ms-flexbox;
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+        padding: 16px 24px;
+
+        .apply-time {
+            padding: 10px 20px;
+            background-color: #222325;
+            color: white;
+            line-height: 24px;
+            appearance: auto;
+            text-rendering: auto;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            text-align: center;
+            padding-block: 1px;
+            padding-inline: 6px;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .clear-all {
+            border: none;
+            line-height: 24px;
+            padding: 0;
+            font-family: macan-simbilold;
+        }
+    }
+
+    .filter-menu {
+        font-family: macan-bold;
+        margin-inline-end: em(12px);
+        padding: em(6px) em(12px);
+        border-radius: em(4px);
+        border: 1px solid $clr7;
+        cursor: pointer;
+        position: relative;
+    }
+}
+
+.delivery-filter-options,
+.price-filter-scroll {
+    position: absolute;
+    left: 0;
+    top: em(48px);
+    background-color: $clr3;
+    border-radius: em(4px);
+    border: 1px solid #e4e5e7;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+    min-height: 150px;
+    overflow-y: scroll;
+}
+
+.delivery-filter-options {
+    width: 295px;
+    padding: 24px 24px 24px 24px;
+    transition: all .24s cubic-bezier(.215, .61, .355, 1);
+    transition-delay: .24s;
+    max-height: 460px;
+    box-sizing: border-box;
+
+
+    .delivery-option {
+
+        &:not(:last-child) {
+            margin-bottom: em(12px);
+        }
+
+        label {
+            font-family: macan-regular;
+            display: flex;
+            cursor: pointer;
+            padding: 12px;
+        }
+
+        input[type="radio"] {
+            display: none;
+            margin-left: em(8px);
+        }
+
+        input[type="radio"]+label span {
+            width: 18px;
+            height: 18px;
+            margin-left: 8px;
+            margin: 0px 8px 0 0;
+            vertical-align: middle;
+            cursor: pointer;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        input[type="radio"]+label span {
+            background-color: transparent;
+            border: 1px #222325 solid;
+            margin-top: 1.5px;
+        }
+
+        input[type="radio"]:checked+label .checked-input {
+            background: #222325;
+            border: 1px solid #222325;
+            color: #222325;
+            width: 8px;
+            height: 8px;
+            vertical-align: middle;
+            cursor: pointer;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+
+    }
+}
+
+// $grey-100: #f0f0f0;
+.price-filter-scroll {
+
+    input {
+        width: 120px;
+        height: 40px;
+        border: 1px solid #dadbdd;
+        border-radius: 4px;
+    }
+
+    label {
+        display: block;
+        font-size: rem(14px);
+        margin-bottom: 4px;
+
+        // &::after {
+        //     background-color: color($grey, 100);
+        // }
+        // &:hover {
+        //     background-color: color($grey-100);
+        // }
+    }
+}
+
+.filter-price-btns {
+    @include flex;
+    font-family: macan-regular;
+    font-size: rem(12px);
+    padding: em(16px) em(24px);
+    border-top: 1px solid $clr12;
+
+    button {
+        font-size: inherit;
+        padding: em(4px, 14px) em(12px, 14px);
+        border-radius: em(4px);
+        color: $clr3;
+        color: black;
+        line-height: 1.6;
+    }
+
+    @media (min-width: $mobile-breakpoint) {
+        font-size: rem(14px);
+    }
+}
+
+.price-filter-inputs {
+    @include flex;
+    z-index: 11111;
+    flex-direction: column;
+    padding: em(12px) em(24px);
+    padding-bottom: em(24px);
+
+    &>*:not(:last-child) {
+        margin-bottom: em(12px);
+    }
+
+    label {
+        font-family: macan-regular;
+        font-size: rem(10px);
+        margin-bottom: em(4px, 12px);
+    }
+
+    ::placeholder {
+        font-size: rem(12px);
+        font-family: macan-semibold;
+        padding: em(8px, 14px) em(12px, 14px);
+    }
+
+    @media (min-width: $mobile-breakpoint) {
+        flex-direction: row;
+
+        &>*:not(:last-child) {
+            margin-bottom: 0;
+            margin-right: em(12px);
+        }
+
+        label {
+            font-size: rem(12px);
+        }
+
+        ::placeholder {
+            font-size: rem(14px);
+        }
+    }
+}
+
+div.filter-menu.filter-delivery.active-filter {
+    padding: 10px 20px;
+    background-color: white;
+}
+
+.svg-icon-adjusted {
+    position: relative;
+    left: 5px;
+    top: 4px;
+}

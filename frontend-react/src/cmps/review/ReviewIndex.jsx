@@ -50,14 +50,11 @@ export function ReviewIndex({ gig }) {
                 <header className="reviews-header">
                     What people loved about this freelancer
                     <div>
-                        <a href="#">See all reviews</a>
+                        <a href="#Reviews">See all reviews</a>
                     </div>
                 </header>
-                <ReviewList 
-                userReviews={userReviews} 
-                // currentReviewIndex={currentReviewIndex}
-            />
-                        {/* <button onClick={nextReview} className="next-review-button">Next</button> */}
+                <ReviewList userReviews={userReviews.slice(0, 1)} /> //! here later nextReview
+                {/* <button onClick={nextReview} className="next-review-button">Next</button> */}
             </section>
         )
     )

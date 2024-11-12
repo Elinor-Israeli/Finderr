@@ -7,10 +7,10 @@
   input {
     width: 100%;
     padding-right: 48px;
-    font-size: 1.5rem;
+    font-size: 1.85rem;
     border: 1px solid $clr8;
     padding: 10px 48px 10px 16px;
-    border-radius: 4px;
+    border-radius: 12px;
     box-sizing: border-box;
   }
 
@@ -40,6 +40,9 @@
       width: 16px;
       height: 16px;
     }
+
+
+
   }
 
   .search-bar-dim-background {
@@ -47,6 +50,11 @@
   }
 }
 
+input::placeholder {
+  font-size: 24px;
+  color: #888;
+  opacity: 1;
+}
 
 $clr8: #e0e0e0;
 $clr3: #fff;

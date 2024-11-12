@@ -29,11 +29,11 @@ export function Search({ onSetFilter }) {
     }
 
     function onPlaceholder() {
-        let placeholder = 'Find services'
+        let placeholder = 'Search for any service...'
         if (pathname === '/') {
-            placeholder = 'Find services'
+            placeholder = 'Search for any service...'
         } else if (pathname !== '/' && windowSize < 900) {
-            placeholder = 'Find services'
+            placeholder = 'Search for any service...'
         }
         return placeholder
     }

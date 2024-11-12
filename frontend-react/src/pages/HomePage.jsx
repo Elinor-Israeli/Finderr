@@ -91,11 +91,6 @@ export function HomePage({ onSetFilter }) {
         }
     }
 
-
-
-
-
-
     return (
         <section>
             <section className="home-page full main-layout">
@@ -104,7 +99,7 @@ export function HomePage({ onSetFilter }) {
 
                     <div className="main-header full main-layout">
                         <h1 className="hero-msg">
-                            Scale your professional <br />work force with<i className="special-font"> freelance</i>
+                            Scale your professional work force with<i className="special-font"> freelance</i>
                         </h1>
                         <div className="search-bar full main-layout">
                             {/* <input type="text" className="search-input" placeholder="find service" /> */}

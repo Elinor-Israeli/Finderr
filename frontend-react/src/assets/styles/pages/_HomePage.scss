@@ -423,6 +423,10 @@ $padding_max_double: 64px;
     }
 }
 
+.special-font {
+    
+}
+
 .trusted-by {
     // display: flex;
     // justify-content: center;
@@ -479,33 +483,6 @@ ul li img {
     height: 16px;
     
 }
-
-
-
-// .wrapper {
-//     position: relative;
-//     margin-bottom: 32px;
-
-//     @include custom-media-query($max_width, nil) {
-//         margin-bottom: 40px;
-//     }
-// }
-
-// .inner {
-//     scroll-behavior: smooth;
-
-//     @include media-query-grid(md) {
-//         overflow-x: auto;
-//         scroll-snap-type: x mandatory;
-//         scrollbar-width: none;
-
-//         &::-webkit-scrollbar {
-//             width: 0;
-//             height: 0;
-//             background: transparent;
-//         }
-//     }
-// }
 
 .list {
     display: grid;

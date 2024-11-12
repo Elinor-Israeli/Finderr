@@ -104,7 +104,7 @@ export function HomePage({ onSetFilter }) {
 
                     <div className="main-header full main-layout">
                         <h1 className="hero-msg">
-                            Scale your professional <br />work force with<i> freelance</i>
+                            Scale your professional <br />work force with<i className="special-font"> freelance</i>
                         </h1>
                         <div className="search-bar full main-layout">
                             {/* <input type="text" className="search-input" placeholder="find service" /> */}
@@ -171,7 +171,7 @@ export function HomePage({ onSetFilter }) {
                         </ul>
                     </div>
                     <div className="img-container">
-                        <img src={'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_600,dpr_2.0/v1/attachments/generic_asset/asset/089e3bb9352f90802ad07ad9f6a4a450-1599517407052/selling-proposition-still-1400-x1.png'} alt="" />
+                    <img src="/img/homePage-status.png" alt="" />
                         {/* <picture>
                             <source media="(min-width: 1160px)" srcset="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/atta…set/asset/2321104…-1721984733481/fiverr-pro.png 1x, https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_2.0/v1/atta…/asset/2321104…-1721984733469/fiverr-pro_2x.png 2x"></source>
                             <source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_585,dpr_1.0/v1/atta…set/asset/2321104…-1721984733481/fiverr-pro.png 1x, https://fiverr-res.cloudinary.com/q_auto,f_auto,w_585,dpr_2.0/v1/atta…/asset/2321104…-1721984733469/fiverr-pro_2x.png 2x"></source>

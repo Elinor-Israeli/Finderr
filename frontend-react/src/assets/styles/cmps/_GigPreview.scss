@@ -1,104 +1,92 @@
-.gig-preview {
+.gig-preview__container{
     display: flex;
+    position: relative;
     align-items: center;
     flex-direction: column;
     border: 1px solid white;
-    // min-width: rem(225px);
-    //     min-height: rem(300px);
     width: 335px;
-    height: 405px;
+    height: 373.6px; 
+    font-family: 'Macan';
+    
 
-    .img-container {
+    .gig-preview__img-container {
         position: relative;
-        border-radius: 8px;
+        border-radius: 6px;
         overflow: hidden;
-       
     }
 
-    .btn-container {
+    .gig-preview__btn-container-heart {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 23px;
+        right: 17px;
         z-index: 1;
+        height:200px;
     }
 
-
-    .content {
+    .gig-preview__content {
         width: 100%;
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-
-        // .title {
-        //     // title styles
-        // }
-        
-        
     }
 
-    .owner-info {
+    .gig-preview__owner-info {
         display: flex;
-        align-items: center; 
-        // justify-content: space-between; 
-        font-size: rem(14px);
+        align-items: center;
+        font-size: 14px; 
         width: 100%;
-            // margin-top: 10px;
-    
-        img {
-            width: em(25px, 14px);  
-            height: em(25px, 14px); 
-            border-radius: 50%;  
+        // margin-bottom: 3px;
+        
+        .gig-preview__owner-img {
+            width: 25px;  
+            height: 25px; 
+            border-radius: 50%;
             margin-right: 8px; 
-            margin-top: 18px;   
+            margin-top: 14px;
         }
 
-        .owner {
+        .gig-preview__owner {
             display: flex;
-            align-items: center; 
+            align-items: center;
             justify-content: space-between;
-            // flex-direction: row;
             width: 100%;
 
-            .owner-name {
-                // font-family: macan-semibold;
-                margin-top: 15px;  
-                // min-width: 0;
-                white-space: nowrap; 
-
+            .gig-preview__owner-name {
+                margin-top: 10px;
+                white-space: nowrap;
             }
 
-            .owner-level-container {
+            .gig-preview__owner-level-container {
                 display: flex;
                 align-items: center;
                 font-size: 14px;
                 align-self: flex-end;
+                margin-right: -20px; 
 
+                
             }
 
-            .owner-level {
+            .gig-preview__owner-level {
                 display: flex;
                 align-items: center;
                 font-size: 14px;
-                // margin-left: 150px;
-                // background-color: #ffe0b3;
-                color: #222325 ;
+                color: #222325;
                 font-weight: bold;
+                margin-right: 15px;
             }
 
-            .owner-level svg {
-                margin-left: 4px;  // Adjust spacing between level text and stars
+            .gig-preview__owner-level svg {
+                // margin-left: 4px;  
             }
         }
     }
 
-    .rate {
-        font-size: rem(14px);
-        color: $clr4;
-        display: flex;
-        // margin: 8px 0px 0px;
+    .gig-preview__rate {
         font-size: 14px;
+        color: #74767e;  
+        display: flex;
         align-items: center;
-        // margin-top: 8px;
+        margin-top: 8px;
 
         .MuiRating-icon {
             color: black;  
@@ -106,47 +94,42 @@
             margin-bottom: 4px;
         }
 
-        .rate-num {
-            // padding: 0px 0px 0px 4px;
-            color:#222325;
-            // color: red;
+        .gig-preview__rate-num {
+            color: #222325;
             font-size: 16px;
             font-weight: bold;
-        
+            margin-left:5px;
         }
 
-        .ratings-count {
-            // color: $clr6;
-            color: red;
-            font-family: macan-light;
-            // padding: 0px 0px 0px 4px;
+        .gig-preview__ratings-count {
             color: #74767e;
+            font-family: 'Macan-Light', sans-serif;  // Adjusted for more consistent font
             margin-left: 6px;
         }
     }
 
-    .price {
+    .gig-preview__price {
         width: 100%;
-        @include flex;
+        display: flex;
         align-items: flex-end;
         font-size: 1em;
         line-height: 1.3;
-        
-        span {
-            &.price-margin {
-                left: auto;
-                font-weight: bold;
-                color: #222325;
-            }
+
+        .gig-preview__price-margin {
+            left: auto;
+            font-weight: bold;
+            color: #222325;
+            margin-top: 12px;
+
         }
 
         &:hover {
             text-decoration: none;
         }
     } 
-    .long-txt{
-        color:#404145;
-        // font-weight: bold;
+
+    .gig-preview__long-txt {
+        color: #404145;
         font-size: 16px;
     }
 }

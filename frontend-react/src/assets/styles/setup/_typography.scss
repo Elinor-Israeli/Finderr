@@ -53,3 +53,11 @@ $width-breakpoint: 1400px;
 $padded-break-narrow: $narrow-breakpoint + $layoutPadding * 2;
 $padded-break-normal: $normal-breakpoint + $layoutPadding * 2;
 $padded-break-wide: $width-breakpoint + $layoutPadding * 2;
+
+
+  @font-face {
+    font-family: 'Macan';
+    src: url('../../fonts/macan/macan-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }

@@ -15,6 +15,7 @@ import { userService } from '../services/user/user.service.local'
 import { SlideList } from "../cmps/slide/SlideList";
 // import { HomePageSlider } from "./HomePageSlide";
 import { Search } from "../cmps/HederSearch";
+import { gigService } from "../services/gig/gig.service.local";
 
 export function HomePage({ onSetFilter }) {
     const loginUser = userService.getLoggedinUser()
@@ -22,6 +23,7 @@ export function HomePage({ onSetFilter }) {
     const user = useSelector(storeState => storeState.userModule.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const sellingTxts = gigService.getGigSelling()
     const [isModal, setIsModal] = useState(false)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isOrder, setIsOrder] = useState(false)
@@ -107,11 +109,11 @@ export function HomePage({ onSetFilter }) {
                         <div className="search-bar full main-layout">
                             {/* <input type="text" className="search-input" placeholder="find service" /> */}
                             {/* <input type="text" class="search-input w-100" placeholder="Search" /> */}
-{/* <button class="search-btn cursor-pointer m-1">Submit</button>
+                            {/* <button class="search-btn cursor-pointer m-1">Submit</button>
 <textarea class="p-2 w-50" placeholder="Type your message"></textarea> */}
-                            <Search onSetFilter={onSetFilter} />           
-                                         </div>
-                      
+                            <Search onSetFilter={onSetFilter} />
+                        </div>
+
                         <section className="trusted-by">
                             <span>Trusted by: </span>
                             <ul>
@@ -151,6 +153,34 @@ export function HomePage({ onSetFilter }) {
     </video>
 </div>  */}
 
+            </div>
+            <div className="selling-proposition full main-layout">
+                <div className="flex">
+                    <div className="selling-text">
+                        <h2>A whole world of freelance talent at your fingertips</h2>
+                        <ul>
+                            {sellingTxts.map((sellingTxt, idx) =>
+                                <li key={idx}>
+                                    <h6>
+                                        <span className="fa-regular circle-check"></span>
+                                        <span>{sellingTxt.title}</span>
+                                    </h6>
+                                    <p>{sellingTxt.desc}</p>
+                                </li>
+                            )}
+                        </ul>
+                    </div>
+                    <div className="img-container">
+                        <img src={'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_600,dpr_2.0/v1/attachments/generic_asset/asset/089e3bb9352f90802ad07ad9f6a4a450-1599517407052/selling-proposition-still-1400-x1.png'} alt="" />
+                        {/* <picture>
+                            <source media="(min-width: 1160px)" srcset="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/atta…set/asset/2321104…-1721984733481/fiverr-pro.png 1x, https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_2.0/v1/atta…/asset/2321104…-1721984733469/fiverr-pro_2x.png 2x"></source>
+                            <source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_585,dpr_1.0/v1/atta…set/asset/2321104…-1721984733481/fiverr-pro.png 1x, https://fiverr-res.cloudinary.com/q_auto,f_auto,w_585,dpr_2.0/v1/atta…/asset/2321104…-1721984733469/fiverr-pro_2x.png 2x"></source>
+                            <source media="(min-width: 600px)" srcset="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_800,dpr_1.0/v1/atta…set/asset/2321104…-1721984733481/fiverr-pro.png 1x, https://fiverr-res.cloudinary.com/q_auto,f_auto,w_800,dpr_2.0/v1/atta…/asset/2321104…-1721984733469/fiverr-pro_2x.png 2x"></source>
+                            <img src={"https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/atta…set/asset/2321104…-1721984733481/fiverr-pro.png"}/>
+
+                        </picture> */}
+                    </div>
+                </div>
             </div>
             <div className="title-popular">Popular services</div>
             <section className="wrapper-card">

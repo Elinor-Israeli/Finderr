@@ -16,9 +16,10 @@ ul#categories2.categories2 {
 .card-container {
     display: flex;
     flex-direction: column;
-    // align-items: center;
+    align-items: center;
     // width: 100%;
     gap: 10px;
+    color: #222325;;
 
 }
 
@@ -34,7 +35,7 @@ ul#categories2.categories2 {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    gap: 15px;
+    // gap: 15px;
     cursor: pointer;
 
     img {
@@ -61,9 +62,11 @@ ul#categories2.categories2 {
 
     a {
         // background-color: $white;
-        color: black;
+        color: #222325 !important;
         text-decoration: none;
         transition: color 0.2s;
+        font-size: 14px;
+
 
         &:hover {
             // color: $green;
@@ -178,19 +181,19 @@ ul#categories2.categories2 {
 }
 // $blue:blue;
 
-@media only screen and (max-width: 600px) {
-    ul#categories2.categories2 {
-        grid-template-columns: repeat(2, 1fr);
-        margin: 0px 0px 32px;
-    }
-}
+// @media only screen and (max-width: 600px) {
+//     ul#categories2.categories2 {
+//         grid-template-columns: repeat(2, 1fr);
+//         // margin: 0px 0px 32px;
+//     }
+// }
 
-@media only screen and (max-width: 400px) {
-    ul#categories2.categories2 {
-        grid-template-columns: 1fr;
-        margin: 0px 0px 32px;
-    }
-}
+// @media only screen and (max-width: 400px) {
+//     ul#categories2.categories2 {
+//         grid-template-columns: 1fr;
+//         margin: 0px 0px 32px;
+//     }
+// }
 
 
 a:hover {

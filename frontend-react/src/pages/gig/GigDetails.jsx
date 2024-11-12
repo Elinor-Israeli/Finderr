@@ -66,16 +66,19 @@ export function GigDetails({ userReviews }) {
     return <section className="gig-details">
         <div className="gig-details-preview gig-details-info">
             <nav className='nav-links'>
-                <Link to="/"><i style={{ fontFamily: 'macan-light' }}>🏠</i></Link>
+                <Link to="/"><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.666 13.548H3.333a.667.667 0 01-.667-.666v-6h-2L7.552.621a.667.667 0 01.897 0l6.885 6.26h-2v6a.667.667 0 01-.667.666zm-4-1.333H12V5.653L8 2.017 4 5.653v6.562h3.333v-4h1.333v4z" fill="#404145"/></svg></Link>
                 {' / '}
-                <Link to="/graphics-design"><i style={{ fontFamily: 'macan-light' }}>Graphics & design</i></Link>
+                {/* <Link to="/graphics-design"><i style={{ fontFamily: 'macan-light' }}>Graphics & design</i></Link> */}
+                <Link to="/graphics-design">Graphics & design</Link>
                 {' / '}
-                <Link to="/gig"><i style={{ fontFamily: 'macan-light' }}>Logo Design</i></Link>
+                {/* <Link to="/gig"><i style={{ fontFamily: 'macan-light' }}>Logo Design</i></Link> */}
+                <Link to="/gig">Logo Design</Link>
             </nav>
             <h1 className='gig-details-title'>{gig.title}</h1>
             <div className="owner-details">
-                <img src={imgUrl} alt="user-img" />
-                <p style={{ fontFamily: 'macan-light' }}>{fullname}</p>
+                <img className="user-img"src={imgUrl} alt="user-img" />
+                {/* <p style={{ fontFamily: 'macan-light' }}>{fullname}</p> */}
+                <p >{fullname}</p>
                 <p className='owner-level-container'
                     style={{
                         backgroundColor: gig.owner.level === 'level 3' ? '#FFE0B3' : 'inherit',

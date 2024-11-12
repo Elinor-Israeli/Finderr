@@ -42,7 +42,7 @@ export function GigCard({ gig, onSetChat }) {
                         <h2 className="gig-program-price">${gig.price}</h2>
                         <p>Save up to {randomDiscount}% with <span style={{ color: 'green' }}>Subscribe to Save</span></p>
                         <p>
-                            <span className="gig-program-basic"> Basic  1 </span>
+                            {/* <span className="gig-program-basic"> Basic  1 </span> */}
                             {gig.title}
                         </p>
                         <p className="delivery">

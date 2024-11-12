@@ -9,7 +9,7 @@ export function StarRating({ value }) {
             <Rating
                 className="rate star-rating"
                 name="half-rating-read"
-                size="small"
+                size="meduim"
                 value={value}
                 precision={0.5}
                 readOnly

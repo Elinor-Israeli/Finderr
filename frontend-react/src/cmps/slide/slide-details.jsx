@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
+// import { GigCard } from '../gig/GigCard';
 
 export function SlideDetails({ gig }) {
     let slides = gig.imgUrl
@@ -35,13 +36,15 @@ export function SlideDetails({ gig }) {
 
             <a className="prev fa-solid chevron-left" onClick={() => plusSlides(-1)}><IoIosArrowBack /></a>
             <a className="next fa-solid chevron-right" onClick={() => plusSlides(1)}><IoIosArrowForward /></a>
-            <div className="row">
+            <div className="thumbs-containers">
                 {slides.map((slide, index) => {
                     return <div className="column" key={index}>
                         <img className={isDynamic === index ? "demo-active demo cursor " : "demo cursor"} src={slide} onClick={() => currentSlide(index)} />
                     </div>
                 })}
             </div>
+            {/* <GigCard></GigCard> */}
+
         </div>
     </div>
 }

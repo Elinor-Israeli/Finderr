@@ -71,10 +71,10 @@ export function GigPreview({ gig }) {
                             padding: '10px'
                         }}
                     >
-                        {/* <div className="btn-container">
-                <button onClick={onHandleHeart} className="fa-solid heart" title="save to my list" style={heart ? { color: "#f74040", transition: "color .6s ease" } : { color: "#b5b6ba", transition: "color .6s ease" }}></button>
-            </div> */}
-                        {/* <FaRegHeart /> */} //! heart
+                        <div className="btn-container">
+                            <button onClick={onHandleHeart} className="fa-solid heart" title="save to my list" style={heart ? { color: "#f74040", transition: "color .6s ease" } : { color: "#b5b6ba", transition: "color .6s ease" }}></button>
+                        </div>
+                        <FaRegHeart />
                         {/* <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512"

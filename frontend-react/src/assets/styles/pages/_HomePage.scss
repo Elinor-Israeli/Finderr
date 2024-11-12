@@ -456,13 +456,11 @@ ul li img {
     filter: grayscale(0.6) brightness(0.4) sepia(1) hue-rotate(180deg) saturate(50%) contrast(0.8);
   }
 
-// @include media-query-grid(lg) {
-//     gap: 40px;
-
-//     ul {
-//         gap: 40px;
-//     }
-// }
+  @media (max-width: 900px) {
+    .trusted-by {
+        display: none;
+    }
+}
 
 
 .text {

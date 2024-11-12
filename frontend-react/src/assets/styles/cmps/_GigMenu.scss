@@ -41,7 +41,7 @@
         &:hover {
             // box-shadow: inset 0px -3px 0 $clr1;
         }
-        
+
     }
 }
 
@@ -55,6 +55,7 @@ ul::-webkit-scrollbar {
 
 .category-btn {
     display: none;
+    border-bottom: 1px solid #E4E5E7;
 }
 
 @media (max-width: 1345px) {

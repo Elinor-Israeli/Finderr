@@ -57,29 +57,47 @@ export function GigCategoryMenu({ onSetFilter }) {
     return (
         <>
             <div className="categories-menu-package">
-                <nav className="categories-menu-package__menu">
+                <nav className="categories-menu-package__menu app-header-nav">
                     <button
                         className="category-btn fa-solid chevron-left left"
                         onClick={slideLeft}
-                        // disabled={isLeftDisabled}
-                    >dcs
+                    >
+                         //! here
                     </button>
-                    <ul className="categories categories-menu-package__categories" id="categories" ref={CategorysliderRef}>
-                        <li onClick={() => filterByCategory(['graphic-design', 'design', 'logo-design'])}><a>Graphic & Design</a></li>
-                        <li onClick={() => filterByCategory(['digital-marketing', 'digital'])}><a>Digital Marketing</a></li>
-                        <li onClick={() => filterByCategory(['writing-translation', 'translation'])}><a>Writing & Translation</a></li>
-                        <li onClick={() => filterByCategory(['video-animation', 'animation'])}><a>Video & Animation</a></li>
-                        <li onClick={() => filterByCategory(['music-audio', 'audio'])}><a>Music & Audio</a></li>
-                        <li onClick={() => filterByCategory(['programming-tech', 'tech'])}><a>Programming & Tech</a></li>
-                        <li onClick={() => filterByCategory(['business'])}><a>Business</a></li>
-                        <li onClick={() => filterByCategory(['lifestyle'])}><a>Lifestyle</a></li>
-                        <li onClick={() => filterByCategory(['trending'])}><a>Trending</a></li>
+                    <ul className="categories categories-menu-package__categories nav-links" id="categories" ref={CategorysliderRef}>
+                        <li onClick={() => filterByCategory(['graphic-design', 'design', 'logo-design'])}>
+                            <a>Graphic & Design</a>
+                        </li>
+                        <li onClick={() => filterByCategory(['digital-marketing', 'digital'])}>
+                            <a>Digital Marketing</a>
+                        </li>
+                        <li onClick={() => filterByCategory(['writing-translation', 'translation'])}>
+                            <a>Writing & Translation</a>
+                        </li>
+                        <li onClick={() => filterByCategory(['video-animation', 'animation'])}>
+                            <a>Video & Animation</a>
+                        </li>
+                        <li onClick={() => filterByCategory(['music-audio', 'audio'])}>
+                            <a>Music & Audio</a>
+                        </li>
+                        <li onClick={() => filterByCategory(['programming-tech', 'tech'])}>
+                            <a>Programming & Tech</a>
+                        </li>
+                        <li onClick={() => filterByCategory(['business'])}>
+                            <a>Business</a>
+                        </li>
+                        <li onClick={() => filterByCategory(['lifestyle'])}>
+                            <a>Lifestyle</a>
+                        </li>
+                        <li onClick={() => filterByCategory(['trending'])}>
+                            <a>Trending</a>
+                        </li>
                     </ul>
                     <button
                         className="category-btn fa-solid chevron-right right"
                         onClick={slideRight}
-                        // disabled={isRightDisabled}
-                    >dsc
+                    >
+                        //! here
                     </button>
                 </nav>
             </div>

@@ -28,8 +28,14 @@ $breakpoints: (
     }
 }
 
+section.home-page.full.main-layout {
+    // padding: 0px 32px;
+
+}
+
+// .main-layout {
+
 .home-page {
-    // background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449beda884aa8f9f72023e2d8b3fd-1705308514872/hero-lg-x1.png');
     margin: 0 0 16px;
     background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
     justify-content: center;
@@ -41,10 +47,8 @@ $breakpoints: (
     border-radius: 16px;
 
 
-
-
     @include media-query-grid(sm) {
-        padding: 48px 40px;
+        // padding: 48px 40px;
         background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
         background-image: none;
     }
@@ -55,11 +59,12 @@ $breakpoints: (
         background-repeat: no-repeat;
         border-radius: 16px;
         height: 370px;
+
         background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449beda884aa8f9f72023e2d8b3fd-1705308514875/hero-md-x1.png');
     }
 
     @include media-query-grid(lg) {
-        height: 438px;
+        height: 500px;
         background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449beda884aa8f9f72023e2d8b3fd-1705308514872/hero-lg-x1.png');
     }
 
@@ -78,16 +83,168 @@ $breakpoints: (
         }
 
         @include custom-media-query($max_width: 1400px) {
+            height: 500px;
             background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/678686c47c024e18e773c75e90aaab1c-1705999902357/hero-xl.png');
         }
     }
+
+    @media (max-width: 900px) {
+        background-image: none;
+        padding: 0;
+        background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
+    }
 }
+
+// }
+
+$grid_gutters: (
+    xs: 6px,
+    sm: 8px,
+    md: 8px,
+    lg: 16px,
+    xl: 16px
+);
+
+$grid_layouts: 12, 15;
+$grid_breakpoints: 'sm', 'md', 'lg', 'xl';
+
+$page_max_width: 1400px;
+$padding_min: 24px;
+$padding_min_double: 48px;
+$padding_max: 32px;
+$padding_max_double: 64px;
+
+@mixin column($layout, $size) {
+    @for $i from 1 through $layout {
+        >.col-#{$i}-#{$size} {
+            $percent: percentage(calc($i/$layout));
+            flex-basis: $percent;
+            max-width: $percent;
+        }
+    }
+}
+
+@mixin offset($layout, $size) {
+    @for $i from 1 through $layout {
+        >.offset-col-#{$i}-#{$size} {
+            $percent: percentage(calc($i/$layout));
+            margin-left: $percent;
+        }
+    }
+}
+
+@mixin center($size) {
+    &.center-#{$size} {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@mixin gutter($size) {
+    padding: 0 map-get($grid_gutters, $size);
+}
+
+@mixin gutter-compensation($size) {
+    margin-left: -#{map-get($grid_gutters, $size)};
+    margin-right: -#{(map-get($grid_gutters, $size))};
+}
+
+@each $layout in $grid_layouts {
+    .grid-#{$layout} {
+        position: relative;
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 1 auto;
+        flex-flow: row wrap;
+
+        >[class*='col-'] {
+            box-sizing: border-box;
+            flex: 0 0 auto;
+            flex-basis: 100%;
+            max-width: 100%;
+            @include gutter(xs);
+        }
+
+        // The reason xs gets a custom treatment is due to the fact that the grid is `xs` by default
+        // and it does not correspond to any breakpoint, but instead, to the lack thereof
+        @include gutter-compensation(xs);
+        @include column($layout, xs);
+        @include center(xs);
+        @include offset($layout, xs);
+    }
+}
+
+@each $breakpoint in $grid_breakpoints {
+    @include media-query-grid($breakpoint) {
+        @each $layout in $grid_layouts {
+
+            .grid-#{$layout} {
+                @include gutter-compensation($breakpoint);
+                @include column($layout, $breakpoint);
+                @include offset($layout, $breakpoint);
+                @include center($breakpoint);
+
+                >[class*='col-'] {
+                    @include gutter($breakpoint);
+                }
+            }
+        }
+    }
+}
+
+.max-width-container {
+    width: 100%;
+    padding: $padding_min $padding_min $padding_min_double;
+    margin: 0;
+    box-sizing: border-box;
+
+    @include media-query-grid(sm) {
+        padding: $padding_max $padding_max $padding_max_double;
+        margin: 0;
+    }
+
+    @include media-query-grid(lg) {
+        max-width: $page_max_width;
+        margin: 0 auto;
+    }
+
+    @include media-query-grid(xl) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &.equal-padding {
+        padding: $padding_min;
+
+        @include media-query-grid(sm) {
+            padding: $padding_max;
+        }
+
+        @include media-query-grid(xl) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &.fluid {
+        @include media-query-grid(lg) {
+            max-width: none;
+        }
+
+        @include media-query-grid(xl) {
+            padding-left: $padding_max;
+            padding-right: $padding_max;
+        }
+    }
+}
+
 
 .hero-msg {
     font: 32px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 32px;
     line-height: 35.2px;
-    max-width: 628px;
+    max-width: 328px;
+
     letter-spacing: -.04em;
     text-align: center;
     margin: 0 auto;
@@ -109,9 +266,12 @@ $breakpoints: (
 
     h1 {
         color: $clr3;
-        font-size: 2.5rem;
-        font-weight: normal // i {
-        //     padding: .4em;
+        font-size: 2rem;
+        font-weight: 700;
+        font: 32px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+        // @include media-query-grid(sm) {
+        //     font-size: 40px;
         // }
     }
 }
@@ -119,6 +279,8 @@ $breakpoints: (
 .trusted-by {
     // margin-bottom: 6rem;
     // gap: 40px;
+    margin-top: 2rem;
+    // bottom: -2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -262,16 +424,14 @@ $breakpoints: (
 }
 
 .trusted-by {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    opacity: 0.5;
-    bottom: 32px;
-    flex-direction: row;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // position: absolute;
+    // opacity: 0.5;
+    // bottom: 32px;
+    // flex-direction: row;
     gap: 32px;
-    top: 250px;
 
     ul {
         display: flex;
@@ -284,15 +444,42 @@ $breakpoints: (
             display: flex;
             align-items: center;
         }
-    }
 
-    .trusted-by img {
-        width: auto;
-        height: 30px;
-        max-height: 40px;
-        object-fit: contain;
+        img {
+            // color: #62646a;
+                filter: grayscale(0.6) brightness(0.4) sepia(1) hue-rotate(180deg) saturate(50%) contrast(0.8);
+            font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+        }
     }
 }
+
+ul li img {
+  }
+
+  @media (max-width: 900px) {
+    .trusted-by {
+        display: none;
+    }
+}
+
+
+.text {
+    color: $white;
+    font-size: 12px;
+}
+
+
+.trusted-by img {
+    width: auto;
+    height: 30px;
+    max-height: 40px;
+    object-fit: contain;
+    width: 82.42px;
+    aspect-ratio: auto 82.42 / 16;
+    height: 16px;
+    
+}
+
 
 
 // .wrapper {
@@ -727,7 +914,9 @@ $grey: (
 //     width: 25%;
 // }
 
-.btn-gig-search {
-    background-color: white;
-    border-radius: 0px 0.25em 0.25em 0px;
-}
+// .btn-gig-search {
+//     background-color: white;
+//     border-radius: 0px 0.25em 0.25em 0px;
+// }
+
+//!

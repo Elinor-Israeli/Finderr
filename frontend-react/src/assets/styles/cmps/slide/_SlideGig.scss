@@ -38,7 +38,7 @@
     // }
 
     img {
-        position: relative; //! here (the next is moving down on mobile)
+        position: relative; 
     }
 
     .prev,
@@ -47,7 +47,7 @@
         // content: › ;
         position: absolute;
         top: 50%;
-        font-size: 2rem;
+        font-size: 1.25rem;
         color: #fff;
         cursor: pointer;
         z-index: 10;
@@ -93,4 +93,9 @@
     .dot-active {
         background-color: #fff;
     }
+}
+
+.prev.disabled, .next.disabled {
+    opacity: 0;
+    cursor: default;
 }

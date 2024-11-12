@@ -41,6 +41,7 @@ export function GigPreview({ gig }) {
         catch (err) {
             console.log(err)
         }
+        // finally
     }
 
 
@@ -70,7 +71,20 @@ export function GigPreview({ gig }) {
                             padding: '10px'
                         }}
                     >
-                        <FaRegHeart />
+                        {/* <div className="btn-container">
+                <button onClick={onHandleHeart} className="fa-solid heart" title="save to my list" style={heart ? { color: "#f74040", transition: "color .6s ease" } : { color: "#b5b6ba", transition: "color .6s ease" }}></button>
+            </div> */}
+                        {/* <FaRegHeart /> */} //! heart
+                        {/* <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            fill="currentColor"
+                            width="24"
+                            height="24"
+                            style={{ backgroundColor: 'transparent' }}
+                        >
+                            <path d="M462.3 62.7c-54.5-46.4-136-39.4-186.9 16.4l-22.6 25.2-22.6-25.2c-50.9-55.8-132.4-62.8-186.9-16.4-60.4 51.5-65.2 142.4-13.3 202.2L224 464l171.9-198.1c51.8-59.8 47.1-150.7-13.3-202.2z" />
+                        </svg> */}
                     </button>
                 </div>
             </Link>
@@ -98,6 +112,7 @@ export function GigPreview({ gig }) {
                             </span>
                         </div>
                     </div>
+
 
                 </div>
                 <Link className="title" to={`/gig/${gig._id}`}>

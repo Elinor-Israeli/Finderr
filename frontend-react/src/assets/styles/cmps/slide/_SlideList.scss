@@ -24,7 +24,7 @@
 }
 
 .slider-card {
-    height: 345px;
+    height: 245px;
     display: inline-block;
     align-items: center;
     border-radius: 4px;
@@ -32,6 +32,10 @@
 
     :not([overflow]) {
         margin-right: 3%;
+    }
+
+    .img-slide {
+        
     }
 
     img {
@@ -49,6 +53,7 @@
     // Breakpoints- card//
     @media (min-width:1240px) {
         width: 20%;
+    
     }
 
     @media (max-width:1240px) {
@@ -67,7 +72,6 @@
         width: 75%;
     }
 
-    // Text-card//
     h4 {
         font-family: macan-bold;
         font-size: 1.5rem;
@@ -87,7 +91,6 @@
     }
 }
 
-//btn//
 .slide-btn {
     z-index: 2;
     color: $clr5;
@@ -96,7 +99,8 @@
     position: absolute;
     width: 3em;
     height: 3em;
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+    top: -15px;
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
 
     @include for-mobile-layout {
         display: none;
@@ -109,4 +113,11 @@
 
 .prev {
     left: 0;
+}
+
+
+
+.slide-btn:disabled {
+    opacity: 0;
+    pointer-events: none; 
 }

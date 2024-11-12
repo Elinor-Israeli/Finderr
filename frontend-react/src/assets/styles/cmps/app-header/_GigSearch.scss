@@ -1,0 +1,251 @@
+.gig-search {
+    display: flex;
+    width: 100%;
+  
+    input {
+      font-size: 1rem;
+      border: 1px solid $clr8;
+      padding: em(10px, 16px) em(2px, 16px) em(10px, 16px) 1em;
+      border-radius: .25em 0 0 .25em;
+    }
+  
+    &:focus-visible {
+      outline: none;
+    }
+  
+    // .btn-gig-search {
+    //   width: fit-content;
+    //   // background-color: $clr2;
+    //   color: $clr3;
+    //   border-radius: 16px;
+    //   padding: em(8px, 16px) 1em;
+    //   transition: 70ms cubic-bezier(.75, 0, .25, 1);
+    // }
+  }
+
+
+  $clr8: #e0e0e0;
+  $clr3: #fff;
+  $grey: (
+    500: #b3b3b3,
+    600: #8c8c8c,
+    800: #4d4d4d,
+    1000: #333333,
+    1200: #1a1a1a
+  );
+  $black: #000000;
+  $size: 32px;
+  $fade-in-background-color: rgba(map-get($grey, 1200), 0.65);
+  
+  // Functions
+  @function em($px, $base: 16) {
+    @return #{$px / $base}em;
+  }
+  
+  // Mixin for Media Queries
+  @mixin media-query-grid($size) {
+    @if $size == sm {
+      @media (max-width: 600px) {
+        @content;
+      }
+    }
+    @else if $size == md {
+      @media (max-width: 768px) {
+        @content;
+      }
+    }
+    @else if $size == lg {
+      @media (max-width: 1024px) {
+        @content;
+      }
+    }
+  }
+  $grey: (
+    500: #b3b3b3,
+    600: #8c8c8c,
+    800: #4d4d4d,
+    1000: #333333,
+    1200: #1a1a1a
+  );
+  
+  .search-bar-package {
+    .search-form {
+      input {
+        border-color: map-get($grey, 500); // Correctly getting color from map
+      }
+  
+      &:focus {
+        border-color: map-get($grey, 800); // Another example for focus state
+      }
+    }
+  }
+  
+  
+
+  
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.search-bar-dim-background {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: $black;
+    z-index: 99;
+    transition: all .1s ease-in-out;
+}
+
+.search-bar-package {
+    .search-form {
+        display: flex;
+        position: relative;
+        height: 42px;
+
+        &.button-inside input {
+            border-right-width: 1px;
+
+            &.pro {
+                border-right-width: 1px;
+            }
+
+            &:focus {
+                border-right-width: 1px;
+            }
+        }
+
+        input {
+            font-size: 16px;
+            flex: 1 1 auto;
+            padding: 10px 2px 10px 16px;
+            border-radius: 4px;
+            border-color: map-get($grey, 500);
+                        box-shadow: none;
+            z-index: 3;
+
+            &.long-placeholder {
+                display: none;
+            }
+
+            &.pro {
+                border-right-width: 0;
+                border-radius: 4px 0 0 4px;
+            }
+
+            @include media-query-grid(md) {
+                border-right-width: 0;
+                border-radius: 4px 0 0 4px;
+
+                &.short-placeholder {
+                    display: none;
+                }
+
+                &.long-placeholder {
+                    display: block;
+                }
+            }
+
+            &::placeholder {
+              color: map-get($grey, 800);
+                        }
+
+            &:focus {
+              border-color: map-get($grey, 800);
+                              box-shadow: none;
+
+                ~ .focused-animation {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: $fade_in_background_color;
+                    z-index: 2;
+                    animation: fadeInOpacity .3s ease-in;
+                }
+
+                @include media-query-grid(lg) {
+                    border-right-width: 0;
+                }
+            }
+
+            &::-webkit-search-cancel-button {
+                -webkit-appearance: none;
+                $size: 32px;
+                height: $size;
+                width: $size;
+                cursor: pointer;
+                // background-image: url('../../assets/clear_button_sprite.svg');
+                background-position: 0 0;
+
+                &:hover {
+                    background-position: $size 0;
+                }
+            }
+        }
+
+        button {
+            display: none;
+            flex-shrink: 0;
+            z-index: 3;
+            padding: 8px 16px;
+
+            &.pro {
+                border-radius: 0 4px 4px 0;
+            }
+
+            @include media-query-grid(md) {
+                display: block;
+                font-size: 14px;
+                text-shadow: none;
+                border-radius: 0 4px 4px 0;
+            }
+        }
+
+        .search-bar-icon {
+            position: absolute;
+            z-index: 5;
+            top: 13px;
+            left: 13px;
+        }
+
+        &.search-icon-shown {
+            input {
+                padding-left: 40px;
+            }
+        }
+
+        &.button-inside {
+            height: 52px;
+
+            input {
+                border-radius: 12px;
+                padding-right: 48px;
+            }
+
+            @include media-query-grid(lg) {
+                height: 60px;
+
+                input {
+                    padding-right: 58px;
+                }
+            }
+        }
+
+        &.dark {
+            input {
+              border-color: map-get($grey, 600);     
+              border-color: map-get($grey, 1000);
+                &:focus {
+                  border-color: map-get($grey, 1200);
+                  border-color: map-get($grey, 1000);                }
+            }
+        }
+    }
+}

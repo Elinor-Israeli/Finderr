@@ -35,14 +35,20 @@ export function SlideGigPreview({ gig }) {
 
         <div className="gig-preview-img">
             <div className="image-container">
-                <div className="prev" onClick={(ev) => plusSlides(ev, -1)}>
-                    <IoIosArrowBack />
-                </div>
+            <div 
+    className={`prev ${slideIndex === 0 ? 'disabled' : ''}`} 
+    onClick={(ev) => plusSlides(ev, -1)} 
+>
+    <IoIosArrowBack />
+</div>
                 <img src={slides[slideIndex]} alt="Gig Preview" className='image-slides' />
 
-                <div className="next" onClick={(ev) => plusSlides(ev, 1)}>
-                    <IoIosArrowForward />
-                </div>
+                <div 
+    className={`next ${slideIndex === slides.length - 1 ? 'disabled' : ''}`} 
+    onClick={(ev) => plusSlides(ev, 1)} 
+>
+    <IoIosArrowForward />
+</div>
             </div>
             <ul className="dot-container">
                 {slides.map((slide, slideIndex) => (

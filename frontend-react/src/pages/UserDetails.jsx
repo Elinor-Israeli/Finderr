@@ -37,7 +37,7 @@ export function UserDetails() {
           {user.fullname}
         </h3>
         <img src={user.imgUrl} style={{ width: '100px' }} />
-        <pre> {JSON.stringify(user, null, 2)} </pre>
+        <pre> {JSON.stringify(user, null, 4)} </pre>
       </div>}
     </section>
   )

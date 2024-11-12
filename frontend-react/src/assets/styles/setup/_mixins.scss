@@ -29,3 +29,11 @@
     justify-content: space-between;
     align-items: center;
 }
+
+@mixin media-query-grid($breakpoint) {
+    @if $breakpoint == md {
+        @media (min-width: 768px) { @content; }
+    } @else if $breakpoint == lg {
+        @media (min-width: 1024px) { @content; }
+    }
+ }

@@ -98,13 +98,13 @@ export function HomePage({ onSetFilter }) {
         <section>
             <section className="home-page full main-layout">
 
-                <div className="hero-container">
+                <div className="hero-container full main-layout">
 
-                    <div className="main-header">
+                    <div className="main-header full main-layout">
                         <h1 className="hero-msg">
                             Scale your professional <br />work force with<i> freelance</i>
                         </h1>
-                        <div className="search-bar">
+                        <div className="search-bar full main-layout">
                             {/* <input type="text" className="search-input" placeholder="find service" /> */}
                             {/* <input type="text" class="search-input w-100" placeholder="Search" /> */}
 {/* <button class="search-btn cursor-pointer m-1">Submit</button>

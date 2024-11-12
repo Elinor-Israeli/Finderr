@@ -1,27 +1,51 @@
 .gig-search {
-    display: flex;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  input {
     width: 100%;
-  
-    input {
-      font-size: 1rem;
-      border: 1px solid $clr8;
-      padding: em(10px, 16px) em(2px, 16px) em(10px, 16px) 1em;
-      border-radius: .25em 0 0 .25em;
-    }
-  
-    &:focus-visible {
-      outline: none;
-    }
-  
-    // .btn-gig-search {
-    //   width: fit-content;
-    //   // background-color: $clr2;
-    //   color: $clr3;
-    //   border-radius: 16px;
-    //   padding: em(8px, 16px) 1em;
-    //   transition: 70ms cubic-bezier(.75, 0, .25, 1);
-    // }
+    padding-right: 48px;
+    font-size: 1rem;
+    border: 1px solid $clr8;
+    padding: 10px 48px 10px 16px;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
+
+  .btn-gig-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: green;
+      width: 32px; 
+      height: 32px;  
+      border-radius: 10px;
+    }
+
+    svg {
+      fill: $black !important; 
+      width: 16px; 
+      height: 16px;
+    }
+  }
+
+  .search-bar-dim-background {
+    /* additional styles if needed */
+  }
+}
 
 
   $clr8: #e0e0e0;

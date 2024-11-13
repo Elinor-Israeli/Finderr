@@ -2,13 +2,24 @@ $white: #ffffff;
 $grey: #b0b0b0;
 $green: #32a852;
 
-
+@media only screen and (min-width: 1620px) {
+    ul#categories2.categories2 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; 
+        gap: 15px; 
+        padding: 20px;
+        margin: 0 0 32px;
+    }
+}
 
 ul#categories2.categories2 {
-    display: flex;  
+    display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 15px; 
+    justify-content: center;
+    gap: 15px;
     padding: 20px;
     margin: 0px 0px 32px;
 }
@@ -18,8 +29,9 @@ ul#categories2.categories2 {
     flex-direction: column;
     align-items: center;
     // width: 100%;
-    gap: 10px;
-    color: #222325;;
+    // gap: 10px;
+    color: #222325;
+    ;
 
 }
 
@@ -93,108 +105,106 @@ ul#categories2.categories2 {
     }
 }
 
-
+//!  text-align: center  + same hight 
 
 @media only screen and (max-width: 900px) {
-ul#categories2.categories2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-    padding: 20px;
-    margin: 0px 0px 32px;
-    justify-content: center;  
-    align-content: center; 
-}
-
-.card-container {
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // width: 100%;
-    justify-content: center;  
-    align-content: center; 
-    gap: 10px;
-}
-
-.card {
-    display: inline-block;
-    width: 105px;
-    height: 88px;
-    margin: 10px;
-    padding: 25px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    // background-color: #f8f8f8;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    gap: 15px;
-    cursor: pointer;
-
-    img {
-        height: 40px;
-        mix-blend-mode: darken;
-        width: 40px;
+    ul#categories2.categories2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+        row-gap: 24px;
+        padding: 20px;
+        margin: 0px 0px 32px;
+        justify-content: center;
+        align-content: center;
     }
 
-    .card a {
-        color: #333;
-        text-decoration: none;
-        font-weight: bold;
+    ul#categories2.categories2 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        gap: 15px; 
+        gap: 15px;
+        padding: 20px;
+        margin: 0px 0px 32px;
     }
+    
+    // .card-container {
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     flex-wrap: wrap;
+    //     width: 100%;
+    //     // gap: 10px;
+    //     color: #222325;
+    //     ;
+    // }
 
-    .card:hover {
-        transform: scale(1.05);
-    }
+    .card {
+        display: inline-block;
+        width: 105px;
+        height: 88px;
+        margin: 10px;
+        // padding: 25px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f8f8f8;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        row-gap: 24px;
+        cursor: pointer;
 
-    a {
-        background-color: $white;
-        color: black;
-        text-decoration: none;
-        transition: color 0.2s;
-
-        a:hover {
-            color: $green;
-            text-decoration: none ;
+        img {
+            height: 40px;
+            mix-blend-mode: darken;
+            width: 40px;
         }
 
-        &:hover,
-        &:active,
-        &:focus {
-            outline: none; 
+        .card a {
+            color: #333;
             text-decoration: none;
+            font-weight: bold;
+            display: block;
+            text-align: center ;
         }
 
-        &.link-blue,
-        &.link-blue:hover {
-            // color: $blue;  // Apply blue color for .link-blue class
+        .card:hover {
+            transform: scale(1.05);
         }
 
-        &[disabled] {
+        a {
+            background-color: $white;
+            color: black;
             text-decoration: none;
-            color: $grey;
-            cursor: default;
-            pointer-events: none;
+            transition: color 0.2s;
+            text-align: center;
+
+            a:hover {
+                color: $green;
+                text-decoration: none;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                outline: none;
+                text-decoration: none;
+            }
+
+            &.link-blue,
+            &.link-blue:hover {
+                // color: $blue;  // Apply blue color for .link-blue class
+            }
+
+            &[disabled] {
+                text-decoration: none;
+                color: $grey;
+                cursor: default;
+                pointer-events: none;
+            }
         }
     }
 }
-}
-// $blue:blue;
-
-// @media only screen and (max-width: 600px) {
-//     ul#categories2.categories2 {
-//         grid-template-columns: repeat(2, 1fr);
-//         // margin: 0px 0px 32px;
-//     }
-// }
-
-// @media only screen and (max-width: 400px) {
-//     ul#categories2.categories2 {
-//         grid-template-columns: 1fr;
-//         margin: 0px 0px 32px;
-//     }
-// }
-
 
 a:hover {
     text-decoration: none;
@@ -202,7 +212,7 @@ a:hover {
 
 li.card:hover {
     background: rgb(239,254,239);
-    background: linear-gradient(90deg, rgba(239,254,239,1) 0%, rgba(174,250,174,1) 50%, rgba(233,251,233,1) 100%);
+    background: linear-gradient(90deg, rgba(239,254,239,1) 0%, rgba(203,246,203,1) 50%, rgba(233,251,233,1) 100%);
 }
 
 .prev,

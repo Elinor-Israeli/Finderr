@@ -37,10 +37,10 @@ export function SlideList({onSetFilter}) {
         }
     }
 
-    const checkSliderPosition = () => {
+   function checkSliderPosition(){
         const slider = sliderRef.current
-        setIsAtStart(slider.scrollLeft === 0) // Check if at the start
-        setIsAtEnd(slider.scrollLeft + slider.clientWidth === slider.scrollWidth) // Check if at the end
+        setIsAtStart(slider.scrollLeft === 0) 
+        setIsAtEnd(slider.scrollLeft + slider.clientWidth === slider.scrollWidth) 
     }
 
     useEffect(() => {
@@ -54,21 +54,57 @@ export function SlideList({onSetFilter}) {
         }
     }, [slides])
 
-    return <section className="main-slider-container">
-        <button className="slide-btn fa-solid chevron-left prev" onClick={slideLeft}  disabled={isAtStart} ></button>
-        <ul className="slider" ref={sliderRef}>
-            {slides.map((slide, idx) =>
-                <div className="slider-card" key={idx} onClick={() => filterByCategory(["graphic-design", "design", "logo-design"])}>
-                    <h4>
-                        <small>{slide.desc}</small>
-                        {slide.category}
-                    </h4>
-                    <div className="img-slide">
-                        <img src={slide.url} alt="" />
-                    </div>
-                </div>
-            )}
-        </ul>
-        <button className="slide-btn fa-solid chevron-right next" onClick={slideRight} disabled={isAtEnd} ></button>
-    </section>
+    const categoryColors = {
+        'Website': '#00732e',
+        'Logo Design': '#ff7640',
+        'SEO': '#003912',
+        'Architecture &': '#4d1727',
+        'Social Media': '#687200',
+        'Voice Over': '#421300',
+        'UGC Videos': '#be5272',
+        'Software': '#254200',
+        'ML': '#8f2900',
+        'Product': '#687200',
+        'Marketing': '#00732e',
+    }
+
+    return (
+        <section className="main-slider-container">
+            <button
+                className="slide-btn fa-solid chevron-left prev"
+                onClick={slideLeft}
+                disabled={isAtStart}
+            ></button>
+            <ul className="slider" ref={sliderRef}>
+                {slides.map((slide, idx) => {
+                    //* the background color based on the category
+                    const backgroundColor = categoryColors[slide.category] || '#FFFFFF'; // default 
+    
+                    return (
+                        <li 
+                            className="slider-item" 
+                            key={idx} 
+                            style={{ backgroundColor }} 
+                        >
+                            <div onClick={() => filterByCategory(["graphic-design", "design", "logo-design"])}>
+                            <div className="card-content">
+                                    <h4>{slide.category}</h4>
+                                    <p>{slide.desc}</p>
+                                </div>
+                                <div className="img-slide-list">
+                                    <img className="img-slide-list" src={slide.url} alt={slide.desc || "Slide Image"} />
+                                </div>
+                               
+                            </div>
+                        </li>
+                    )
+                })}
+            </ul>
+            <button
+                className="slide-btn fa-solid chevron-right next"
+                onClick={slideRight}
+                disabled={isAtEnd}
+            ></button>
+        </section>
+    )
 }

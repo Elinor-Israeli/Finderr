@@ -24,7 +24,10 @@
 }
 
 .slider-card {
-    height: 245px;
+    // height: 245px;
+    // height: 120px !important;
+    width: 160px !important;
+    margin: 0;
     display: inline-block;
     align-items: center;
     border-radius: 4px;
@@ -34,15 +37,13 @@
         margin-right: 3%;
     }
 
-    .img-slide {
-        
-    }
+    .img-slide {}
 
     img {
         img {
             width: em(20px, 14px);
-            height: em(20px, 14px); 
-            border-radius: 50%; 
+            height: em(20px, 14px);
+            border-radius: 50%;
         }
 
         &:hover {
@@ -53,7 +54,7 @@
     // Breakpoints- card//
     @media (min-width:1240px) {
         width: 20%;
-    
+
     }
 
     @media (max-width:1240px) {
@@ -100,7 +101,7 @@
     width: 3em;
     height: 3em;
     top: -15px;
-        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
 
     @include for-mobile-layout {
         display: none;
@@ -119,5 +120,87 @@
 
 .slide-btn:disabled {
     opacity: 0;
-    pointer-events: none; 
+    pointer-events: none;
 }
+
+.main-slider-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 20px;
+    gap: 10px;
+    list-style-type: none;
+}
+
+
+.slider-item {
+    min-height: 262px;
+    min-width: 200px;
+    border-radius: 9.45px;
+    padding: 12px 4px 4px;
+    margin: 12px 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+
+        .img-slide-list {
+            border-radius: 16px;
+            display: block;
+            position: relative;
+        }
+
+        .img-slide-list img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 65px;
+            margin-bottom: auto !important;
+        }
+
+        img.img-slide-list {
+            // width: 100%;
+            // height: auto;
+            // display: block;
+            border-radius: 65px;
+            margin-top: 10px ;
+        }
+
+        &:hover {
+            opacity: 0.88;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        @include media-query-grid(md) {
+            margin: 12px 4px;
+            min-height: 235px;
+            width: 188px;
+            padding: 25px 6px 6px;
+            border-radius: 16px;
+        }
+    }
+}
+
+// .slider-item .card .img-slide-list img {
+//     width: 100%;
+//     height: auto;
+//     display: block;
+//     border-radius: 65px; 
+//     margin-top: 10px; 
+//     // margin-top: auto !important; 
+// }

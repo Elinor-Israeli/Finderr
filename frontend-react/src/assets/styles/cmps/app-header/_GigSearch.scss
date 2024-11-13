@@ -7,10 +7,10 @@
   input {
     width: 100%;
     padding-right: 48px;
-    font-size: 1.5rem;
+    font-size: 1.85rem;
     border: 1px solid $clr8;
     padding: 10px 48px 10px 16px;
-    border-radius: 4px;
+    border-radius: 12px;
     box-sizing: border-box;
   }
 
@@ -30,8 +30,8 @@
       align-items: center;
       justify-content: center;
       background-color: #003912;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       border-radius: 10px;
     }
 
@@ -40,6 +40,9 @@
       width: 16px;
       height: 16px;
     }
+
+
+
   }
 
   .search-bar-dim-background {
@@ -47,6 +50,11 @@
   }
 }
 
+input::placeholder {
+  font-size: 24px;
+  color: #888;
+  opacity: 1;
+}
 
 $clr8: #e0e0e0;
 $clr3: #fff;
@@ -62,9 +70,9 @@ $size: 32px;
 $fade-in-background-color: rgba(map-get($grey, 1200), 0.65);
 
 // Functions
-@function em($px, $base: 16) {
-  @return #{$px / $base}em;
-}
+// @function em($px, $base: 16) {
+//   @return #{$px / $base}em;
+// }
 
 // Mixin for Media Queries
 @mixin media-query-grid($size) {

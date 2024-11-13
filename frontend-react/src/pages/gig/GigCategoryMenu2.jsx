@@ -47,15 +47,14 @@ export function CategoryMenu2({ onSetFilter }) {
     }, [])
 
     const categories = [
-        { tags: ["programming-tech", "tech"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/programming-tech-thin.56382a2.svg", title: "Programming & Tech" },
-        { tags: ["graphics-design"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/graphics-design-thin.ff38893.svg", title: "Graphics & Design" },
-        { tags: ["digital-marketing"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/digital-marketing-thin.68edb44.svg", title: "Digital Marketing" },
-        { tags: ["writing-translation"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/writing-translation-thin.fd3699b.svg", title: "Writing & Translation" },
-        { tags: ["video-animation"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/video-animation-thin.9d3f24d.svg", title: "Video & Animation" },
-        { tags: ["ai-services"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/ai-services-thin.104f389.svg", title: "AI Services" },
+        { tags: ["graphics-design"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/graphics-design-thin.ff38893.svg", title: <>Graphics<br />& Design</> },
+        { tags: ["digital-marketing"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/digital-marketing-thin.68edb44.svg", title: <>Digital<br />Marketing</> },
+        { tags: ["writing-translation"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/writing-translation-thin.fd3699b.svg", title: <>Writing<br />& Translation</> },
+        { tags: ["video-animation"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/video-animation-thin.9d3f24d.svg", title: <>Video<br />& Animation</> },
+        { tags: ["ai-services"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/ai-services-thin.104f389.svg", title: "AI Services"},
         { tags: ["music-audio"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/music-audio-thin.43a9801.svg", title: "Music & Audio" },
-        { tags: ["business"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/business-thin.885e68e.svg", title: "Business" },
-        { tags: ["consulting"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/consulting-thin.d5547ff.svg", title: "Consulting" }
+        { tags: ["business"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/business-thin.885e68e.svg", title: <>Business</> },
+        { tags: ["consulting"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/consulting-thin.d5547ff.svg", title: <>Consulting</> }
     ]
 
     function filterByCategory(tags) {
@@ -91,7 +90,7 @@ export function CategoryMenu2({ onSetFilter }) {
             <div className={`${linesSetDisplay}`}></div>
             <nav className={`${categoryMenuClassName}`}>
                 {isWideScreen && (
-                    <button className="category-btn fa-solid chevron-left left"  onClick={slideLeft}  >
+                    <button className="category-btn left" onClick={slideLeft}  >
                         <IoIosArrowBack />
                     </button>
                 )}

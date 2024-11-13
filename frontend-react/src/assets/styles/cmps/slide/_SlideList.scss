@@ -16,17 +16,6 @@
         }
     }
 
-    // @media (min-width: 768px) {
-    //     .popular-services p {
-    //         min-height: 100px;  /* Adjust the min-height for tablet screens and above */
-    //     }
-    // }
-
-    // @media (min-width: 1024px) {
-    //     .popular-services p {
-    //         min-height: 120px;  /* Adjust the min-height for larger screens */
-    //     }
-    // }
 }
 
 
@@ -125,7 +114,7 @@
         padding: .6em;
         z-index: 4;
         cursor: pointer;
-        line-height: 130%;
+        line-height: 14;
     }
 
     small {
@@ -376,11 +365,3 @@ div.card-content {
 }
 
 
-// .slider-item .card .img-slide-list img {
-//     width: 100%;
-//     height: auto;
-//     display: block;
-//     border-radius: 65px; 
-//     margin-top: 10px; 
-//     // margin-top: auto !important; 
-// }

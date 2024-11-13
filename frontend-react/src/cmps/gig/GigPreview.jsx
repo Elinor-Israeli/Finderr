@@ -100,6 +100,7 @@ export function GigPreview({ gig }) {
                 <Link className="gig-preview__title" to={`/gig/${gig._id}`}>
                     <div className="gig-preview__long-txt">
                         <span>{getTxtToShow(gig.title, 55)}</span>
+                        {/* <p>{gig.title2}</p> */}
                     </div>
                 </Link>
 

@@ -78,7 +78,7 @@ ul#categories2.categories2 {
 
     a {
         // background-color: $white;
-        font-family: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
         color: #222325 !important;
         text-decoration: none;
         transition: color 0.2s;
@@ -115,7 +115,6 @@ ul#categories2.categories2 {
     }
 }
 
-//!  text-align: center  + same hight 
 
 @media only screen and (max-width: 900px) {
     ul#categories2.categories2 {

@@ -5,7 +5,6 @@
 
     .index-header-container {
         width: 1400px;
-        // background-color: green;
         display: flex;
         justify-content: space-between;
         padding: 20px 0px;
@@ -14,10 +13,58 @@
             font-size: 34px;
             font-weight: bold;
 
-            .logo-text {}
-
             .logo-dot {
                 color: #1dbf73;
+            }
+        }
+
+        .index-search {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 5px;
+            width: 70%; 
+            max-width: 600px; 
+            font-size: 14px;
+            padding: 0 10px; 
+
+            .search-index-input {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                border: 1px solid #c5c6c9;
+                color: #62646a;
+                border-radius: 5px;
+                
+
+                input {
+                    width: 100%; 
+                    height: 45px; 
+                    border: none;
+                    outline: none;
+                    padding: 0 10px; 
+                }
+
+                input::placeholder{
+                    font-family: 'Macan';
+                    font-size: 16px;
+
+                }
+            }
+
+            .btn-index-search {
+                width: 50px;
+                height: 45px; 
+                background-color: #222325;
+                color: white;
+                cursor: pointer;
+                margin-left: 15px; 
+                border-radius: 0 4px 4px 0;
+
+                svg {
+                    color: white;
+                }
             }
         }
 
@@ -26,9 +73,10 @@
             align-items: center;
             gap: 24px;
             font-weight: 500;
+
             &:hover {
                 cursor: pointer;
-                color:  #17A55A;
+                color: #17A55A;
             }
 
             .join-btn-index-header {
@@ -49,6 +97,5 @@
                 }
             }
         }
-
     }
 }

@@ -125,14 +125,18 @@
             transform: translateY(-50%) translateX(0);
             cursor: pointer;
         }
+        // .icon-next,
+        // .icon-prev {
+        //     opacity: 1;
+        // }
 
         .dot {
             background-color: $clr3;
         }
 
-        // +.gig-preview__long-txt {
-        //     text-decoration: underline ;
-        // }
+        +.gig-preview__long-txt {
+            text-decoration: underline ;
+        }
     }
 
     img {
@@ -203,3 +207,4 @@
     cursor: default;
     display: none;
 }
+

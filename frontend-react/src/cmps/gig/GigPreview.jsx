@@ -11,18 +11,18 @@ export function GigPreview({ gig }) {
     const [heart, setHeart] = useState(false)
 
     useEffect(() => {
-        
+
         if (user && gig.wishList.includes(user._id)) {
             setHeart(true)
         } else {
             setHeart(false)
         }
-    }, [user, gig.wishList]) 
+    }, [user, gig.wishList])
 
-   
+
     const onHandleHeart = async (ev) => {
         // console.log('check');
-        
+
         ev.preventDefault()
         ev.stopPropagation()
 
@@ -30,22 +30,22 @@ export function GigPreview({ gig }) {
             const updatedGig = { ...gig }
             const userIndex = updatedGig.wishList.indexOf(user._id)
 
-           
+
             if (userIndex > -1) {
-                updatedGig.wishList.splice(userIndex, 1) 
+                updatedGig.wishList.splice(userIndex, 1)
                 setHeart(false)
             } else {
-                updatedGig.wishList.push(user._id) 
+                updatedGig.wishList.push(user._id)
                 setHeart(true)
             }
 
-            await updateGig(updatedGig) 
+            await updateGig(updatedGig)
         } catch (err) {
             console.log("Error updating wishlist:", err)
         }
     }
 
-    
+
     const getTxtToShow = (txt, length) => {
         return txt.length < length ? txt : `${txt.substring(0, length)}...`
     }
@@ -59,7 +59,7 @@ export function GigPreview({ gig }) {
                 width="9"
                 height="9"
                 fill={idx < levelNumber ? "black" : "gray"}
-                style={{ marginLeft: "3px",marginTop: "3px" }}
+                style={{ marginLeft: "3px", marginTop: "3px" }}
             >
                 <path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z" />
             </svg>
@@ -73,11 +73,11 @@ export function GigPreview({ gig }) {
                 <div className="gig-preview__btn-container-heart">
                     <button onClick={onHandleHeart}>
                         {/* Conditionally render heart images based on `heart` state */}
-                        <img 
-                            src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"} 
-                            alt="Heart" 
-                            className="heart-img" 
-                           
+                        <img
+                            src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
+                            alt="Heart"
+                            className="heart-img"
+
                         />
                     </button>
                 </div>
@@ -100,6 +100,7 @@ export function GigPreview({ gig }) {
                 <Link className="gig-preview__title" to={`/gig/${gig._id}`}>
                     <div className="gig-preview__long-txt">
                         <span>{getTxtToShow(gig.title, 55)}</span>
+                        {/* {gig.title2 && gig.title2.trim() !== "\u200B" && <p>{gig.title2}</p>} */}
                         {/* <p>{gig.title2}</p> */}
                     </div>
                 </Link>

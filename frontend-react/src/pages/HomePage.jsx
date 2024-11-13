@@ -94,7 +94,6 @@ export function HomePage({ onSetFilter }) {
     return (
         <section>
             <section className="home-page full main-layout">
-
                 <div className="hero-container full main-layout">
 
                     <div className="main-header full main-layout">

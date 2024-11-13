@@ -7,12 +7,13 @@
   input {
     width: 100%;
     padding-right: 48px;
-    font-size: 1.85rem;
+    font-size: 1.65rem;
     border: 1px solid $clr8;
     padding: 10px 48px 10px 16px;
     border-radius: 12px;
     box-sizing: border-box;
   }
+
 
   .btn-gig-search {
     position: absolute;
@@ -51,7 +52,7 @@
 }
 
 input::placeholder {
-  font-size: 24px;
+  font-size: 20px;
   color: #888;
   opacity: 1;
 }

@@ -80,12 +80,12 @@ function getGigSlides() {
         },
         {
             url:"https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156494/logo-design.png" ,
-            desc: '',
+            desc: "\u200B",
             category: 'Logo Design'
         },
         {
             url:"https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156488/seo.png",
-            desc: '',
+            desc: "\u200B",
             category: 'SEO'
         },
         {
@@ -100,12 +100,12 @@ function getGigSlides() {
         },
         {
             url:"https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156479/voice-over.png", 
-            desc: '',
+            desc: "\u200B",
             category: 'Voice Over'
         },
         {
             url:"https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/ece24f7f595e2dd44b26567705d1c600-1728279781879/UGC%20Video%20img.png",
-            desc: '',
+            desc: "\u200B",
             category: 'UGC Videos'
         },
         {
@@ -130,7 +130,7 @@ function getGigSlides() {
         },
         {
             url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156494/video-editing.png",
-            desc: ' ',
+            desc: "\u200B",
             category: 'Video Editing'
         }
     ]

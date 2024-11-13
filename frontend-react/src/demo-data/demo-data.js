@@ -271,8 +271,9 @@ const gigs = [
             "https://fiverr-res.cloudinary.com/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/177060719/original/78e6e31851506281169ac7d6732df3b972d5035f.jpg"
         ],
         "tags": [
-            "video-animation",
-            "animation"
+            "graphic-design",
+            "design",
+            "logo-design"
         ]
     },
     {

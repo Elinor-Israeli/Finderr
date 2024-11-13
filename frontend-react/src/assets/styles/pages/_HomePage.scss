@@ -589,9 +589,9 @@ $size: 32px;
 $fade-in-background-color: rgba(map-get($grey, 1200), 0.65);
 
 // Functions
-@function em($px, $base: 16) {
-    @return #{$px / $base}em;
-}
+// @function em($px, $base: 16) {
+//     @return #{$px / $base}em;
+// }
 
 // Mixin for Media Queries
 @mixin media-query-grid($size) {

@@ -18,7 +18,7 @@ ul#categories2.categories2 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    // justify-content: center;
+    justify-content: center;
     gap: 15px;
     padding: 20px;
     margin: 0px 0px 32px;
@@ -29,7 +29,7 @@ ul#categories2.categories2 {
     flex-direction: column;
     align-items: center;
     // width: 100%;
-    gap: 10px;
+    // gap: 10px;
     color: #222325;
     ;
 
@@ -105,32 +105,43 @@ ul#categories2.categories2 {
     }
 }
 
-
+//!  text-align: center  + same hight 
 
 @media only screen and (max-width: 900px) {
     ul#categories2.categories2 {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
-        gap: 15px;
+        row-gap: 24px;
         padding: 20px;
         margin: 0px 0px 32px;
         justify-content: center;
         align-content: center;
     }
 
-    .card-container {
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        // width: 100%;
-        justify-content: center;
-        align-content: center;
-        gap: 10px;
+    ul#categories2.categories2 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        gap: 15px; 
+        gap: 15px;
+        padding: 20px;
+        margin: 0px 0px 32px;
     }
+    
+    // .card-container {
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     flex-wrap: wrap;
+    //     width: 100%;
+    //     // gap: 10px;
+    //     color: #222325;
+    //     ;
+    // }
 
     .card {
         display: inline-block;
-        max-width: 105px;
+        width: 105px;
         height: 88px;
         margin: 10px;
         // padding: 25px;
@@ -140,7 +151,7 @@ ul#categories2.categories2 {
         text-align: center;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
-        gap: 15px;
+        row-gap: 24px;
         cursor: pointer;
 
         img {
@@ -153,6 +164,8 @@ ul#categories2.categories2 {
             color: #333;
             text-decoration: none;
             font-weight: bold;
+            display: block;
+            text-align: center ;
         }
 
         .card:hover {
@@ -164,6 +177,7 @@ ul#categories2.categories2 {
             color: black;
             text-decoration: none;
             transition: color 0.2s;
+            text-align: center;
 
             a:hover {
                 color: $green;

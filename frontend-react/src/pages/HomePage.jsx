@@ -23,7 +23,7 @@ export function HomePage({ onSetFilter }) {
     const user = useSelector(storeState => storeState.userModule.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const sellingTxts = gigService.getGigSelling()
+    const sellingTxt = gigService.getGigSelling()
     const [isModal, setIsModal] = useState(false)
     const [isDropdown, setIsDropdown] = useState(false)
     const [isOrder, setIsOrder] = useState(false)
@@ -154,7 +154,7 @@ export function HomePage({ onSetFilter }) {
                     <div className="selling-text">
                         <h2>A whole world of freelance talent at your fingertips</h2>
                         <ul>
-                            {sellingTxts.map((sellingTxt, idx) =>
+                            {sellingTxt.map((sellingTxt, idx) =>
                                 <li key={idx}>
                                     <h6>
                                         <span className="fa-regular circle-check"></span>

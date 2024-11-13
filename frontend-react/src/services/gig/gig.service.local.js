@@ -89,7 +89,7 @@ function getGigSlides() {
             category: 'SEO'
         },
         {
-            url:"https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156488/seo.png", 
+            url:"https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156473/architecture-design.png", 
             desc: 'Interlor Design',
             category: 'Architecture &' 
         },
@@ -139,20 +139,20 @@ function getGigSlides() {
 function getGigSelling() {
     return [
         {
-            title: 'The best for every budget',
-            desc: 'Find high-quality services at every price point. No hourly rates, just project-based pricing.'
+            title: 'Dedicated hiring experts',
+            desc: 'Count on an account manager to find you the right talent and see to your project’s every need.'
         },
         {
-            title: 'Quality work done quickly',
-            desc: 'Find the right freelancer to begin working on your project within minutes.'
+            title: 'Satisfaction guarantee',
+            desc: 'Order confidently, with guaranteed refunds for less-than-satisfactory deliveries.'
         },
         {
-            title: 'Protected payments, every time',
-            desc: 'Always know what you\'ll pay upfront. Your payment isn\'t released until you approve the work.'
+            title: 'Advanced management tools',
+            desc: 'Seamlessly integrate freelancers into your team and projects.'
         },
         {
-            title: '24/7 support',
-            desc: 'Questions? Our round-the-clock support team is available to help anytime, anywhere.'
+            title: 'Flexible payment models',
+            desc: 'Pay per project or opt for hourly rates to facilitate longer-term collaboration.'
         }
     ]
 }

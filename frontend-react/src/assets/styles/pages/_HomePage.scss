@@ -782,27 +782,35 @@ $grey: (
     background-color: #f1fdf7;
     padding: em(48px) 0;
     margin-bottom: em(48px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: em(48px);
+    align-items: center;
+    justify-items: center;
 
     .img-container {
-        flex-basis: 53%;
+        grid-column: 1 / -1; 
+        max-width: 100%;
+        display: none;
+        align-items: flex-start;
     }
 
     img {
         border-radius: em(4px, 16px);
+        width: 100%;
+        height: auto;
     }
 
-    .flex {
-        flex-direction: column;
-        align-items: center;
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: em(16px);
+        width: 100%;
     }
 
     @include for-narrow-layout {
         padding: em(64px) 0;
         margin-bottom: em(80px);
-
-        .flex {
-            flex-direction: row;
-        }
     }
 
     @include for-normal-layout {
@@ -811,11 +819,72 @@ $grey: (
     }
 }
 
+@media (min-width: 900px) {
+    .selling-proposition {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .selling-text {
+        grid-column: span 1;
+        margin-bottom: em(20px);
+    }
+
+    .selling-text:nth-child(1), .selling-text:nth-child(2) {
+        grid-column: span 1;
+    }
+
+    .selling-text:nth-child(3), .selling-text:nth-child(4) {
+        grid-column: span 1;
+    }
+
+    .grid {
+        display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+        gap: em(16px);
+        width: 100%;
+
+        ul {
+            display: flex;
+        }
+    }
+}
+
+@media (min-width: 1160px) {
+    .selling-proposition {
+        grid-template-columns: repeat(3, 1fr); 
+        grid-template-areas: 
+            "text1 text2 text3"
+            "text4 text5 img";
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr; /* Three columns on large screens */
+        gap: em(48px); /* Larger gap for larger screens */
+    }
+
+    .selling-text {
+        grid-column: span 1; /* Each text block takes up one column */
+    }
+
+    .img-container {
+        display: block;
+        margin-left: 2%;
+        max-width: 100%;
+        grid-column: span 1;
+    }
+}
+
 .selling-text {
     color: #404145;
     font-size: 1.125rem;
     padding-right: 7%;
-    flex-basis: 46%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+        margin-bottom: 1em;
+    }
 
     h6 {
         font-family: macan-bold;

@@ -150,33 +150,41 @@ export function HomePage({ onSetFilter }) {
 
             </div>
             <div className="selling-proposition full main-layout">
-                <div className="flex">
-                    <div className="selling-text">
-                        <h2>A whole world of freelance talent at your fingertips</h2>
-                        <ul>
-                            {sellingTxt.map((sellingTxt, idx) =>
-                                <li key={idx}>
-                                    <h6>
-                                        <span className="fa-regular circle-check"></span>
-                                        <span>{sellingTxt.title}</span>
-                                    </h6>
-                                    <p>{sellingTxt.desc}</p>
-                                </li>
-                            )}
-                        </ul>
-                    </div>
-                    <div className="img-container">
-                    <img src="/img/homePage-status.png" alt="" />
-                        {/* <picture>
-                            <source media="(min-width: 1160px)" srcset="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/atta…set/asset/2321104…-1721984733481/fiverr-pro.png 1x, https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_2.0/v1/atta…/asset/2321104…-1721984733469/fiverr-pro_2x.png 2x"></source>
-                            <source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_585,dpr_1.0/v1/atta…set/asset/2321104…-1721984733481/fiverr-pro.png 1x, https://fiverr-res.cloudinary.com/q_auto,f_auto,w_585,dpr_2.0/v1/atta…/asset/2321104…-1721984733469/fiverr-pro_2x.png 2x"></source>
-                            <source media="(min-width: 600px)" srcset="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_800,dpr_1.0/v1/atta…set/asset/2321104…-1721984733481/fiverr-pro.png 1x, https://fiverr-res.cloudinary.com/q_auto,f_auto,w_800,dpr_2.0/v1/atta…/asset/2321104…-1721984733469/fiverr-pro_2x.png 2x"></source>
-                            <img src={"https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/atta…set/asset/2321104…-1721984733481/fiverr-pro.png"}/>
+    <div className="grid">
+        <div className="selling-text">
+            <h2>The <span className="premium-green">premium</span> freelance solution for businesses</h2>
+            <ul>
+                {sellingTxt.slice(0, 2).map((sellingTxt, idx) =>
+                    <li key={idx}>
+                        <h6>
+                            <span className="circle-check"></span>
+                            <span>{sellingTxt.title}</span>
+                        </h6>
+                        <p>{sellingTxt.desc}</p>
+                    </li>
+                )}
+            </ul>
+        </div>
 
-                        </picture> */}
-                    </div>
-                </div>
-            </div>
+        <div className="selling-text">
+            <ul>
+                {sellingTxt.slice(2, 4).map((sellingTxt, idx) =>
+                    <li key={idx}>
+                        <h6>
+                            <span className="circle-check"></span>
+                            <span>{sellingTxt.title}</span>
+                        </h6>
+                        <p>{sellingTxt.desc}</p>
+                    </li>
+                )}
+            </ul>
+        </div>
+
+        <div className="img-container">
+            <img src="/img/homePage-status.png" alt="Image description" />
+        </div>
+    </div>
+</div>
             <div className="title-popular">Popular services</div>
             <section className="wrapper-card">
                 <div className="wrapper pink-medium">

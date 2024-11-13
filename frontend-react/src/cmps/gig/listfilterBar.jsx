@@ -94,8 +94,8 @@ export function TopFilterBar({ onSetFilter }) {
                 <span onClick={handleClickDelivery}>Delivery Time</span>
                 <svg
                     className="svg-icon-adjusted"
-                    width="16"
-                    height="16"
+                    width="130"
+                    height="13"
                     viewBox="0 0 11 7"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -197,8 +197,8 @@ export function TopFilterBar({ onSetFilter }) {
                 <span onClick={handleClickPrice}>Budget</span>
                 <svg
                     className="svg-icon-adjusted"
-                    width="16"
-                    height="16"
+                    width="13"
+                    height="13"
                     viewBox="0 0 11 7"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"

@@ -1,6 +1,6 @@
 .top-filter-bar {
     @include flex;
-    // z-index: 1111;
+    
 
     .active-filter {
         background-color: #e8faf4;
@@ -11,9 +11,7 @@
     .filter-daysToMake-btns {
         align-items: center;
         border-top: 1px solid #e4e5e7;
-        // display: -webkit-box;
-        // display: -webkit-flex;
-        // display: -ms-flexbox;
+        
         display: flex;
         gap: 16px;
         justify-content: space-between;
@@ -47,13 +45,15 @@
     }
 
     .filter-menu {
-        font-family: macan-bold;
+        font-family: 'Macan';
         margin-inline-end: em(12px);
-        padding: em(6px) em(12px);
-        border-radius: em(4px);
+        padding: em(16px) em(102px);
+        border-radius: em(5px);
         border: 1px solid $clr7;
         cursor: pointer;
         position: relative;
+        width: 100px;
+        height: 100px;
     }
 }
 

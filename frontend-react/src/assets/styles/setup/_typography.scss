@@ -61,3 +61,17 @@ $padded-break-wide: $width-breakpoint + $layoutPadding * 2;
     font-weight: normal;
     font-style: normal;
   }
+
+  @font-face {
+    font-family: 'Macan-light';
+    src: url('../../fonts/macan/macan-regular.woff2') format('woff2');
+    font-weight: lighter;
+    font-style: normal;
+  }
+
+  // @font-face {
+  //   font-family: 'Macan-lighter';
+  //   src: url('../../fonts/macan/macan-semibold.woff2') format('woff2');
+  //   font-weight: lighter;
+  //   font-style: normal;
+  // }

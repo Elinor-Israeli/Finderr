@@ -54,6 +54,7 @@
             .gig-preview__owner-name {
                 margin-top: 10px;
                 white-space: nowrap;
+                color:#222325;
             }
 
             .gig-preview__owner-level-container {
@@ -72,17 +73,15 @@
                 font-size: 14px;
                 color: #222325;
                 font-weight: bold;
-                margin-right: 15px;
+                margin-right: 20px;
             }
 
-            .gig-preview__owner-level svg {
-                // margin-left: 4px;  
-            }
+            
         }
     }
 
     .gig-preview__rate {
-        font-size: 14px;
+        font-size: 16px;
         color: #74767e;  
         display: flex;
         align-items: center;
@@ -103,7 +102,6 @@
 
         .gig-preview__ratings-count {
             color: #74767e;
-            font-family: 'Macan-Light', sans-serif;  // Adjusted for more consistent font
             margin-left: 6px;
         }
     }
@@ -131,5 +129,11 @@
     .gig-preview__long-txt {
         color: #404145;
         font-size: 16px;
+        
+        // font-family: 'Macan-light';
+        position: relative;
+        &:hover {
+            text-decoration: underline;
     }
+}
 }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 // import { GigSort } from '../../cmps/gig/GigSort'
+import { GigBreadcrumbs } from '../../cmps/gig/GigBreadcrumbs'
 
 import { GigList } from '../../cmps/gig/GigList'
 import { TopFilterBar } from '../../cmps/gig/listfilterBar'
@@ -119,7 +120,8 @@ export function GigIndex() {
 
     return (
         <section className="gig-index full main-layout">
-          <h1>   
+              <GigBreadcrumbs />
+          <h1 className='headline-name'>   
             {
               searchParams.get('title') && searchParams.get('title') !== ''
                 ? `Results for "${searchParams.get('title')}"`
@@ -129,6 +131,8 @@ export function GigIndex() {
             }
           </h1>
           {/* <span style={{fontSize:'300px',zIndex:'8999999999'}}>Icons!</span>   */}
+          <p className="topic-explain">Let us help you give your brand the best minimalist logo design by hiring an expert minimalist logo designer.
+</p>
           <div className={`${filterAndSort}`}>
             <div className="filter-sort-container">
               <TopFilterBar onSetFilter={onSetFilter} />
@@ -136,11 +140,11 @@ export function GigIndex() {
             </div>
           </div>
 
-          {gigs.length > 0 ? (
+          {/* {gigs.length > 0 ? (
             <p>{gigs.length} services available</p>
           ) : (
             <p>We are sorry. We were not able to find a match</p>
-          )}
+          )} */}
 
           {gigs && <GigList gigs={gigs} />}
         </section>

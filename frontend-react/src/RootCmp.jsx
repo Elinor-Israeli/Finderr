@@ -5,7 +5,7 @@ import { HomePage } from './pages/HomePage'
 import { GigIndex } from './pages/gig/GigIndex'
 import { GigDetails } from './pages/gig/GigDetails'
 import { AppFooter } from './cmps/AppFooter'
-import { AppHeader} from './cmps/AppHeader'
+// import { AppHeader} from './cmps/AppHeader'
 import { IndexHeader} from './cmps/IndexHeader'
 // import { GigBreadcrumbs } from './cmps/gig/GigBreadcrumbs'
 

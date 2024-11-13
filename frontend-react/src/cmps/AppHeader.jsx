@@ -114,7 +114,7 @@ export function AppHeader() {
                     <Link className="gig-header-link sign-in-btn">Sign in</Link>
                     <Link className="join-btn">Join</Link>
                     </nav>
-                {pathname !== '/' && <Search onSetFilter={onSetFilter} />}
+                {/* {pathname !== '/' && <Search onSetFilter={onSetFilter} />} */}
             </div>
 
         </nav>

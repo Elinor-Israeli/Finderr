@@ -15,12 +15,18 @@
         overflow: hidden;
     }
 
+    .heart-img{
+        aspect-ratio: unset; 
+
+    }
+
     .gig-preview__btn-container-heart {
         position: absolute;
         top: 23px;
         right: 17px;
         z-index: 1;
         height:200px;
+      
     }
 
     .gig-preview__content {
@@ -130,8 +136,8 @@
         color: #404145;
         font-size: 16px;
         
-        // font-family: 'Macan-light';
-        position: relative;
+        font-family: 'Macan-light', sans-serif;
+                position: relative;
         &:hover {
             text-decoration: underline;
     }

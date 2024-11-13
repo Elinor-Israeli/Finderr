@@ -77,6 +77,7 @@ export function GigPreview({ gig }) {
                             src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"} 
                             alt="Heart" 
                             className="heart-img" 
+                           
                         />
                     </button>
                 </div>

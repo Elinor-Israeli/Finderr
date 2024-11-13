@@ -140,11 +140,11 @@ export function GigIndex() {
             </div>
           </div>
 
-          {/* {gigs.length > 0 ? (
-            <p>{gigs.length} services available</p>
+          {gigs.length > 0 ? (
+            <p>{gigs.length}+ results</p>
           ) : (
             <p>We are sorry. We were not able to find a match</p>
-          )} */}
+          )}
 
           {gigs && <GigList gigs={gigs} />}
         </section>

@@ -23,6 +23,7 @@
     @media (min-width: $normal-breakpoint) {
         grid-template-columns: repeat(4, 1fr);
         grid-column-gap: 24px;
+        row-gap: 40px;
         }
 
     // @media (min-width: $width-breakpoint) {

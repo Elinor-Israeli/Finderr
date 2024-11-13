@@ -98,7 +98,7 @@ export function AppFooter() {
                                 <li><a href="#">Online Courses</a></li>
                                 <li><a href="#">Working Not Working</a></li>
                             </ul> */}
-                        {/* </Accordion> */} //! here Accordion
+                        {/* </Accordion> */}
                     {/* </div> */}
                 </div>
                 <hr />

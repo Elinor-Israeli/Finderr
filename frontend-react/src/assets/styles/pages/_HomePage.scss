@@ -88,7 +88,7 @@ section.home-page.full.main-layout {
         }
     }
 
- 
+
 }
 
 @media (max-width: 900px) {
@@ -98,9 +98,9 @@ section.home-page.full.main-layout {
         background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
     }
 
-    .hero-msg > h1 {
-        line-height: 1.2 !important; 
-        max-width: 360px !important; 
+    .hero-msg>h1 {
+        line-height: 1.2 !important;
+        max-width: 360px !important;
         font-size: 40px !important;
         font-weight: 400 !important;
         font-family: Macan, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -263,7 +263,7 @@ $padding_max_double: 64px;
     font-size: 32px;
     line-height: 35.2px;
     max-width: 328px;
-    color: #62646a !important;
+    // color: #62646a ;
     letter-spacing: -.04em;
     text-align: center;
     margin: 0 auto;
@@ -287,13 +287,44 @@ $padding_max_double: 64px;
         color: $clr3;
         font-size: 2rem;
         font-weight: 700;
-        font: 32px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+        font: 40px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
 
         // @include media-query-grid(sm) {
         //     font-size: 40px;
         // }
     }
 }
+
+@media (min-width: 1160px) {
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        margin: 0;
+        padding: $layoutPadding;
+        gap: 48px;
+        max-width: 600px; 
+
+        h1 {
+            color: $clr3;
+            font-size: 2rem; 
+            font-weight: 700;
+            font: 60px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+            line-height: 1.2; 
+            text-align: center;
+            max-width: 100%;
+        }
+    }
+
+    .special-font {
+        font-family: "TestDomaineDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 60px !important;
+    }
+}
+
 
 .trusted-by {
     // margin-bottom: 6rem;
@@ -303,7 +334,7 @@ $padding_max_double: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
 }
 
 .main-content {
@@ -445,7 +476,7 @@ $padding_max_double: 64px;
 
 .special-font {
     font-family: "TestDomaineDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight:400;
+    font-weight: 400;
     font-size: 32px;
 }
 
@@ -473,16 +504,15 @@ $padding_max_double: 64px;
 
         img {
             // color: #62646a;
-                filter: grayscale(0.6) brightness(0.4) sepia(1) hue-rotate(180deg) saturate(50%) contrast(0.8);
+            filter: grayscale(0.6) brightness(0.4) sepia(1) hue-rotate(180deg) saturate(50%) contrast(0.8);
             font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
         }
     }
 }
 
-ul li img {
-  }
+ul li img {}
 
-  @media (max-width: 900px) {
+@media (max-width: 900px) {
     .trusted-by {
         display: none;
     }
@@ -503,7 +533,7 @@ ul li img {
     width: 82.42px;
     aspect-ratio: auto 82.42 / 16;
     height: 16px;
-    
+
 }
 
 .list {
@@ -778,31 +808,39 @@ $grey: (
 
 //!
 
+
 .selling-proposition {
     background-color: #f1fdf7;
     padding: em(48px) 0;
     margin-bottom: em(48px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
 
     .img-container {
-        flex-basis: 53%;
+        flex-basis: 45%;
+        max-width: 100%;
+        display: none;
     }
 
     img {
         border-radius: em(4px, 16px);
+        width: 100%;
+        height: auto;
     }
 
     .flex {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
     }
 
     @include for-narrow-layout {
         padding: em(64px) 0;
         margin-bottom: em(80px);
-
-        .flex {
-            flex-direction: row;
-        }
     }
 
     @include for-normal-layout {
@@ -811,11 +849,59 @@ $grey: (
     }
 }
 
+@media (min-width: 900px) {
+    .selling-proposition .flex {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .selling-text {
+        flex-basis: 48%;
+        margin-bottom: em(20px);
+    }
+
+    .selling-text:nth-child(1),
+    .selling-text:nth-child(2) {
+        flex-basis: 48%;
+    }
+
+    .selling-text:nth-child(3),
+    .selling-text:nth-child(4) {
+        flex-basis: 48%;
+    }
+}
+
+// @media (min-width: 1160px) {
+//     .selling-proposition .img-container {
+//         display: block;
+//     }
+
+//     .flex {
+//         flex-direction: row;
+//         justify-content: space-between;
+//     }
+
+//     .selling-text {
+//         flex-basis: 30%;
+//     }
+
+//     .img-container {
+//         flex-basis: 30%;
+//         margin-left: 2%;
+//     }
+// }
+
 .selling-text {
     color: #404145;
     font-size: 1.125rem;
     padding-right: 7%;
-    flex-basis: 46%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+        margin-bottom: 1em;
+    }
 
     h6 {
         font-family: macan-bold;
@@ -830,4 +916,65 @@ $grey: (
         margin-right: 0.56em;
         color: $clr5;
     }
+}
+
+
+@media (min-width: 900px) {
+    .selling-proposition {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .selling-text {
+        grid-column: span 1;
+        margin-bottom: 20px;
+    }
+
+    .selling-text:nth-child(1),
+    .selling-text:nth-child(2) {
+        /* These two items will be in the first column */
+    }
+
+    .selling-text:nth-child(3),
+    .selling-text:nth-child(4) {}
+
+    .img-container {
+        grid-column: span 2;
+    }
+}
+
+@media (min-width: 1160px) {
+
+    .selling-proposition .img-container {
+        display: block;
+    }
+
+    .selling-proposition {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 16px;
+    }
+
+    .selling-text {
+        grid-column: span 1;
+        margin-bottom: 20px;
+    }
+
+    .selling-text:nth-child(1),
+    .selling-text:nth-child(2) {
+        /* These two items will be in the first column */
+    }
+
+    .selling-text:nth-child(3),
+    .selling-text:nth-child(4) {}
+
+    .img-container {
+        grid-column: span 1;
+    }
+}
+
+.header-container-header-img {
+    grid-column: span 1;
 }

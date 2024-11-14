@@ -1,23 +1,29 @@
-.gig-preview__container{
+
+.gig-preview__container {
     display: flex;
     position: relative;
-    align-items: center;
+    align-items: flex-start;  
     flex-direction: column;
     border: 1px solid white;
     width: 335px;
-    height: 373.6px; 
+    height: 100%;  
+    min-height: 400px;  
     font-family: 'Macan';
-    
+    background-color: #fff;
+    padding: 16px;
+    box-sizing: border-box;
 
     .gig-preview__img-container {
         position: relative;
         border-radius: 6px;
         overflow: hidden;
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
     }
 
-    .heart-img{
-        aspect-ratio: unset; 
-
+    .heart-img {
+        aspect-ratio: unset;
     }
 
     .gig-preview__btn-container-heart {
@@ -25,121 +31,128 @@
         top: 23px;
         right: 17px;
         z-index: 1;
-        height:200px;
-      
     }
 
     .gig-preview__content {
         width: 100%;
         display: flex;
-        justify-content: space-between;
         flex-direction: column;
-    }
-
-    .gig-preview__owner-info {
-        display: flex;
-        align-items: center;
-        font-size: 14px; 
-        width: 100%;
-        // margin-bottom: 3px;
+        justify-content: space-between;
+        flex-grow: 1;  
+        margin-top: 10px;  
         
-        .gig-preview__owner-img {
-            width: 25px;  
-            height: 25px; 
-            border-radius: 50%;
-            margin-right: 8px; 
-            margin-top: 14px;
-        }
-
-        .gig-preview__owner {
+        .gig-preview__owner-info {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            font-size: 14px;
             width: 100%;
-
-            .gig-preview__owner-name {
-                margin-top: 10px;
-                white-space: nowrap;
-                color:#222325;
-            }
-
-            .gig-preview__owner-level-container {
-                display: flex;
-                align-items: center;
-                font-size: 14px;
-                align-self: flex-end;
-                margin-right: -20px; 
-
-                
-            }
-
-            .gig-preview__owner-level {
-                display: flex;
-                align-items: center;
-                font-size: 14px;
-                color: #222325;
-                font-weight: bold;
-                margin-right: 20px;
-            }
-
+            margin-bottom: 8px;  
             
+            .gig-preview__owner-img {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                margin-right: 8px;
+                margin-top: 14px;
+            }
+
+            .gig-preview__owner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+
+                .gig-preview__owner-name {
+                    margin-top: 10px;
+                    white-space: nowrap;
+                    color: #222325;
+                }
+
+                .gig-preview__owner-level-container {
+                    display: flex;
+                    align-items: center;
+                    font-size: 14px;
+                    margin-right: -20px;
+                }
+
+                .gig-preview__owner-level {
+                    display: flex;
+                    align-items: center;
+                    font-size: 14px;
+                    color: #222325;
+                    font-weight: bold;
+                    margin-right: 20px;
+                }
+            }
         }
-    }
 
-    .gig-preview__rate {
-        font-size: 16px;
-        color: #74767e;  
-        display: flex;
-        align-items: center;
-        margin-top: 8px;
-
-        .MuiRating-icon {
-            color: black;  
-            margin-right: 4px;  
-            margin-bottom: 4px;
-        }
-
-        .gig-preview__rate-num {
-            color: #222325;
-            font-size: 16px;
-            font-weight: bold;
-            margin-left:5px;
-        }
-
-        .gig-preview__ratings-count {
-            color: #74767e;
-            margin-left: 6px;
-        }
-    }
-
-    .gig-preview__price {
-        width: 100%;
-        display: flex;
+       .gig-rate-price{
         align-items: flex-end;
-        font-size: 1em;
-        line-height: 1.3;
 
-        .gig-preview__price-margin {
-            left: auto;
-            font-weight: bold;
-            color: #222325;
-            margin-top: 12px;
-
+        .gig-preview__rate, 
+        .gig-preview__price {
+            margin-top: auto;  
         }
 
-        &:hover {
-            text-decoration: none;
-        }
-    } 
+        .gig-preview__rate {
+            font-size: 16px;
+            color: #74767e;
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+            
 
-    .gig-preview__long-txt {
-        color: #404145;
-        font-size: 16px;
+            .MuiRating-icon {
+                color: black;
+                margin-right: 4px;
+                margin-bottom: 4px;
+            }
+
+            .gig-preview__rate-num {
+                color: #222325;
+                font-size: 16px;
+                font-weight: bold;
+                margin-left: 5px;
+            }
+
+            .gig-preview__ratings-count {
+                color: #74767e;
+                margin-left: 6px;
+            }
+        }
+
+        .gig-preview__price {
+            width: 100%;
+            display: flex;
+            // align-items: flex-end;
+            font-size: 1em;
+            line-height: 1.3;
+
+            .gig-preview__price-margin {
+                left: auto;
+                font-weight: bold;
+                color: #222325;
+                margin-top: 12px;
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+       }
         
-        font-family: 'Macan-light', sans-serif;
-                position: relative;
-        &:hover {
-            text-decoration: underline;
+
+        .gig-preview__long-txt {
+            color: #404145;
+            font-size: 16px;
+            font-family: 'Macan-light', sans-serif;
+            position: relative;
+            line-height: 1.5; 
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
-}
+

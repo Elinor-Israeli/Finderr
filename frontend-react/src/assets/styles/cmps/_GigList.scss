@@ -1,36 +1,23 @@
 
+
 .gig-list {
     display: grid;
     margin-bottom: 3rem;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr); 
     align-items: center;
     justify-items: center;
     gap: 1rem;
-    // min-height: 100vh;
 
-   
 
     @media (min-width: $mobile-breakpoint) {
-        grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 24px;
+        grid-template-columns: repeat(2, 1fr); 
     }
 
     @media (min-width: $narrow-breakpoint) {
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: 24px;
+        grid-template-columns: repeat(3, 1fr); 
     }
 
     @media (min-width: $normal-breakpoint) {
-        grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: 24px;
-        row-gap: 40px;
-        }
-
-    // @media (min-width: $width-breakpoint) {
-    //     grid-template-columns: repeat(4, 1fr);
-    //     max-width: $width-breakpoint;
-    //     gap: 2.22rem;
-    //     // row-gap: 24px;
-    // }
+        grid-template-columns: repeat(4, 1fr); 
+    }
 }
-

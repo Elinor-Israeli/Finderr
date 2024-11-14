@@ -505,7 +505,7 @@
                         font-weight: 700;
                         margin-right: 8px;
                         cursor: pointer;
-                        margin-left: 10px;
+                        // margin-left: 10px;
 
                         &:hover {
                             text-decoration: underline;
@@ -522,7 +522,7 @@
                         box-sizing: border-box;
                         color: #222325;
                         font-size: 14px;
-                        margin: 0 0 1em;
+                        // margin: 0 0 1em;
 
                         .level {
                             font-size: 14px;
@@ -542,11 +542,7 @@
                     flex-direction: row;
                     align-items: center;
                     gap: 16px;
-                    margin-top: 50px;
-                    margin-left: -175px;
-
-
-
+                    
 
                     .MuiBox {
                         display: inline-flex;

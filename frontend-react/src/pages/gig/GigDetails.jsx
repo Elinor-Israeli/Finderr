@@ -70,39 +70,42 @@ export function GigDetails({ userReviews }) {
                 <h1 className='gig-details-title'>{gig.title}</h1>
                 <div className="user">
                     <img src={imgUrl} alt="user-img" className="profile-picture" />
-
-                    <div className="user-name-level">
-                        <span className="user-name">{fullname}</span>
-                        <div className="user-level">
-                            <div className="level">
-                                {gig.owner.level === 'level 3' ? 'Top Rated' : ` ${gig.owner.level}`}
+                    <div className="user-info">
+                        <div className="user-name-level">
+                            <span className="user-name">{fullname}</span>
+                            <div className="user-level">
+                                <div className="level">
+                                    {gig.owner.level === 'level 3' ? 'Top Rated' : ` ${gig.owner.level}`}
+                                </div>
+                                <div className="level-icons">
+                                    {[...Array(3)].map((_, idx) => (
+                                        <svg
+                                            key={idx}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 10 10"
+                                            width="10"
+                                            height="10"
+                                            fill={idx < levelNumber ? "black" : "gray"}
+                                            style={{ marginLeft: "4px" }}
+                                            className='owner-level-preview'
+                                        >
+                                            <path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z" />
+                                        </svg>
+                                    ))}
+                                </div>
                             </div>
-                            <div className="level-icons">
-                                {[...Array(3)].map((_, idx) => (
-                                    <svg
-                                        key={idx}
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 10 10"
-                                        width="10"
-                                        height="10"
-                                        fill={idx < levelNumber ? "black" : "gray"}
-                                        style={{ marginLeft: "4px" }}
-                                        className='owner-level-preview'
-                                    >
-                                        <path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z" />
-                                    </svg>
-                                ))}
-                            </div>
+                        </div>
+                        <div className="stars">
+                            <StarRating value={gig.owner.rate} />
+                            <span className="reviews-num">
+                                ({userReviews ? userReviews.length : 1}  reviews)
+                            </span>
                         </div>
                     </div>
 
-                    <div className="stars">
-                        <StarRating value={gig.owner.rate} />
-                        <span className="reviews-num">
-                            ({userReviews ? userReviews.length : 1}  reviews)
-                        </span>
-                    </div>
                 </div>
+
+
                 <div className="thumbnail">
                     <SlideDetails gig={gig} />
                 </div>

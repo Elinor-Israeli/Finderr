@@ -3,6 +3,7 @@ import React from "react";
 // import { Accordion } from "../Accordion/Accordion.jsx";
 export function AppFooter() {
     return ([
+        <section className="footer-container">
         <div className="footer">
             <div className="container">
                 <div className="top">
@@ -104,7 +105,7 @@ export function AppFooter() {
                 <hr />
                 <div className="bottom">
                     <div className="left">
-                        <h2>fiverr</h2>
+                        <h2 className="left">fiverr</h2>
                         <span className="footer-logo">© Fiverr International Ltd. 2024</span>
                     </div>
                     <div className="right">
@@ -131,6 +132,7 @@ export function AppFooter() {
                 </div>
             </div>
         </div>
+        </section>
     ])
 }
 // export default Footer; //! here layout on mobile

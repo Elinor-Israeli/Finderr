@@ -92,7 +92,7 @@ export function HomePage({ onSetFilter }) {
     }
 
     return (
-        <section>
+        <section className="full main-layout">
             <section className="home-page full main-layout">
                 <div className="hero-container full main-layout">
 
@@ -133,7 +133,7 @@ export function HomePage({ onSetFilter }) {
 </div> */}
 
             </div>
-            <section>
+            <section className="full main-layout">
                 <div className="selling-proposition full main-layout">
 
                     <div className="selling-text">

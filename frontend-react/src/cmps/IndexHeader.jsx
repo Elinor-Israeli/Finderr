@@ -1,12 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
 
 // import { Search } from './HederSearch'
 import { SET_FILTER } from '../store/reducers/gig.reducer'
 // import { GigCategoryMenu } from './gig/GigCategoryMenu'
 
 import { useEffect, useRef, useState } from 'react'
-
 
 import { userService } from '../services/user/user.service.local'
 import { gigService } from '../services/gig/gig.service.local'

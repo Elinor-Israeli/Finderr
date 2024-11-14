@@ -1,7 +1,14 @@
-import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+// import { Search } from './HederSearch'
+import { SET_FILTER } from '../store/reducers/gig.reducer'
+// import { GigCategoryMenu } from './gig/GigCategoryMenu'
 
 import { useEffect, useRef, useState } from 'react'
+
+
+import { userService } from '../services/user/user.service.local'
 import { gigService } from '../services/gig/gig.service.local'
 
 export function IndexHeader({ onSetFilter }) {
@@ -9,6 +16,11 @@ export function IndexHeader({ onSetFilter }) {
     const elInputRef = useRef(null)
     const { pathname } = window.location
     const [windowSize, setWindowSize] = useState(null)
+    const user = useSelector(storeState => storeState.userModule.user)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const headerRef = useRef(null)
     //~ or import { useLocation } from 'react-router-dom';
 
     useEffect(() => {
@@ -39,6 +51,25 @@ export function IndexHeader({ onSetFilter }) {
             placeholder = 'Search for any service...'
         }
         return placeholder
+    }
+
+    function onSetFilter(filterBy) {
+        dispatch({ type: SET_FILTER, filterBy })
+
+        let categoryParams
+        let queryStringParams
+
+        if (filterBy.title !== '') {
+            queryStringParams = `?title=${filterBy.title}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
+            navigate(`/gig${queryStringParams}`)
+        }
+
+        else {
+            if (filterBy.tags[0] !== undefined) categoryParams = filterBy.tags[0]
+            else { categoryParams = '' }
+            queryStringParams = `?category=${categoryParams}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
+            navigate(`/gig${queryStringParams}`)
+        }
     }
 
     // export function IndexHeader() {

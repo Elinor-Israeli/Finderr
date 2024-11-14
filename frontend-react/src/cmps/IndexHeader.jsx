@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 // import { Search } from './HederSearch'
-import { SET_FILTER } from '../store/reducers/gig.reducer' 
+import { SET_FILTER } from '../store/reducers/gig.reducer'
 // import { GigCategoryMenu } from './gig/GigCategoryMenu'
 
 import { useEffect, useRef, useState } from 'react'
@@ -11,8 +11,6 @@ import { useEffect, useRef, useState } from 'react'
 import { userService } from '../services/user/user.service.local'
 import { gigService } from '../services/gig/gig.service.local'
 import { GigCategoryMenu } from './gig/GigCategoryMenu'
-import { SET_FILTER } from '../store/reducers/gig.reducer'
-import { useDispatch, useSelector } from 'react-redux'
 
 
 export function IndexHeader({ onSetFilter }) {
@@ -78,9 +76,9 @@ export function IndexHeader({ onSetFilter }) {
 
     // export function IndexHeader() {
     return (
-        <section className=" my-header">
-        <div className="index-header">
-            <div className="index-header-container">
+        <section className=" my-header full">
+        <div className="index-header full">
+            <div className="index-header-container full">
                 <Link to="/">
                     <div className="logo">
                         <span className='logo-text'>finderr</span>

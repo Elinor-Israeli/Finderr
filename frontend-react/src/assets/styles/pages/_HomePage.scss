@@ -45,7 +45,8 @@ section.home-page.full.main-layout {
     position: relative;
     padding: 40px 20px;
     border-radius: 16px;
-
+    background-size: cover;
+    background-position: center;
 
     @include media-query-grid(sm) {
         // padding: 48px 40px;
@@ -59,32 +60,43 @@ section.home-page.full.main-layout {
         background-repeat: no-repeat;
         border-radius: 16px;
         height: 370px;
-
+        background-size: cover;
+        background-position: center;
         background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449beda884aa8f9f72023e2d8b3fd-1705308514875/hero-md-x1.png');
     }
 
     @include media-query-grid(lg) {
         height: 500px;
         background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449beda884aa8f9f72023e2d8b3fd-1705308514872/hero-lg-x1.png');
+        background-size: cover;
+        background-position: center;
     }
 
     @include custom-media-query($max_width: 1400px) {
         height: 500px;
         background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/678686c47c024e18e773c75e90aaab1c-1705999902381/hero-xl-x1.png');
+        background-size: cover;
+        background-position: center;
     }
 
     @media screen and (min-resolution: 192dpi) {
         @include media-query-grid(md) {
             background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/d0455bf6c66913ebcaff9878b79bfcf0-1705308316571/hero-md.png');
+            background-size: cover;
+            background-position: center;
         }
 
         @include media-query-grid(lg) {
             background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/d0455bf6c66913ebcaff9878b79bfcf0-1705308316566/hero-lg.png');
+            background-size: cover;
+            background-position: center;
         }
 
         @include custom-media-query($max_width: 1400px) {
             height: 500px;
             background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/678686c47c024e18e773c75e90aaab1c-1705999902357/hero-xl.png');
+            background-size: cover;
+            background-position: center;
         }
     }
 
@@ -96,6 +108,8 @@ section.home-page.full.main-layout {
     .home-page {
         margin: 0 0 16px;
         background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
+        background-size: cover;
+        background-position: center;
     }
 
     .hero-msg>h1 {
@@ -850,7 +864,7 @@ $grey: (
 
     .fiverr-pro {
         margin: 0px 0px 40px;
-       
+
     }
 }
 

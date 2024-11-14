@@ -13,7 +13,7 @@ import { IndexHeader} from './cmps/IndexHeader'
 export function RootCmp() {
     
     return (
-        <div className="main-container">
+        <div className="main-container  main-layout">
            
             <IndexHeader />
             {/* <AppHeader /> */}

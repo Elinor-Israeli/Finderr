@@ -91,7 +91,7 @@ export function CategoryMenu2({ onSetFilter }) {
             <nav className={`${categoryMenuClassName}`}>
                 {isWideScreen && (
                     <button className="category-btn left" onClick={slideLeft}  >
-                        <IoIosArrowBack />
+                        {/* <IoIosArrowBack /> */}
                     </button>
                 )}
                 <ul className="categories2" id="categories2" ref={CategorysliderRef}>
@@ -117,7 +117,7 @@ export function CategoryMenu2({ onSetFilter }) {
                 </ul>
                 {isWideScreen && (
                     <button className="category-btn fa-solid chevron-right right" onClick={slideRight}>
-                        <IoIosArrowForward />
+                        {/* <IoIosArrowForward /> */}
                     </button>
                 )}
             </nav>

@@ -84,7 +84,7 @@ export function GigCard({ gig, onSetChat }) {
                         </ul>
                         <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
                             Continue
-                            <span className="fa-solid arrow-rigth">→</span>
+                            {/* <span className="fa-solid arrow-rigth">→</span> */}
                         </Link>
                     </div>
                 )}
@@ -133,7 +133,7 @@ export function GigCard({ gig, onSetChat }) {
                         </ul>
                         <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
                             Continue
-                            <span className="fa-solid arrow-rigth">→</span>
+                            {/* <span className="fa-solid arrow-rigth">→</span> */}
                         </Link>
                     </div>
                 )}
@@ -187,7 +187,7 @@ export function GigCard({ gig, onSetChat }) {
                         </ul>
                         <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
                             Continue
-                            <span className="fa-solid arrow-rigth">→</span>
+                            {/* <span className="fa-solid arrow-rigth">→</span> */}
                         </Link>
                     </div>
 
@@ -206,6 +206,7 @@ export function GigCard({ gig, onSetChat }) {
             >
                 <button className="contact-seller-btn">Contact me</button>
             </div>
+            
         </div>
     )
 } 

@@ -1,6 +1,9 @@
 /* Position the image container (needed to position the left and right arrows) */
-.container {
-    position: relative;
+.container-slide-detail {
+    // position: relative;
+    max-height: 500px;
+    object-fit: contain;
+    
 }
 
 /* Add a pointer when hovering over the thumbnail images */
@@ -9,8 +12,8 @@
 }
 
 
-.prev,
-.next {
+.previous,
+.next-slide {
     cursor: pointer;
     // padding: 10px;
     position: absolute;
@@ -32,16 +35,16 @@
     }
 }
 
-.next {
-    right:525px;
-    top:195px;
+.next-slide {
+    left:1020px;
+    top:550px;
     // transform: translate(50%, 0);
 }
 
-.prev {
+.previous {
     // transform: translate(-50%, 0);
-    left:-26px;
-    top:195px;
+    left:220px;
+    top:550px;
 }
 
 img {
@@ -74,7 +77,7 @@ img {
 .demo:hover {
     opacity: 1;
 }
-.container{
+.container-slide-detail{
     width:100x
 }
 

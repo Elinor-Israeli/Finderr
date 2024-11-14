@@ -29,14 +29,14 @@ export function SlideDetails({ gig }) {
     }
 
     return <div className="slide-details">
-        <div className="container">
+        <div className="container-slide-detail">
             <div className="my-slides">
                 <img src={slides[slideIndex]} />
             </div>
 
-            <a className="prev fa-solid chevron-left" onClick={() => plusSlides(-1)}><IoIosArrowBack /></a>
-            <a className="next fa-solid chevron-right" onClick={() => plusSlides(1)}><IoIosArrowForward /></a>
-            <div className="thumbs-containers">
+            <a className="previous fa-solid chevron-left" onClick={() => plusSlides(-1)}><IoIosArrowBack /></a>
+            <a className="next-slide fa-solid chevron-right" onClick={() => plusSlides(1)}><IoIosArrowForward /></a>
+            <div className="thumbs-container">
                 {slides.map((slide, index) => {
                     return <div className="column" key={index}>
                         <img className={isDynamic === index ? "demo-active demo cursor " : "demo cursor"} src={slide} onClick={() => currentSlide(index)} />

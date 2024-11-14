@@ -14,7 +14,7 @@ export function RootCmp() {
     
     return (
         <div className="main-container">
-            {/* <IndexHeader onSetFilter={onSetFilter}/> */}
+           
             <IndexHeader />
             {/* <AppHeader /> */}
             {/* <GigBreadcrumbs /> */}

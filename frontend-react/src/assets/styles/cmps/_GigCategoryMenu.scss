@@ -33,6 +33,7 @@ $green: #32a852;
 .categories-menu-package {
     width: 100%;
     position: relative;
+    display: flex;
 
     &.has-overflow {
         &.has-overflow-vertical {

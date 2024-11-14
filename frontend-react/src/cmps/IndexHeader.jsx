@@ -3,12 +3,19 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { useEffect, useRef, useState } from 'react'
 import { gigService } from '../services/gig/gig.service.local'
+import { GigCategoryMenu } from './gig/GigCategoryMenu'
+import { SET_FILTER } from '../store/reducers/gig.reducer'
+import { useDispatch, useSelector } from 'react-redux'
+
 
 export function IndexHeader({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const elInputRef = useRef(null)
     const { pathname } = window.location
     const [windowSize, setWindowSize] = useState(null)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     //~ or import { useLocation } from 'react-router-dom';
 
     useEffect(() => {
@@ -41,8 +48,29 @@ export function IndexHeader({ onSetFilter }) {
         return placeholder
     }
 
+    function onSetFilter(filterBy) {
+        dispatch({ type: SET_FILTER, filterBy })
+
+        let categoryParams
+        let queryStringParams
+
+        if (filterBy.title !== '') {
+            queryStringParams = `?title=${filterBy.title}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
+            navigate(`/gig${queryStringParams}`)
+        }
+
+        else {
+            if (filterBy.tags[0] !== undefined) categoryParams = filterBy.tags[0]
+            else { categoryParams = '' }
+            queryStringParams = `?category=${categoryParams}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
+            navigate(`/gig${queryStringParams}`)
+        }
+    }
+
+
     // export function IndexHeader() {
     return (
+        <section className=" my-header">
         <div className="index-header">
             <div className="index-header-container">
                 <Link to="/">
@@ -83,6 +111,12 @@ export function IndexHeader({ onSetFilter }) {
                     <button className='join-btn-index-header'>Join</button>
                 </div>
             </div>
+           
         </div>
+        <div>
+        <GigCategoryMenu onSetFilter={onSetFilter} />
+        </div>
+        </section>
+        
     )
 }

@@ -3,7 +3,7 @@ import { gigService } from '../../services/gig/gig.service.local'
 
 export function GigCategoryMenu({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
-    const CategorysliderRef = useRef()
+    const CategorySliderRef = useRef()
     const [lastDirection, setLastDirection] = useState('')
     const [categoryMenuClassName, setCategoryMenuClassName] = useState('')
     const [linesSetDisplay, setLinesSetDisplay] = useState('')
@@ -27,9 +27,9 @@ export function GigCategoryMenu({ onSetFilter }) {
                 setLinesSetDisplay('main-app-header full')
             }
 
-            const scrollLeft = CategorysliderRef.current.scrollLeft
-            const scrollWidth = CategorysliderRef.current.scrollWidth
-            const clientWidth = CategorysliderRef.current.clientWidth
+            const scrollLeft = CategorySliderRef.current.scrollLeft
+            const scrollWidth = CategorySliderRef.current.scrollWidth
+            const clientWidth = CategorySliderRef.current.clientWidth
 
             setIsLeftDisabled(scrollLeft === 0)
             setIsRightDisabled(scrollLeft + clientWidth >= scrollWidth)
@@ -47,15 +47,16 @@ export function GigCategoryMenu({ onSetFilter }) {
     }
 
     function slideLeft() {
-        CategorysliderRef.current.scrollLeft -= 220
+        CategorySliderRef.current.scrollLeft -= 220
     }
 
     function slideRight() {
-        CategorysliderRef.current.scrollLeft += 220
+        CategorySliderRef.current.scrollLeft += 220
     }
 
-    return (
+    return ( 
         <>
+       
             <div className="categories-menu-package">
                 <nav className="categories-menu-package__menu app-header-nav">
                     <button
@@ -64,7 +65,7 @@ export function GigCategoryMenu({ onSetFilter }) {
                     >
                          //! here
                     </button>
-                    <ul className="categories categories-menu-package__categories nav-links" id="categories" ref={CategorysliderRef}>
+                    <ul className="categories categories-menu-package__categories nav-links" id="categories" ref={CategorySliderRef}>
                         <li onClick={() => filterByCategory(['graphic-design', 'design', 'logo-design'])}>
                             <a>Graphic & Design</a>
                         </li>

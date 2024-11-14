@@ -305,14 +305,14 @@ $padding_max_double: 64px;
         margin: 0;
         padding: $layoutPadding;
         gap: 48px;
-        max-width: 600px; 
+        max-width: 600px;
 
         h1 {
             color: $clr3;
-            font-size: 2rem; 
+            font-size: 2rem;
             font-weight: 700;
             font: 60px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
-            line-height: 1.2; 
+            line-height: 1.2;
             text-align: center;
             max-width: 100%;
         }
@@ -847,69 +847,104 @@ $grey: (
         padding: em(96px) 0;
         margin-bottom: em(96px);
     }
+
+    .fiverr-pro {
+        margin: 0px 0px 40px;
+       
+    }
+}
+
+.header-container-header-img {
+    margin: 0px 0px 40px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.selling-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 32px 24px;
+}
+
+.selling-item {
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .selling-text {
     color: #404145;
     font-size: 1.125rem;
-    padding-right: 7%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: macan-light;
 
     h2 {
-        margin-bottom: 1em;
+        // margin-bottom: 1em;
+        font-size: 48px;
     }
 
     h6 {
         font-family: macan-bold;
         font-size: inherit;
         display: flex;
-        align-items: center;
+        // margin-left: -12px;
         margin-bottom: .5em;
     }
 
     span:first-of-type {
-        font-size: 1.5rem;
-        margin-right: 0.56em;
-        color: $clr5;
+        font-size: 50px;
+        color: #1dbf73;
+        font-family: playfair-semi;
     }
+
+    p {
+        font: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+
+    }
+
 }
 
+@media (max-width: 900px) {
 
-@media (min-width: 900px) {
     .selling-proposition {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        // grid-template-columns: 1fr ;
+        gap: 10px;
+        padding: 0;
     }
 
-    /* Make the header span across both columns */
-    .header-container-header-img {
-        grid-column: span 2;
-        // margin-bottom: 20px;
+    .selling-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+        // gap: 20px;
     }
 
-    .selling-text {
-        /* Each selling-text section will take one column by default */
-        grid-column: span 1;
+    .selling-item {
+        padding: 0;
+        border-radius: 5px;
     }
 
-    .selling-text:nth-child(1),
-    .selling-text:nth-child(2) {
-        /* These are in the first column */
+    span:first-of-type {
+        font-size: 34px !important;
+        color: #1dbf73;
+        font-family: playfair-semi;
     }
 
-    .selling-text:nth-child(3),
-    .selling-text:nth-child(4) {
-        /* These are in the second column */
+    h2 {
+        // margin-bottom: 1em;
+        font-size: 32px !important;
+
+        .fiverr-pro {
+            padding: 32px 24px;
+        }
     }
 
-    .img-container {
-        /* Make the image container span both columns as well */
-        grid-column: span 2;
-    }
+
 }
+
 
 @media (min-width: 1160px) {
     .selling-proposition .img-container {
@@ -918,8 +953,8 @@ $grey: (
 
     .selling-proposition {
         display: grid;
-        grid-template-columns: 1fr 1fr 3fr;
-                gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
         padding: 16px;
     }
 
@@ -948,9 +983,12 @@ $grey: (
     }
 
     .selling-proposition .img-container {
-        max-width: 600px;
+        min-width: 600px;
     }
 }
+
+
+
 
 // .header-container-header-img {
 //     grid-column: span 1;

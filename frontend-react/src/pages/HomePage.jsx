@@ -109,7 +109,8 @@ export function HomePage({ onSetFilter }) {
                         </div>
 
                         <section className="trusted-by">
-                            <span>Trusted by: </span>
+                            <span>Trusted </span>
+                            <span style={{marginLeft:'-25px'}}> by: </span>
                             <ul>
                                 <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/payoneer.7c1170d.svg" alt="Payoneer" width="82.42" height="16" /></li>
                                 <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal.d398de5.svg" alt="PayPal" width="53.01" height="12.69" /></li>

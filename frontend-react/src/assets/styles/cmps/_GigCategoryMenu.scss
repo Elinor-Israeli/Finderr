@@ -10,12 +10,13 @@ $grey: #b0b0b0;
 $green: #32a852;
 
 @mixin media-query-grid($size) {
-    @if $size == sm {
+    @if $size ==sm {
         @media (max-width: 576px) {
             @content;
         }
     }
-    @else if $size == lg {
+
+    @else if $size ==lg {
         @media (min-width: 992px) {
             @content;
         }
@@ -23,7 +24,7 @@ $green: #32a852;
 }
 
 @mixin media-query-grid-reverse($size) {
-    @if $size == lg {
+    @if $size ==lg {
         @media (max-width: 991px) {
             @content;
         }
@@ -33,7 +34,39 @@ $green: #32a852;
 .categories-menu-package {
     width: 100%;
     position: relative;
-    display: flex;
+    border-bottom: 1px solid #e4e5e7;
+    opacity: 1;
+    position: fixed;
+    padding: 8px;
+
+    // &:hover {
+    //     border-bottom: 1px solid #32a852;
+    //     transition: transform 0.2s;
+    //     opacity: 1;
+    //     transform: rotateX(0deg);
+    // }
+
+ 
+
+    // display: flex;
+
+
+
+
+    a {
+        cursor: pointer;
+        padding: 8px 0px;
+        font-size: 22px;
+        font-family: 'Macan';
+       
+
+        &:hover {
+            border-bottom: 4px solid #32a852;
+            transition: transform 0.2s;
+            opacity: 1;
+            transform: rotateX(0deg);
+        }
+    }
 
     &.has-overflow {
         &.has-overflow-vertical {
@@ -48,8 +81,8 @@ $green: #32a852;
 
     button:not(.agencies-banner-cta) {
         background: linear-gradient(to right,
-            $white_opaque 50%,
-            $white_transparent 100%);
+                $white_opaque 50%,
+                $white_transparent 100%);
         color: color($grey, 1000);
         border: none;
         font-size: 10px;
@@ -68,8 +101,8 @@ $green: #32a852;
         &.right {
             right: 0;
             background: linear-gradient(to left,
-                $white_opaque 50%,
-                $white_transparent 100%);
+                    $white_opaque 50%,
+                    $white_transparent 100%);
         }
     }
 
@@ -96,7 +129,7 @@ $green: #32a852;
             }
         }
 
-        > li {
+        >li {
             display: inline-block;
             flex-shrink: 0;
             padding: 0 10px;
@@ -180,7 +213,8 @@ $green: #32a852;
                         height: $agencies_banner_height_regular;
                     }
 
-                    &.three-columns-menu, &.four-columns-menu {
+                    &.three-columns-menu,
+                    &.four-columns-menu {
                         padding-bottom: $menu_panel_agencies_banner_padding_bottom_wide;
 
                         & li:last-child.agencies-banner-item {

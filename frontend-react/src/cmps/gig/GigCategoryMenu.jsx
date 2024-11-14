@@ -57,13 +57,12 @@ export function GigCategoryMenu({ onSetFilter }) {
     return ( 
         <>
        
-            <div className="categories-menu-package">
+            <div className="categories-menu-package main-layout">
                 <nav className="categories-menu-package__menu app-header-nav">
                     <button
                         className="category-btn fa-solid chevron-left left"
                         onClick={slideLeft}
                     >
-                         //! here
                     </button>
                     <ul className="categories categories-menu-package__categories nav-links" id="categories" ref={CategorySliderRef}>
                         <li onClick={() => filterByCategory(['graphic-design', 'design', 'logo-design'])}>
@@ -98,7 +97,6 @@ export function GigCategoryMenu({ onSetFilter }) {
                         className="category-btn fa-solid chevron-right right"
                         onClick={slideRight}
                     >
-                        //! here
                     </button>
                 </nav>
             </div>

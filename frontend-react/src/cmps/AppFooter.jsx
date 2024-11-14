@@ -3,7 +3,7 @@ import React from "react";
 // import { Accordion } from "../Accordion/Accordion.jsx";
 export function AppFooter() {
     return ([
-        <section className="footer-container">
+        <section className="footer-container full">
         <div className="footer">
             <div className="container">
                 <div className="top">

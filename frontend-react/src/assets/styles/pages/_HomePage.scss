@@ -47,6 +47,10 @@ section.home-page.full.main-layout {
     border-radius: 16px;
     background-size: cover;
     background-position: center;
+    margin-top: em(50px);
+  
+
+ 
 
     @include media-query-grid(sm) {
         // padding: 48px 40px;
@@ -93,7 +97,7 @@ section.home-page.full.main-layout {
         }
 
         @include custom-media-query($max_width: 1400px) {
-            height: 500px;
+            height: 600px;
             background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/678686c47c024e18e773c75e90aaab1c-1705999902357/hero-xl.png');
             background-size: cover;
             background-position: center;
@@ -524,7 +528,7 @@ $padding_max_double: 64px;
     }
 }
 
-ul li img {}
+
 
 @media (max-width: 900px) {
     .trusted-by {
@@ -547,7 +551,6 @@ ul li img {}
     width: 82.42px;
     aspect-ratio: auto 82.42 / 16;
     height: 16px;
-
 }
 
 .list {
@@ -581,11 +584,6 @@ ul li img {}
     border-radius: 50%;
     // box-shadow: $box_shadow_z1;
     z-index: 2;
-    // color: color($grey, 1000);
-
-    // @include media-query-grid-reverse(md) {
-    //     display: none;
-    // }
 }
 
 .arrow-left {
@@ -632,10 +630,6 @@ $black: #000000;
 $size: 32px;
 $fade-in-background-color: rgba(map-get($grey, 1200), 0.65);
 
-// Functions
-// @function em($px, $base: 16) {
-//     @return #{$px / $base}em;
-// }
 
 // Mixin for Media Queries
 @mixin media-query-grid($size) {
@@ -820,18 +814,16 @@ $grey: (
     }
 }
 
-//!
-
-
 .selling-proposition {
     background-color: #f1fdf7;
     padding: em(48px) 0;
-    margin-bottom: em(48px);
+    // margin-bottom: em(48px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 16px;
+    margin-bottom: em(48px);
 
     .img-container {
         flex-basis: 45%;
@@ -854,17 +846,17 @@ $grey: (
 
     @include for-narrow-layout {
         padding: em(64px) 0;
-        margin-bottom: em(80px);
+        // margin-bottom: em(80px);
     }
 
     @include for-normal-layout {
         padding: em(96px) 0;
-        margin-bottom: em(96px);
+        // margin-bottom: em(96px);
     }
 
     .fiverr-pro {
         margin: 0px 0px 40px;
-
+        letter-spacing: -.04em;
     }
 }
 
@@ -998,6 +990,11 @@ $grey: (
 
     .selling-proposition .img-container {
         min-width: 600px;
+    }
+
+    .fiverr-pro {
+        margin: 0px 0px 40px;
+        letter-spacing: 56px;
     }
 }
 

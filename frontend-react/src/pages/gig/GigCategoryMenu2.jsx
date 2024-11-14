@@ -18,27 +18,27 @@ export function CategoryMenu2({ onSetFilter }) {
 
 
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.innerWidth > 600 && window.scrollY >= 300 && pathname === '/') {
-                setCategoryMenuClassName('categories-menu')
-                setLinesSetDisplay('main-app-header full')
-            } else if (window.scrollY < 300 && pathname === '/') {
-                setCategoryMenuClassName('no-display')
-                setLinesSetDisplay('no-display')
-            } else if (window.innerWidth < 600) {
-                setCategoryMenuClassName('no-display')
-                setLinesSetDisplay('no-display')
-            } else {
-                setCategoryMenuClassName('categories-menu')
-                setLinesSetDisplay('main-app-header full')
-            }
-        }
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         if (window.innerWidth > 600 && window.scrollY >= 300 && pathname === '/') {
+    //             setCategoryMenuClassName('categories-menu')
+    //             setLinesSetDisplay('main-app-header full')
+    //         } else if (window.scrollY < 300 && pathname === '/') {
+    //             setCategoryMenuClassName('no-display')
+    //             setLinesSetDisplay('no-display')
+    //         } else if (window.innerWidth < 600) {
+    //             setCategoryMenuClassName('no-display')
+    //             setLinesSetDisplay('no-display')
+    //         } else {
+    //             setCategoryMenuClassName('categories-menu')
+    //             setLinesSetDisplay('main-app-header full')
+    //         }
+    //     }
 
-        window.addEventListener("scroll", handleScroll)
-        handleScroll()
-        return () => window.removeEventListener("scroll", handleScroll)
-    }, [pathname])
+    //     window.addEventListener("scroll", handleScroll)
+    //     handleScroll()
+    //     return () => window.removeEventListener("scroll", handleScroll)
+    // }, [pathname])
 
     useEffect(() => {
         const handleResize = () => setIsWideScreen(window.innerWidth >= 900)

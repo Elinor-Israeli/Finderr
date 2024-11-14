@@ -78,7 +78,7 @@ export function IndexHeader({ onSetFilter }) {
     return (
         <section className=" my-header full">
         <div className="index-header full">
-            <div className="index-header-container full">
+            <div className="index-header-container main-layout">
                 <Link to="/">
                     <div className="logo">
                         <span className='logo-text'>finderr</span>

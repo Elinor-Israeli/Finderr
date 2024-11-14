@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from 'react'
 import { userService } from '../services/user/user.service.local'
 import { gigService } from '../services/gig/gig.service.local'
 import { GigCategoryMenu } from './gig/GigCategoryMenu'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 export function IndexHeader({ onSetFilter }) {

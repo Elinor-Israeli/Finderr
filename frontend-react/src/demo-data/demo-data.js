@@ -1,6 +1,7 @@
 const gigs = [
     {
         "title": "I will do modern minimalist logo design",
+        "title2": "\u200B",
         "about": "Hey, I'm Alpa. I am a graphics designer as well as business woman. My hobby is drawing. Because it's brings a lot of benefits besides simply boosting my creativity. It's make me feel relaxed. Another hobby is cycling. It's makes me healthy and fit.",
         "price": 61,
         "owner": {

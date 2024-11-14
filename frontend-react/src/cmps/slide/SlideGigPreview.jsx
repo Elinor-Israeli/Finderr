@@ -9,18 +9,17 @@ export function SlideGigPreview({ gig }) {
     const [isDynamic, setIsDynamic] = useState(0)
 
     function plusSlides(ev, n) {
-        ev.preventDefault()
+        ev.preventDefault();
+        
+        // Prevent action if the button is disabled
+        if (ev.target.closest('.disabled')) return;
+
         if (slideIndex === slides.length - 1 && n === 1) {
-            setSlideIndex(0)
-            setIsDynamic(0)
-        }
-        else if (slideIndex === 0 && n === -1) {
-            setSlideIndex(slides.length - 1)
-            setIsDynamic(slides.length - 1)
-        }
-        else {
-            setSlideIndex((prevSlide) => (prevSlide + n))
-            setIsDynamic(slideIndex + n)
+            setSlideIndex(0); // Go to the first slide
+        } else if (slideIndex === 0 && n === -1) {
+            setSlideIndex(slides.length - 1); // Go to the last slide
+        } else {
+            setSlideIndex(prevSlide => prevSlide + n); // Increment or decrement slide index
         }
     }
 
@@ -29,26 +28,26 @@ export function SlideGigPreview({ gig }) {
         setSlideIndex(slideIndex)
         setIsDynamic(slideIndex)
     }
-//  ! here (Swallows the image)
+    //  ! here (Swallows the image)
     return (
         // <div className="next fa-solid chevron-right" onClick={(ev) => plusSlides(ev, 1)}></div>
 
         <div className="gig-preview-img">
             <div className="image-container">
-            <div 
-    className={`prev ${slideIndex === 0 ? 'disabled' : ''}`} 
-    onClick={(ev) => plusSlides(ev, -1)} 
->
-    <IoIosArrowBack />
-</div>
+                <div
+                    className={`prev ${slideIndex === 0 ? 'disabled' : ''}`}
+                    onClick={(ev) => plusSlides(ev, -1)}
+                >
+                    <IoIosArrowBack className='icon-prev'/>
+                </div>
                 <img src={slides[slideIndex]} alt="Gig Preview" className='image-slides' />
 
-                <div 
-    className={`next ${slideIndex === slides.length - 1 ? 'disabled' : ''}`} 
-    onClick={(ev) => plusSlides(ev, 1)} 
->
-    <IoIosArrowForward />
-</div>
+                <div
+                    className={`next ${slideIndex === slides.length - 1 ? 'disabled' : ''}`}
+                    onClick={(ev) => plusSlides(ev, 1)}
+                >
+                    <IoIosArrowForward className='icon-next'/>
+                </div>
             </div>
             <ul className="dot-container">
                 {slides.map((slide, slideIndex) => (

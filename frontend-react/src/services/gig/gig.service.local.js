@@ -165,6 +165,7 @@ function _createGigs() {
             {
                 _id: 'i102',
                 title: "I will provide a great logo for you",
+                title2: "\u200B",
                 price: 15,
                 owner: {
                     _id: "u102",

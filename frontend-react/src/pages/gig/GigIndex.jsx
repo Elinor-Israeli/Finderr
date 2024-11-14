@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 // import { GigSort } from '../../cmps/gig/GigSort'
-import { GigBreadcrumbs } from '../../cmps/gig/GigBreadcrumbs'
+import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs' 
 
 import { GigList } from '../../cmps/gig/GigList'
 import { TopFilterBar } from '../../cmps/gig/listfilterBar'

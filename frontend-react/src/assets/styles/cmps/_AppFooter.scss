@@ -36,12 +36,11 @@
                 gap: 20px;
                 // padding: 0px 0px 40px;
 
-
                 h2 {
-                    font-size: 16px;
+                    font-size: 16px !important;
                     color: #404145;
-                    font-size: 18px ;
-                    font-family: Mmacan-bold;
+                    font-size: 18px;
+                    font-family: Macan-bold;
                 }
 
                 span {
@@ -253,7 +252,7 @@ div.top {
 }
 
 .social {
-    padding:0px 24px 0px 0px ;
+    padding: 0px 24px 0px 0px;
 }
 
 div.left {
@@ -265,26 +264,37 @@ h2.left {
 }
 
 @media only screen and (min-width: 1160px) {
-    li {
-        a {
-            min-height: 220px;
+    .item {
+        ul {
+
+            li {
+                a {
+                    min-height: 220px;
+                }
+            }
         }
     }
 
     .footer-container {
-        margin: 0px 90px ;
+        margin: 0px 90px;
     }
 
 }
+
 @media only screen and (min-width: 1660px) {
-    li {
-        a {
-            min-height: 220px;
+    .item {
+        ul {
+
+            li {
+                a {
+                    min-height: 220px;
+                }
+            }
         }
     }
 
     .footer-container {
-        margin: 0px 125px ;
+        margin: 0px 125px;
     }
 
 }

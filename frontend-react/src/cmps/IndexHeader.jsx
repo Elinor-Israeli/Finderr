@@ -1,7 +1,14 @@
-import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+// import { Search } from './HederSearch'
+import { SET_FILTER } from '../store/reducers/gig.reducer'
+// import { GigCategoryMenu } from './gig/GigCategoryMenu'
 
 import { useEffect, useRef, useState } from 'react'
+
+
+import { userService } from '../services/user/user.service.local'
 import { gigService } from '../services/gig/gig.service.local'
 import { GigCategoryMenu } from './gig/GigCategoryMenu'
 import { SET_FILTER } from '../store/reducers/gig.reducer'
@@ -13,9 +20,11 @@ export function IndexHeader({ onSetFilter }) {
     const elInputRef = useRef(null)
     const { pathname } = window.location
     const [windowSize, setWindowSize] = useState(null)
+    const user = useSelector(storeState => storeState.userModule.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const headerRef = useRef(null)
     //~ or import { useLocation } from 'react-router-dom';
 
     useEffect(() => {
@@ -66,7 +75,6 @@ export function IndexHeader({ onSetFilter }) {
             navigate(`/gig${queryStringParams}`)
         }
     }
-
 
     // export function IndexHeader() {
     return (

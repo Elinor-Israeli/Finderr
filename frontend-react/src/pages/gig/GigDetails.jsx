@@ -14,7 +14,7 @@ import { Accordion } from '../../cmps/Accordion'
 import { ReviewAll } from '../../cmps/review/ReviewAll'
 import { GiRoundStar } from 'react-icons/gi'
 import { Rating } from '@mui/material'
-import { GigBreadcrumbs } from '../../cmps/gig/GigBreadcrumbs'
+import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs' 
 
 
 export function GigDetails({ userReviews }) {

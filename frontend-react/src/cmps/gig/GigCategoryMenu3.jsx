@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { gigService } from '../../services/gig/gig.service.local'
 
-export function GigCategoryMenu({ onSetFilter }) {
+export function GigCategoryMenu3({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const CategorySliderRef = useRef()
     const [isVisible, setIsVisible] = useState(false)
@@ -9,30 +9,6 @@ export function GigCategoryMenu({ onSetFilter }) {
     const [isRightDisabled, setIsRightDisabled] = useState(true)
     const { pathname } = window.location
 
-    useEffect(() => {
-        function handleScroll() {
-            const scrollPosition = window.scrollY
-
-            // Toggle visibility based on scroll position
-            if (scrollPosition >= 800 && pathname === '/') {
-                setIsVisible(true)
-            } else {
-                setIsVisible(false)
-            }
-
-            const scrollLeft = CategorySliderRef.current.scrollLeft
-            const scrollWidth = CategorySliderRef.current.scrollWidth
-            const clientWidth = CategorySliderRef.current.clientWidth
-
-            setIsLeftDisabled(scrollLeft === 0)
-            setIsRightDisabled(scrollLeft + clientWidth >= scrollWidth)
-        }
-
-        window.addEventListener('scroll', handleScroll)
-        handleScroll()
-
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [pathname])
 
     function filterByCategory(categories) {
         setFilterByToEdit({ ...filterByToEdit, tags: categories })

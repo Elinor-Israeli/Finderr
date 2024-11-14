@@ -10,6 +10,7 @@ import { userService } from '../services/user/user.service.local'
 import { gigService } from '../services/gig/gig.service.local'
 import { GigCategoryMenu } from './gig/GigCategoryMenu'
 import { useDispatch, useSelector } from 'react-redux'
+// import { GigCategoryMenu3 } from './gig/GigCategoryMenu3'
 
 
 export function IndexHeader({ onSetFilter }) {
@@ -120,6 +121,7 @@ export function IndexHeader({ onSetFilter }) {
         </div>
         <div>
         <GigCategoryMenu onSetFilter={onSetFilter} />
+        {/* <GigCategoryMenu3 onSetFilter={onSetFilter}/> */}
         </div>
         </section>
         

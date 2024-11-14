@@ -9,7 +9,8 @@
   // height: 100px;
   left: 1000px;
   border:solid 1px#e4e5e7;;
-  position: fixed;
+  // position: fixed;
+position: sticky;
   font-family: 'Macan';
   top:0px;
 
@@ -217,7 +218,7 @@ span.svg-payment {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
 
   .arrow-rigth {
 

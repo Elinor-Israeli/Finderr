@@ -14,7 +14,7 @@ import { Accordion } from '../../cmps/Accordion'
 import { ReviewAll } from '../../cmps/review/ReviewAll'
 import { GiRoundStar } from 'react-icons/gi'
 import { Rating } from '@mui/material'
-import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs' 
+import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 
 
 export function GigDetails({ userReviews }) {
@@ -95,39 +95,39 @@ export function GigDetails({ userReviews }) {
                             </div>
                         </div>
                     </div>
-        
+
                     <div className="stars">
                         <StarRating value={gig.owner.rate} />
                         <span className="reviews-num">
                             ({userReviews ? userReviews.length : 1}  reviews)
                         </span>
                     </div>
-                    </div>
-                    <div className="thumbnail">
-                        <SlideDetails gig={gig} />
-                    </div>
+                </div>
+                <div className="thumbnail">
+                    <SlideDetails gig={gig} />
+                </div>
 
-                    <div className="gig-about">
-                        <h3 className='about-gig-header'>About This Gig</h3>
-                        <p>{gig.description}</p>
-                        <span style={{ backgroundColor: '#ffecd1', fontFamily:'Macan' }}>What you'll get:</span>
-                        <p>{gig.description2}</p>
-                        <span style={{ backgroundColor: '#ffecd1', fontFamily:'Macan'  }}>Why you should hire me :</span>
-
-                        
+                <div className="gig-about">
+                    <h3 className='about-gig-header'>About This Gig</h3>
+                    <p>{gig.description}</p>
+                    <span style={{ backgroundColor: '#ffecd1', fontFamily: 'Macan' }}>What you'll get:</span>
+                    <p>{gig.description2}</p>
+                    <span style={{ backgroundColor: '#ffecd1', fontFamily: 'Macan' }}>Why you should hire me :</span>
 
 
 
 
 
-                    </div>
-                    <div className="right">
-                    <GigCard gig={gig} onSetChat={onSetChat} />
-                    </div>
+
 
                 </div>
 
+
             </div>
+            <div className="right">
+                <GigCard gig={gig} onSetChat={onSetChat} />
+            </div>
+        </div>
     </section>
 
 

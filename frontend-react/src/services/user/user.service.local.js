@@ -103,7 +103,7 @@ function _createUsers() {
                 _id: "u102",
                 fullname: "Dudu Sa",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
-                username: "user2",
+                username: "Boya",
                 password: "secret",
                 level: "3",
                 reviews: [

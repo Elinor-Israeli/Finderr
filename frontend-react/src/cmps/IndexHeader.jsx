@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 
 // import { Search } from './HederSearch'
-import { SET_FILTER } from '../store/reducers/gig.reducer'
+import { SET_FILTER } from '../store/reducers/gig.reducer' 
 // import { GigCategoryMenu } from './gig/GigCategoryMenu'
 
 import { useEffect, useRef, useState } from 'react'
@@ -114,6 +114,7 @@ export function IndexHeader({ onSetFilter }) {
                     <span>English</span>
                     <Link to="gig"> <span>Become a Seller</span></Link>
                     <span>Sign in</span>
+                    
                     <button className='join-btn-index-header'>Join</button>
                 </div>
             </div>

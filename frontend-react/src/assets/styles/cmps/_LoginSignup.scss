@@ -1,0 +1,61 @@
+.login-signup {
+    width: 100%;
+    text-align: center;
+    position: relative;
+
+    p,
+    h4 {
+        margin: 0;
+    }
+
+    h4 {
+        font-family: macan-bold;
+        font-size: rem(24px);
+        padding-bottom: em(32px, 24px);
+    }
+
+    input {
+        font: inherit;
+        border: 1px solid #c5c6c9;
+        border-radius: .25em;
+        padding: .5em .75em;
+        width: 100%;
+        margin-bottom: 1em;
+        color: $clr5;
+    }
+
+    button {
+        font: inherit;
+        margin: 0;
+        border-radius: .25em;
+        padding: .5em .75em;
+        width: 100%;
+        background-color: $clr1;
+    }
+
+    .btn-link {
+        color: $clr5;
+        background-color: transparent;
+
+        &:hover {
+            color: $clr1;
+            text-decoration: underline;
+        }
+    }
+
+    .close-modal-btn {
+        color: $clr5;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+}
+
+.signup-form,
+.login-form {
+    button {
+        color: $clr3;
+    }
+}

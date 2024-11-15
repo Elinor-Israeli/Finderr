@@ -1,0 +1,51 @@
+.user-index {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 2em;
+
+  .user-info {
+    width: 100%;
+  }
+
+  .user-main {
+    width: 100%;
+
+    h1 {
+      padding-bottom: em(24px, 16px);
+    }
+  }
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+
+    .user-main {
+      max-width: 58.33333%;
+      padding-left: 2em;
+    }
+
+    .user-info {
+      max-width: 41.66667%;
+      padding-right: 2em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+
+    .user-main {
+      flex-basis: 66.66667%;
+      max-width: 66.66667%;
+    }
+
+    .user-info {
+      flex-basis: 33.33333%;
+      max-width: 33.33333%;
+    }
+  }
+
+  .review {
+    .long-txt button {
+      background-color: transparent;
+    }
+  }
+}

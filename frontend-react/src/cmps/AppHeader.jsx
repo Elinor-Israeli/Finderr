@@ -49,14 +49,14 @@ export function AppHeader() {
     }, [pathname, setWindowSize])
 
     useEffect(() => {
-        const checkIfClickedOutside = e => {
-            if (isModal && e.target.className && e.target.className !== "btn-link") {
+        const checkIfClickedOutside = ev => {
+            if (isModal && ev.target.className && ev.target.className !== "btn-link") {
                 setIsModal(false)
             }
-            if (isDropdown && e.target.className) {
+            if (isDropdown && ev.target.className) {
                 setIsDropdown(false)
             }
-            if (isOrder && e.target.className !== "user-link") {
+            if (isOrder && ev.target.className !== "user-link") {
                 setIsOrder(false)
             }
         }
@@ -86,7 +86,6 @@ export function AppHeader() {
         }
     }
 
-
     return <div className={`${headerClassName}`}>
 
 
@@ -112,10 +111,11 @@ export function AppHeader() {
                     <button className='gig-header-link' >English</button>
                  {/* or   onSetFilter(gigService.getDefaultFilter()) */}
                     <Link className='gig-header-link' to="gig">Become a seller</Link>  
-                    <Link className="gig-header-link sign-in-btn">Sign in</Link>
-                    <Link className="join-btn">Join</Link>
+                    {/* <Link className="gig-header-link sign-in-btn">Sign in</Link> */}
+                    {/* <Link className="join-btn">Join</Link> */}
                     </nav>
                 {/* {pathname !== '/' && <Search onSetFilter={onSetFilter} />} */}
+
             </div>
 
         </nav>

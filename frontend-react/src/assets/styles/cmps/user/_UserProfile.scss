@@ -1,0 +1,73 @@
+.user-profile {
+  font-size: rem(14px);
+  border: 1px solid $clr11;
+  padding: em(30px, 16px);
+  margin-bottom: 2em;
+  
+  .img-profile-container {
+    position: relative;
+    
+    &:hover {
+      .upload-camera {
+        opacity: .8;
+      }
+      
+      img {
+        opacity: 0;
+      }
+    }
+  }
+  
+  .upload-camera {
+    font-size: rem(32px);
+    position: absolute;
+    width: em(150px, 32px);
+    height: em(150px, 32px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $clr12;
+    opacity: 0;
+    transition: opacity .6s;
+  }
+  
+  img {
+    width: em(150px, 14px);
+    height: em(150px, 14px);
+    border-radius: 50%;
+    margin-bottom: 1em;
+    opacity: 1;
+    transition: opacity .6s;
+  }
+  
+  .user-profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: em(24px, 14px);
+    margin-bottom: em(24px, 14px);
+    border-bottom: 1px solid $clr11;
+  }
+
+  .user-stats-desc li {
+    @include flex;
+    margin-bottom: em(16px, 14px);
+    color: $clr5;
+
+    div span:first-of-type {
+      margin-right: .5em;
+    }
+  }
+
+  #imgUpload {
+    width: em(150px, 16px);
+    height: em(150px, 16px);
+    border-radius: 50%;
+    opacity: 0;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+  }
+}

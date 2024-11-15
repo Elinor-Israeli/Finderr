@@ -38,6 +38,12 @@
 @import "cmps/review/ReviewBar";
 @import "cmps/review/ReviewAll";
 
+
+// USER 
+@import "cmps/user/UserIndex";
+@import "cmps/user/UuserWishlist";
+@import "cmps/user/UserProfile";
+
 // Components
 @import "cmps/list";
 @import "cmps/GigPreview";
@@ -51,7 +57,9 @@
 @import "cmps/GigCateroryMenu2";
 @import "cmps/GigCategoryMenu3";
 @import "cmps/GigBreadcrumbs";
-@import "cmps/_IndexHeader";
+@import "cmps/IndexHeader";
+@import "cmps/LoginSignup";
+@import "cmps/Modal";
 // @import "cmps/SortBy";
 
 @import "cmps/app-header/AppHeader";
@@ -67,3 +75,4 @@
 @import "cmps/GigList";
 @import "cmps/GigIndex";
 // @import "cmps/CarPreview";
+

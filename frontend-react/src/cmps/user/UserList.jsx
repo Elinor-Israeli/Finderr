@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-import { GigPreview } from '../gig/gig-preview'
+import { GigPreview } from '../gig/GigPreview'
 
-import { userService } from '../../services/user.service'
+import { userService } from '../../services/user/user.service.local' 
 
 export function UserList({ gigs, onRemoveGig, user }) {
   const loginUser = userService.getLoggedinUser()

@@ -1,9 +1,9 @@
 import { store } from '../store'
-import { SET_USER, SET_WATCHED_USER, UPDATE_USER } from './user.reducer'
+import {  SET_USER, SET_WATCHED_USER, UPDATE_USER } from './user.reducer'
 
-import { userService } from '../../services/user.service'
-import { showErrorMsg } from '../../services/event-bus.service'
-import { socketService } from '../../services/socket.service'  
+import { userService } from '../../services/user/user.service.local'
+import { showErrorMsg } from '../../services/event-bus.service' 
+import { socketService } from '../../services/socket.service'
 
 
 export async function updateUser(user) {

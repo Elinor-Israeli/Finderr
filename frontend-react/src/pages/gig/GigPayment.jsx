@@ -49,8 +49,15 @@ export function GigPayment() {
         const order = {
             buyer: {
                 _id: user._id,
-                fullname: user.fullname
-            },
+                fullname: user.fullname,
+                companyName: user.companyName,
+                country: user.country || "Israel",
+                state: user.state,
+                address: user.address, 
+                streetOrPOB: user.streetOrPOB, 
+                city: user.city, 
+                postalCode: user.postalCode 
+              },
             seller: {
                 _id: gig.owner._id,
                 fullname: gig.owner.fullname,

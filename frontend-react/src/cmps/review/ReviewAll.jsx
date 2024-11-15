@@ -46,11 +46,11 @@ const averageRating = calculateAverageRating(userReviews)
         }}>Reviews</h3>
         <div className="review-header-all" >
             <h4 style={{ margin: 0, padding: 0 }}>
-                <span>{userReviews.length} </span>
+                {/* <span>{userReviews.length} </span> */}
                 reviews for this Gig
             </h4>
-            <StarRating value={averageRating} />
-            <span className="rate padding-all">{averageRating}</span>
+            {/* <StarRating value={averageRating} /> */}
+            {/* <span className="rate padding-all">{averageRating}</span> */}
         </div>
         <section style={{ display: 'flex', margin: '0px -8px', padding: '0px 0px 24px' }}>
             <ReviewBar userReviews={userReviews} />

@@ -461,11 +461,12 @@
 .gig-details {
     display: flex;
     justify-content: center;
+    font-family: 'Macan';
 
 
     .gig-details-container {
         // width: 1400px;
-        padding: 50px 0px;
+        padding: 40px 0px;
         display: flex;
         // gap: 50px;
 
@@ -476,11 +477,17 @@
             gap: 20px;
             // align-items: flex-start;
 
+            .gig-details-title {
+                margin-top: 20px;
+            }
+
             .user {
                 display: flex;
                 align-items: flex-start;
                 align-items: center;
                 gap: 10px;
+
+
 
 
                 .profile-picture {
@@ -542,7 +549,7 @@
                     flex-direction: row;
                     align-items: center;
                     gap: 16px;
-                    
+
 
                     .MuiBox {
                         display: inline-flex;
@@ -560,31 +567,145 @@
 
             }
 
-            // .gig-about{
-            //     display:block;
-            //     gap:20px
-
-            // }
             .gig-about {
                 border-bottom: 1px solid $clr12;
-                margin-bottom: em(136px, 16px);
+                // margin-bottom: em(136px, 16px);
                 margin-top: em(136px, 16px);
                 width: 800px;
+                font-family: 'Macan';
+                padding-bottom: em(20px, 16px);
 
                 .about-gig-header {
                     margin: 0;
+                }
+
+            }
+
+            .gig-about-filter {
+                font-size: 16px;
+                font-family: 'Macan';
+
+                .head {
+                    color: #95979d;
+                }
+            }
+
+            .contact-info-user {
+                display: flex;
+            //    flex-direction: column;
+            align-items: center; 
+               gap: 20px;
+
+                .contact-info-profile-picture {
+
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+
+
+                .contact-info-user-name-level {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+
+
+                    .contact-info-user-name {
+                        font-size: 18px;
+                        color: #404145;
+                        cursor: pointer;
+                        font-weight: 700;
+                        margin-right: 8px;
+                        cursor: pointer;
+                        // margin-left: 10px;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+
+                    }
+
+                    .contact-info-user-level {
+                        display: inline-flex;
+                        width: fit-content;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 4px;
+                        box-sizing: border-box;
+                        color: #222325;
+                        font-size: 14px;
+                        // margin: 0 0 1em;
+
+                        .contact-info-level {
+                            font-size: 14px;
+                            line-height: 18px;
+                            font-weight: 600;
+
+                        }
+
+                    }
+
 
                 }
 
-                p {
-                    margin-bottom: em(20px, 16px);
+                .contact-info-stars {
+                    display: flex;
+                    box-sizing: border-box;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 16px;
+
+
+                    .MuiBox {
+                        display: inline-flex;
+                        box-sizing: border-box;
+
+                    }
+
+                    .contact-info-reviews-num {
+                        display: inline-flex;
+                        box-sizing: border-box;
+                        margin-bottom: 5px;
+                    }
                 }
+
+
+            }
+
+
+            .contact-me {
+                display: flex;
+                flex-direction: column;
+                padding: 12px 24px;
+                margin-top: 30px;
+                background-color: transparent;
+                color: $clr2;
+                font-family: macan-semibold;
+                border: 1px solid $clr2;
+                border-radius: 4px;
+                font-family: 'Macan';
+
+            }
+            .contact-me:hover {
+
+                background-color: $clr5;
+                color: $clr3;
+
+            }
+
+            .get-to-know{
+                color:#62646a;
+                font-family: 'Macan';
+
+
             }
         }
     }
 
     .right {
-        flex: 1;
+        flex: 2;
         // position: sticky;
         // top:150px
     }

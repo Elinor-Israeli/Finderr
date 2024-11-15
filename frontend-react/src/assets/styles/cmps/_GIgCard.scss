@@ -8,7 +8,7 @@
   // width: 20x;
   // height: 100px;
   left: 1000px;
-  border:solid 1px#e4e5e7;;
+  // border:solid 1px#e4e5e7;
   // position: fixed;
 position: sticky;
   font-family: 'Macan';
@@ -21,7 +21,7 @@ position: sticky;
   order: 2;
   margin-bottom: em(50px, 16px);
   margin-left: -10px;
-  flex-grow: 1;
+  // flex-grow: 1;
   flex-direction: column;
   margin-left: em(157px, 16px);
 
@@ -72,16 +72,20 @@ position: sticky;
   // height: fit-content;
   // color: $clr5;
   // border: 1px solid $clr7;
-  display: block;
+  // display: block;
+  border:solid 1px#e4e5e7;
+
 }
 
 .gig-program-name {
   display: flex;
-
+  
   .active-basic {
     background-color: #fff;
     border-bottom: 3px solid $clr14;
     color: $clr14;
+    font-family: 'Macan';
+
   }
 
   button {
@@ -94,9 +98,12 @@ position: sticky;
     transition: all .6s;
     background-color: #fafafa;
     color: #74767e;
+    font-family: 'Macan';
+    font-weight: bold;
 
     &:not(:last-of-type) {
       border-right: 1px solid $clr7;
+     
     }
   }
 }
@@ -108,12 +115,14 @@ position: sticky;
   // width: 100%;
 
   .gig-program-price {
+    display: flex;
+    justify-self: end;
     color: $clr2;
-    font-family: macan-bold;
-    font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
-    padding-bottom: 3px;
-    font-size: 20px;
-    align-self: flex-start;
+    font-family: 'Macan';
+    // font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+    // padding-bottom: 3px;
+    font-size: 24px;
+    
   }
 
   .delivery span {
@@ -124,6 +133,11 @@ position: sticky;
     }
 
     .delivery-time span {}
+  }
+
+  .dec-gig{
+    font-size: 16px;
+    text-transform: uppercase;
   }
 
   p,
@@ -137,7 +151,7 @@ position: sticky;
   }
 
   .gig-program-basic {
-    font-family: macan-bold;
+    // font-family: macan-bold;
   }
 
   .green-check {
@@ -174,6 +188,7 @@ position: sticky;
   background-color: $clr9;
   text-align: center;
   padding: 24px;
+  
 
   button {
     // width: 100%;
@@ -183,7 +198,8 @@ position: sticky;
     color: $clr2;
     font-family: macan-semibold;
     border: 1px solid $clr2;
-    border-radius: 4px
+    border-radius: 4px;
+    font-family: 'Macan';
   }
 
   button:hover {
@@ -245,6 +261,7 @@ span.svg-payment {
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
+  font-family: 'Macan';
 
   &:hover {
     text-decoration: none;

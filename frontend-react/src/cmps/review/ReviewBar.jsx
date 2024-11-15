@@ -21,7 +21,7 @@ export function ReviewBar({ userReviews }) {
     return <div className="review-bars">
         {stars.count.slice(1).map((count, idx) =>
             <div className="review-bars-container" key={idx}>
-                <div style={{padding:'6px'}}>{`${idx + 1} Stars`}</div>
+                <div >{`${idx + 1} Stars`}</div>
                 <div className="review-rate-bar">
                     <span className="percent" style={{ padding:'10px 10px 0px 6px',width: `${(count / stars.sumCount) * 100}%` }}></span>
                 </div>

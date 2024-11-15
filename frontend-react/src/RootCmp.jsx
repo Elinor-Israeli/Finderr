@@ -7,6 +7,8 @@ import { GigDetails } from './pages/gig/GigDetails'
 import { AppFooter } from './cmps/AppFooter'
 // import { AppHeader} from './cmps/AppHeader'
 import { IndexHeader} from './cmps/IndexHeader'
+import { GigEdit } from './cmps/gig/GigEdit'
+import { GigPayment } from './pages/gig/GigPayment'
 // import { GigBreadcrumbs } from './cmps/gig/GigBreadcrumbs'
 
 
@@ -25,8 +27,9 @@ export function RootCmp() {
                     <Route path="" element={<HomePage />} />
                     <Route path="/gig" element={<GigIndex />} />
                     <Route path="/gig/:gigId" element={<GigDetails />} />
-                    {/* <Route path="/payment/:gigId" element={<GigPayment />} />
-                    <Route path="/user/:userId" element={<UserIndex />} /> */}
+                    <Route path="/gig/edit/:gigId" element={<GigEdit />} />
+                    <Route path="/payment/:gigId" element={<GigPayment />} />
+                    {/* <Route path="/user/:userId" element={<UserIndex />} /> */}
 
                 </Routes>
             </main>

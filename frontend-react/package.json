@@ -20,9 +20,10 @@
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/icons-material": "^6.1.6",
-    "@mui/material": "^6.1.6",
+    "@mui/material": "^6.1.7",
     "axios": "^1.5.0",
     "bootstrap": "^5.3.3",
+    "formik": "^2.4.6",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.2.0",
@@ -33,7 +34,8 @@
     "react-router-dom": "^6.16.0",
     "redux": "^4.2.1",
     "slick-carousel": "^1.8.1",
-    "socket.io-client": "^4.7.2"
+    "socket.io-client": "^4.7.2",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

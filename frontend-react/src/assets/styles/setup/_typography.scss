@@ -43,6 +43,20 @@ $non_sticky_filter_margin_top: 20px;
 // LAYOUT
 $layoutPadding: 32px;
 
+$white: #ffffff;
+$grey: #888888;  // This could be a variable for a grey scale
+$grey-light: #dcdcdc;
+$grey-dark: #444444;
+
+// Size helpers (you can adjust these as per your design system)
+$checkmark_box_size_square: 24px;  // size of the box (adjust as needed)
+
+
+
+// Animation helpers (for smooth transitions)
+$animation_duration_fast_01: 0.2s;
+$animation_timing_function_standard: ease-in-out;
+
 
 // Breakpoints
 $mobile-breakpoint: 600px;

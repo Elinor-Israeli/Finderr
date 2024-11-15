@@ -3,7 +3,7 @@ import { SET_USER, SET_WATCHED_USER, UPDATE_USER } from './user.reducer'
 
 import { userService } from '../../services/user.service'
 import { showErrorMsg } from '../../services/event-bus.service'
-import { socketService } from '../../services/socket.service' 
+import { socketService } from '../../services/socket.service'  
 
 
 export async function updateUser(user) {

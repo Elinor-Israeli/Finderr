@@ -119,14 +119,7 @@ export function IndexHeader({ onSetFilter }) {
                             {isOrder && <UserBuyGig />}
                         </div>
                         <Link to="/wishlist" className="fa-regular heart" title="save to list"></Link>
-                        {/* {(windowSize > 900) && <div className="user-header-img">
-                            <img src={user.imgUrl}
-                                onClick={() => {
-                                    setIsOrder(false)
-                                    setIsDropdown(!isDropdown)
-                                }} />
-                            {isDropdown && <Dropdown loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} user={user} />}
-                        </div>} */}
+
                     </>
                 }
                     <span>English</span>

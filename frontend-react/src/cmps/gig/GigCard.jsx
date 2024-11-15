@@ -41,7 +41,7 @@ export function GigCard({ gig, onSetChat }) {
                     <div className="gig-program-info">
                         <h2 className="gig-program-price">${gig.price}</h2>
                         <p>Save up to {randomDiscount}% with <span style={{ color: 'green' }}>Subscribe to Save</span></p>
-                        <p>
+                        <p className='dec-gig'>
                             {/* <span className="gig-program-basic"> Basic  1 </span> */}
                             {gig.title}
                         </p>
@@ -92,7 +92,7 @@ export function GigCard({ gig, onSetChat }) {
                 {program === 2 && (
                     <div className="gig-program-info">
                         <h2 className="gig-program-price">${gig.price + Math.floor(Math.random() * (25 - 5 + 1)) + 5}</h2>
-                        <p>
+                        <p className='dec-gig'>
                             <span className="gig-program-basic">Standard2 </span>
                             {gig.title}
                         </p>
@@ -141,7 +141,7 @@ export function GigCard({ gig, onSetChat }) {
                 {program === 3 && (
                     <div className="gig-program-info">
                         <h2 className="gig-program-price">${gig.price + Math.floor(Math.random() * (75 - 25 + 1)) + 25}</h2>
-                        <p>
+                        <p className='dec-gig'>
                             <span className="gig-program-basic">Premium 3 </span>
                             {gig.title}
                         </p>

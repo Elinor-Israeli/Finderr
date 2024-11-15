@@ -5,6 +5,7 @@ import { updateOrder } from '../../store/actions/order.actions'
 // import { ProgressChart } from '../../progress-chart'
 
 import { socketService, SOCKET_EVENT_ORDER_UPDATED  } from '../../services/socket.service'
+import { ProgressChart } from '../ProgressChart'
 
 export default function UserSellerTable({ orders }) {
   const [isModal, setIsModal] = useState({ id: '', status: false })

@@ -45,8 +45,8 @@ export function UserIndex() {
         <section className="user-index">
             <aside className="user-info">
                 <UserProfile watchedUser={watchedUser} />
-                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner._id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
                 <div className="user-review-bar">{watchedUser && watchedUser.reviews && <ReviewBar userReviews={watchedUser.reviews} />}</div>
+                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner._id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
 
                 {watchedUser && watchedUser.reviews && <ReviewList userReviews={watchedUser.reviews} />}
             </aside>

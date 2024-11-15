@@ -10,8 +10,9 @@ import { userService } from '../services/user/user.service.local'
 import { gigService } from '../services/gig/gig.service.local'
 import { GigCategoryMenu } from './gig/GigCategoryMenu'
 import { useDispatch, useSelector } from 'react-redux'
+import { UserBuyGig } from './user/UserBuyGig'
 // import { GigCategoryMenu3 } from './gig/GigCategoryMenu3'
-
+// UserBuyGig //!!
 
 export function IndexHeader({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
@@ -111,6 +112,23 @@ export function IndexHeader({ onSetFilter }) {
                 <div className="links">
                     <span>Fiver pro</span>
                     <Link to="gig"><span>Explore</span></Link>
+                    {user &&
+                    <>
+                        <div className="user-orders">
+                            <Link onClick={handleOrder}>Orders</Link>
+                            {isOrder && <UserBuyGig />}
+                        </div>
+                        <Link to="/wishlist" className="fa-regular heart" title="save to list"></Link>
+                        {/* {(windowSize > 900) && <div className="user-header-img">
+                            <img src={user.imgUrl}
+                                onClick={() => {
+                                    setIsOrder(false)
+                                    setIsDropdown(!isDropdown)
+                                }} />
+                            {isDropdown && <Dropdown loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} user={user} />}
+                        </div>} */}
+                    </>
+                }
                     <span>English</span>
                     <Link to="gig"> <span>Become a Seller</span></Link>
                     <span>Sign in</span>

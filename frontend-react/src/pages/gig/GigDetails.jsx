@@ -102,7 +102,6 @@ export function GigDetails({ userReviews }) {
                             </span>
                         </div>
                     </div>
-
                 </div>
 
 
@@ -116,16 +115,83 @@ export function GigDetails({ userReviews }) {
                     <span style={{ backgroundColor: '#ffecd1', fontFamily: 'Macan' }}>What you'll get:</span>
                     <p>{gig.description2}</p>
                     <span style={{ backgroundColor: '#ffecd1', fontFamily: 'Macan' }}>Why you should hire me :</span>
-
-
-
-
-
-
-
                 </div>
+                {/* <ul>
+                    <li>Best Quality & Fast Delivery</li>
+                    <li>24/7 available & Good communication</li>
+                    <li>30 Days of Free ongoing Support</li>
+                    <li>Unlimited Revisions</li>
+                    <li>Free Video instruction on how to update website</li>
+                </ul> */}
+
+                {/* <p>This service is amazing and impressive, Right? I can guarantee you the Quality of work.</p>
+                     <p>Still not sure we're a good fit?<span style={{ backgroundColor: '#ffecd1' }}> Contact me to schedule a Zoom call.</span></p>
+                  <p>{fullname}</p> */}
+
+                <div className="gig-about-filter">
+                    <ul style={{ display: 'flex', justifyContent: 'space-between', padding: '0px 0px 20px' }}>
+                        <li className="row-item">
+                            <span className='head'>Platform:</span><li>WordPress</li>
+                        </li>
+                        <li className="row-item">
+                            <span className='head'>Website Type:</span><li>Business</li>
+                        </li>
+                        <li className="row-item spaced">
+                            <span className='head'>Service Type:</span><li>New Design</li>
+                        </li>
+                    </ul>
+                </div>
+                    
+                    <h3 className='get-to-know'>Get to know {gig.owner.fullname}</h3>
+                    <div className="contact-info">
+                    <div className="contact-info-user">
+                    <img src={imgUrl} alt="user-img" className="contact-info-profile-picture" />
+                    <div className="user-info">
+                        <div className="contact-info-user-name-level">
+                            <span className="contact-info-user-name">{fullname}</span>
+                            <div className="contact-info-user-level">
+                                <div className="contact-info-level">
+                                    {gig.owner.level === 'level 3' ? 'Top Rated' : ` ${gig.owner.level}`}
+                                </div>
+                                <div className="level-icons">
+                                    {[...Array(3)].map((_, idx) => (
+                                        <svg
+                                            key={idx}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 10 10"
+                                            width="10"
+                                            height="10"
+                                            fill={idx < levelNumber ? "black" : "gray"}
+                                            style={{ marginLeft: "4px" }}
+                                            className='owner-level-preview'
+                                        >
+                                            <path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z" />
+                                        </svg>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="contact-info-stars">
+                            <StarRating value={gig.owner.rate} />
+                            <span className="contact-info-reviews-num">
+                                ({userReviews ? userReviews.length : 1}  reviews)
+                            </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <button className="contact-me">Contact me</button>
+                    {/* {gig && <button><Link to={`/user/${gig.owner._id}`}>Contact Me</Link></button>} */}
+                    
+                    <ReviewAll gig={gig} />
+
+                    
+                
+                
 
 
+
+                    </div>
             </div>
             <div className="right">
                 <GigCard gig={gig} onSetChat={onSetChat} />
@@ -134,7 +200,7 @@ export function GigDetails({ userReviews }) {
     </section>
 
 
-    // return //<section className='main-gig-details'>
+    {/* // return //<section className='main-gig-details'> */}
     //    
     //         
     //           
@@ -188,7 +254,7 @@ export function GigDetails({ userReviews }) {
     //                     <div className="seller-info">
     //                         <p className="seller-name">{fullname}</p>
     //                         <div className="seller-rating-level">
-    //                             {/* <div></div> */}
+    //                             
     //                             <div>
     //                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#222325" viewBox="0 0 16 16">
     //                                     <path

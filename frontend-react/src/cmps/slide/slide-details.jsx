@@ -1,50 +1,106 @@
-import { useState } from 'react'
-import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
-// import { GigCard } from '../gig/GigCard';
+// import { useState } from 'react'
+// import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
+// // import { GigCard } from '../gig/GigCard';
+
+// export function SlideDetails({ gig }) {
+//     let slides = gig.imgUrl
+//     const [slideIndex, setSlideIndex] = useState(0)
+//     const [isDynamic, setIsDynamic] = useState(0)
+
+//     // Next/prev controls forword and back 
+//     function plusSlides(n) {
+//         if (slideIndex === slides.length - 1 && n === 1) {
+//             setSlideIndex(0)
+//             setIsDynamic(0)
+//         }
+//         else if (slideIndex === 0 && n === -1) {
+//             setSlideIndex(slides.length - 1)
+//             setIsDynamic(slides.length - 1)
+//         }
+//         else {
+//             setSlideIndex((prevSlide) => (prevSlide + n))
+//             setIsDynamic(slideIndex + n)
+//         }
+//     }
+
+//     function currentSlide(n) {
+//         setSlideIndex(n)
+//         setIsDynamic(n)
+//     }
+
+//     return <div className="slide-details">
+//         <div className="container-slide-detail">
+//             <div className="my-slides">
+//                 <img src={slides[slideIndex]} />
+//             </div>
+
+//             <a className="previous fa-solid chevron-left" onClick={() => plusSlides(-1)}><IoIosArrowBack /></a>
+//             <a className="next-slide fa-solid chevron-right" onClick={() => plusSlides(1)}><IoIosArrowForward /></a>
+//             <div className="thumbs-container">
+//                 {slides.map((slide, index) => {
+//                     return <div className="column" key={index}>
+//                         <img className={isDynamic === index ? "demo-active demo cursor " : "demo cursor"} src={slide} onClick={() => currentSlide(index)} />
+//                     </div>
+//                 })}
+//             </div>
+//             {/* <GigCard></GigCard> */}
+
+//         </div>
+//     </div>
+// }
+import { useState } from 'react';
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 export function SlideDetails({ gig }) {
-    let slides = gig.imgUrl
+    const slides = gig.imgUrl
     const [slideIndex, setSlideIndex] = useState(0)
-    const [isDynamic, setIsDynamic] = useState(0)
 
-    // Next/prev controls forword and back 
+   
     function plusSlides(n) {
         if (slideIndex === slides.length - 1 && n === 1) {
             setSlideIndex(0)
-            setIsDynamic(0)
-        }
-        else if (slideIndex === 0 && n === -1) {
+        } else if (slideIndex === 0 && n === -1) {
             setSlideIndex(slides.length - 1)
-            setIsDynamic(slides.length - 1)
-        }
-        else {
-            setSlideIndex((prevSlide) => (prevSlide + n))
-            setIsDynamic(slideIndex + n)
+        } else {
+            setSlideIndex(prevSlide => prevSlide + n)
         }
     }
 
+   
     function currentSlide(n) {
         setSlideIndex(n)
-        setIsDynamic(n)
     }
 
-    return <div className="slide-details">
-        <div className="container-slide-detail">
-            <div className="my-slides">
-                <img src={slides[slideIndex]} />
-            </div>
+    return (
+        <div className="slide-details">
+            <div className="container-slide-detail">
+              
+                <div className="my-slides">
+                    <img src={slides[slideIndex]} alt={`Slide ${slideIndex + 1}`} />
+                </div>
 
-            <a className="previous fa-solid chevron-left" onClick={() => plusSlides(-1)}><IoIosArrowBack /></a>
-            <a className="next-slide fa-solid chevron-right" onClick={() => plusSlides(1)}><IoIosArrowForward /></a>
-            <div className="thumbs-container">
-                {slides.map((slide, index) => {
-                    return <div className="column" key={index}>
-                        <img className={isDynamic === index ? "demo-active demo cursor " : "demo cursor"} src={slide} onClick={() => currentSlide(index)} />
-                    </div>
-                })}
-            </div>
-            {/* <GigCard></GigCard> */}
+                
+                <a className="previous" onClick={() => plusSlides(-1)}>
+                    <IoIosArrowBack />
+                </a>
+                <a className="next-slide" onClick={() => plusSlides(1)}>
+                    <IoIosArrowForward />
+                </a>
 
+               
+                <div className="thumbs-container">
+                    {slides.map((slide, index) => (
+                        <div className="column" key={index}>
+                            <img
+                                className={slideIndex === index ? "demo-active demo cursor" : "demo cursor"}
+                                src={slide}
+                                alt={`Thumbnail ${index + 1}`}
+                                onClick={() => currentSlide(index)}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
-    </div>
+    );
 }

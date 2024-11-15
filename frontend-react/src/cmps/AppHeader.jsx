@@ -110,7 +110,8 @@ export function AppHeader() {
                     <button className='gig-header-link'>Finderr Pro<svg width="16" height="16" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M.19 1.272.81.653a.375.375 0 0 1 .53 0L7 6.3 12.66.653a.375.375 0 0 1 .53 0l.62.62a.375.375 0 0 1 0 .53L7.264 8.346a.375.375 0 0 1-.53 0L.19 1.802a.375.375 0 0 1 0-.53Z"/></svg></button>
                     <button className='gig-header-link' to="gig">Explore<svg width="16" height="16" viewBox="0 0 14 9" xmlns="http://www.w3.org/2000/svg" fill="currentFill"><path d="M.19 1.272.81.653a.375.375 0 0 1 .53 0L7 6.3 12.66.653a.375.375 0 0 1 .53 0l.62.62a.375.375 0 0 1 0 .53L7.264 8.346a.375.375 0 0 1-.53 0L.19 1.802a.375.375 0 0 1 0-.53Z"/></svg></button>
                     <button className='gig-header-link' >English</button>
-                    <Link className='gig-header-link' to="gig">Become a seller</Link>
+                 {/* or   onSetFilter(gigService.getDefaultFilter()) */}
+                    <Link className='gig-header-link' to="gig">Become a seller</Link>  
                     <Link className="gig-header-link sign-in-btn">Sign in</Link>
                     <Link className="join-btn">Join</Link>
                     </nav>

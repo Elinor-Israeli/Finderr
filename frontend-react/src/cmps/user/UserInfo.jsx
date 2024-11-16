@@ -8,7 +8,6 @@ export function UserInfo({ user_id, compact }) {
         loadUser()
     }, [])
 
-    console.log(user)
 
     async function loadUser() {
         try {

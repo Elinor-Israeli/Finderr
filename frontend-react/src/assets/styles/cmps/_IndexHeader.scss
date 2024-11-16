@@ -115,14 +115,14 @@
         }
     }
 
-    .my-header.sticky {
-        position: sticky;
+    .index-header-container.fixed-header {
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 10;
-        background-color:white ;
-        
+        z-index: 999;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     }
 }
 

@@ -2,6 +2,7 @@
 
 // import { GigCategoryMenu } from "../cmps/gig/GigCategoryMenu";
 import { CategoryMenu2 } from "./gig/GigCategoryMenu2";
+import { IndexHeader } from "../cmps/IndexHeader";
 
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -93,10 +94,15 @@ export function HomePage({ onSetFilter }) {
 
     return (
         <section className="">
+            <IndexHeader isSticky={true}/> 
+           
             <section className="home-page full main-layout">
+            
                 <div className="hero-container full main-layout">
-
-                    <div className="main-header full main-layout">
+                
+                    {/* <div className="main-header full main-layout"> */}
+                        
+                       
                         <h1 className="hero-msg">
                             Scale your professional work force with<i className="special-font"> freelance</i>
                         </h1>
@@ -107,7 +113,6 @@ export function HomePage({ onSetFilter }) {
 <textarea class="p-2 w-50" placeholder="Type your message"></textarea> */}
                             <Search onSetFilter={onSetFilter} />
                         </div>
-
                         <section className="trusted-by">
                             <span>Trusted </span>
                             <span style={{marginLeft:'-25px'}}> by: </span>
@@ -120,11 +125,12 @@ export function HomePage({ onSetFilter }) {
                                 <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta.ff37dd3.svg" alt="meta" width="70" height="14" /></li>
                             </ul>
                         </section>
-                    </div>
+                    {/* </div> */}
                 </div>
             </section >
             <div>
                 <CategoryMenu2 onSetFilter={onSetFilter} />
+                
                 <SlideList onSetFilter={onSetFilter} />
 
                 {/* <div>

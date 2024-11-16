@@ -200,7 +200,7 @@ export function GigCard({ gig, onSetChat }) {
             </div>
 
             <div
-                to={`/user/${gig.owner._id}`}
+                to={`/user/${gig.owner_id}`}
                 className="contact-seller"
                 onClick={() => onSetChat()}
             >

@@ -27,13 +27,13 @@ function getDefaultSort() {
 
 async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sortBy, userId) {
     var gigs = await storageService.query(STORAGE_KEY)
-    if (userId) gigs = gigs.filter(gig => gig.owner._id === userId)
+    if (userId) gigs = gigs.filter(gig => gig.owner_id === userId)
     if (filterBy.title) {
         const regex = new RegExp(filterBy.title, 'i')
         gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
     }
     if (sortBy.categorySort === 'recommended') {
-        gigs.sort((a, b) => b.owner.rate - a.owner.rate)
+        gigs.sort((a, b) => b.owner_rate - a.owner_rate)
     }
     if (filterBy.tags?.length) {
         gigs = gigs.filter(gig => gig.tags.some(tag => filterBy.tags.includes(tag)))
@@ -64,7 +64,7 @@ async function save(gig) {
         savedGig = await storageService.put(STORAGE_KEY, gig)
     } else {
         // Later, owner is set by the backend
-        gig.owner = userService.getLoggedinUser()
+        gig.owner_id = userService.getLoggedinUser()._id
         savedGig = await storageService.post(STORAGE_KEY, gig)
     }
     return savedGig
@@ -167,13 +167,8 @@ function _createGigs() {
                 title: "I will provide a great logo for you",
                 title2: "\u200B",
                 price: 15,
-                owner: {
-                    _id: "u102",
-                    fullname: "Boya",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
-                    level: "level 3",
-                    rate: 5
-                },
+                owner_id: "u102",
+                owner_rate: 4,
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
@@ -195,13 +190,8 @@ function _createGigs() {
                 _id: 'i103',
                 title: "I will do elegant professional business logo design services",
                 price: 12,
-                owner: {
-                    _id: "u102",
-                    fullname: "Boya",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
-                    level: "level 1",
-                    rate: 5
-                },
+                owner_id: "u102",
+                owner_rate: 4,
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
@@ -224,13 +214,8 @@ function _createGigs() {
                 _id: 'i104',
                 title: "I will do 3 modern minimalist logo design",
                 price: 18,
-                owner: {
-                    _id: "u102",
-                    fullname: "Boya",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
-                    level: "level 3",
-                    rate: 5
-                },
+                owner_id: "u102",
+                owner_rate: 4,
                 daysToMake: 1,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
@@ -252,13 +237,8 @@ function _createGigs() {
                 _id: 'i105',
                 title: "I will make 6 figure shopify dropshipping store or shopify website",
                 price: 10,
-                owner: {
-                    _id: "u105",
-                    fullname: "Jo Bara",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2017/08/06/15/13/woman-2593366_960_720.jpg',
-                    level: "level 3",
-                    rate: 5
-                },
+                owner_id: "u105",
+                owner_rate:4,
                 daysToMake: 4,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -279,13 +259,8 @@ function _createGigs() {
                 _id: 'i106',
                 title: "I will mix and master your music, experienced professional engineer",
                 price: 20,
-                owner: {
-                    _id: "u106",
-                    fullname: "Anita Bath",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2018/01/21/14/16/woman-3096664_960_720.jpg',
-                    level: "level 3",
-                    rate: 1
-                },
+                owner_id: "u106",
+                owner_rate:4,
                 daysToMake: 5,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -307,13 +282,8 @@ function _createGigs() {
                 title: "I will create an animated marketing video for business and sales",
 
                 price: 8,
-                owner: {
-                    _id: "u107",
-                    fullname: "Zozo Ta",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/16/01/woman-1846127_960_720.jpg',
-                    level: "level 3",
-                    rate: 3.5
-                },
+                owner_id: "u107",
+                owner_rate:4,
                 daysToMake: 2,
                 description: "I will be your female singer songwriter in english and in french.",
                 imgUrl: [
@@ -334,13 +304,8 @@ function _createGigs() {
                 _id: 'i108',
                 title: "I will design your printed circuit board pcb, ready for manufacturing",
                 price: 5,
-                owner: {
-                    _id: "u108",
-                    fullname: "Mumu Asa",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                    level: "level 3",
-                    rate: 3
-                },
+                owner_id: "u108",
+                owner_rate:4,
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
@@ -363,13 +328,8 @@ function _createGigs() {
                 _id: 'i109',
                 title: "I will create a stunning commercial brand video",
                 price: 25,
-                owner: {
-                    _id: "u109",
-                    fullname: "Bill Loney",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2018/03/12/20/57/woman-3220835_960_720.jpg',
-                    level: "level 3",
-                    rate: 4
-                },
+                owner_id: "u109",
+                owner_rate:4,
                 daysToMake: 7,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
@@ -391,13 +351,8 @@ function _createGigs() {
                 _id: 'i130',
                 title: "I will translate english to german or translate german to english professionally",
                 price: 30,
-                owner: {
-                    _id: "u130",
-                    fullname: "Nura Kersa",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/05/46/young-woman-1867618_960_720.jpg',
-                    level: "level 3",
-                    rate: 1
-                },
+                owner_id: "u130",
+                owner_rate: 1,
                 daysToMake: 6,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -418,13 +373,8 @@ function _createGigs() {
                 _id: 'i111',
                 title: "I will write SEO health, nutrition and fitness articles blog posts",
                 price: 17,
-                owner: {
-                    _id: "u111",
-                    fullname: "Anita Bath",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/03/35/girl-1867092_960_720.jpg',
-                    level: "level 2",
-                    rate: 4
-                },
+                owner_id: "u111",
+                owner_rate:2,
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -445,13 +395,8 @@ function _createGigs() {
                 title: "I will provide automated social websites for passive income",
 
                 price: 15,
-                owner: {
-                    _id: "u112",
-                    fullname: "Boya",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg',
-                    level: "level 2",
-                    rate: 5
-                },
+                owner_id: "u112",
+                owner_rate:5,
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -471,13 +416,8 @@ function _createGigs() {
                 _id: 'i113',
                 title: "I will do elegant professional business logo design services",
                 price: 12,
-                owner: {
-                    _id: "u113",
-                    fullname: "Ssudu Dda",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565_960_720.jpg',
-                    level: "level 1",
-                    rate: 4
-                },
+                owner_id: "u113",
+                owner_rate:5,
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -498,13 +438,8 @@ function _createGigs() {
                 _id: 'i114',
                 title: "I will do 3 modern minimalist logo design",
                 price: 18,
-                owner: {
-                    _id: "u114",
-                    fullname: "Puki Dfa",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445_960_720.jpg',
-                    level: "level 2",
-                    rate: 2
-                },
+                owner_id: "u114",
+                owner_rate:4,
                 daysToMake: 1,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -525,13 +460,8 @@ function _createGigs() {
                 _id: 'i115',
                 title: "I will make 6 figure shopify dropshipping store or shopify website",
                 price: 10,
-                owner: {
-                    _id: "u115",
-                    fullname: "Jo Bara",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/09/38/adult-1868750_960_720.jpg',
-                    level: "level 2",
-                    rate: 5
-                },
+                owner_id: "u115",
+                owner_rate: 5,
                 daysToMake: 4,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -552,13 +482,8 @@ function _createGigs() {
                 _id: 'i116',
                 title: "I will mix and master your music, experienced professional engineer",
                 price: 20,
-                owner: {
-                    _id: "u116",
-                    fullname: "Anita Bath",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg',
-                    level: "level 2",
-                    rate: 1
-                },
+                owner_id: "u116",
+                owner_rate: 5,
                 daysToMake: 5,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -580,13 +505,8 @@ function _createGigs() {
                 title: "I will create an animated marketing video for business and sales",
 
                 price: 8,
-                owner: {
-                    _id: "u117",
-                    fullname: "Zozo Ta",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg',
-                    level: "level 2",
-                    rate: 2
-                },
+                owner_id: "u117",
+                owner_rate: 2,
                 daysToMake: 2,
                 description: "I will be your female singer songwriter in english and in french.",
                 imgUrl: [
@@ -607,13 +527,8 @@ function _createGigs() {
                 _id: 'i118',
                 title: "I will design your printed circuit board pcb, ready for manufacturing",
                 price: 5,
-                owner: {
-                    _id: "u118",
-                    fullname: "Mumu Asa",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2017/04/01/21/06/portrait-2194457_960_720.jpg',
-                    level: "level 2",
-                    rate: 3
-                },
+                owner_id: "u118",
+                owner_rate: 3,
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -635,13 +550,8 @@ function _createGigs() {
                 _id: 'i119',
                 title: "I will create a stunning commercial brand video",
                 price: 25,
-                owner: {
-                    _id: "u119",
-                    fullname: "Bill Loney",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2018/11/08/23/52/man-3803551_960_720.jpg',
-                    level: "level 2",
-                    rate: 4
-                },
+                owner_id: "u119",
+                owner_rate: 4,
                 daysToMake: 7,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -662,13 +572,8 @@ function _createGigs() {
                 _id: 'i120',
                 title: "I will translate english to german or translate german to english professionally",
                 price: 30,
-                owner: {
-                    _id: "u120",
-                    fullname: "Nura Kersa",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
-                    level: "level 2",
-                    rate: 1
-                },
+                owner_id: "u120",
+                owner_rate: 1,
                 daysToMake: 6,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -689,13 +594,8 @@ function _createGigs() {
                 _id: 'i121',
                 title: "I will write SEO health, nutrition and fitness articles blog posts",
                 price: 17,
-                owner: {
-                    _id: "u121",
-                    fullname: "Anita Bath",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2015/01/12/10/45/man-597178_960_720.jpg',
-                    level: "level 2",
-                    rate: 4
-                },
+                owner_id: "u121",
+                owner_rate: 1,
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [

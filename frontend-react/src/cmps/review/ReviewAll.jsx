@@ -7,7 +7,7 @@ import { StarRating } from './StarRating'
 import { userService } from '../../services/user/user.service.local'
 import { GiRoundStar } from "react-icons/gi";
 
-export function ReviewAll({ gig }) {
+export function ReviewAll({ user_id }) {
     const [userReviews, setUserReviews] = useState(null)
     
     useEffect(() => {
@@ -16,7 +16,7 @@ export function ReviewAll({ gig }) {
 
     async function loadUserReviews() {
         try {
-            const userReviews = await userService.getUserReviews(gig.owner._id)
+            const userReviews = await userService.getUserReviews(user_id)
             setUserReviews(userReviews)
         } catch (err) {
             console.log('userReviews: err in userReviews', err)

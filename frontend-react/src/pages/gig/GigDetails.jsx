@@ -39,7 +39,7 @@ export function GigDetails() {
             <div className="left">
                 <GigBreadcrumbs />
                 <h1 className='gig-details-title'>{gig.title}</h1>
-                <UserInfo gig={gig} compact={true}/>
+                <UserInfo user_id={gig.owner_id} compact={true}/>
                 <div className="thumbnail">
                     <SlideDetails gig={gig} />
                 </div>
@@ -64,9 +64,8 @@ export function GigDetails() {
                         </li>
                     </ul>
                 </div>
-                <h3 className='get-to-know'>Get to know {gig.owner.fullname}</h3>
-                <UserInfo gig={gig} compact={false}/>
-                <ReviewAll gig={gig} />
+                <UserInfo user_id={gig.owner_id} compact={false}/>
+                <ReviewAll user_id={gig.owner_id} />
             </div>
             <div className="right">
                 <GigCard gig={gig}/>

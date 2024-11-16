@@ -23,6 +23,9 @@ export function UserIndex() {
     const { userId } = useParams()
     const loginUser = userService.getLoggedinUser()
 
+    console.log(watchedUser)
+    
+
     useEffect(() => {
         userId && loadWatchedUser(userId)
         loadOrders()
@@ -46,7 +49,15 @@ export function UserIndex() {
             <aside className="user-info">
                 <UserProfile watchedUser={watchedUser} />
                 <div className="user-review-bar">{watchedUser && watchedUser.reviews && <ReviewBar userReviews={watchedUser.reviews} />}</div>
-                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner._id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
+                {/* {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner._id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />} */}
+
+                {/* {watchedUser && gigs && Array.isArray(gigs) && gigs.length > 0 && (
+                    <UserList
+                        gigs={gigs.filter(gig => gig.owner._id === userId)}
+                        onRemoveGig={onRemoveGig}
+                        user={watchedUser}
+                    />
+                )} */}
 
                 {watchedUser && watchedUser.reviews && <ReviewList userReviews={watchedUser.reviews} />}
             </aside>

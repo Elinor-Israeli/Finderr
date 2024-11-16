@@ -23,9 +23,6 @@ export function UserInfo({ user_id, compact }) {
         <div className="loader"></div>
     </div>
 
-
-
-    
     return compact ? (
         <div className="user">
             <img src={user.imgUrl} alt="user-img" className="profile-picture" />
@@ -36,7 +33,11 @@ export function UserInfo({ user_id, compact }) {
                         <div className="level">
                             {user.level === 'level 3' ? 'Top Rated' : `Level ${user.level}`}
                         </div>
-                        <div className="level-icons">
+                        <div
+                            className="level-icons"
+                            style={user.level === 3 ? { backgroundColor: '#ffe0b3', padding: '4px', borderRadius: '5px' } : {}}
+                        >
+                            <div className={`level-icons ${user.level === 3 ? 'top-rated' : ''}`}></div>
                             {[...Array(3)].map((_, idx) => (
                                 <svg
                                     key={idx}
@@ -46,7 +47,7 @@ export function UserInfo({ user_id, compact }) {
                                     height="10"
                                     fill={idx < user.level ? "black" : "gray"}
                                     style={{ marginLeft: "4px" }}
-                                    className='owner-level-preview'
+                                    className="owner-level-preview"
                                 >
                                     <path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z" />
                                 </svg>
@@ -99,7 +100,6 @@ export function UserInfo({ user_id, compact }) {
                         </span>
                     </div>
                 </div>
-
             </div>
             <button className="contact-me">Contact me</button>
             {/* {gig && <button><Link to={`/user/${gig.owner._id}`}>Contact Me</Link></button>} */}

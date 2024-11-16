@@ -8,7 +8,7 @@ import { SlideGigPreview } from '../slide/SlideGigPreview'
 
 export function GigPreview({ gig }) {
     const user = useSelector((storeState) => storeState.userModule.user)
-    
+
     const [heart, setHeart] = useState(false)
     const [owner, setOwner] = useState(null)
     console.log(owner)
@@ -81,6 +81,7 @@ export function GigPreview({ gig }) {
         ))
     }
 
+
     console.log("before render")
 
     if (!owner) return <div className="loader-container">
@@ -112,9 +113,12 @@ export function GigPreview({ gig }) {
                     <div className="gig-preview__owner">
                         <Link className="gig-preview__owner-name" to={`/user/${owner?._id}`}>{owner?.fullname}</Link>
                         <div className="gig-preview__owner-level-container">
-                            <span className="gig-preview__owner-level">
-                                Level {owner.level} {/* You can replace the hardcoded value with actual data */}
-                                {renderLevelStars(owner.level)} {/* Placeholder for level */}
+                            <span
+                                className="gig-preview__owner-level"
+                                style={owner.level === 3 ? { backgroundColor: '#ffe0b3', padding: '2px 6px', borderRadius: '4px' } : {}}
+                            >
+                                {owner.level === 3 ? `Top Rated ${owner.level}` : `Level ${owner.level}`}
+                                {renderLevelStars(owner.level)}
                             </span>
                         </div>
                     </div>
@@ -122,9 +126,9 @@ export function GigPreview({ gig }) {
 
                 <Link className="gig-preview__title" to={`/gig/${gig._id}`}>
                     <div className="gig-preview__long-txt">
-                        <span>{getTxtToShow(gig.title, 55)}</span>
+                        <span>{getTxtToShow(gig.title, 75)}</span>
                         {/* {gig.title2 && gig.title2.trim() !== "\u200B" && <p>{gig.title2}</p>} */}
-                        {/* <p>{gig.title2}</p> */}
+
                     </div>
                 </Link>
                 <div className="gig-rate-price">

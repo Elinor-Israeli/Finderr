@@ -6,11 +6,12 @@ import { SET_FILTER } from '../store/reducers/gig.reducer'
 
 import { useEffect, useRef, useState } from 'react'
 
-import { userService } from '../services/user/user.service.local'
 import { gigService } from '../services/gig/gig.service.local'
 import { GigCategoryMenu } from './gig/GigCategoryMenu'
 import { useDispatch, useSelector } from 'react-redux'
 import { UserBuyGig } from './user/UserBuyGig'
+
+
 // import { GigCategoryMenu3 } from './gig/GigCategoryMenu3'
 // UserBuyGig //!!
 
@@ -22,6 +23,7 @@ export function IndexHeader({ onSetFilter }) {
     const user = useSelector(storeState => storeState.userModule.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [isOrder, setIsOrder] = useState(false)
 
     const headerRef = useRef(null)
     //~ or import { useLocation } from 'react-router-dom';
@@ -73,9 +75,13 @@ export function IndexHeader({ onSetFilter }) {
             queryStringParams = `?category=${categoryParams}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
             navigate(`/gig${queryStringParams}`)
         }
+
     }
 
-    // export function IndexHeader() {
+    function handleOrder() {
+        setIsOrder(prev => !prev)
+    }
+
     return (
         <section className=" my-header full">
         <div className="index-header full">
@@ -112,16 +118,14 @@ export function IndexHeader({ onSetFilter }) {
                 <div className="links">
                     <span>Fiver pro</span>
                     <Link to="gig"><span>Explore</span></Link>
-                    {user &&
-                    <>
+                   
+                    
                         <div className="user-orders">
                             <Link onClick={handleOrder}>Orders</Link>
                             {isOrder && <UserBuyGig />}
                         </div>
-                        <Link to="/wishlist" className="fa-regular heart" title="save to list"></Link>
+                        <Link to="/wishlist" className="hearts" title="save to list"></Link>
 
-                    </>
-                }
                     <span>English</span>
                     <Link to="gig"> <span>Become a Seller</span></Link>
                     <span>Sign in</span>
@@ -129,6 +133,7 @@ export function IndexHeader({ onSetFilter }) {
                     <button className='join-btn-index-header'>Join</button>
                 </div>
             </div>
+            
            
         </div>
         <div>

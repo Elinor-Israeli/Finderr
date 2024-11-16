@@ -1,120 +1,97 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { login, signup  } from '../store/actions/user.actions'
-import { userService } from '../services/user/user.service.local' 
-import { showErrorMsg, showSuccessMsg  } from '../services/event-bus.service'
 
-export function LoginSignup({ isSignup, onClose, onToggleSignup }) {
-    const [user, setUser] = useState(userService.getEmptyUser)
-    const [error] = useState('')
-    const navigate = useNavigate()
+import { useState } from 'react'
 
-    useEffect(() => {
-        document.body.classList.add('modal-open')
+export function LoginSignup(props) {
+    const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
 
-        return () => {
-            document.body.classList.remove('modal-open')
-        }
-    }, [])
-
-    function handleChange({ target }) {
-        const { name, value } = target
-        setUser(prevUser => ({ ...prevUser, [name]: value }))
+    function clearState() {
+        setCredentials({ username: '', password: '', fullname: '', imgUrl: '' })
+        props.setIsSignup(false)
     }
 
-    async function handleSubmit(ev) {
-        ev.preventDefault()
-        const method = isSignup ? signup : login
-
-        try {
-            await method(user)
-            showSuccessMsg(`You are logged in`)
-            navigate('/')
-            onClose()
-        } catch (err) {
-            showErrorMsg('Could\'nt log in')
-        }
+    function handleChange(ev) {
+        const field = ev.target.name
+        const value = ev.target.value
+        setCredentials({ ...credentials, [field]: value })
     }
 
-    function handleOverlayClick(ev) {
-        if (ev.target.classList.contains('modal-overlay')) {
-            onClose()
-        }
+    function onLogin(ev = null) {
+        if (ev) ev.preventDefault()
+        if (!credentials.username) return
+        props.onLogin(credentials)
+        props.onCloseModal()
+        clearState()
     }
 
-    return (
-        <div className="modal-overlay" onClick={handleOverlayClick}>
-            <div className="login-signup-modal" onClick={e => e.stopPropagation()}>
-                <div className="banner">
-                    <div className="text-box">
-                        <h2>Success starts here</h2>
-                        <ul>
-                            <li>✓ Over 700 categories</li>
-                            <li>✓ Quality work done faster</li>
-                            <li>✓ Access to talent and businesses </li>
-                            <li>across the globe</li>
-                        </ul>
-                    </div>
-                    <img src="https://fiverr-res.cloudinary.com/npm-assets/layout-service/standard.0638957.png" alt="" />
-                </div>
+    function onSignup(ev = null) {
+        if (ev) ev.preventDefault()
+        if (!credentials.username || !credentials.password || !credentials.fullname) return
+        props.onSignup(credentials)
+        props.onCloseModal()
+        clearState()
+    }
 
-                <div className="modal-layout">
-                    <div className="modal-content">
-                        <h2>{isSignup ? 'Sign Up' : 'Sign In'}</h2>
-                        <form onSubmit={handleSubmit} className='login-signup'>
-                            {error && <p className="error">{error}</p>}
+    function toggleSignup() {
+        props.setIsSignup(!props.isSignup)
+    }
 
-                            {isSignup && <div className="input-group">
-                                <label>Full Name</label>
-                                <input
-                                    type="text"
-                                    name="fullname"
-                                    value="dsf"
-                                    onChange={handleChange}
-                                    placeholder="Full name"
-                                    required
-                                />
-                            </div>}
-
-                            <div className="input-group">
-                                <label>Username</label>
-                                <input
-                                    type="text"
-                                    name="username"
-                                    value="dsc"
-                                    onChange={handleChange}
-                                    placeholder="Username"
-                                    required
-                                />
-                            </div>
-
-                            <div className="input-group">
-                                <label>Password</label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    value="sdf"
-                                    onChange={handleChange}
-                                    placeholder="Password"
-                                    required
-                                />
-                            </div>
-
-                            <button type="submit" className="continue-btn">
-                                {isSignup ? 'Sign Up' : 'Sign In'}
-                            </button>
-
-                            <p className="toggle-mode" onClick={onToggleSignup}>
-                                {isSignup ? 'Already have an account? Sign In' : 'Don’t have an account? Sign Up'}
-                            </p>
-                        </form>
-                    </div>
-
-                    <div className="modal-footer">
-                        By joining, you agree to the Finderr Terms of Service and to occasionally receive emails from us. Please read our Privacy Policy to learn how we use your personal data.
-                    </div>
-                </div>
-            </div>
+    const { username, password } = credentials
+    return <section className="login-signup">
+        {!props.isSignup && <>
+            <h4>Sign in to Finderr</h4>
+            <form className="login-form" onSubmit={onLogin}>
+                <input
+                    type="text"
+                    name="username"
+                    value={username}
+                    placeholder="Username: try lofty"
+                    onChange={handleChange}
+                    required
+                    autoFocus
+                />
+                <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    placeholder="Password: try 123"
+                    onChange={handleChange}
+                    required
+                />
+                <button>Continue</button>
+            </form>
+        </>}
+        <div className="signup-section">
+            {props.isSignup && <>
+                <h4>Join to Finderr</h4>
+                <form className="signup-form" onSubmit={onSignup}>
+                    <input
+                        type="text"
+                        name="fullname"
+                        value={credentials.fullname}
+                        placeholder="Full Name"
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="username"
+                        value={credentials.username}
+                        placeholder="Username"
+                        onChange={handleChange}
+                        required
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        value={credentials.password}
+                        placeholder="Password"
+                        onChange={handleChange}
+                        required
+                    />
+                    <button>Continue</button>
+                </form>
+            </>}
+            <button className="btn-link" onClick={toggleSignup}>{props.isSignup ? 'Already a member? Sign In' : 'Not a member yet? Join now'}</button>
         </div>
-    )
+    </section>
 }

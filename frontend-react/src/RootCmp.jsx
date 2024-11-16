@@ -18,7 +18,7 @@ export function RootCmp() {
     const { pathname } = useLocation();
     
     return (
-        <div className="main-container  main-layout">
+        <div className="main-container  main-layout full">
             {pathname !== '/' && <IndexHeader />} 
            
             {/* <IndexHeader /> */}

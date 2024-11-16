@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
@@ -23,15 +23,26 @@ export function UserIndex() {
     const { userId } = useParams()
     const loginUser = userService.getLoggedinUser()
 
-    console.log(watchedUser)
-    
+    const [user, setUser] = useState(null)
 
     useEffect(() => {
         userId && loadWatchedUser(userId)
         loadOrders()
+        loadUser()
         loadGigs(filterBy, sortBy, userId)
     }, [filterBy, userId])
 
+
+   
+    async function loadUser() {
+        try {
+            const user = await userService.getById(userId)
+            setUser(user)
+        } catch (err) {
+            console.log('user =>', err)
+        }
+    }
+   
     async function onRemoveGig(gigId) {
         try {
             await removeGig(gigId)
@@ -41,7 +52,7 @@ export function UserIndex() {
         }
     }
 
-    if (!userId) return <div className="loader-container">
+    if (!user) return <div className="loader-container">
         <div className="loader"></div>
     </div>
     return (
@@ -49,15 +60,7 @@ export function UserIndex() {
             <aside className="user-info">
                 <UserProfile watchedUser={watchedUser} />
                 <div className="user-review-bar">{watchedUser && watchedUser.reviews && <ReviewBar userReviews={watchedUser.reviews} />}</div>
-                {/* {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner._id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />} */}
-
-                {/* {watchedUser && gigs && Array.isArray(gigs) && gigs.length > 0 && (
-                    <UserList
-                        gigs={gigs.filter(gig => gig.owner._id === userId)}
-                        onRemoveGig={onRemoveGig}
-                        user={watchedUser}
-                    />
-                )} */}
+                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner_id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
 
                 {watchedUser && watchedUser.reviews && <ReviewList userReviews={watchedUser.reviews} />}
             </aside>

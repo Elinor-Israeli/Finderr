@@ -11,7 +11,7 @@ export function GigPreview({ gig }) {
 
     const [heart, setHeart] = useState(false)
     const [owner, setOwner] = useState(null)
-    console.log(owner)
+    
 
     useEffect(() => {
 
@@ -88,7 +88,7 @@ export function GigPreview({ gig }) {
         <div className="loader"></div>
     </div>
 
-    console.log("render")
+    
 
     return (
         <div className="gig-preview__container">

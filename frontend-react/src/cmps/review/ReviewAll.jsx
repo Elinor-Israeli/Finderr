@@ -47,19 +47,19 @@ const averageRating = calculateAverageRating(userReviews)
         <div className="review-header-all" >
             <h4 style={{ margin: 0, padding: 0 }}>
                 {/* <span>{userReviews.length} </span> */}
-                reviews for this Gig
+                {averageRating} reviews for this Gig 
             </h4>
-            {/* <StarRating value={averageRating} /> */}
-            {/* <span className="rate padding-all">{averageRating}</span> */}
+            <StarRating value={averageRating} />
+            <span className="rate padding-all">{averageRating}</span>
         </div>
         <section style={{ display: 'flex', margin: '0px -8px', padding: '0px 0px 24px' }}>
             <ReviewBar userReviews={userReviews} />
             <ul className='next-to-bar'>
-                <li style={{ padding: '0px 0px 16px 0px' }}> Rating Breakdown
+                <li style={{ padding: '0px 0px 5px 0px' }}> Rating Breakdown
                 </li>
-                <li style={{ padding: '0px 0px 8px' }}>
+                <li style={{ width: '100%',display: 'flex', alignItems: 'center',padding: '0px 0px 8px' }}>
                     Seller communication level
-                    <span style={{ margin: '0px 0px 0px 12px' }}>{userReviews.length} <GiRoundStar style={{ color: 'black', fontWeight: 'bold' }} /></span>
+                    <span style={{ margin: '0px 0px 0px 12px' }}>{userReviews.length} <GiRoundStar style={{ color: 'black', fontWeight: 'bold' , marginLeft: 'auto' }} /></span>
                 </li>
                 <li style={{ padding: '0px 0px 8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span>Recommend to a friend</span>

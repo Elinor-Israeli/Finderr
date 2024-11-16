@@ -2,8 +2,9 @@ import { StarRating } from '../../cmps/review/StarRating'
 import { LongTxt } from '../../cmps/LongTxt'
 import { useEffect, useState } from 'react'
 
-export function UserInfo({ user_id, compact }) {
+export function UserInfo({ user_id, compact, gig }) {
     const [user, setUser] = useState(null)
+
     useEffect(() => {
         loadUser()
     }, [])
@@ -21,6 +22,7 @@ export function UserInfo({ user_id, compact }) {
     if (!user) return <div className="loader-container">
         <div className="loader"></div>
     </div>
+
 
     return compact ? (
         <div className="user">
@@ -102,19 +104,26 @@ export function UserInfo({ user_id, compact }) {
             </div>
             <button className="contact-me">Contact me</button>
             {/* {gig && <button><Link to={`/user/${gig.owner._id}`}>Contact Me</Link></button>} */}
-            <ul className="profile-info">
-                <li><span className="info-label">From</span><span className="info-value">America</span></li>
-                <li><span className="info-label">Member since</span><span className="info-value">Oct 2012</span></li>
-                <li><span className="info-label">Avg. response time</span><span className="info-value">5 hours</span></li>
-                <li><span className="info-label">Last delivery</span><span className="info-value">about 1 hour</span></li>
-                <li><span className="info-label">Languages</span><span className="info-value-languages">Serbian, English, French, German</span></li>
-            </ul>
-            <div>
+            <div style={{ padding: '24px 0 0', fontFamily: 'Macan', fontSize: '16px' }}>
+                <div className="owner-description">
+                    <ul>
+                        <li><strong><span>From</span></strong><span>Israel</span></li>
+                        <li><strong><span>Member since</span></strong><span>userOrders</span></li>
+                        <li><strong><span>Avg. response time</span></strong><span>5 hours</span></li>
+                        <li><strong><span>Last delivery</span></strong><span>about 1 hour</span></li>
+                        <li><strong><span>Languages</span></strong><span>English</span></li>
+                    </ul>
+                    <p>
+                        I have years of experience in creating 2d animated explainer videos. I would like to boost your business with my knowledge so that the orders with my 2D-Animation videos increase and your sales increase. You will see that you will only profit. Order now!
+                    </p>
+                </div>
+            </div>
+            {/* <div>
                 <p className='under-Languages'>
                     {user.description}
                 </p>
                 <LongTxt txt={user.description} length={length} />
-            </div>
+            </div> */}
         </div>
     )
 }

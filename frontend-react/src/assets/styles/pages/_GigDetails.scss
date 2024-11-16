@@ -246,3 +246,36 @@
         flex: 2;
     }
 }
+
+.owner-description {
+    border: 1px solid $clr12;
+    margin-bottom: em(36px, 16px);
+    border-radius: em(3px, 16px);
+    padding: em(24px, 16px);
+  
+    ul {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid $clr12;
+      margin-bottom: em(20px, 16px);
+  
+    }
+  
+    li {
+      width: 50%;
+      margin-bottom: 1em;
+    }
+  
+    span {
+      display: block;
+  
+      &:nth-child(2n +1) {
+        color: $clr5;
+      }
+  
+      &:nth-child(2n) {
+        font-family: macan-bold;
+      }
+    }
+  }

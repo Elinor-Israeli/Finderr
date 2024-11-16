@@ -49,7 +49,7 @@ export function GigDetails() {
                     <p>{gig.description}</p>
                     <span>What you'll get:</span>
                     <p>{gig.description2}</p>
-                    <span>Why you should hire me :</span>
+                    {/* <span>Why you should hire me :</span> */}
                 </div>
                 <div className="gig-about-filter">
                     <ul>

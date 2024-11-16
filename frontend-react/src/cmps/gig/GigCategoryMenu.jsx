@@ -7,6 +7,7 @@ export function GigCategoryMenu({ onSetFilter }) {
     const [isVisible, setIsVisible] = useState(false)
     const [isLeftDisabled, setIsLeftDisabled] = useState(true)
     const [isRightDisabled, setIsRightDisabled] = useState(true)
+    // const [active, setActive] = useState(false)
     const { pathname } = window.location
 
     useEffect(() => {
@@ -51,6 +52,8 @@ export function GigCategoryMenu({ onSetFilter }) {
         <>
             {/* Conditionally render the component based on isVisible */}
             <div className={`categories-menu-package main-layout ${isVisible ? '' : 'no-display'}`}>
+            {/* <div className={ active ? 'categories-menu-package main-layout active' : ''}> */}
+            
                 <nav className="categories-menu-package__menu app-header-nav">
                     <button
                         className="category-btn fa-solid chevron-left left"

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router'
+import { Routes, Route, useLocation } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
 import { GigIndex } from './pages/gig/GigIndex'
@@ -15,11 +15,13 @@ import UserWishList from './pages/UserWishList'
 
 
 export function RootCmp() {
+    const { pathname } = useLocation();
     
     return (
         <div className="main-container  main-layout">
+            {pathname !== '/' && <IndexHeader />} 
            
-            <IndexHeader />
+            {/* <IndexHeader /> */}
             {/* <AppHeader /> */}
             {/* <GigBreadcrumbs /> */}
             {/* <UserMsg /> */}

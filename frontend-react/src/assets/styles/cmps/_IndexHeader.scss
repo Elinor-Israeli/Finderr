@@ -3,6 +3,8 @@
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid #e4e5e7;
+    position: relative;
+    background-color: white;
      //! scroll
     // position: fixed;
     // top: 0;
@@ -10,11 +12,16 @@
     // z-index: 1111; 
     // background-color: #fff; //! scroll
 
+    
+
     .index-header-container {
-        // width: 1400px;
         display: flex;
+        flex: 1;
         justify-content: space-between;
         padding: 20px 0px;
+        transition: all 0.3s ease; 
+
+        
 
         .logo {
             font-size: 34px;
@@ -25,6 +32,7 @@
                 color: #1dbf73;
             }
         }
+
 
         .index-search {
             display: flex;
@@ -106,4 +114,16 @@
             }
         }
     }
+
+    .my-header.sticky {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        background-color:white ;
+        
+    }
 }
+
+

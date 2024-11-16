@@ -101,7 +101,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
                 username: "Boya",
                 password: "secret",
-                level: "3",
+                level: 3,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate:4,
                 reviews: [
                     {
                         id: "3e45",
@@ -133,7 +135,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/08/06/15/13/woman-2593366_960_720.jpg',
                 username: "user5",
                 password: "secret",
-                level: "basic/premium",
+                level: 2,
+                rate:4,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
                 reviews: [
                     {
                         id: "maderthgrId",
@@ -165,7 +169,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/01/21/14/16/woman-3096664_960_720.jpg',
                 username: "user6",
                 password: "secret",
-                level: "basic/premium",
+                level: 1,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate:4,
                 reviews: [
                     {
                         id: "madeId",
@@ -186,7 +192,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/16/01/woman-1846127_960_720.jpg',
                 username: "user7",
                 password: "secret",
-                level: "basic/premium",
+                level: 2,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate:4,
                 reviews: [
                     {
                         id: utilService.makeId(),
@@ -236,7 +244,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
                 username: "user8",
                 password: "secret",
-                level: "basic/premium",
+                level: 3,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate:4,
                 reviews: [
                     {
                         id: "madeId",
@@ -257,7 +267,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/03/12/20/57/woman-3220835_960_720.jpg',
                 username: "user8",
                 password: "secret",
-                level: "basic/premium",
+                level: 1,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate:4,
                 reviews: [
                     {
                         id: "madeId",
@@ -278,7 +290,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/03/12/20/57/woman-3220835_960_720.jpg',
                 username: "user130",
                 password: "secret",
-                level: "basic/premium",
+                level: 3,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate: 1,
                 reviews: [
                     {
                         id: "madeId",
@@ -299,7 +313,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/03/35/girl-1867092_960_720.jpg',
                 username: "user130",
                 password: "secret",
-                level: "basic/premium",
+                level: 1,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate:2,
                 reviews: [
                     {
                         id: "madeId",
@@ -321,7 +337,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg',
                 username: "user112",
                 password: "secret",
-                level: "basic/premium",
+                level: 2,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate:5,
                 reviews: [
                     {
                         id: "madeId",
@@ -343,7 +361,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565_960_720.jpg',
                 username: "user113",
                 password: "secret",
-                level: "basic/premium",
+                level: 2,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate:5,
                 reviews: [
                     {
                         id: "madeId",
@@ -364,7 +384,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445_960_720.jpg',
                 username: "user114",
                 password: "secret",
-                level: "basic/premium",
+                level: 2,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate:4,
                 reviews: [
                     {
                         id: "madeId",
@@ -385,7 +407,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445_960_720.jpg',
                 username: "user114",
                 password: "secret",
-                level: "basic/premium",
+                level: 2,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate: 2,
                 reviews: [
                     {
                         id: "madeId",
@@ -406,7 +430,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/09/38/adult-1868750_960_720.jpg',
                 username: "user115",
                 password: "secret",
-                level: "basic/premium",
+                level: 1,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate: 5,
                 reviews: [
                     {
                         id: "madeId",
@@ -427,7 +453,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg',
                 username: "user116",
                 password: "secret",
-                level: "basic/premium",
+                level: 3,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate: 5,
                 reviews: [
                     {
                         id: "madeId",
@@ -448,7 +476,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg',
                 username: "user117",
                 password: "secret",
-                level: "basic/premium",
+                level: 1,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate: 2,
                 reviews: [
                     {
                         id: "madeId",
@@ -469,7 +499,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/04/01/21/06/portrait-2194457_960_720.jpg',
                 username: "user117",
                 password: "secret",
-                level: "basic/premium",
+                level: 2,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate: 3,
                 reviews: [
                     {
                         id: "madeId",
@@ -490,7 +522,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/11/08/23/52/man-3803551_960_720.jpg',
                 username: "user119",
                 password: "secret",
-                level: "basic/premium",
+                level: 3,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate: 4,
                 reviews: [
                     {
                         id: "madeId",
@@ -511,7 +545,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
-                level: "basic/premium",
+                level: 3,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate: 1,
                 reviews: [
                     {
                         id: "madeId",
@@ -532,7 +568,9 @@ function _createUsers() {
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user121",
                 password: "secret",
-                level: "basic/premium",
+                level: 3,
+                description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate: 1,
                 reviews: [
                     {
                         id: "madeId",

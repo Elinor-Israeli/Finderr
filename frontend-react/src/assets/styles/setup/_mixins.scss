@@ -37,3 +37,24 @@
         @media (min-width: 1024px) { @content; }
     }
  }
+
+ @mixin flex-box {
+    display: flex;
+  }
+  
+  @mixin flex-direction-column {
+    flex-direction: column;
+  }
+  
+  @mixin align-items-center {
+    align-items: center;
+  }
+  
+  @mixin justify-content-center {
+    justify-content: center;
+  }
+  
+  @mixin box-sizing {
+    box-sizing: border-box;
+  }
+  

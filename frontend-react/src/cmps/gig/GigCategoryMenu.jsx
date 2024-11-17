@@ -76,6 +76,12 @@ export function GigCategoryMenu({ onSetFilter }) {
                         <li onClick={() => filterByCategory(['music-audio', 'audio'])}>
                             <a>Music & Audio</a>
                         </li>
+                        <li onClick={() => filterByCategory(['music-audio', 'audio'])}>
+                            <a>Music & Audio</a>
+                        </li>
+                        <li onClick={() => filterByCategory(['programming-tech', 'tech'])}>
+                            <a>Personal Growth</a>
+                        </li>
                         <li onClick={() => filterByCategory(['programming-tech', 'tech'])}>
                             <a>Programming & Tech</a>
                         </li>
@@ -87,6 +93,9 @@ export function GigCategoryMenu({ onSetFilter }) {
                         </li>
                         <li onClick={() => filterByCategory(['trending'])}>
                             <a>Trending</a>
+                        </li>
+                        <li onClick={() => filterByCategory(['trending'])}>
+                            <a>Finance</a>
                         </li>
                     </ul>
                     <button

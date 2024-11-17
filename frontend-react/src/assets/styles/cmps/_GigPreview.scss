@@ -67,6 +67,10 @@
                     // margin-top: 10px;
                     white-space: nowrap;
                     color: #222325;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
 
                 .gig-preview__owner-level-container {

@@ -15,15 +15,17 @@ export function GigPreview({ gig }) {
 
     useEffect(() => {
 
-        if (user && gig.wishList.includes(user._id)) {
-            setHeart(true)
-        } else {
-            setHeart(false)
-        }
+        // if (user) {
+        //     if (gig.wishList.includes(user._id)) {
+        //         setHeart(true)
+        //     }
+        // } else {
+        //     setHeart(false)
+        // }
 
         loadOwner()
 
-    }, [user, gig.wishList])
+    }, [user])
 
     async function loadOwner() {
         try {
@@ -65,7 +67,7 @@ export function GigPreview({ gig }) {
         return txt.length < length ? txt : `${txt.substring(0, length)}...`
     }
 
-    const renderLevelStars = (levelNumber) => {
+    function renderLevelStars (levelNumber) {
         return [...Array(3)].map((_, idx) => (
             <svg // level icons
                 key={idx}

@@ -18,8 +18,6 @@ export function GigPayment() {
     const { gigId } = useParams()
 
     useEffect(() => {
-
-
         loadGig()
     }, [gigId])
 
@@ -50,13 +48,6 @@ export function GigPayment() {
             buyer: {
                 _id: user._id,
                 fullname: user.fullname,
-                companyName: user.companyName,
-                country: user.country || "Israel",
-                state: user.state,
-                address: user.address, 
-                streetOrPOB: user.streetOrPOB, 
-                city: user.city, 
-                postalCode: user.postalCode 
               },
             seller: {
                 _id: gig.owner._id,
@@ -73,7 +64,9 @@ export function GigPayment() {
         try {
             await addOrder(order)
             showSuccessMsg('Your order has been sent')
-            socketService.emit(SOCKET_EMIT_SET_TOPIC, order._id)//* on a real time 
+            socketService.emit(SOCKET_EMIT_SET_TOPIC, order._id)
+            //* on a real time  
+            //! only socket 
 
             navigate('/gig')
         }
@@ -126,8 +119,6 @@ export function GigPayment() {
                             />
                         </label>
                     </div>
-
-                    {/* <div className="name-details"> */}
                     <label htmlFor="firstname" className="card-left-max">
                         <span>Cardholder's name</span>
                         <input type="text"
@@ -135,15 +126,6 @@ export function GigPayment() {
                             value='John Joe'
                         />
                         <p>As written on card</p></label>
-
-                    {/* <label htmlFor="lastname">
-                            <span>Last Name</span>
-                            <input type="text"
-                                name="lastname"
-                                value='Doe'
-                            />
-                        </label> */}
-                    {/* </div> */}
                     <div className="checkmark-container">
                         <div
                             className={`checkmark-box ${isChecked ? 'checked' : ''}`}

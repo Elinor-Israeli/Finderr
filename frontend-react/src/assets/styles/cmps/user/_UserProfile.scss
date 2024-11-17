@@ -1,6 +1,6 @@
 .user-profile {
-  font-size: rem(14px);
-  border: 1px solid $clr11;
+  // font-size: rem(14px);
+  // border: 1px solid $clr11;
   padding: em(30px, 16px);
   margin-bottom: 2em;
   
@@ -13,7 +13,7 @@
       }
       
       img {
-        opacity: 0;
+        opacity: 0.6;
       }
     }
   }
@@ -33,8 +33,8 @@
   }
   
   img {
-    width: em(150px, 14px);
-    height: em(150px, 14px);
+    width: em(120px, 14px);
+    height: em(120px, 14px);
     border-radius: 50%;
     margin-bottom: 1em;
     opacity: 1;
@@ -43,8 +43,8 @@
   
   .user-profile-info {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     flex-direction: column;
     padding-bottom: em(24px, 14px);
     margin-bottom: em(24px, 14px);

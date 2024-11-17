@@ -10,7 +10,7 @@ export function UserList({ gigs, onRemoveGig, user }) {
   return <ul className="gig-list user-gig-list">
     {loginUser && (loginUser._id === user._id) && <li className="gig-add-btn">
       <Link to="/gig/edit">
-        <span className="fa-solid plus"></span>
+        <span className=" plus"></span>
         <span>Add Gig</span>
       </Link>
     </li>}

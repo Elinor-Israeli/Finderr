@@ -62,8 +62,7 @@ async function signup(userCred) {
 
 async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
-    // socketService.logout()
-    // return await httpService.post('auth/logout')
+
 }
 
 async function changeScore(by) {
@@ -97,7 +96,7 @@ function _createUsers() {
         users = [
             {
                 _id: "u102",
-                fullname: "Dudu Sa",
+                fullname: "Carol",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
                 username: "Boya",
                 password: "secret",
@@ -241,8 +240,8 @@ function _createUsers() {
             {
                 _id: "u108",
                 fullname: "Mumu Asa",
-                imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "user8",
+                imgUrl:'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
+                username: "Alibaba",
                 password: "secret",
                 level: 3,
                 description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
@@ -263,9 +262,9 @@ function _createUsers() {
             },
             {
                 _id: "u109",
-                fullname: "Quti Vvfa",
-                imgUrl: 'https://cdn.pixabay.com/photo/2018/03/12/20/57/woman-3220835_960_720.jpg',
-                username: "user8",
+                fullname: "Alibaba",
+                imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
+                username: "Alibaba",
                 password: "secret",
                 level: 1,
                 description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
@@ -333,9 +332,9 @@ function _createUsers() {
             },
             {
                 _id: "u112",
-                fullname: "Dudu Sa",
+                fullname: "Ca",
                 imgUrl: 'https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg',
-                username: "user112",
+                username: "Mosh Nahumy",
                 password: "secret",
                 level: 2,
                 description:"I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",

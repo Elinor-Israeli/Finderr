@@ -6,29 +6,71 @@ import { gigService } from '../services/gig/gig.service.local'
 import { GigCategoryMenu } from './gig/GigCategoryMenu'
 import { useDispatch, useSelector } from 'react-redux'
 import { UserBuyGig } from './user/UserBuyGig'
+import { login, logout, signup  } from '../store/user/user.actions' 
+import { ModalLogin } from './ModalLogin'
+// import { AppHeaderMobile } from './AppHeaderMobile'
+// import { DropdownLogin } from './DropdownLogin'
+// import { Search } from './HederSearch'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
 export function IndexHeader({ onSetFilter, isSticky }) {
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const elInputRef = useRef(null)
-    const { pathname } = useLocation()
-    const [windowSize, setWindowSize] = useState(null)
     const [isCategoryMenuVisible, setIsCategoryMenuVisible] = useState(false)
     const [showSearch, setShowSearch] = useState(false)
-    
-
+    const loginUser = userService.getLoggedinUser()
+    const [headerClassName, setHeaderClassName] = useState('')
     const user = useSelector(storeState => storeState.userModule.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
+    const [isModal, setIsModal] = useState(false)
+    const [isDropdown, setIsDropdown] = useState(false)
+    const [isOrder, setIsOrder] = useState(false)
+    const [isSignup, setIsSignup] = useState(false)
+    const [isOpenMenu, setIsOpenMenu] = useState(false)
+    const { pathname } = window.location
+    const [windowSize, setWindowSize] = useState(null)
+    const headerRef = useRef(null)
+    const [heart, setHeart] = useState(false)
 
     useEffect(() => {
         function handleResize() {
             setWindowSize(window.innerWidth)
         }
-        window.addEventListener("resize", handleResize);
-        handleResize();
+        window.addEventListener("resize", handleResize)
+        handleResize()
         return () => window.removeEventListener("resize", handleResize)
-    }, []);
+    }, [])
+
+    useEffect(() => {
+        function handleScroll() {
+            if (window.scrollY >= 150 && pathname === '/') setHeaderClassName('app-header header-home-page main-layout sticky full')
+            else if (window.scrollY < 150 && pathname === '/') setHeaderClassName('app-header header-home-page main-layout')
+            else setHeaderClassName('main-layout grid-full')
+        }
+        window.addEventListener("scroll", handleScroll)
+        handleScroll()
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [pathname, setWindowSize])
+
+    useEffect(() => {
+        const checkIfClickedOutside = e => {
+            if (isModal && e.target.className && e.target.className !== "btn-link") {
+                setIsModal(false)
+            }
+            if (isDropdown && e.target.className) {
+                setIsDropdown(false)
+            }
+            if (isOrder && e.target.className !== "user-link") {
+                setIsOrder(false)
+            }
+        }
+        document.addEventListener("mousedown", checkIfClickedOutside)
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+    }, [isModal, isDropdown, isOrder])
 
     useEffect(() => {
 
@@ -40,7 +82,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                 setIsCategoryMenuVisible(false)
                 setShowSearch(false)
             }
-        };
+        }
 
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
@@ -83,7 +125,98 @@ export function IndexHeader({ onSetFilter, isSticky }) {
         }
     }
 
+    async function onLogin(credentials) {
+        try {
+            const user = await login(credentials)
+            showSuccessMsg(`Welcome: ${user.fullname}`)
+        } catch (err) {
+            showErrorMsg('Cannot login')
+        }
+    }
+
+    async function onSignup(credentials) {
+        try {
+            const user = await signup(credentials)
+            showSuccessMsg(`Welcome new user: ${user.fullname}`)
+        } catch (err) {
+            showErrorMsg('Cannot signup')
+        }
+    }
+
+    async function onLogout() {
+        try {
+            await logout()
+            setIsDropdown(false)
+            showSuccessMsg(`Bye now`)
+            navigate('/gig')
+        } catch (err) {
+            showErrorMsg('Cannot logout')
+        }
+    }
+
+    function onOpenModal() {
+        setIsModal(true)
+    }
+
+    function onCloseModal() {
+        setIsModal(false)
+    }
+
+    function onToggleMenu() {
+        setIsOpenMenu(!isOpenMenu)
+    }
+
+    function handleOrder() {
+        setIsOrder(prev => !prev)
+    }
     return (
+    //     <nav className="app-header-nav" ref={headerRef}>
+    //     <button className=" menu-toggle-btn"
+    //         onClick={() => onToggleMenu()}></button>
+    //     {/* {(windowSize < 900) && isOpenMenu &&
+    //         <AppHeaderMobile onToggleMenu={onToggleMenu} user={user} onLogout={onLogout} onOpenModal={onOpenModal} setIsSignup={setIsSignup} />} */}
+
+      
+    //     <div className="app-header-main">
+    //         {(windowSize > 900) && <Link to="/gig"
+    //             onClick={() => {
+    //                 onSetFilter(gigService.getDefaultFilter())
+    //             }}>Explore</Link>}
+    //         {user &&
+    //             <>
+    //                 {(windowSize > 900) && <div className="user-orders">
+    //                     <Link onClick={handleOrder}>Orders</Link>
+    //                     {isOrder && <UserBuyGig />}
+    //                 </div>}
+    //                 <Link to="/wishlist" className="heart" title="save to list">
+    //                  {/* <img
+    //                         src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
+    //                         alt="Heart"
+    //                         className="heart-img"
+
+    //                     /> */}
+    //                     </Link>
+    //                 {(windowSize > 900) && <div className="user-header-img">
+    //                     <img src={user.imgUrl}
+    //                         onClick={() => {
+    //                             setIsOrder(false)
+    //                             setIsDropdown(!isDropdown)
+    //                         }} />
+    //                     {isDropdown && <DropdownLogin loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} user={user} />}
+    //                 </div>}
+    //             </>
+    //         }
+    //         {!user &&
+    //             <>
+    //                 {isModal && <ModalLogin onLogin={onLogin} onSignup={onSignup}
+    //                     onCloseModal={onCloseModal} setIsSignup={setIsSignup} isSignup={isSignup} />}
+    //                 {(windowSize > 900) && <Link onClick={() => { onOpenModal(); setIsSignup(false) }}>Sign in</Link>}
+    //                 {(windowSize > 900) && <button className="join-btn"
+    //                     onClick={() => { onOpenModal(); setIsSignup(true) }}>Join</button>}
+    //             </>
+    //         }
+    //     </div>
+    // </nav>
         <section className={`my-header main-layout full`}>
             <div className="index-header main layout  full">
                 <div className={`index-header-container full main-layout ${isSticky ? 'sticky' : ''}`}>
@@ -95,7 +228,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                         </div>
                     </Link>
 
-                    {pathname === '/' && showSearch && (
+                    {/* {pathname === '/' && showSearch && ( */}
                         <form className="index-search" onSubmit={onSubmitFilter}>
                             <div className="search-index-input">
                                 <input
@@ -117,7 +250,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                                 </button>
                             </div>
                         </form>
-                    )}
+                    {/* )} */}
                     <div className="links">
                         <span>Fiver pro</span>
                         <Link to="gig"><span>Explore</span></Link>

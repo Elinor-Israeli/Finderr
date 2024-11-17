@@ -1,8 +1,9 @@
 import { StarRating } from '../../cmps/review/StarRating'
 import { LongTxt } from '../../cmps/LongTxt'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
-export function UserInfo({ user_id, compact, gig }) {
+export function UserInfo({ user_id, compact,owner }) {
     const [user, setUser] = useState(null)
 
     useEffect(() => {
@@ -19,6 +20,23 @@ export function UserInfo({ user_id, compact, gig }) {
         }
     }
 
+    function renderLevelStars (levelNumber) {
+        return [...Array(3)].map((_, idx) => (
+            <svg // level icons
+                key={idx}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 10 10"
+                width="9"
+                height="9"
+                fill={idx < levelNumber ? "black" : "gray"}
+                style={{ marginLeft: "3px", marginTop: "3px" }}
+            >
+                <path d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z" />
+            </svg>
+        ))
+    }
+
+
     if (!user) return <div className="loader-container">
         <div className="loader"></div>
     </div>
@@ -30,6 +48,8 @@ export function UserInfo({ user_id, compact, gig }) {
             <div className="user-info">
                 <div className="user-name-level">
                     <span className="user-name">{user.fullname}</span>
+                    <Link className="gig-preview__owner-name" to={`/user/${owner?._id}`}>{owner?.fullname}</Link>
+
                     <div className="user-level">
                         <div className="level">
                             {user.level === 'level 3' ? 'Top Rated' : `Level ${user.level}`}
@@ -104,20 +124,7 @@ export function UserInfo({ user_id, compact, gig }) {
             </div>
             <button className="contact-me">Contact me</button>
             {/* {gig && <button><Link to={`/user/${gig.owner._id}`}>Contact Me</Link></button>} */}
-            <div style={{ padding: '24px 0 0', fontFamily: 'Macan', fontSize: '16px' }}>
-                <div className="owner-description">
-                    <ul>
-                        <li><strong><span>From</span></strong><span>Israel</span></li>
-                        <li><strong><span>Member since</span></strong><span>userOrders</span></li>
-                        <li><strong><span>Avg. response time</span></strong><span>5 hours</span></li>
-                        <li><strong><span>Last delivery</span></strong><span>about 1 hour</span></li>
-                        <li><strong><span>Languages</span></strong><span>English</span></li>
-                    </ul>
-                    <p>
-                        I have years of experience in creating 2d animated explainer videos. I would like to boost your business with my knowledge so that the orders with my 2D-Animation videos increase and your sales increase. You will see that you will only profit. Order now!
-                    </p>
-                </div>
-            </div>
+           
             {/* <div>
                 <p className='under-Languages'>
                     {user.description}

@@ -31,19 +31,19 @@ export function AppFooter() {
                     <div className="item">
                         <ul>
                             <h2>For Clients</h2>
-                            <li><a href="#">How Fiverr Works</a></li>
+                            <li><a href="#">How finderr Works</a></li>
                             <li><a href="#">Customer Success Stories</a></li>
                             <li><a href="#">Trust & Safety</a></li>
                             <li><a href="#">Quality Guide</a></li>
-                            <li><a href="#">Fiverr Learn</a></li>
-                            <li><a href="#">Fiverr Guides</a></li>
-                            <li><a href="#">Fiverr Answers</a></li>
+                            <li><a href="#">finderr Learn</a></li>
+                            <li><a href="#">finderr Guides</a></li>
+                            <li><a href="#">finderr Answers</a></li>
                         </ul>
                     </div>
                     <div className="item">
                         <ul>
                             <h2>For Freelancers</h2>
-                            <li><a href="#">Become a Fiverr Freelancer</a></li>
+                            <li><a href="#">Become a finderr Freelancer</a></li>
                             <li><a href="#">Become an Agency</a></li>
                             <li><a href="#">Kickstart</a></li>
                             <li><a href="#">Community Hub</a></li>
@@ -54,19 +54,19 @@ export function AppFooter() {
                     <div className="item">
                         <ul>
                             <h2>Business Solutions</h2>
-                            <li><a href="#">Fiverr Pro</a></li>
+                            <li><a href="#">finderr Pro</a></li>
                             <li><a href="#">Project Management Service</a></li>
                             <li><a href="#">ClearVoice Content Marketing</a></li>
                             <li><a href="#">Working Not Working Creative Talent</a></li>
                             <li><a href="#">AutoDS Dropshipping Tool</a></li>
-                            <li><a href="#">Fiverr Logo Maker</a></li>
+                            <li><a href="#">finderr Logo Maker</a></li>
                             <li><a href="#">Contact Sales</a></li>
                         </ul>
                     </div>
                     <div className="item">
                         <ul>
                             <h2>Company</h2>
-                            <li><a href="#">About Fiverr</a></li>
+                            <li><a href="#">About finderr</a></li>
                             <li><a href="#">Help & Support</a></li>
                             <li><a href="#">Social Impact</a></li>
                             <li><a href="#">Careers</a></li>
@@ -105,8 +105,12 @@ export function AppFooter() {
                 <hr />
                 <div className="bottom">
                     <div className="left">
-                        <h2 className="left">fiverr</h2>
-                        <span className="footer-logo">© Fiverr International Ltd. 2024</span>
+                        <span className="left">
+                            <div className="logo">
+                            <span className='logo-text'>finderr</span>
+                            <span className='logo-dot'>.</span>
+                        </div></span>
+                        <span className="footer-logo">© finderr International Ltd. 2024</span>
                     </div>
                     <div className="right">
                         <div className="social">

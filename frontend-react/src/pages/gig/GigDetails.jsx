@@ -65,6 +65,21 @@ export function GigDetails() {
                     </ul>
                 </div>
                 <UserInfo user_id={gig.owner_id} compact={false}/>
+                <div style={{ padding: '24px 0 0', fontFamily: 'Macan', fontSize: '16px' }}>
+                <div className="owner-description">
+                    <ul>
+                        <li><strong><span>From</span></strong><span>Israel</span></li>
+                        <li><strong><span>Member since</span></strong><span>userOrders</span></li>
+                        <li><strong><span>Avg. response time</span></strong><span>5 hours</span></li>
+                        <li><strong><span>Last delivery</span></strong><span>about 1 hour</span></li>
+                        <li><strong><span>Languages</span></strong><span>English</span></li>
+                    </ul>
+                    <p>
+                        {/* <span>{gig.about}</span> */}
+                        I have years of experience in creating 2d animated explainer videos. I would like to boost your business with my knowledge so that the orders with my 2D-Animation videos increase and your sales increase. You will see that you will only profit. Order now!
+                    </p>
+                </div>
+            </div>
                 <ReviewAll user_id={gig.owner_id} />
             </div>
             <div className="right">

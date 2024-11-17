@@ -8,7 +8,6 @@ import { SET_FILTER } from '../store/reducers/gig.reducer'
 import { GigCategoryMenu } from './gig/GigCategoryMenu'
 
 import { useEffect, useRef, useState } from 'react'
-// import { ModalLogin } from './modal-login'
 // import { Dropdown } from './dropdown'
 
 import { userService } from '../services/user/user.service.local'
@@ -115,7 +114,6 @@ export function AppHeader() {
                     {/* <Link className="join-btn">Join</Link> */}
                     </nav>
                 {/* {pathname !== '/' && <Search onSetFilter={onSetFilter} />} */}
-
             </div>
 
         </nav>

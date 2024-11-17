@@ -2,7 +2,7 @@
 
 // import { GigCategoryMenu } from "../cmps/gig/GigCategoryMenu";
 import { CategoryMenu2 } from "./gig/GigCategoryMenu2";
-import { IndexHeader } from "../cmps/IndexHeader";
+import { IndexHeader } from "../cmps/IndexHeader"; 
 
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -54,24 +54,6 @@ export function HomePage({ onSetFilter }) {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [pathname, setWindowSize])
 
-    useEffect(() => {
-        const checkIfClickedOutside = e => {
-            if (isModal && e.target.className && e.target.className !== "btn-link") {
-                setIsModal(false)
-            }
-            if (isDropdown && e.target.className) {
-                setIsDropdown(false)
-            }
-            if (isOrder && e.target.className !== "user-link") {
-                setIsOrder(false)
-            }
-        }
-        document.addEventListener("mousedown", checkIfClickedOutside)
-
-        return () => {
-            document.removeEventListener("mousedown", checkIfClickedOutside)
-        }
-    }, [isModal, isDropdown, isOrder])
 
     function onSetFilter(filterBy) {
         dispatch({ type: SET_FILTER, filterBy })
@@ -98,19 +80,12 @@ export function HomePage({ onSetFilter }) {
            
             <section className="home-page full main-layout">
             
-                <div className="hero-container full main-layout">
-                
-                    {/* <div className="main-header full main-layout"> */}
-                        
+                <div className="hero-container full main-layout">                        
                        
                         <h1 className="hero-msg">
                             Scale your professional work force with<i className="special-font"> freelance</i>
                         </h1>
                         <div className="search-bar full main-layout">
-                            {/* <input type="text" className="search-input" placeholder="find service" /> */}
-                            {/* <input type="text" class="search-input w-100" placeholder="Search" /> */}
-                            {/* <button class="search-btn cursor-pointer m-1">Submit</button>
-<textarea class="p-2 w-50" placeholder="Type your message"></textarea> */}
                             <Search onSetFilter={onSetFilter} />
                         </div>
                         <section className="trusted-by">

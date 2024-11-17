@@ -24,8 +24,8 @@ export function GigIndex() {
 
     useEffect(() => {
         function handleScroll() {
-            if (window.scrollY >= 140) setFilterAndSort('filter-sort full main-layout filter-sort-shadow')
-            else setFilterAndSort('filter-sort full main-layout')
+            if (window.scrollY >= 140) setFilterAndSort('filter-sort full  filter-sort-shadow')
+            else setFilterAndSort('filter-sort full ')
         }
         window.addEventListener("scroll", handleScroll)
         handleScroll()
@@ -119,7 +119,7 @@ export function GigIndex() {
 
 
     return (
-        <section className="gig-index full main-layout">
+        <section className="gig-index full ">
               <GigBreadcrumbs />
           <h1 className='headline-name'>   
             {

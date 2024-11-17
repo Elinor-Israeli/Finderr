@@ -12,6 +12,7 @@ import { GigPayment } from './pages/gig/GigPayment'
 import { UserIndex } from './pages/UserIndex'
 import UserWishList from './pages/UserWishList'
 // import { GigBreadcrumbs } from './cmps/gig/GigBreadcrumbs'
+// import { GigCategoryMenu } from './cmps/gig/GigCategoryMenu'
 
 
 export function RootCmp() {
@@ -20,6 +21,7 @@ export function RootCmp() {
     return (
         <div className="main-container  main-layout full">
             {pathname !== '/' && <IndexHeader />} 
+            {/* <GigCategoryMenu/> */}
             
            
             {/* <IndexHeader /> */}

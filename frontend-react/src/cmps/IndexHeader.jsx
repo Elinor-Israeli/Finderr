@@ -272,7 +272,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
             </div>
 
 
-            <div className={`full`}>
+            {/* <div className={`full`}>
 
                 {pathname === '/' ? (
                     <div style={{ position: 'fixed', top: '85px', left: '0', width: '100%', zIndex: 10000, backgroundColor: 'white', display: isCategoryMenuVisible ? 'block' : 'none' }}>
@@ -283,7 +283,10 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                         <GigCategoryMenu onSetFilter={onSetFilter} />
                     </div>
                 )}
-            </div>
+            </div> */}
+            <div>
+                        <GigCategoryMenu onSetFilter={onSetFilter} />
+                    </div>
         </section>
     )
 }

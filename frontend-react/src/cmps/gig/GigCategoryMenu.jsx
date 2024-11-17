@@ -51,15 +51,15 @@ export function GigCategoryMenu({ onSetFilter }) {
     return (
         <>
             {/* Conditionally render the component based on isVisible */}
-            <div className={`categories-menu-package main-layout ${isVisible ? '' : 'no-display'}`}>
+            <div className={`categories-menu-package full ${isVisible ? '' : 'no-display'}`}>
             {/* <div className={ active ? 'categories-menu-package main-layout active' : ''}> */}
             
                 <nav className="categories-menu-package__menu app-header-nav">
-                    <button
+                    {/* <button
                         className="category-btn fa-solid chevron-left left"
                         onClick={slideLeft}
                         disabled={isLeftDisabled}
-                    ></button>
+                    ></button> */}
                     <ul className="categories categories-menu-package__categories nav-links" id="categories" ref={CategorySliderRef}>
                         <li onClick={() => filterByCategory(['graphic-design', 'design', 'logo-design'])}>
                             <a>Graphic & Design</a>
@@ -73,9 +73,9 @@ export function GigCategoryMenu({ onSetFilter }) {
                         <li onClick={() => filterByCategory(['video-animation', 'animation'])}>
                             <a>Video & Animation</a>
                         </li>
-                        <li onClick={() => filterByCategory(['music-audio', 'audio'])}>
+                        {/* <li onClick={() => filterByCategory(['music-audio', 'audio'])}>
                             <a>Music & Audio</a>
-                        </li>
+                        </li> */}
                         <li onClick={() => filterByCategory(['music-audio', 'audio'])}>
                             <a>Music & Audio</a>
                         </li>
@@ -93,16 +93,16 @@ export function GigCategoryMenu({ onSetFilter }) {
                         </li>
                         <li onClick={() => filterByCategory(['trending'])}>
                             <a>Trending</a>
-                        </li>
-                        <li onClick={() => filterByCategory(['trending'])}>
+                        </li> 
+                          {/* <li onClick={() => filterByCategory(['trending'])}>
                             <a>Finance</a>
-                        </li>
+                        </li>  */}
                     </ul>
-                    <button
+                    {/* <button
                         className="category-btn fa-solid chevron-right right"
                         onClick={slideRight}
                         disabled={isRightDisabled}
-                    ></button>
+                    ></button> */}
                 </nav>
             </div>
         </>

@@ -49,8 +49,11 @@ const averageRating = calculateAverageRating(userReviews)
                 {/* <span>{userReviews.length} </span> */}
                 {averageRating} reviews for this Gig 
             </h4>
+            <div style={{ paddingLeft: '500px'}}>
             <StarRating value={averageRating} />
             <span className="rate padding-all">{averageRating}</span>
+            </div>
+            
         </div>
         <section style={{ display: 'flex', margin: '0px -8px', padding: '0px 0px 24px' }}>
             <ReviewBar userReviews={userReviews} />
@@ -59,7 +62,7 @@ const averageRating = calculateAverageRating(userReviews)
                 </li>
                 <li style={{ width: '100%',display: 'flex', alignItems: 'center',padding: '0px 0px 8px' }}>
                     Seller communication level
-                    <span style={{ margin: '0px 0px 0px 12px' }}>{userReviews.length} <GiRoundStar style={{ color: 'black', fontWeight: 'bold' , marginLeft: 'auto' }} /></span>
+                    <span style={{ margin: '0px 0px 0px 260px' }}>{userReviews.length} <GiRoundStar style={{ color: 'black', fontWeight: 'bold' , marginLeft: 'auto' }} /></span>
                 </li>
                 <li style={{ padding: '0px 0px 8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span>Recommend to a friend</span>
@@ -67,7 +70,7 @@ const averageRating = calculateAverageRating(userReviews)
                 </li>
                 <li>
                     Service as described
-                    <span style={{ margin: '0px 0px 0px 12px' }}>4.9 <GiRoundStar style={{ color: 'black', fontWeight: 'bold' }} /></span>
+                    <span style={{ margin: '0px 0px 0px 290px' }}>4.9 <GiRoundStar style={{ color: 'black', fontWeight: 'bold' }} /></span>
                 </li>
             </ul>
         </section>

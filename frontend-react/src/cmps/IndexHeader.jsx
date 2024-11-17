@@ -217,9 +217,9 @@ export function IndexHeader({ onSetFilter, isSticky }) {
     //         }
     //     </div>
     // </nav>
-        <section className={`my-header main-layout full`}>
-            <div className="index-header main layout  full">
-                <div className={`index-header-container full main-layout ${isSticky ? 'sticky' : ''}`}>
+        <section className={`my-header main-layout `}>
+            <div className="index-header main-layout  ">
+                <div className={`index-header-container  main-layout ${isSticky ? 'sticky' : ''}`}>
 
                     <Link to="/">
                         <div className="logo">
@@ -281,6 +281,9 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                     <GigCategoryMenu onSetFilter={onSetFilter} />
                 </div>
             )}
+            {/* <div>
+                    <GigCategoryMenu onSetFilter={onSetFilter} />
+                </div> */}
         </section>
     )
 }

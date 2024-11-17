@@ -446,25 +446,25 @@ export function TopFilterBar({ onSetFilter }) {
                     <div className="top-filter-bar__price-filter-scroll">
                         <div className="top-filter-bar__price-filter-inputs">
                             <div>
-                                <label htmlFor="minPrice">MIN.</label>
+                                <label htmlFor="minPrice">MIN</label>
                                 <input
                                     onChange={handleChange}
                                     value={filterByToEdit.minPrice}
                                     type="number"
                                     className="top-filter-bar__min-price"
                                     name="minPrice"
-                                    placeholder="Any"
+                                    placeholder="your min price"
                                 />
                             </div>
                             <div>
-                                <label htmlFor="maxPrice">MAX.</label>
+                                <label htmlFor="maxPrice">MAX</label>
                                 <input
                                     onChange={handleChange}
                                     value={filterByToEdit.maxPrice}
                                     type="number"
                                     className="top-filter-bar__max-price"
                                     name="maxPrice"
-                                    placeholder="Any"
+                                    placeholder="your max price"
                                 />
                             </div>
                         </div>

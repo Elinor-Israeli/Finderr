@@ -115,6 +115,7 @@ section.home-page.full.main-layout {
         background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
         background-size: cover;
         background-position: center;
+      
     }
 
     .hero-msg>h1 {
@@ -811,6 +812,7 @@ $grey: (
     @else if $size =='lg' {
         @media (min-width: 992px) {
             @content;
+            
         }
     }
 }

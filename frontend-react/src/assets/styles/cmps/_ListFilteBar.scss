@@ -319,7 +319,7 @@ div.filter-menu.filter-delivery.active-filter {
         }
 
         label {
-            font-family: macan-regular;
+            // font-family: macan-regular;
             display: flex;
             cursor: pointer;
             padding: 12px;
@@ -381,7 +381,7 @@ div.filter-menu.filter-delivery.active-filter {
 
 .top-filter-bar__filter-price-btns {
     @include flex;
-    font-family: macan-regular;
+  
     font-size: rem(12px);
     padding: em(16px) em(24px);
     border-top: 1px solid $clr12;
@@ -391,8 +391,16 @@ div.filter-menu.filter-delivery.active-filter {
         // padding: em(4px, 14px) em(12px, 14px);
         border-radius: em(4px);
         color: $clr3;
-        color: black;
+        color:white;
         line-height: 1.6;
+        font-family: 'Macan';
+        font-weight: bold;
+        background-color: black;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+
     }
 
     @media (min-width: $mobile-breakpoint) {
@@ -450,6 +458,10 @@ div.filter-menu.filter-delivery.active-filter {
     position: relative;
     left: 20px;
     top: 0px;
+}
+
+.top-filter-bar__filter-menu{
+    color:black
 }
 
 //!

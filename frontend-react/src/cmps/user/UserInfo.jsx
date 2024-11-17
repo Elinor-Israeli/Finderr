@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 export function UserInfo({ user_id, compact, gig }) {
     const [user, setUser] = useState(null)
+    console.log(user)
 
     useEffect(() => {
         loadUser()

@@ -45,6 +45,7 @@
             display: flex;
             align-items: center;
             font-size: 14px;
+            font-weight: bold;
             width: 100%;
             margin-bottom: 8px;  
             
@@ -154,7 +155,7 @@
         .gig-preview__long-txt {
             color: #404145;
             font-size: 16px;
-            font-family: 'Macan-light', sans-serif;
+            
             position: relative;
             line-height: 1.5; 
             height: 50px;

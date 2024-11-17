@@ -25,6 +25,7 @@
     top: 0;
     z-index: 100;
     padding: 1em 0;
+    font-weight: bold;
     // transition: background-color .3s ease;
 
     // }
@@ -40,6 +41,7 @@
 
     .filter-sort-shadow {
         background-color: $clr3;
+        
         box-shadow: 0 .266px 1.13052px rgba(0, 0, 0, .069), 0 .89345px 3.79717px rgba(0, 0, 0, .101), 0 5px 17px rgba(0, 0, 0, .17);
     }
 

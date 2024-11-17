@@ -1,23 +1,23 @@
 .user-profile {
   // font-size: rem(14px);
   // border: 1px solid $clr11;
-  padding: em(30px, 16px);
-  margin-bottom: 2em;
-  
+  // padding: em(30px, 16px);
+  // margin-bottom: 2em;
+
   .img-profile-container {
     position: relative;
-    
+
     &:hover {
       .upload-camera {
         opacity: .8;
       }
-      
+
       img {
         opacity: 0.6;
       }
     }
   }
-  
+
   .upload-camera {
     font-size: rem(32px);
     position: absolute;
@@ -31,34 +31,45 @@
     opacity: 0;
     transition: opacity .6s;
   }
-  
+
   img {
-    width: em(120px, 14px);
-    height: em(120px, 14px);
+    width: em(150px, 14px);
+    height: em(150px, 14px);
     border-radius: 50%;
     margin-bottom: 1em;
     opacity: 1;
     transition: opacity .6s;
   }
-  
+
   .user-profile-info {
     display: flex;
-    align-items: start;
+    // align-items: center;
     justify-content: start;
-    flex-direction: column;
+    // flex-direction: column;
     padding-bottom: em(24px, 14px);
     margin-bottom: em(24px, 14px);
-    border-bottom: 1px solid $clr11;
-  }
 
-  .user-stats-desc li {
-    @include flex;
-    margin-bottom: em(16px, 14px);
-    color: $clr5;
 
-    div span:first-of-type {
-      margin-right: .5em;
+    .img-profile-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1em;
     }
+
+    h2 {
+      margin: 0;
+    }
+
+    // .user-stats-desc li {
+    //   @include flex;
+    //   margin-bottom: em(16px, 14px);
+    //   color: $clr5;
+
+    //   div span:first-of-type {
+    //     margin-right: .5em;
+    //   }
+    // }
   }
 
   #imgUpload {
@@ -70,4 +81,35 @@
     position: absolute;
     cursor: pointer;
   }
+}
+
+.user-stats-desc {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-top: 1em; 
+
+  li {
+    display: flex; 
+    align-items: center;
+    margin-bottom: em(16px, 14px);
+    color: $clr5;
+  }
+
+  li:first-child,
+  li:nth-child(2) {
+    justify-content: space-between; 
+  }
+
+  li span {
+    font-size: rem(14px);
+  }
+
+  li span:not(:first-child) {
+    margin-left: 1em;
+  }
+}
+
+.info-profile-details {
+display: flex;
 }

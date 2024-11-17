@@ -218,8 +218,8 @@ export function IndexHeader({ onSetFilter, isSticky }) {
         //     </div>
         // </nav>
         <section className={`my-header main-layout `}>
-            <div className="index-header main layout  ">
-                <div className={`index-header-container  main-layout ${isSticky ? 'sticky' : ''}`}>
+            <div className="index-header main layout ">
+                <div className={`index-header-container main-layout ${isSticky ? 'sticky' : ''}`}>
 
                     <Link to="/">
                         <div className="logo">

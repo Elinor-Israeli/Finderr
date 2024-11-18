@@ -11,8 +11,11 @@ import { GigEdit } from './cmps/gig/GigEdit'
 import { GigPayment } from './pages/gig/GigPayment'
 import { UserIndex } from './pages/UserIndex'
 import UserWishList from './pages/UserWishList'
+import UserSellerTable from './cmps/user/UserSellerTable';
+
 // import { GigBreadcrumbs } from './cmps/gig/GigBreadcrumbs'
 // import { GigCategoryMenu } from './cmps/gig/GigCategoryMenu'
+
 
 
 export function RootCmp() {
@@ -39,6 +42,7 @@ export function RootCmp() {
                     <Route path="/payment/:gigId" element={<GigPayment />} />
                     <Route path="/wishlist" element={<UserWishList />} />
                     <Route path="/user/:userId" element={<UserIndex />} />
+                    <Route path="/user-seller" element={<UserSellerTable />} /> 
                 </Routes>
             </main>
             <AppFooter />

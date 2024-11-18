@@ -213,7 +213,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                             onClick={() => { onOpenModal(); setIsSignup(true) }}>Join</button>}
                     </>
                 }
-                 <Link to="/user-seller" className="user-seller-link">
+                 <Link to="/dashboard" className="dashboard-link">
                             <span> Dashboard</span>
                         </Link>
             </div>

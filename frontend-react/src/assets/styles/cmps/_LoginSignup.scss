@@ -39,6 +39,11 @@ h2 {
     outline:  none;
 }
 
+.input-group input::placeholder {
+    font-size: 0.8rem; 
+    color: #b5b6ba;;
+}
+
 .forgot-password {
     display: inline-block;
     font-size: 14px;

@@ -3,6 +3,7 @@ import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'order'
 
+_createOrders()
 export const orderService = {
     query,
     getById,
@@ -12,6 +13,7 @@ export const orderService = {
     getOrderFirstSlides,
     getOrderLastSlides,
     getOrderSelling
+    
 }
 
 async function query(userId) {

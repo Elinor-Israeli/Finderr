@@ -12,6 +12,7 @@ import { AppHeaderMobile } from './AppHeaderMobile'
 import { DropdownLogin } from './DropdownLogin'
 import { Search } from './HederSearch'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import UserSellerTable from './user/UserSellerTable'
 
 export function IndexHeader({ onSetFilter, isSticky }) {
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
@@ -212,6 +213,9 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                             onClick={() => { onOpenModal(); setIsSignup(true) }}>Join</button>}
                     </>
                 }
+                 <Link to="/user-seller" className="user-seller-link">
+                            <span> Dashboard</span>
+                        </Link>
             </div>
         </nav>
         // <section className={`my-header `}>

@@ -23,42 +23,42 @@
 //     }
 // }
 
-// .app-header-main {
-//     flex-basis: 50%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: flex-end;
-//     text-align: end;
-//     font-family: macan-semibold;
+.app-header-main {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: end;
+    font-family: macan-semibold;
 
-//     a:hover {
-//         color: $clr1;
-//     }
+    a:hover {
+        color: $clr1;
+    }
 
-//     &>* {
-//         margin-inline-start: em(24px, 16px);
-//     }
+    &>* {
+        margin-inline-start: em(24px, 16px);
+    }
 
-//     .user-header-img {
-//         line-height: 1;
-//     }
+    .user-header-img {
+        line-height: 1;
+    }
 
-//     .user-header-img,
-//     .user-orders {
-//         position: relative;
-//     }
+    .user-header-img,
+    .user-orders {
+        position: relative;
+    }
 
-//     img {
-//         border-radius: 50%;
-//         width: em(32px, 16px);
-//         height: em(32px, 16px);
-//         cursor: pointer;
-//     }
+    img {
+        border-radius: 50%;
+        width: em(32px, 16px);
+        height: em(32px, 16px);
+        cursor: pointer;
+    }
 
-//     @media (max-width: $narrow-breakpoint) {
-//         flex-basis: 0%;
-//     }
-// }
+    @media (max-width: $narrow-breakpoint) {
+        flex-basis: 0%;
+    }
+}
 
 // // .logo svg {
 // //     display: inline-block;

@@ -11,11 +11,12 @@ import { GigEdit } from './cmps/gig/GigEdit'
 import { GigPayment } from './pages/gig/GigPayment'
 import { UserIndex } from './pages/UserIndex'
 import UserWishList from './pages/UserWishList'
-import UserSellerTable from './cmps/user/UserSellerTable';
+import { UserMsg } from './cmps/UserMsg'
+// import UserSellerTable from './cmps/user/UserSellerTable'
+// import { GigOrderIndex } from './pages/GigOrderIndex'
 
 // import { GigBreadcrumbs } from './cmps/gig/GigBreadcrumbs'
 // import { GigCategoryMenu } from './cmps/gig/GigCategoryMenu'
-
 
 
 export function RootCmp() {
@@ -25,16 +26,16 @@ export function RootCmp() {
         <div className="main-container  main-layout full">
             {pathname !== '/' && <IndexHeader />} 
             {/* <GigCategoryMenu/> */}
-            
+          
            
             {/* <IndexHeader /> */}
             {/* <AppHeader /> */}
             {/* <GigBreadcrumbs /> */}
-            {/* <UserMsg /> */}
+            <UserMsg />
 
             <main>
                 <Routes>
-                    <Route path="" element={<HomePage />} />
+                    <Route path="" element={<HomePage/>} />
                     <Route path="/gig" element={<GigIndex />} />
                     <Route path="/gig/:gigId" element={<GigDetails />} />
                     <Route path="/gig/edit/:gigId" element={<GigEdit />} />
@@ -42,7 +43,8 @@ export function RootCmp() {
                     <Route path="/payment/:gigId" element={<GigPayment />} />
                     <Route path="/wishlist" element={<UserWishList />} />
                     <Route path="/user/:userId" element={<UserIndex />} />
-                    <Route path="/user-seller" element={<UserSellerTable />} /> 
+                    {/* <Route path="/order" element={<GigOrderIndex isSeller={false} />} />
+                    <Route path="/dashboard" element={<GigOrderIndex isSeller={true} />} /> */}
                 </Routes>
             </main>
             <AppFooter />

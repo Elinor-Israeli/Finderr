@@ -5,7 +5,7 @@ const gigs = [
         "about": "Hey, I'm Alpa. I am a graphics designer as well as business woman. My hobby is drawing. Because it's brings a lot of benefits besides simply boosting my creativity. It's make me feel relaxed. Another hobby is cycling. It's makes me healthy and fit.",
         "price": 61,
         "owner": {
-            "_id": { "$oid": "63d232af3c0a9d375fbdf91c" },
+            "_id": "63d232af3c0a9d375fbdf91c",
             "fullname": "lofty",
             "country": "India",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d93001bdcba7f9235745299f61850b71-1657200241990/24f7d64e-5d25-41b3-8175-c79ea47e35d1.jpg",
@@ -33,7 +33,7 @@ const gigs = [
         "about": "A young passionate with an incredible common sense and experience of designing the most fitting, branding, contemporary, opulence, unique, and minimal logo designs for any business. Due to designing being my passion, having you as a companion throughout the project, I am more than confident of my expertise, understanding, and communication skills, I am the best designer for you and I have successfully proved that in over 1000 professional projects. You are on the right page where Customer Satisfaction is the top priority and I starve for that! Sincerely, Zunairah!",
         "price": 70,
         "owner": {
-            "_id": { "$oid": "63d234307fc188def6e7cfeb" },
+            "_id": "63d234307fc188def6e7cfeb" ,
             "fullname": "zunairaah",
             "country": "Pakistan",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/0667270df9ced2b6f1dd2ebe90d6015d-1560015456742/d18e623d-6ead-4fd7-a336-91a09c439ae1.jpg",
@@ -60,7 +60,7 @@ const gigs = [
         "about": "Hi Fiverr Community, Welcome to Resumely. We are a team of 10 resume writers and designers with extensive experience writing, reviewing, and rewriting job-winning resumes in standard or ATS-optimized formats. Whether you are a rising professional or a fresh graduate in IT, Engineering, Medical, Graphic Design, Business, or Marketing, we can help you with professional cover letters and LinkedIn profile optimizations. Want to learn more about how will we get things done? Just shoot us a message, and let's get together and discuss more.",
         "price": 45,
         "owner": {
-            "_id": { "$oid": "63d235a02634de3397159ca6" },
+            "_id": "63d235a02634de3397159ca6" ,
             "fullname": "resumely_",
             "country": "Bangladesh",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/39eaa29cabd3b730bbc2cda8d126bc89-1668942455731/dfc45ab3-18e2-4e0d-8582-e7dd732bf62f.png",
@@ -84,7 +84,7 @@ const gigs = [
         "about": "Hey ! I'm highly motivated woman having a team of accomplished and artful graphic designers with expertise in designing conceptual yet minimal designs and artwork. Hire me for extravagant service. What are you waiting for ? Let's get started with team Illustriouss!",
         "price": 25,
         "owner": {
-            "_id": { "$oid": "63d23b122634de3397159ca8" },
+            "_id": "63d23b122634de3397159ca8" ,
             "fullname": "illustriouss",
             "country": "India",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/505cad63a9a60b5e7f007f0f70b70320-1652367443632/d7945300-9d2e-4919-948b-3bc02f5cc55a.jpg",
@@ -109,7 +109,7 @@ const gigs = [
         "about": "I have over 15 years of consulting and business experience. I am a Master of Business Administration and a BA in Business Operations Management. I have developed and incorporated business plans for, large corporations, small businesses, and new startups",
         "price": 20,
         "owner": {
-            "_id": { "$oid": "63d23e26783371eb434731d5" },
+            "_id":"63d23e26783371eb434731d5",
             "fullname": "asaftech",
             "country": "Nigeria",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7090875b4a5ab765c79118a5eda39fa6-1612066106133/759d9e55-ec05-4150-a171-a8b9e56a13a9.png",
@@ -132,7 +132,7 @@ const gigs = [
         "about": "A beauty advisor and a business consultant who has so many hobbies :) I love creativity and enjoy helping others.",
         "price": 31,
         "owner": {
-            "_id": { "$oid": "63d24094783371eb434731d7" },
+            "_id": "63d24094783371eb434731d7",
             "fullname": "ras567",
             "country": "United Kingdom",
             "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/profile/photos/2799071/original/1444726053447_Profile.png",

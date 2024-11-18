@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-// import { updateOrder,  loadOrders } from '../../store/actions/order.actions'
-// import { ProgressChart } from '../../progress-chart'
-// import { socketService, SOCKET_EVENT_ORDER_UPDATED  } from '../../services/socket.service'
+
+import { updateOrder } from '../../store/actions/order.actions'
+
+import { socketService, SOCKET_EVENT_ORDER_UPDATED  } from '../../services/socket.service'
 import { ProgressChart } from '../ProgressChart'
 import { orderService } from '../../services/order.service.local'
 import { loadOrders } from '../../store/actions/order.actions'
@@ -92,35 +92,27 @@ async function loadOrders() {
 //   const approved = statistic.approved ? statistic.approved : 0
 //   const declined = statistic.declined ? statistic.declined : 0
 
- 
-
-//     if (!orders) return <div className="loader-container">
-//         <div className="loader"></div>
-//     </div> 
-
-// console.log(orders)
-
-//   return <section className="user-seller-table">
-//     {statistic && <ul className="statstic-dashboard">
-//       <li>
-//         <h4>Active orders</h4>
-//         <span className="orders-num">{orders.length ? orders.length : 0}</span>
-//         <span>{`($${totalSum})`}</span>
-//       </li>
-//       <li>
-//         <h4>Pending</h4>
-//         <ProgressChart percent={pending / orders.length} bgc={"#feb849"} />
-//       </li>
-//       <li>
-//         <h4>Approved</h4>
-//         <ProgressChart percent={approved / orders.length} bgc={"#21ca79"} />
-//       </li>
-//       <li>
-//         <h4>Declined</h4>
-//         <ProgressChart percent={declined / orders.length} bgc={"#f46875"} />
-//       </li>
-//     </ul>
-//     }
+  return <section className="user-seller-table">
+    {/* {statistic && <ul className="statstic-dashboard">
+      <li>
+        <h4>Active orders</h4>
+        <span className="orders-num">{orders.length ? orders.length : 0}</span>
+        <span>{`($${totalSum})`}</span>
+      </li>
+      <li>
+        <h4>Pending</h4>
+        <ProgressChart percent={pending / orders.length} bgc={"#feb849"} />
+      </li>
+      <li>
+        <h4>Approved</h4>
+        <ProgressChart percent={approved / orders.length} bgc={"#21ca79"} />
+      </li>
+      <li>
+        <h4>Declined</h4>
+        <ProgressChart percent={declined / orders.length} bgc={"#f46875"} />
+      </li>
+    </ul>
+    } */}
 
     
     

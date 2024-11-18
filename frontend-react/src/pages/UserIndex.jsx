@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { FaTelegramPlane } from "react-icons/fa";
 
-import { loadGigs, removeGig } from '../store/actions/gig.actions'
+import { loadGigs, removeGig  } from '../store/actions/gig.actions' 
 import { loadOrders } from '../store/actions/order.actions'
 import { UserList } from '../cmps/user/UserList'
-import { UserProfile } from './UserProfile'
-import { loadWatchedUser } from '../store/user/user.actions'
+import { UserProfile } from '../pages/UserProfile'
+import { loadWatchedUser } from '../store/user/user.actions' 
 import { ReviewList } from '../cmps/review/ReviewList'
-import { ReviewBar } from '../cmps/review/ReviewBar'
+import { ReviewBar } from '../cmps/review/ReviewBar' 
 
-import { userService } from '../services/user/user.service.local'
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import UserSellerTable from '../cmps/user/UserSellerTable'
+import { userService } from '../services/user/user.service.local' 
+import { showSuccessMsg, showErrorMsg  } from '../services/event-bus.service' 
 
 export function UserIndex() {
     const orders = useSelector(storeState => storeState.orderModule.orders)
@@ -23,9 +22,6 @@ export function UserIndex() {
     const sortBy = useSelector((storeState) => storeState.gigModule.sortBy)
     const { userId } = useParams()
     const loginUser = userService.getLoggedinUser()
-    const [time, setTime] = useState('')
-
-    const [user, setUser] = useState(null)
 
     useEffect(() => {
         userId && loadWatchedUser(userId)
@@ -33,24 +29,6 @@ export function UserIndex() {
         loadUser()
         loadGigs(filterBy, sortBy, userId)
     }, [filterBy, userId])
-
-    useEffect(() => {
-        // Function to update time
-        const updateTime = () => {
-            const currentDate = new Date()
-            const hours = currentDate.getHours()
-            const minutes = currentDate.getMinutes()
-            const ampm = hours >= 12 ? 'PM' : 'AM'
-            const formattedTime = `${hours % 12 || 12}:${minutes < 10 ? '0' + minutes : minutes} ${ampm} local time`
-            setTime(formattedTime)
-        }
-
-        updateTime()
-
-        const intervalId = setInterval(updateTime, 60000)
-
-        return () => clearInterval(intervalId)
-    }, [])
 
     async function loadUser() {
         try {
@@ -70,7 +48,7 @@ export function UserIndex() {
         }
     }
 
-    if (!user) return <div className="loader-container">
+    if (!userId) return <div className="loader-container">
         <div className="loader"></div>
     </div>
     return (
@@ -78,35 +56,12 @@ export function UserIndex() {
             <aside className="user-info">
                 <UserProfile watchedUser={watchedUser} />
                 <div className="user-review-bar">{watchedUser && watchedUser.reviews && <ReviewBar userReviews={watchedUser.reviews} />}</div>
-                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner_id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
-
                 {watchedUser && watchedUser.reviews && <ReviewList userReviews={watchedUser.reviews} />}
             </aside>
             <main className="user-main">
-                <div className="card-user">
-                    <div className="card-header">
-                        <img src={watchedUser?.imgUrl}></img>
-
-                        <div>
-                            <div>
-                                <h3 className="username">{watchedUser?.username}</h3>
-                            </div>
-                            <span className="status"> Offline • {time}</span>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="offer-info">
-                            <span className="offer-label">Offers hourly rates</span>
-                        </div>
-                        <div className="consultation-info">
-                            <button className="consultation-btn"><FaTelegramPlane />
-                                Contact me</button>
-                            <p className="response-time">Average response time: 1 hour</p>
-                        </div>
-                    </div>
-                </div>
                 {loginUser?._id === userId && orders.filter(order => order.seller._id === loginUser._id).length !== 0 && loginUser && <UserSellerTable
                     orders={orders.filter(order => order.seller._id === loginUser._id)} length={120} />}
+                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner._id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
             </main>
         </section>
     )

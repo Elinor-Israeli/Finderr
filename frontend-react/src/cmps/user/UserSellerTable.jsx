@@ -49,7 +49,7 @@ export default function UserSellerTable({ orders }) {
   const declined = statistic.declined ? statistic.declined : 0
 
   return <section className="user-seller-table">
-    {/* {statistic && <ul className="statstic-dashboard">
+    {statistic && <ul className="statstic-dashboard">
       <li>
         <h4>Active orders</h4>
         <span className="orders-num">{orders.length ? orders.length : 0}</span>
@@ -68,7 +68,7 @@ export default function UserSellerTable({ orders }) {
         <ProgressChart percent={declined / orders.length} bgc={"#f46875"} />
       </li>
     </ul>
-    } */}
+    }
 
     <ul className="orders-dashboard">
       {orders.map(order =>

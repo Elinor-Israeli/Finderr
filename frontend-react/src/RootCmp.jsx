@@ -12,6 +12,7 @@ import { GigPayment } from './pages/gig/GigPayment'
 import { UserIndex } from './pages/UserIndex'
 import UserWishList from './pages/UserWishList'
 import { UserMsg } from './cmps/UserMsg'
+// import UserSellerTable from './cmps/user/UserSellerTable'
 // import { GigOrderIndex } from './pages/GigOrderIndex'
 
 // import { GigBreadcrumbs } from './cmps/gig/GigBreadcrumbs'
@@ -25,7 +26,7 @@ export function RootCmp() {
         <div className="main-container  main-layout full">
             {pathname !== '/' && <IndexHeader />} 
             {/* <GigCategoryMenu/> */}
-            
+          
            
             {/* <IndexHeader /> */}
             {/* <AppHeader /> */}
@@ -34,7 +35,7 @@ export function RootCmp() {
 
             <main>
                 <Routes>
-                    <Route path="" element={<HomePage />} />
+                    <Route path="" element={<HomePage/>} />
                     <Route path="/gig" element={<GigIndex />} />
                     <Route path="/gig/:gigId" element={<GigDetails />} />
                     <Route path="/gig/edit/:gigId" element={<GigEdit />} />

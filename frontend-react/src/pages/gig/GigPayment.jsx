@@ -16,6 +16,8 @@ export function GigPayment({owner}) {
     const [gig, setGig] = useState(null)
     const navigate = useNavigate()
     const { gigId } = useParams()
+    console.log('gig',gig);
+    
 
     useEffect(() => {
         loadGig()
@@ -60,8 +62,8 @@ export function GigPayment({owner}) {
                 fullname: user.fullname,
               },
             seller: {
-                _id: gig._id,
-                fullname: gig.fullname,
+                _id: gig.owner._id,
+                fullname: gig.owner.fullname,
             },
             gig: {
                 _id: gig._id,

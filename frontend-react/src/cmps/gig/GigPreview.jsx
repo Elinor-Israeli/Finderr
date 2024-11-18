@@ -84,7 +84,6 @@ export function GigPreview({ gig }) {
     }
 
 
-    console.log("before render")
 
     if (!owner) return <div className="loader-container">
         <div className="loader"></div>

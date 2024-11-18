@@ -220,7 +220,6 @@ export function IndexHeader({ onSetFilter, isSticky }) {
         <section className={`my-header `}>
             <div className="index-header main layout  ">
                 <div className={`index-header-container  main-layout  ${isSticky ? 'sticky' : ''}`}>
-
                     <Link to="/">
                         <div className="logo">
                             <span className='logo-text'>finderr</span>
@@ -263,7 +262,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                                 <Link to="/wishlist" className="fa-regular heart" title="save to list"></Link>
                             </>
                         }
-                        <span>English</span>
+                        <span>Orders</span>
                         <Link to="gig"> <span>Become a Seller</span></Link>
                         <span>Sign in</span>
                         <button className='join-btn-index-header'>Join</button>

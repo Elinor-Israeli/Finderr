@@ -11,6 +11,9 @@ import { GigEdit } from './cmps/gig/GigEdit'
 import { GigPayment } from './pages/gig/GigPayment'
 import { UserIndex } from './pages/UserIndex'
 import UserWishList from './pages/UserWishList'
+import { UserMsg } from './cmps/UserMsg'
+// import { GigOrderIndex } from './pages/GigOrderIndex'
+
 // import { GigBreadcrumbs } from './cmps/gig/GigBreadcrumbs'
 // import { GigCategoryMenu } from './cmps/gig/GigCategoryMenu'
 
@@ -27,7 +30,7 @@ export function RootCmp() {
             {/* <IndexHeader /> */}
             {/* <AppHeader /> */}
             {/* <GigBreadcrumbs /> */}
-            {/* <UserMsg /> */}
+            <UserMsg />
 
             <main>
                 <Routes>
@@ -39,6 +42,8 @@ export function RootCmp() {
                     <Route path="/payment/:gigId" element={<GigPayment />} />
                     <Route path="/wishlist" element={<UserWishList />} />
                     <Route path="/user/:userId" element={<UserIndex />} />
+                    {/* <Route path="/order" element={<GigOrderIndex isSeller={false} />} />
+                    <Route path="/dashboard" element={<GigOrderIndex isSeller={true} />} /> */}
                 </Routes>
             </main>
             <AppFooter />

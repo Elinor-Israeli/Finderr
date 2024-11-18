@@ -10,10 +10,10 @@ import credit from '/img/credit.svg'
 import paypal from '/img/paypal.svg'
 import { socketService, SOCKET_EMIT_SET_TOPIC } from '../../services/socket.service'
 
-export function GigPayment() {
+export function GigPayment({owner}) {
     const [isChecked, setIsChecked] = useState(false)
     const user = userService.getLoggedinUser()
-    const [gig, setGig] = useState()
+    const [gig, setGig] = useState(null)
     const navigate = useNavigate()
     const { gigId } = useParams()
 
@@ -44,14 +44,24 @@ export function GigPayment() {
             return
         }
 
+        if (!gig) {
+            showErrorMsg('Unable to load gig details')
+            return
+        }
+
+        // if (!gig.owner || !gig.owner._id) {
+        //     showErrorMsg('Invalid gig owner')
+        //     return
+        // }
+
         const order = {
             buyer: {
                 _id: user._id,
                 fullname: user.fullname,
               },
             seller: {
-                _id: gig.owner._id,
-                fullname: gig.owner.fullname,
+                _id: gig._id,
+                fullname: gig.fullname,
             },
             gig: {
                 _id: gig._id,
@@ -65,6 +75,8 @@ export function GigPayment() {
             await addOrder(order)
             showSuccessMsg('Your order has been sent')
             socketService.emit(SOCKET_EMIT_SET_TOPIC, order._id)
+            console.log('Your order has been sent');
+            
             //* on a real time  
             //! only socket 
 

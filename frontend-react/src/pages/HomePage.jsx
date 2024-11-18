@@ -4,7 +4,7 @@
 import { CategoryMenu2 } from "./gig/GigCategoryMenu2";
 import { IndexHeader } from "../cmps/IndexHeader"; 
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { SET_FILTER } from '../store/reducers/gig.reducer'
@@ -19,6 +19,7 @@ import { Search } from "../cmps/HederSearch";
 import { gigService } from "../services/gig/gig.service.local";
 
 export function HomePage({ onSetFilter }) {
+    const location = useLocation()
     const loginUser = userService.getLoggedinUser()
     const [headerClassName, setHeaderClassName] = useState('')
     const user = useSelector(storeState => storeState.userModule.user)
@@ -33,6 +34,7 @@ export function HomePage({ onSetFilter }) {
     const { pathname } = window.location
     const [windowSize, setWindowSize] = useState(null)
     const headerRef = useRef(null)
+
 
     useEffect(() => {
         function handleResize() {
@@ -73,10 +75,11 @@ export function HomePage({ onSetFilter }) {
             navigate(`/gig${queryStringParams}`)
         }
     }
+    const headerClass = location.pathname === '/' ? 'index-header-fixed' : 'index-header full'
 
     return (
         <section className="">
-            <IndexHeader isSticky={true}/> 
+            <IndexHeader className={headerClass}/> 
            
             <section className="home-page full main-layout">
             

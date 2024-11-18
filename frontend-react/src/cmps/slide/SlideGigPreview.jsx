@@ -38,7 +38,7 @@ export function SlideGigPreview({ gig }) {
                     className={`prev ${slideIndex === 0 ? 'disabled' : ''}`}
                     onClick={(ev) => plusSlides(ev, -1)}
                 >
-                    <IoIosArrowBack className='icon-prev'/>
+                    <IoIosArrowBack className='icon-prev' style={{  fill: 'black',stroke:'black' }}/>
                 </div>
                 <img src={slides[slideIndex]} alt="Gig Preview" className='image-slides' />
 
@@ -46,7 +46,7 @@ export function SlideGigPreview({ gig }) {
                     className={`next ${slideIndex === slides.length - 1 ? 'disabled' : ''}`}
                     onClick={(ev) => plusSlides(ev, 1)}
                 >
-                    <IoIosArrowForward className='icon-next'/>
+                    <IoIosArrowForward className='icon-next' style={{  fill: 'black',stroke:'black' }}/>
                 </div>
             </div>
             <ul className="dot-container">

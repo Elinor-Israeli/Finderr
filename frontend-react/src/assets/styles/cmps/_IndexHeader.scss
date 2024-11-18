@@ -59,9 +59,11 @@
                 input {
                     width: 100%; 
                     height: 45px; 
-                    border: none;
                     outline: none;
                     padding: 0 10px; 
+                    // border-radius: 5px;
+                    border: 0.3px solid #c5c6c9;
+                    border-right: white;
                 }
 
                 input::placeholder{

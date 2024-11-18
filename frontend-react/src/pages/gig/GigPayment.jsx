@@ -134,7 +134,7 @@ export function GigPayment({owner}) {
                         </label>
                     </div>
                     <label htmlFor="firstname" className="card-left-max">
-                        <span>Cardholder's name</span>
+                        <span >Cardholder's name</span>
                         <input type="text"
                             name="firstname"
                             value='John Joe'
@@ -187,7 +187,7 @@ export function GigPayment({owner}) {
                     <div><span>VAT</span><span>${(randomNumber).toFixed(2)}</span></div>
                 </div>
                 <div className="payment-total">
-                    <div><span style={{ fontSize: '24px',paddingBottom: '0.5em' }}>Total</span><span style={{ fontSize: '24px',paddingBottom: '0.5em' }}>${(gig.price + randomNumber + 3.49).toFixed(2)}</span></div>
+                    <div><span style={{ fontSize: '28px',paddingBottom: '0.5em' }}>Total</span><span style={{ fontSize: '24px',paddingBottom: '0.5em' }}>${(gig.price + randomNumber + 3.49).toFixed(2)}</span></div>
                     <div><span>Total delivery time</span><span>3 days</span></div>
                 </div>
                 <button className="payment-btn" type="submit" form="payment-form" style={{ fontSize: '20px' }}>Confirm & Pay</button>

@@ -5,7 +5,7 @@ import {  useSelector } from 'react-redux'
 import { updateOrder } from '../../store/actions/order.actions'
 
 // import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'
-import { ProgressChart } from '../ProgressChart'
+// import { ProgressChart } from '../ProgressChart'
 import { orderService } from '../../services/order.service.local'
 import { loadOrders } from '../../store/actions/order.actions'
 import { userService } from '../../services/user/user.service.local'
@@ -97,6 +97,26 @@ export default function UserSellerTable() {
     </div>
 
   return <section>
+      {/* {statistic && <ul className="statstic-dashboard">
+      <li>
+        <h4>Active orders</h4>
+        <span className="orders-num">{orders.length ? orders.length : 0}</span>
+        <span>{`($${totalSum})`}</span>
+      </li>
+      <li>
+        <h4>Pending</h4>
+        <ProgressChart percent={pending / orders.length} bgc={"#feb849"} />
+      </li>
+      <li>
+        <h4>Approved</h4>
+        <ProgressChart percent={approved / orders.length} bgc={"#21ca79"} />
+      </li>
+      <li>
+        <h4>Declined</h4>
+        <ProgressChart percent={declined / orders.length} bgc={"#f46875"} />
+      </li>
+    </ul>
+    } */}
      <ul className="orders-dashboard">
      {orders.map(order =>
         <li key={order._id}>

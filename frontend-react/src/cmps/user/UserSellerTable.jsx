@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { updateOrder } from '../../store/actions/order.actions'
 
-import { socketService, SOCKET_EVENT_ORDER_UPDATED  } from '../../services/socket.service'
+// import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'
 import { ProgressChart } from '../ProgressChart'
 import { orderService } from '../../services/order.service.local'
 import { loadOrders } from '../../store/actions/order.actions'

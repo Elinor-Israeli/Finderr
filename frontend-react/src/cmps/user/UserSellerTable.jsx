@@ -11,7 +11,36 @@ import { userService } from '../../services/user/user.service.local'
 
 
 export default function UserSellerTable() {
+//   const user = userService.getLoggedinUser()
+//   console.log(user);
+  
 
+//   const [order, setOrder] = useState()
+
+//   useEffect(() => {
+//     loadOrders(user._Id)
+// }, [])
+
+// async function loadOrders() {
+//   try {
+//       const order = await gigService.getById(user._Id)
+//       setOrder(order)
+//   }
+//   catch (err) {
+//       console.log('had issue in gig details', err)
+//       showErrorMsg('cannot load gig')
+//       navigate('/gig')
+//   }
+// }
+
+
+
+//   return(
+//    <p> {order.gig.title}</p>
+//   )
+// }
+
+  
   let orders = useSelector((storeState) => storeState.orderModule.orders)
 
   const [isModal, setIsModal] = useState({ id: '', status: false })
@@ -19,11 +48,11 @@ export default function UserSellerTable() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    loadOrders()
+      loadOrders()
   }, [])
 
-
-
+ 
+  
   useEffect(() => {
     if (!orders) return
     orders.forEach(order => {
@@ -32,7 +61,7 @@ export default function UserSellerTable() {
     })
   }, [])
 
-
+  
 
   function toggleStatusModal(orderId) {
     setIsModal(prevModal => ({ ...prevModal, id: orderId, status: !prevModal.status }))
@@ -47,17 +76,17 @@ export default function UserSellerTable() {
     }, {})
   }
 
-  // function updateStatus(status, order) {
-  //   order.status = status
-  //   updateOrder(order)
-  //   socketService.emit(SOCKET_EVENT_ORDER_UPDATED,
-  //     {
-  //       sellerName: order.seller.fullname,
-  //       status: order.status,
-  //       buyerId: order.buyer._id
-  //     })
-  //   setIsModal(!isModal)
-  // }
+  function updateStatus(status, order) {
+    order.status = status
+    updateOrder(order)
+    socketService.emit(SOCKET_EVENT_ORDER_UPDATED,
+      {
+        sellerName: order.seller.fullname,
+        status: order.status,
+        buyerId: order.buyer._id
+      })
+    setIsModal(!isModal)
+  }
 
   const pending = statistic.pending ? statistic.pending : 0
   const approved = statistic.approved ? statistic.approved : 0
@@ -85,11 +114,8 @@ export default function UserSellerTable() {
     </ul>
     }
 
-
-
-
-    <ul className="orders-dashboard">
-      {orders.map(order =>
+     <ul className="orders-dashboard">
+     {orders.map(order =>
         <li key={order._id}>
           <div className="img-container"><img src={order.gig.imgUrl[0]} alt="" onClick={() => navigate(`/gig/${order.gig._id}`)} /></div>
           <div className="gig-title"><small>Gig</small>{order.gig.title}</div>
@@ -109,5 +135,5 @@ export default function UserSellerTable() {
         </li>)}
     </ul>
   </section>
-
 }
+

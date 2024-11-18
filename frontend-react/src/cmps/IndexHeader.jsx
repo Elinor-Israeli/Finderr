@@ -173,8 +173,8 @@ export function IndexHeader({ onSetFilter, isSticky }) {
             <nav className="app-header-nav" ref={headerRef}>
             <button className=" menu-toggle-btn"
                 onClick={() => onToggleMenu()}></button>
-            {/* {(windowSize < 900) && isOpenMenu &&
-                <AppHeaderMobile onToggleMenu={onToggleMenu} user={user} onLogout={onLogout} onOpenModal={onOpenModal} setIsSignup={setIsSignup} />} */}
+            {(windowSize < 900) && isOpenMenu &&
+                <AppHeaderMobile onToggleMenu={onToggleMenu} user={user} onLogout={onLogout} onOpenModal={onOpenModal} setIsSignup={setIsSignup} />}
             <div className="app-header-main">
                 {(windowSize > 900) && <Link to="/gig"
                     onClick={() => {

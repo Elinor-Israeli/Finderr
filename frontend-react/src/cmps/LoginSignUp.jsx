@@ -1,9 +1,11 @@
 
 import { useState, useEffect } from 'react'
+// import { useHistory } from 'react-router-dom'
+// import FacebookLogin from 'react-facebook-login'
 
 export function LoginSignup(props) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
-
+    // const history = useHistory()
     useEffect(() => {
         document.body.classList.add('modal-open')
 
@@ -49,6 +51,28 @@ export function LoginSignup(props) {
         }
     }
 
+    // const responseFacebook = (response) => {
+    //     console.log('Facebook login response:', response)
+    //     if (response.status !== 'unknown') {
+
+    //         const { name, email, userID, accessToken } = response
+    //         const fbUser = { name, email, userID, accessToken }
+    //         props.onLogin(fbUser) 
+    //         props.onCloseModal()
+    //     }
+    // }
+
+
+    // const responseApple = (response) => {
+    //     console.log('Apple login response:', response)
+    //     if (response) {
+    //         const { name, email } = response
+    //         const appleUser = { name, email }
+    //         props.onLogin(appleUser)
+    //         props.onCloseModal()
+    //     }
+    // }
+
     const { username, password } = credentials
     return (
         <div className="modal-overlay" onClick={handleOverlayClick}>
@@ -80,11 +104,11 @@ export function LoginSignup(props) {
                         }}
                     >
                         <h2>Success starts here</h2>
-                        <ul >
+                        <ul style={{fontSize:'20px'}}>
                             <li style={{ lineHeight: '42px' }}>✓ Over 700 categories</li>
                             <li style={{ lineHeight: '42px' }}>✓ Quality work done faster</li>
-                            <li style={{ lineHeight: '42px' }}>✓ Access to talent and businesses</li>
-                            <li style={{ lineHeight: '42px' }}>across the globe</li>
+                            <li style={{ lineHeight: '42px' }}>✓ Access to talent and businesses across the globe</li>
+                            <li style={{ lineHeight: '42px' }}></li>
                         </ul>
                     </div>
                 </div>
@@ -159,6 +183,33 @@ export function LoginSignup(props) {
                                     <button>Continue</button>
                                 </form>
                             </>}
+
+                             {/* Social Login Buttons */}
+                        {/* <div className="social-login-buttons">
+                            <div className="facebook-login">
+                                <FacebookLogin
+                                    appId="YOUR_FACEBOOK_APP_ID" // Replace with your Facebook App ID
+                                    autoLoad={false}
+                                    fields="name,email,picture"
+                                    callback={responseFacebook}
+                                    textButton="Login with Facebook"
+                                    icon="fa-facebook"
+                                />
+                            </div>
+                            <div className="apple-login">
+                                <button
+                                    className="apple-sign-in-btn"
+                                    onClick={responseApple} // Call Apple Sign-In logic
+                                >
+                                    Login with Apple
+                                </button>
+                            </div>
+                            <div className="email-login">
+                                <button onClick={() => alert('Login with Email')}>
+                                    Login with Email
+                                </button>
+                            </div>
+                        </div> */}
 
                             <button className="btn-link" onClick={toggleSignup}>{props.isSignup ? 'Already a member? Sign In' : 'Not a member yet? Join now'}</button>
                         </div>

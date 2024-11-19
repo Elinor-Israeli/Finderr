@@ -97,6 +97,7 @@
             align-items: center;
             gap: 24px;
             font-weight: 500;
+            .sign-in-link,
             span{
                 transition: color 0.3s ease;
                 &:hover {
@@ -104,6 +105,7 @@
                     cursor: pointer;
                 }
             }
+            
            
             .join-btn-index-header {
                 border-color: #1DBF73;

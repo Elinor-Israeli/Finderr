@@ -711,8 +711,27 @@ function _createUsers() {
                         by: {
                             _id: "u103",
                             fullname: "Puki Smuki",
+                            country: 'Netherlands',
+                            reviewedAt: 'Published 1 month ago',
+                            flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png',
                             imgUrl: "https://cdn.pixabay.com/photo/2021/07/01/02/01/avatar-6377965_960_720.png"
-                        }
+                        },
+  
+                    },
+                    {
+                        id: "3e45",
+                        gig: "{optional-mini-gig}",
+                        txt: "I can't express how satisfied I am with the service I received! This seller is a true professional who knows exactly what he's doing when it comes to WordPress. Not only is he incredibly skilled at editing and fixing any issues on my site, but he's also very helpful and understanding throughout the entire process. After an amazing first experience, I came back for a second order, and once again, he exceeded my expectations. He made sure to understand every detail of what I needed and delivered everything perfectly, even faster than before! The consistency in his work is truly impressive. His communication is top-notch. He listens carefully, offers helpful suggestions, and ensures everything is taken care of quickly without sacrificing quality. I felt completely confident that my website was in the best hands. Whether it was tweaking designs, fixing technical glitches, or optimizing performance, he handled it all effortlessly. He’s truly the best WordPress editor I’ve ever worked with, and I’ve tried quite a few gigs before. If you're looking for someone who is professional, hard-working, and capable of editing any WordPress issue you throw at him, this is the gig you should definitely choose. Highly recommend!",
+                        rate: 4,
+                        by: {
+                            _id: "u103",
+                            fullname: "Puki Smuki",
+                            country: 'Netherlands',
+                            reviewedAt: 'Published 1 month ago',
+                            flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png',
+                            imgUrl: "https://cdn.pixabay.com/photo/2021/07/01/02/01/avatar-6377965_960_720.png"
+                        },
+  
                     },
                 ],
             }

@@ -1355,73 +1355,73 @@ function _createGigs() {
                     }
                 ]
             },
-            // {
-            //     _id: "i132",
-            //     owner_id: "u132",
-            //     owner_rate: 5,
-            //     title: "I will create modern unique and creative logo design",
-            //     about: "I am a professional graphics designer from PakIsTaN... Designing is not only my job, it's my Passion. All I need from you is a rough sketch of your idea. Then you can just relax and see the magic happening. Not only you'll get stunning and professional designs, but also you'll have top class custome",
-            //     price: 61,
-            //     owner: {
-            //         _id: "u132",
-            //         _id: "u132",
-            //         fullname: "soduzai_gfx1",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg",
-            //         level: "basic/premium",
-            //         rate: 3
-            //     },
-            //     country: "Pakistan",
-            //     daysToMake: 2,
-            //     description: "Hi esteemed buyer!\nLooking for modern unique and creative 2d or 3d logo design? Yes, you're at the right place.\nHaving a vast experience with hundreds of satisfied customers across the globe, I extend my services to design modern unique and creative logo design to represent your brand idea in a befitting manner.\nWhat proves my individuality over others?\nQuick delivery, quality work and transforming your brain idea into a 3d creative unique and modern logo design are my attributes.\nMY GIG OFFERINGS ARE:\nBest customer care\nRevisions within 24 Hours\n100% satisfaction guaranteed\nModern unique and creative designing ideas\nLogically and aesthetically hypnotizing logos\n1 free revision after completion of order\nEditable and re-sizeable vector files\nFont download link included\nHigh resolution final files in zip\nNote: For Complex Illustrations and Mascots, please discuss in inbox before placing order! It is also not included in our packages.\nHave queries? Contact us in inbox anytime!\n★Hearing from you would be an absolute pleasure, Go ahead and ORDER NOW!★",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/103152154/original/b89645456b7f6906afa872771737e980b6f57cfb.jpg",
-            //     tags: [
-            //         "modern logo",
-            //         "creative logo",
-            //         "logo design",
-            //         "unique logo",
-            //         "logo maker"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "devsreads",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Thank you SO MUCH to the seller. He was so patient and willing to work and correct as many times as we needed as some things got miscommunicated and he easily fixed them. Thank you!!!",
-            //             "reviewedAt": "Published 3 days ago"
-            //         },
-            //         {
-            //             "name": "raymondyslas",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "This designer is awesome. I have got my idea materialised in an efficient manner and the way I wanted. Seeing this logo, I would say this is the best designer to do any kind of graphics work.",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "gbsol579",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "This designer is so quick and efficient in his work. My order was delivered in few hours. The design is hypnotizing and truly reflects my business idea. Highly recommended!",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "antoniodixon65",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "This is a really good design. The designer owes the skills needed to actually understand and then materailize a buyer's idea. Commendable and highly recommended.",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "allendrozdowski",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "This designer has done a fantastic job. I like the design sense and colour combination of the designer. This is what I was looking for. I highly recommend him for graphics related work.",
-            //             "reviewedAt": "Published 1 month ago"
-            //         }
-            //     ]
-            // },
+            {
+                _id: "i132",
+                owner_id: "u132",
+                owner_rate: 5,
+                title: "I will create modern unique and creative logo design",
+                about: "I am a professional graphics designer from PakIsTaN... Designing is not only my job, it's my Passion. All I need from you is a rough sketch of your idea. Then you can just relax and see the magic happening. Not only you'll get stunning and professional designs, but also you'll have top class custome",
+                price: 61,
+                owner: {
+                    _id: "u132",
+                    _id: "u132",
+                    fullname: "soduzai_gfx1",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg",
+                    level: "basic/premium",
+                    rate: 3
+                },
+                country: "Pakistan",
+                daysToMake: 2,
+                description: "Hi esteemed buyer!\nLooking for modern unique and creative 2d or 3d logo design? Yes, you're at the right place.\nHaving a vast experience with hundreds of satisfied customers across the globe, I extend my services to design modern unique and creative logo design to represent your brand idea in a befitting manner.\nWhat proves my individuality over others?\nQuick delivery, quality work and transforming your brain idea into a 3d creative unique and modern logo design are my attributes.\nMY GIG OFFERINGS ARE:\nBest customer care\nRevisions within 24 Hours\n100% satisfaction guaranteed\nModern unique and creative designing ideas\nLogically and aesthetically hypnotizing logos\n1 free revision after completion of order\nEditable and re-sizeable vector files\nFont download link included\nHigh resolution final files in zip\nNote: For Complex Illustrations and Mascots, please discuss in inbox before placing order! It is also not included in our packages.\nHave queries? Contact us in inbox anytime!\n★Hearing from you would be an absolute pleasure, Go ahead and ORDER NOW!★",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/103152154/original/b89645456b7f6906afa872771737e980b6f57cfb.jpg"],
+                tags: [
+                    "modern logo",
+                    "creative logo",
+                    "logo design",
+                    "unique logo",
+                    "logo maker"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "devsreads",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Thank you SO MUCH to the seller. He was so patient and willing to work and correct as many times as we needed as some things got miscommunicated and he easily fixed them. Thank you!!!",
+                        "reviewedAt": "Published 3 days ago"
+                    },
+                    {
+                        "name": "raymondyslas",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "This designer is awesome. I have got my idea materialised in an efficient manner and the way I wanted. Seeing this logo, I would say this is the best designer to do any kind of graphics work.",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "gbsol579",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "This designer is so quick and efficient in his work. My order was delivered in few hours. The design is hypnotizing and truly reflects my business idea. Highly recommended!",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "antoniodixon65",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "This is a really good design. The designer owes the skills needed to actually understand and then materailize a buyer's idea. Commendable and highly recommended.",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "allendrozdowski",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "This designer has done a fantastic job. I like the design sense and colour combination of the designer. This is what I was looking for. I highly recommend him for graphics related work.",
+                        "reviewedAt": "Published 1 month ago"
+                    }
+                ]
+            },
             // {
             //     _id: "i133",
             //     owner_id: "u133",

@@ -115,7 +115,7 @@ export function LoginSignup(props) {
                 <div className="modal-layout">
                     <section className="modal-content">
                         {!props.isSignup && <>
-                            <h4><strong>Sign in to Finderr</strong></h4>
+                            <h4><strong>Sign in to finderr</strong></h4>
                             <form className="login-signup" onSubmit={onLogin}>
                                 <div className="input-group">
                                     <label>Full Name</label>

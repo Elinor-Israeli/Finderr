@@ -7,7 +7,7 @@ export function ReviewList({ userReviews, length = 220 }) {
             {userReviews.map((review, idx) =>
                 <li className='review-list' key={review.by.fullname + idx}>
                     <img className='review-image review' src={review.by.imgUrl} alt="" />
-                    <div>
+                    <div className='review-txt'>
                         <div className="review">
                             <div className="user-info">
                                 <h4>{review.by.fullname}</h4>

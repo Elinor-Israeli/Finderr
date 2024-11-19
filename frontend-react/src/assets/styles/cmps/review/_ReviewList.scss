@@ -29,7 +29,7 @@ ul.review-list {
 
         .user-info {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             margin-right: 1.5em;
 
             h4 {
@@ -40,7 +40,7 @@ ul.review-list {
             .country {
                 display: flex;
                 align-items: center;
-                margin-top: 0.5em;
+                margin-left: .8em;
 
                 .flag {
                     width: 16px;

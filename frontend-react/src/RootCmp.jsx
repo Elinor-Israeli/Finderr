@@ -50,7 +50,6 @@ export function RootCmp() {
                 </Routes>
             </main>
             {!isPaymentPage && <AppFooter />}
-            {/* <UserMsg/> */}
             {/* <AppFooter /> */}
         </div>
     )

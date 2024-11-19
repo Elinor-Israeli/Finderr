@@ -102,7 +102,6 @@ export default function UserSellerTable() {
 <h2 className='table-dec' > Manage Orders</h2>
     
     <ul className="orders-dashboard">
-      
 
       {orders.map(order =>
         <li key={order._id}>

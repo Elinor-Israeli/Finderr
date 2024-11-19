@@ -40,6 +40,10 @@
 
     .user-header-img {
         line-height: 1;
+        border-radius: 50%;
+        width: em(32px, 16px);
+        height: em(32px, 16px);
+        cursor: pointer;
     }
 
     .user-header-img,

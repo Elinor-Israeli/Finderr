@@ -33,6 +33,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
   const [windowSize, setWindowSize] = useState(null)
   const headerRef = useRef(null)
   const [heart, setHeart] = useState(false)
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false)
 
   useEffect(() => {
     function handleResize() {
@@ -170,52 +171,19 @@ export function IndexHeader({ onSetFilter, isSticky }) {
   function handleOrder() {
     setIsOrder(prev => !prev)
   }
-  return (
-    //     <nav className="app-header-nav" ref={headerRef}>
-    // <button className=" menu-toggle-btn"
-    //          onClick={() => onToggleMenu()}></button>
-    //      {(windowSize < 900) && isOpenMenu &&
-    //          <AppHeaderMobile onToggleMenu={onToggleMenu} user={user} onLogout={onLogout} onOpenModal={onOpenModal} setIsSignup={setIsSignup} />}
-    //      <div className="app-header-main">
-    //          {(windowSize > 900) && <Link to="/gig"
-    //            onClick={() => {
-    //                onSetFilter(gigService.getDefaultFilter())
-    //             }}>Explore</Link>}
-    //         {user &&
-    //             <>
-    //                 {(windowSize > 900) && <div className="user-orders">
-    //                     <Link onClick={handleOrder}>Orders</Link>
-    //                     {isOrder && <UserBuyGig />}
-    //                 </div>}
-    //                 <Link to="/wishlist" className="heart" title="save to list">
-    //                  {/* <img
-    //                         src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
-    //                         alt="Heart"
-    //                         className="heart-img"
-    //                     /> */}
-    //                     </Link>
-    //                 {(windowSize > 900) && <div className="user-header-img">
-    //                     <img src={user.imgUrl}
-    //                         onClick={() => {
-    //                             setIsOrder(false)
-    //                             setIsDropdown(!isDropdown)
-    //                         }} />
-    //                     {isDropdown && <DropdownLogin loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} user={user} />}
-    //                 </div>}
-    //             </>
-    //         }
-    //         {!user &&
-    //             <>
-    //                 {isModal && <ModalLogin onLogin={onLogin} onSignup={onSignup}
-    //                     onCloseModal={onCloseModal} setIsSignup={setIsSignup} isSignup={isSignup} />}
-    //                 {(windowSize > 900) && <Link onClick={() => { onOpenModal(); setIsSignup(false) }}>Sign in</Link>}
-    //                 {(windowSize > 900) && <button className="join-btn"
-    //                     onClick={() => { onOpenModal(); setIsSignup(true) }}>Join</button>}
-    //             </>
-    //         }
 
-    //     </div>
-    // </nav>
+  const handleImageClick = () => {
+    setIsOrder(false);
+    setIsDropdown(false);
+    setIsImageModalOpen(true); // Open the modal
+  };
+
+  const closeImageModal = () => {
+    setIsImageModalOpen(false); // Close the modal
+  }
+  
+  return (
+   
     <section className={`my-header`}>
       <div className="index-header main layout">
         <div className={`index-header-container main-layout ${isSticky ? 'sticky' : ''}`}>
@@ -275,6 +243,13 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                 </Link>
                 {(windowSize > 900) && <div className="user-header-img">
                   <img src={user.imgUrl}
+                    alt='user'
+                    style={{
+                      borderRadius: '50%',
+                      width: '2em',
+                      height: '2em',
+                      cursor: 'pointer',
+                    }}
                     onClick={() => {
                       setIsOrder(false)
                       setIsDropdown(!isDropdown)
@@ -287,7 +262,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
               <>
                 {isModal && <ModalLogin onLogin={onLogin} onSignup={onSignup}
                   onCloseModal={onCloseModal} setIsSignup={setIsSignup} isSignup={isSignup} />}
-                {(windowSize > 900) && <Link  className='sign-in-link' onClick={() => { onOpenModal(); setIsSignup(false) }}>Sign in</Link>}
+                {(windowSize > 900) && <Link className='sign-in-link' onClick={() => { onOpenModal(); setIsSignup(false) }}>Sign in</Link>}
                 {(windowSize > 900) && <button className="join-btn-index-header"
                   onClick={() => { onOpenModal(); setIsSignup(true) }}>Join</button>}
               </>

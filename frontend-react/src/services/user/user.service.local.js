@@ -905,6 +905,48 @@ function _createUsers() {
                     },
                 ],
             },
+            {
+                _id: "u132",
+                fullname: "Nura Kersa",
+                imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
+                username: "user120",
+                password: "secret",
+                level: 2,
+                description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
+                rate: 4.5,
+                reviews: [
+                    {
+                        id: "3e25",
+                        gig: "{optional-mini-gig}",
+                        txt: "Thank you SO MUCH to the seller. He was so patient and willing to work and correct as many times as we needed as some things got miscommunicated and he easily fixed them. Thank you!!!",
+                        rate: 4,
+                        by: {
+                            _id: "u103",
+                            fullname: "Gorg",
+                            country: "United States",
+                            reviewedAt: 'Published 1 month ago',
+                            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+                            imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
+                        },
+
+                    },
+                    {
+                        id: "3e45",
+                        gig: "{optional-mini-gig}",
+                        txt: "This designer is awesome. I have got my idea materialised in an efficient manner and the way I wanted. Seeing this logo, I would say this is the best designer to do any kind of graphics work.",
+                        rate: 4,
+                        by: {
+                            _id: "u103",
+                            fullname: "Habibi",
+                            country: "United Kingdom",
+                            reviewedAt: 'Published 1 month ago',
+                            flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png',
+                            imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
+                        },
+
+                    },
+                ],
+            },
 
         ]
         utilService.saveToStorage(STORAGE_KEY, users)

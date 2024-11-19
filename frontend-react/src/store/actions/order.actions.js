@@ -17,6 +17,8 @@ export function getActionUpdateOrder(order) {
     }
 }
 
+
+
 export async function loadOrders(userId) {
     try {
         const orders = await orderService.query(userId)
@@ -30,18 +32,20 @@ export async function loadOrders(userId) {
 export async function addOrder(order) {
     try {
         const savedOrder = await orderService.save(order)
-        socketService.emit(SOCKET_EVENT_ORDER_ADDED,
-            {
-                buyerName: order.buyer.fullname,
-                sellerId: order.seller._id
-            })
-        store.dispatch(getActionAddOrder(savedOrder))
+        // socketService.emit(SOCKET_EVENT_ORDER_ADDED,
+            // {
+            //     buyerName: order.buyer.fullname,
+            //     sellerId: order.seller._id
+            // })
+        // store.dispatch(getActionAddOrder(savedOrder))
         return savedOrder
     } catch (err) {
         console.log('Cannot add order', err)
         throw err
     }
 }
+
+
 
 export async function updateOrder(order) {
     try {

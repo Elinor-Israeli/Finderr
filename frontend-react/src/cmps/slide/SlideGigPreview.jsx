@@ -11,15 +11,14 @@ export function SlideGigPreview({ gig }) {
     function plusSlides(ev, n) {
         ev.preventDefault();
         
-        // Prevent action if the button is disabled
         if (ev.target.closest('.disabled')) return;
 
         if (slideIndex === slides.length - 1 && n === 1) {
-            setSlideIndex(0); // Go to the first slide
+            setSlideIndex(0)
         } else if (slideIndex === 0 && n === -1) {
-            setSlideIndex(slides.length - 1); // Go to the last slide
+            setSlideIndex(slides.length - 1)
         } else {
-            setSlideIndex(prevSlide => prevSlide + n); // Increment or decrement slide index
+            setSlideIndex(prevSlide => prevSlide + n)
         }
     }
 
@@ -28,7 +27,6 @@ export function SlideGigPreview({ gig }) {
         setSlideIndex(slideIndex)
         setIsDynamic(slideIndex)
     }
-    //  ! here (Swallows the image)
     return (
         // <div className="next fa-solid chevron-right" onClick={(ev) => plusSlides(ev, 1)}></div>
 

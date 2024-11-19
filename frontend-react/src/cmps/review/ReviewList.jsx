@@ -1,7 +1,7 @@
 import { StarRating } from './StarRating'
 import { LongTxt } from '../LongTxt'
 
-export function ReviewList({ userReviews, nextReview, length = 220 }) {
+export function ReviewList({ userReviews, length = 220 }) {
     return (
         <ul className='review-list'>
             {userReviews.map((review, idx) =>

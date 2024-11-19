@@ -1,4 +1,4 @@
-import { gigService } from "../../services/gig/gig.service.local" 
+import { gigService } from "../../services/gig/gig.service.local.js" 
 
 export const SET_GIGS = 'SET_GIGS'
 export const REMOVE_GIG = 'REMOVE_GIG'
@@ -6,7 +6,6 @@ export const ADD_GIG = 'ADD_GIG'
 export const UPDATE_GIG = 'UPDATE_GIG'
 export const SET_FILTER = 'SET_FILTER'
 export const SET_SORT = 'SET_SORT'
-
 
 const initialState = {
     gigs: [],

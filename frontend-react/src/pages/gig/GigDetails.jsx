@@ -33,6 +33,7 @@ export function GigDetails() {
     if (!gig) return <div className="loader-container">
         <div className="loader"></div>
     </div>
+    const { imgUrl, fullname, rate, level, country } = gig.owner
 
     return <section className="gig-details">
         <div className="gig-details-container">
@@ -68,11 +69,11 @@ export function GigDetails() {
                 <div style={{ padding: '24px 0 0', fontFamily: 'Macan', fontSize: '16px' }}>
                 <div className="owner-description">
                     <ul>
-                        <li><strong><span>From</span></strong><span>Israel</span></li>
+                        <li><strong><span>From</span></strong><span>{gig.country}</span></li>
                         <li><strong><span>Member since</span></strong><span>userOrders</span></li>
                         <li><strong><span>Avg. response time</span></strong><span>5 hours</span></li>
                         <li><strong><span>Last delivery</span></strong><span>about 1 hour</span></li>
-                        <li><strong><span>Languages</span></strong><span>English</span></li>
+                        <li><strong><span>Languages</span></strong><span>{gig.Languages}</span></li>
                     </ul>
                     <p>
                         {/* <span>{gig.about}</span> */}

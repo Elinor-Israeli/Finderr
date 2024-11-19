@@ -28,8 +28,8 @@
 }
 
 .orders-dashboard {
-    display: flex;
-    flex-direction: column-reverse;
+  display: flex;
+  flex-direction: column-reverse;
 
   li {
     display: grid;
@@ -107,6 +107,7 @@
     padding: 0;
   }
 
+
   .status-options {
     border: 1px solid #e4e5e7;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
@@ -115,6 +116,8 @@
     padding: .5em 1em;
     right: 0;
     z-index: 3;
+
+    
 
     &>* {
       margin: .5em 0;

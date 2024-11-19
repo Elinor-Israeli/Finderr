@@ -31,3 +31,12 @@
 //       stroke-width: 10px;
 //     }
 //   } //! progress
+
+.progress-chart {
+    display: inline-block;
+    position: relative;
+}
+.progress-chart svg {
+    transform: rotate(-90deg);
+    transform-origin: center;
+}

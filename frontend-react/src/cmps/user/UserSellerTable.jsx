@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-
 import { updateOrder } from '../../store/actions/order.actions'
 
 // import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'
@@ -13,17 +12,21 @@ import { userService } from '../../services/user/user.service.local'
 
 export default function UserSellerTable() {
 
-
   let orders = useSelector((storeState) => storeState.orderModule.orders)
+  const user = useSelector((storeState) => storeState.userModule.user)
 
   const [isModal, setIsModal] = useState({ id: '', status: false })
-  const [totalSum, setTotalSum] = useState(0)
+  // const [totalSum, setTotalSum] = useState(0)
   const [monthlyRevenue, setMonthlyRevenue] = useState(0)
   const navigate = useNavigate()
 
   useEffect(() => {
     loadOrders()
   }, [])
+
+  const sellerOrders = orders.filter(order => order.seller._id === user._id)
+
+  
 
   // useEffect(() => {
   //   if (!orders) return
@@ -44,9 +47,9 @@ export default function UserSellerTable() {
 
 
 
-  function toggleStatusModal(orderId) {
-    setIsModal(prevModal => ({ ...prevModal, id: orderId, status: !prevModal.status }))
-  }
+  // function toggleStatusModal(orderId) {
+  //   setIsModal(prevModal => ({ ...prevModal, id: orderId, status: !prevModal.status }))
+  // }
 
   function toggleStatusModal(orderId) {
 
@@ -58,13 +61,6 @@ export default function UserSellerTable() {
   }
 
 
-
-  // function updateStatus(status, order) {
-  //   order.status = status
-  //   updateOrder(order)
-  //   setIsModal(!isModal)
-  // }
-
   function updateStatus(status, order) {
     const updatedOrder = { ...order, status }
     updateOrder(updatedOrder)
@@ -74,9 +70,12 @@ export default function UserSellerTable() {
   const pendingOrdersCount = orders.filter(order => order.status === 'pending').length
   const completedOrdersCount = orders.filter(order => order.status === 'Completed').length
 
-  if (!orders) return <div className="loader-container">
-    <div className="loader"></div>
-  </div>
+  // if (!orders) return 
+  // <div className="loader-container">
+  //   <div className="loader"></div>
+  // </div>
+  if (!orders || orders.length === 0) return <div className="loader-container"><div className="loader"></div></div>
+
 
   return <section className=' dashboard '>
     
@@ -111,12 +110,13 @@ export default function UserSellerTable() {
           <div>${order.gig.price}</div>
           <div className="status-container">
           <span className={order.status} onClick={() => toggleStatusModal(order._id)}>{order.status} </span>
-              {(isModal.status && isModal.id === order._id) && <div className="status-options">
+          {user && user._id === order.seller._id && isModal.status && isModal.id === order._id && (
+              <div className="status-options">
                 <span className="approved" onClick={() => updateStatus("Approved", order)}>Approved</span>
                 <span className="completed" onClick={() => updateStatus("Completed", order)}>Completed</span>
                 <span className="declined" onClick={() => updateStatus("Declined", order)}>Declined</span>
               </div>
-              }
+              )}
             </div>
         </li>)}
       <li className='table-header'>

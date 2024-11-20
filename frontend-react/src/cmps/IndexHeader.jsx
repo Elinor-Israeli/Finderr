@@ -239,6 +239,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                                 src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
                                 alt="Heart"
                                 className="heart-img"
+                                style={{aspectRatio: 'unset'}}
                             />
                 </Link>
                 {(windowSize > 900) && <div className="user-header-img">

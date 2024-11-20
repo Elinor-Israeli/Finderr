@@ -86,7 +86,7 @@ export default function UserSellerTable() {
         <h3>${monthlyRevenue}</h3>
         {/* <ProgressChart2
         count={monthlyRevenuePercent}
-        total={annualRevenueGoal / 12} // Assuming an even distribution goal for each month
+        total={annualRevenueGoal / 12} 
         bgc="blue"
         label="Monthly Revenue"
     /> */}
@@ -94,12 +94,12 @@ export default function UserSellerTable() {
     <div className="dashboard-item">
         <span>Completed Orders</span>
         <h3>{completedOrdersCount}</h3>
-        <ProgressChart2
+        {/* <ProgressChart2
         count={completedOrderPercent}
         total={totalOrders}
         bgc="green"
         label="Completed Orders"
-    />
+    /> */}
     </div>
     <div className="dashboard-item">
         <span>Pending Orders</span>

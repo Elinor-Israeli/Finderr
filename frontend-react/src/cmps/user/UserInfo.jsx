@@ -55,10 +55,7 @@ export function UserInfo({ user_id, compact,owner }) {
                         <div className="level">
                             {user.level === 'level 3' ? 'Top Rated' : `Level ${user.level}`}
                         </div>
-                        <div
-                            className="level-icons"
-                            style={user.level === 3 ? { backgroundColor: '#ffe0b3', padding: '4px', borderRadius: '5px' } : {}}
-                        >
+                        <div className="level-icons" >
                             <div className={`level-icons ${user.level === 3 ? 'top-rated' : ''}`}></div>
                             {[...Array(3)].map((_, idx) => (
                                 <svg

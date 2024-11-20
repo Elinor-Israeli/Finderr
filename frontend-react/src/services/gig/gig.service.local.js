@@ -19,13 +19,13 @@ export const gigService = {
 
 window.cs = gigService
 function getDefaultFilter() {
-    return { title: '', tags: [], daysToMake: '', minPrice: '', maxPrice: '' }
+    return { title: '', tags: [], daysToMake: '', minPrice: '', maxPrice: ''}
 }
 function getDefaultSort() {
     return { categorySort: 'recommended' }
 }
 
-async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sortBy, userId) {
+async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sortBy = { categorySort: 'recommended' }, userId) {
     var gigs = await storageService.query(STORAGE_KEY)
     if (userId) gigs = gigs.filter(gig => gig.owner_id === userId)
     if (filterBy.title) {
@@ -33,7 +33,9 @@ async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sortBy,
         gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
     }
     if (sortBy.categorySort === 'recommended') {
-        gigs.sort((a, b) => b.owner_rate - a.owner_rate)
+        gigs.sort((a, b) => b.owner_rate - a.owner_rate) 
+    } else if (sortBy.categorySort === 'price') {
+        gigs.sort((a, b) => a.price - b.price)  
     }
     if (filterBy.tags?.length) {
         gigs = gigs.filter(gig => gig.tags.some(tag => filterBy.tags.includes(tag)))
@@ -2111,7 +2113,7 @@ function _createGigs() {
                 Languages: "English,Swahili,Turkish",
                 country: "Kenya",
                 daysToMake: 4,
-                descriptio: "Hello Fiverr Community,\nThis is Layee, A professional Business Consultant.\nBefore venturing in to any field in the business sector, it’s important to carry out a prior study, and carry out market research on that particular business.\nI will carry out a comprehensive market research for you, and come up with a detailed market research report.\nThe Market Research Report will cover the following areas depending on the package & availability of information: -\n· Market Research\n· Competitor analysis\n· Industry analysis\n· Product Research\n· Market Segmentation\n· Porter's Five Forces Analysis\n· Pestle Analysis\n· Market Trends\n· Market Drivers\n· Marketing Mix\n· Market Size\n· Total Available Market (TAM)\n· Demographics\n· SWOT Analysis\n· Market Growth\n· Marketing Options\n· Marketing Strategies\n· Future Markets\n· Web Research\n· Business Plan (Gig Extra)\nAnd Many More….\nThe success of your business is my primary objective/priority, and will offer all these services so that you are able to achieve your business objectives easily, and on time (or",
+                description: "Hello Fiverr Community,\nThis is Layee, A professional Business Consultant.\nBefore venturing in to any field in the business sector, it’s important to carry out a prior study, and carry out market research on that particular business.\nI will carry out a comprehensive market research for you, and come up with a detailed market research report.\nThe Market Research Report will cover the following areas depending on the package & availability of information: -\n· Market Research\n· Competitor analysis\n· Industry analysis\n· Product Research\n· Market Segmentation\n· Porter's Five Forces Analysis\n· Pestle Analysis\n· Market Trends\n· Market Drivers\n· Marketing Mix\n· Market Size\n· Total Available Market (TAM)\n· Demographics\n· SWOT Analysis\n· Market Growth\n· Marketing Options\n· Marketing Strategies\n· Future Markets\n· Web Research\n· Business Plan (Gig Extra)\nAnd Many More….\nThe success of your business is my primary objective/priority, and will offer all these services so that you are able to achieve your business objectives easily, and on time (or",
                 imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/232972469/original/679ec7f5d8e49604c2290664620969803d96f7c7.jpg"],
                 tags: [
                     "competitive analysis",

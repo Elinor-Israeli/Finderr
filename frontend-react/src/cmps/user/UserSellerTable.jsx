@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux'
 import { updateOrder } from '../../store/actions/order.actions'
 
 // import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'
-// import { ProgressChart } from '../ProgressChart'
+import { ProgressChart } from '../ProgressChart'
+import { ProgressChart2 } from '../ProgressChart2'
 import { orderService } from '../../services/order.service.local'
 import { loadOrders } from '../../store/actions/order.actions'
 import { userService } from '../../services/user/user.service.local'
@@ -59,8 +60,7 @@ export default function UserSellerTable() {
       status: prevModal.id !== orderId ? true : !prevModal.status
     }))
   }
-
-
+ 
   function updateStatus(status, order) {
     const updatedOrder = { ...order, status }
     updateOrder(updatedOrder)
@@ -69,6 +69,9 @@ export default function UserSellerTable() {
 
   const pendingOrdersCount = orders.filter(order => order.status === 'pending').length
   const completedOrdersCount = orders.filter(order => order.status === 'Completed').length
+  const totalOrders = orders.length
+  const completedOrderPercent = orders.length > 0 ? completedOrdersCount / orders.length : 0;
+  const pendingOrderPercent = orders.length > 0 ? pendingOrdersCount / orders.length : 0;
 
   // if (!orders) return 
   // <div className="loader-container">
@@ -95,6 +98,12 @@ export default function UserSellerTable() {
     <div className="dashboard-item">
         <span>Pending Orders</span>
         <h3>{pendingOrdersCount}</h3>
+        <ProgressChart2
+          count={pendingOrdersCount}
+          total={totalOrders}
+          bgc="orange"
+          label="Pending Orders"
+        />
     </div>
 
 </div>

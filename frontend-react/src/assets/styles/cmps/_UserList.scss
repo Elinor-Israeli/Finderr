@@ -1,0 +1,89 @@
+.user-gig-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  
+    li {
+      position: relative;
+    }
+  
+    .user-preview-btns {
+      position: absolute;
+  
+      &>* {
+        background-color: transparent;
+        color: $clr6;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+      }
+    }
+  
+    .gig-edit-btn-left {
+      border-bottom-right-radius: 50%;
+    }
+  
+    .gig-edit-btn-right {
+      border-bottom-left-radius: 50%;
+    }
+  
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr;
+    }
+  
+    @media (min-width: $padded-break-narrow) {
+      flex-direction: row;
+  
+      .user-main {
+        flex-basis: 58.33333%;
+        padding-left: 2em;
+      }
+  
+      .user-info {
+        flex-basis: 41.66667%;
+        padding-right: 2em;
+      }
+    }
+  
+    @media (min-width: $padded-break-normal) {
+      .user-main {
+        flex-basis: 66.66667%;
+      }
+  
+      .user-info {
+        flex-basis: 33.33333%;
+      }
+    }
+  
+    @media (min-width: $padded-break-wide) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .gig-add-btn {
+    background-color: $clr12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    a {
+      font-size: rem(24px);
+      color: $clr3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  
+    span:first-of-type {
+      font-size: rem(32px);
+    }
+  }
+  
+  .user-preview-btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }

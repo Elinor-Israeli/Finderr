@@ -48,8 +48,8 @@ export function GigDetails() {
                 <div className="gig-about">
                     <h3 className='about-gig-header'>About This Gig</h3>
                     <p>{gig.description}</p>
-                    <span>What you'll get:</span>
-                    <p>{gig.description2}</p>
+                    {/* <span>What you'll get:</span>
+                    <p>{gig.description2}</p> */}
                     {/* <span>Why you should hire me :</span> */}
                 </div>
                 <div className="gig-about-filter">
@@ -73,8 +73,8 @@ export function GigDetails() {
                         <li><strong><span>Member since</span></strong><span>userOrders</span></li>
                         <li><strong><span>Avg. response time</span></strong><span>5 hours</span></li>
                         <li><strong><span>Last delivery</span></strong><span>about 1 hour</span></li>
-                        <li><strong><span>Languages</span></strong><span>Israel</span></li>
-                        {/* <li><strong><span>Languages</span></strong><span>{gig.Languages}</span></li> */}
+                        {/* <li><strong><span>Languages</span></strong><span>Israel</span></li> */}
+                        <li><strong><span>Languages</span></strong><span>{gig.Languages}</span></li>
                     </ul>
                     <p>
                         {/* <span>{gig.about}</span> */}

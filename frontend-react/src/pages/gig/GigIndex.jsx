@@ -10,6 +10,7 @@ import { TopFilterBar } from '../../cmps/gig/listfilterBar'
 // import { SortBy } from '../../cmps/gig/SortBy'
 import { loadGigs } from '../../store/actions/gig.actions' 
 import { SET_FILTER, SET_SORT  } from '../../store/reducers/gig.reducer' 
+import { SortBy } from '../../cmps/gig/GigSort'
 
 export function GigIndex() {
     const filterByFromStore = useSelector(storeState => storeState.gigModule.filterBy)
@@ -136,7 +137,7 @@ export function GigIndex() {
           <div className={`${filterAndSort}`}>
             <div className="filter-sort-container">
               <TopFilterBar onSetFilter={onSetFilter} />
-              {/* <SortBy onSort={onSort} /> */}
+              <SortBy onSort={onSort} />
             </div>
           </div>
 

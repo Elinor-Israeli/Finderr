@@ -21,7 +21,7 @@ export function ReviewList({ userReviews, length = 220 }) {
                                 < StarRating value={review.rate} />
                                 <span className="rate padding">{review.rate}</span>
                                 <span className="divider"></span>
-                                <span>{review.createdAt}</span>
+                                <span>{review.by.reviewedAt}</span>
                             </div>
 
                         </div>

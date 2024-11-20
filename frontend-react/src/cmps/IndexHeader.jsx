@@ -235,11 +235,11 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                   {isOrder && <UserBuyGig />}
                 </div>}
                 <Link to="/wishlist" className="heart" title="save to list">
-                  {/* <img
+                  <img
                                 src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
                                 alt="Heart"
                                 className="heart-img"
-                            /> */}
+                            />
                 </Link>
                 {(windowSize > 900) && <div className="user-header-img">
                   <img src={user.imgUrl}

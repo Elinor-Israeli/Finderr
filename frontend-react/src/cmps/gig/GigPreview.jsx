@@ -14,23 +14,26 @@ export function GigPreview({ gig }) {
     
 
     useEffect(() => {
-
-        // if (user) {
-        //     if (gig.wishList.includes(user._id)) {
-        //         setHeart(true)
-        //     }
-        // } else {
-        //     setHeart(false)
-        // }
-
+        if (user) {
+          if (Array.isArray(gig.wishList) && gig.wishList.includes(user._id)) {
+            setHeart(true)
+          } else {
+            setHeart(false)
+          }
+        } else {
+          setHeart(false)
+        }
+      
         loadOwner()
-
-    }, [user])
+      }, [user, gig])
 
     async function loadOwner() {
         try {
             const owner = await userService.getById(gig.owner_id)
             setOwner(owner)
+            if (!Array.isArray(gig.wishList)) {
+                gig.wishList = [] 
+              }
         } catch (err) {
             console.log('owner =>', err)
         }
@@ -38,29 +41,32 @@ export function GigPreview({ gig }) {
 
 
     const onHandleHeart = async (ev) => {
-        // console.log('check');
-
         ev.preventDefault()
         ev.stopPropagation()
-
+    
         try {
-            const updatedGig = { ...gig }
-            const userIndex = updatedGig.wishList.indexOf(user._id)
-
-
-            if (userIndex > -1) {
-                updatedGig.wishList.splice(userIndex, 1)
-                setHeart(false)
-            } else {
-                updatedGig.wishList.push(user._id)
-                setHeart(true)
-            }
-
-            await updateGig(updatedGig)
+          const updatedGig = { ...gig }
+    
+          if (!Array.isArray(updatedGig.wishList)) {
+            updatedGig.wishList = []  
+          }
+    
+          const userIndex = updatedGig.wishList.indexOf(user._id)
+    
+          if (userIndex > -1) {
+            updatedGig.wishList.splice(userIndex, 1)
+            setHeart(false)
+          } else {
+            updatedGig.wishList.push(user._id)
+            setHeart(true)
+          }
+    
+          await updateGig(updatedGig)
         } catch (err) {
-            console.log("Error updating wishlist:", err)
+          console.log("Error updating wishlist:", err)
         }
-    }
+      }
+    
 
 
     const getTxtToShow = (txt, length) => {
@@ -137,9 +143,11 @@ export function GigPreview({ gig }) {
                         <svg width="15" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z" />
                         </svg>
-                        <div className="gig-preview__rate-num">{owner.rate}.0</div>
+                        <div className="gig-preview__rate-num">{owner.rate}</div>
                         {/* <div className="gig-preview__ratings-count">({gig.owner?.ratingsCount})</div> */}
-                        <div className="gig-preview__ratings-count">(64)</div>
+                        <div className="gig-preview__ratings-count">({owner.reviews.length})</div>
+                       
+                        {/* <div className='ratings-count'>({gig.owner && gig.owner.ratingsCount})</div> */}
                     </div>
 
                     <Link className="gig-preview__price" to={`/gig/${gig._id}`}>

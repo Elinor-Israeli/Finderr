@@ -145,6 +145,7 @@ export function GigIndex() {
           {gigs.length > 0 ? (
             <p>{gigs.length}+ results</p>
           ) : (
+            // <div>no math</div>
       <div className="loader-container">
               <img src={loader} className="thloader" />
         </div>

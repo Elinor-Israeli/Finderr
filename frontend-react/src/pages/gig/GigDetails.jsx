@@ -31,7 +31,7 @@ export function GigDetails() {
     }
 
     if (!gig) return <div className="loader-container">
-        {!gig && <img src={loader} className="thloader" />}
+      <div>loading...</div>
     </div>
     const { imgUrl, fullname, rate, level, country } = gig.owner
 

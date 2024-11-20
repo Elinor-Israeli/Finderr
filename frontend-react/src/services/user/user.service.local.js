@@ -274,22 +274,113 @@ function _createUsers() {
                 password: "secret",
                 level: 1,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
-                rate: 4,
+                rate: 5,
                 reviews: [
                     {
-                        id: "madeId",
+                        id: "3e25",
                         gig: "{optional-mini-gig}",
-                        txt: " are qualities that exemplify someone who is not only thoughtful and considerate but also efficient and effective in their actions. A person who is kind goes out of their way to help others, showing empathy and care in every interaction. The addition of being quick and efficient means that they also manage their time well, completing tasks rapidly without sacrificing quality. This combination of compassion and productivity is highly valuable in both personal and professional settings, making such individuals stand out as exemplary team players or leaders.",
+                        txt: "For my case, I didn’t see any value added; the seller could go to my profile and assess what are the things my profile needs. He asked to choose the premium package which means creation of a full LinkedIn profile from scratch. To be fair, I am going to list what are the things I have learned from him: how to put the symbol in the description, shared with me a list skills, that I have to put my full name in the first name, and how to customize my Linkedin URL. Finally, after I received the delivery, I asked if may he share with me a few versions of the “About” section. He said that he was not able to send more versions this is because I have to pay for it. Again, I have paid $50.",
                         rate: 4,
                         by: {
-                            _id: "u107",
-                            fullname: "Zozo Ta",
-                            country: "United States",
+                            _id: "u103",
+                            fullname: "kofaisal",
+                            country: "Kuwait",
                             reviewedAt: 'Published 1 month ago',
+                            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f0-1f1fc.png",
+                            imgUrl: "https://cdn.pixabay.com/photo/2021/07/01/02/01/avatar-6377965_960_720.png"
+                        },
+
+                    },
+                    {
+                        id: "3e45",
+                        gig: "{optional-mini-gig}",
+                        txt: "He is great to work with and I was very impressed how fast he produced work in this quality. My whole profile is coherent and appealing now. I am very happy with it! Also I appreciate when somebody makes changes until the result fits the customer perfectly. Thank you! I loved working with you :)",
+                        rate: 4,
+                        by: {
+                            _id: "u103",
+                            fullname: "simplyjassi",
+                            country: "Japan",
+                            reviewedAt: 'Published 3 weeks ago',
+                            flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ef-1f1f5.png',
+                            imgUrl: "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg",
+                        },
+
+                    },
+                    {
+                        id: "3e46",
+                        gig: "{optional-mini-gig}",
+                        txt: "Very accurate descriptions for Linkedin profile and on-time delivery! Will definitely recommend his services. Thank you so much & Happy holidays!!",
+                        rate: 4,
+                        by: {
+                            _id: "u103",
+                            fullname: "jovial1",
+                            country: "United States",
+                            reviewedAt: 'Published 2 months ago',
                             flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                            imgUrl: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg",
+                        },
+
+                    },
+                    {
+                        id: "3e47",
+                        gig: "{optional-mini-gig}",
+                        txt: "The seller was very attentive and got the work done on the first attempt. I am very grateful for the time saved and the level of the work. Thank you!!",
+                        rate: 4,
+                        by: {
+                            _id: "u103",
+                            fullname: "zurismommy",
+                            country: "Thailand",
+                            reviewedAt: 'Published 1 month ago',
+                            flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png',
                             imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/16/01/woman-1846127_960_720.jpg',
-                        }
-                    }
+                        },
+
+                    },
+                    {
+                        id: "3e50",
+                        gig: "{optional-mini-gig}",
+                        txt: "He is great to work with and I was very impressed how fast he produced work in this quality. My whole profile is coherent and appealing now. I am very happy with it! Also I appreciate when somebody makes changes until the result fits the customer perfectly. Thank you! I loved working with you :)",
+                        rate: 4,
+                        by: {
+                            _id: "u103",
+                            fullname: "simplyjassi",
+                            country: "United Kingdom",
+                            reviewedAt: 'Published 1 month ago',
+                            flag: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png',
+                            imgUrl: "https://images.pexels.com/photos/1300402/pexels-photo-1300402.jpeg",
+                        },
+
+                    },
+                    {
+                        id: "3e49",
+                        gig: "{optional-mini-gig}",
+                        txt: "He is great to work with and I was very impressed how fast he produced work in this quality. My whole profile is coherent and appealing now. I am very happy with it! Also I appreciate when somebody makes changes until the result fits the customer perfectly. Thank you! I loved working with you :)",
+                        rate: 4,
+                        by: {
+                            _id: "u103",
+                            fullname: "simplyjassi",
+                            country: "Germany",
+                            reviewedAt: 'Published 2 weeks ago',
+                            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png",
+                            imgUrl: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg",
+                        },
+
+                    },
+                    {
+                        id: "3e48",
+                        gig: "{optional-mini-gig}",
+                        txt: "Very accurate descriptions for Linkedin profile and on-time delivery! Will definitely recommend his services. Thank you so much & Happy holidays!!",
+                        rate: 4,
+                        by: {
+                            _id: "u103",
+                            fullname: "jovial1",
+                            country: "United States",
+                            reviewedAt: 'Published 2 months ago',
+                            flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                            imgUrl: "https://images.pexels.com/photos/1036622/pexels-photo-1036622.jpeg",
+                        },
+
+                    },
                 ],
             },
             {

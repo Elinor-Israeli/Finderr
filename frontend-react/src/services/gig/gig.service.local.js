@@ -22,20 +22,15 @@ function getDefaultFilter() {
     return { title: '', tags: [], daysToMake: '', minPrice: '', maxPrice: '' }
 }
 function getDefaultSort() {
-    return { categorySort: 'recommended' }
+    return 'recommended' 
 }
 
-async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sortBy = { categorySort: 'recommended' }, userId) {
+async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sort = 'recommended', userId) {
     var gigs = await storageService.query(STORAGE_KEY)
     if (userId) gigs = gigs.filter(gig => gig.owner_id === userId)
     if (filterBy.title) {
         const regex = new RegExp(filterBy.title, 'i')
         gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
-    }
-    if (sortBy.categorySort === 'recommended') {
-        gigs.sort((a, b) => b.owner_rate - a.owner_rate)
-    } else if (sortBy.categorySort === 'price') {
-        gigs.sort((a, b) => a.price - b.price)
     }
     if (filterBy.tags?.length) {
         gigs = gigs.filter(gig => gig.tags.some(tag => filterBy.tags.includes(tag)))
@@ -49,6 +44,17 @@ async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sortBy 
     if (filterBy.maxPrice) {
         gigs = gigs.filter(gig => gig.price <= filterBy.maxPrice)
     }
+
+    if (sort === 'bestSelling') {
+        gigs.sort((gig1, gig2) =>
+            (getAvgRating(gig2.reviews) - getAvgRating(gig1.reviews)))
+    } else if (sort === 'recommended') {
+        gigs.sort((gig1, gig2) => 
+        (gig2.likedByUsers.length - gig1.likedByUsers.length))
+    } else if (sort === 'newestArrivals') {
+        gigs.sort((gig1, gig2) => new Date(gig2.createdAt) - new Date(gig1.createdAt));
+    }
+
     return gigs
 }
 
@@ -3008,7 +3014,7 @@ function _createGigs() {
             //     country: "United States",
             //     daysToMake: 5,
             //     description: "✪ Professional Logo Design Services ✪\nYour logo is the face of your business, and I'm here to help you make it unforgettable. I will design a custom logo tailored to your needs and preferences, ensuring it aligns with your brand values.",
-            //     imgUrl: ["https://example.com/i155.jpg"],
+            //     imgUrl: ["https://images.pexels.com/photos/29481495/pexels-photo-29481495.jpeg"],
             //     tags: [
             //         "graphic-design",
             //         "logo design",
@@ -3036,7 +3042,7 @@ function _createGigs() {
             //     country: "Canada",
             //     daysToMake: 15,
             //     description: "✪ Responsive Website Design ✪\nI will design and develop a fully responsive website for your business, ensuring compatibility across all devices and browsers. My goal is to deliver a user-friendly and visually appealing website that drives results.",
-            //     imgUrl: ["https://example.com/i156.jpg"],
+            //     imgUrl: ["https://images.pexels.com/photos/29459845/pexels-photo-29459845.jpeg"],
             //     tags: [
             //         "graphic-design",
             //         "web design",
@@ -3064,7 +3070,7 @@ function _createGigs() {
             //     country: "Brazil",
             //     daysToMake: 3,
             //     description: "✪ Business Card Design ✪\nI will create a personalized business card that fits your style and profession. From minimalist to bold, I've got you covered.",
-            //     imgUrl: ["https://example.com/i157.jpg"],
+            //     imgUrl: ["https://images.pexels.com/photos/29418745/pexels-photo-29418745.jpeg"],
             //     tags: ["graphic-design", "business card", "branding", "stationery", "professional"],
             //     likedByUsers: ["user111", "user222"]
             // },
@@ -3086,7 +3092,7 @@ function _createGigs() {
             //     country: "Germany",
             //     daysToMake: 4,
             //     description: "✪ Flyer Design Services ✪\nWhether for events, promotions, or business, I design flyers that stand out. My designs are visually appealing and effectively communicate your purpose.",
-            //     imgUrl: ["https://example.com/i158.jpg"],
+            //     imgUrl: ["https://images.pexels.com/photos/29414465/pexels-photo-29414465.jpeg"],
             //     tags: ["graphic-design", "flyer", "promotion", "event", "creative design"],
             //     likedByUsers: ["user333"]
             // },

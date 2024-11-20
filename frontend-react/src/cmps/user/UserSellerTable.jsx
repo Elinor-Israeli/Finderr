@@ -25,16 +25,9 @@ export default function UserSellerTable() {
   }, [])
 
   const sellerOrders = orders.filter(order => order.seller._id === user._id)
+  // const buyerOrders = orders.filter(order => order.buyer._id === user._id)
 
-  
 
-  // useEffect(() => {
-  //   if (!orders) return
-  //   orders.forEach(order => {
-  //     const price = order.gig.price ? order.gig.price : 0
-  //     setTotalSum(prev => prev + price)
-  //   })
-  // }, [])
 
   useEffect(() => {
     if (!orders) return
@@ -46,10 +39,6 @@ export default function UserSellerTable() {
 
 
 
-
-  // function toggleStatusModal(orderId) {
-  //   setIsModal(prevModal => ({ ...prevModal, id: orderId, status: !prevModal.status }))
-  // }
 
   function toggleStatusModal(orderId) {
 
@@ -70,10 +59,7 @@ export default function UserSellerTable() {
   const pendingOrdersCount = orders.filter(order => order.status === 'pending').length
   const completedOrdersCount = orders.filter(order => order.status === 'Completed').length
 
-  // if (!orders) return 
-  // <div className="loader-container">
-  //   <div className="loader"></div>
-  // </div>
+  
   if (!orders || orders.length === 0) return <div className="loader-container"><div className="loader"></div></div>
 
 
@@ -102,7 +88,7 @@ export default function UserSellerTable() {
     
     <ul className="orders-dashboard">
 
-      {orders.map(order =>
+      {sellerOrders.map(order =>
         <li key={order._id}>
           <div className="img-container"><img src={order.seller.imgUrl} alt="" onClick={() => navigate(`/gig/${order.gig._id}`)} /></div>
           <div className="gig-title">{order.gig.title}</div>

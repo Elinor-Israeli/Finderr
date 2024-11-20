@@ -22,6 +22,7 @@ import UserSellerTable from './cmps/user/UserSellerTable'
 export function RootCmp() {
     const { pathname } = useLocation();
     const isPaymentPage = pathname.startsWith('/payment')
+    const isDashboard = pathname.startsWith('/dashboard')
     
     return (
         <div className="main-container  main-layout full">
@@ -49,7 +50,7 @@ export function RootCmp() {
                     <Route path="/dashboard" element={<GigOrderIndex isSeller={true} />} /> */}
                 </Routes>
             </main>
-            {!isPaymentPage && <AppFooter />}
+            {!isPaymentPage && !isDashboard && <AppFooter />}
         </div>
     )
 }

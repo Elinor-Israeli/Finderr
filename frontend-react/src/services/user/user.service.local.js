@@ -346,7 +346,7 @@ function _createUsers() {
             },
             {
                 _id: "u112",
-                fullname: "Ca",
+                fullname: "Mosh",
                 imgUrl: 'https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg',
                 username: "Mosh Nahumy",
                 password: "secret",
@@ -372,7 +372,7 @@ function _createUsers() {
             },
             {
                 _id: "u113",
-                fullname: "Ssudu Dda",
+                fullname: "Amit",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565_960_720.jpg',
                 username: "user113",
                 password: "secret",
@@ -413,7 +413,7 @@ function _createUsers() {
                         rate: 2,
                         by: {
                             _id: "u113",
-                            fullname: "Ssudu Dda",
+                            fullname: "Amit",
                             country: "United States",
                             reviewedAt: 'Published 9 month ago',
                             flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
@@ -439,7 +439,7 @@ function _createUsers() {
                         rate: 2,
                         by: {
                             _id: "u113",
-                            fullname: "Ssudu Dda",
+                            fullname: "Amit",
                             country: "United States",
                             reviewedAt: 'Published 1 month ago',
                             flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
@@ -465,7 +465,7 @@ function _createUsers() {
                         rate: 5,
                         by: {
                             _id: "u113",
-                            fullname: "Ssudu Dda",
+                            fullname: "Amit",
                             country: "United States",
                             reviewedAt: 'Published 1 month ago',
                             flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",

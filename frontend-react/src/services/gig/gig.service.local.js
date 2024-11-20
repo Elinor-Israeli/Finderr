@@ -605,7 +605,7 @@ function _createGigs() {
                 owner_rate: 5,
                 owner: {
                     _id: "u113",
-                    fullname: "Ssudu Dda",
+                    fullname: "Amit",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/06/26/02/47/man-2442565_960_720.jpg',
                     level: "level 1",
                     rate: 4

@@ -11,7 +11,7 @@ export function UserList({ gigs, onRemoveGig, user }) {
     {loginUser && (loginUser._id === user._id) && <li className="gig-add-btn">
       <Link to="/gig/edit">
         <span className="plus"></span>
-        <span>Add Gig</span>
+        <span className="gig-add-btn">Add Gig</span>
       </Link>
     </li>}
     {gigs.map(gig =>

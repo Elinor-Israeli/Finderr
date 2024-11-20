@@ -70,6 +70,27 @@ async function save(gig) {
     return savedGig
 }
 
+const languages = [
+    "English", "Spanish", "Mandarin Chinese", "Hindi", "Arabic", "Portuguese", "Bengali", 
+    "Russian", "Japanese", "Punjabi", "German", "French", "Javanese", "Korean", "Vietnamese", 
+    "Tamil", "Turkish", "Italian", "Urdu", "Malay", "Thai", "Persian", "Dutch", "Swahili", 
+    "Polish", "Ukrainian", "Romanian", "Greek", "Hungarian", "Czech", "Slovak", "Finnish", 
+    "Swedish", "Danish", "Norwegian", "Bulgarian", "Serbian", "Croatian", "Hebrew", "Burmese", 
+    "Sinhala", "Lao", "Khmer", "Zulu", "Afrikaans", "Yoruba", "Hausa", "Igbo", "Pashto", "Kurdish", 
+    "Azeri", "Kazakh", "Uzbek", "Armenian", "Georgian", "Albanian", "Bosnian", "Latvian", 
+    "Lithuanian", "Estonian", "Maltese", "Basque", "Galician", "Catalan", "Welsh", 
+    "Scottish Gaelic", "Irish Gaelic", "Maori", "Samoan", "Tongan", "Fijian", "Tahitian", 
+    "Haitian Creole", "Malagasy", "Swati", "Tswana", "Xhosa", "Sotho", "Somali", "Amharic", 
+    "Tigrinya", "Oromo", "Kinyarwanda", "Kirundi", "Wolof", "Bambara", "Fulani", "Tibetan", 
+    "Nepali", "Mongolian", "Chechen", "Uyghur", "Tagalog", "Cebuano", "Ilocano", "Hmong", "Aymara", 
+    "Quechua"
+]
+
+function makeLanguages() {
+    return languages.sort(() => 0.5 - Math.random()).slice(0, 3);
+}
+
+
 function getGigSlides() {
     return [
         {
@@ -175,6 +196,8 @@ function _createGigs() {
                     level: "level 3",
                     rate: 5
                 },
+                Languages: 'Germany',
+                country: "Germany",
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
@@ -192,36 +215,38 @@ function _createGigs() {
                 ],
                 likedByUsers: ['mini-user'] // for user-wishlist : use $in
             },
-            {
-                _id: 'i102',
-                title: "I will do data entry, copy paste, web research as your VA",
-                price: 15,
-                owner_id: "u102",
-                owner_rate: 4,
-                owner: {
-                    _id: "u102",
-                    fullname: "Boya",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
-                    level: "level 3",
-                    rate: 5
-                },
-                daysToMake: 2,
-                description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
-                description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
-                imgUrl: [
-                    "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123020_960_720.jpg",
-                    "https://cdn.pixabay.com/photo/2022/01/30/18/28/lines-6981892_960_720.jpg",
-                    "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123019_960_720.jpg",
-                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/378248214/original/99e4871876679239674652a835c72bc80afb937e/create-ai-based-assets-to-enhance-your-brand-or-website.jpg"
-                ],
-                tags: [
-                    "graphic-design",
-                    "artisitic",
-                    "proffesional",
-                    "accessible"
-                ],
-                likedByUsers: ['mini-user'] // for user-wishlist : use $in
-            },
+            // {
+            //     _id: 'i102',
+            //     title: "I will do data entry, copy paste, web research as your VA",
+            //     price: 15,
+            //     owner_id: "u102",
+            //     owner_rate: 4,
+            //     Languages: "English,Spanish,Japanese",
+            //     country: "United States",
+            //     owner: {
+            //         _id: "u102",
+            //         fullname: "Boya",
+            //         imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
+            //         level: "level 3",
+            //         rate: 5
+            //     },
+            //     daysToMake: 2,
+            //     description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
+            //     description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
+            //     imgUrl: [
+            //         "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123020_960_720.jpg",
+            //         "https://cdn.pixabay.com/photo/2022/01/30/18/28/lines-6981892_960_720.jpg",
+            //         "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123019_960_720.jpg",
+            //         "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/378248214/original/99e4871876679239674652a835c72bc80afb937e/create-ai-based-assets-to-enhance-your-brand-or-website.jpg"
+            //     ],
+            //     tags: [
+            //         "graphic-design",
+            //         "artisitic",
+            //         "proffesional",
+            //         "accessible"
+            //     ],
+            //     likedByUsers: ['mini-user'] // for user-wishlist : use $in
+            // },
             {
                 _id: 'i103',
                 title: "I will do elegant professional business logo design services",
@@ -235,6 +260,8 @@ function _createGigs() {
                     level: "level 1",
                     rate: 5
                 },
+                Languages: "English,French,Japanese",
+                country: "French",
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
@@ -266,6 +293,8 @@ function _createGigs() {
                     level: "level 3",
                     rate: 5
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 daysToMake: 1,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
@@ -283,35 +312,37 @@ function _createGigs() {
                 ],
                 likedByUsers: ['mini-user'] // for user-wishlist : use $in
             },
-            {
-                _id: 'i105',
-                title: "I will make 6 figure shopify dropshipping store or shopify website",
-                price: 10,
-                owner_id: "u105",
-                owner_rate: 4,
-                owner: {
-                    _id: "u105",
-                    fullname: "Jo Bara",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2017/08/06/15/13/woman-2593366_960_720.jpg',
-                    level: "level 3",
-                    rate: 5
-                },
-                daysToMake: 4,
-                description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
-                imgUrl: [
-                    "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/0487fdb70fad4214574ff8cf694e2f87-1729681532/05%20v3/create-ai-based-assets-to-enhance-your-brand-or-website.jpg",
-                    "https://cdn.pixabay.com/photo/2018/10/19/10/26/bicycle-3758313_960_720.png",
-                    "https://cdn.pixabay.com/photo/2015/08/04/19/21/happy-birthday-875122_960_720.jpg",
-                    "https://cdn.pixabay.com/photo/2018/10/19/10/26/bicycle-3758314_960_720.png"
-                ],
-                tags: [
-                    "writing-translation",
-                    "artisitic",
-                    "proffesional",
-                    "accessible"
-                ],
-                likedByUsers: ['mini-user'] // for user-wishlist : use $in
-            },
+            // {
+            //     _id: 'i105',
+            //     title: "I will make 6 figure shopify dropshipping store or shopify website",
+            //     price: 10,
+            //     owner_id: "u105",
+            //     owner_rate: 4,
+            //     owner: {
+            //         _id: "u105",
+            //         fullname: "Jo Bara",
+            //         imgUrl: 'https://cdn.pixabay.com/photo/2017/08/06/15/13/woman-2593366_960_720.jpg',
+            //         level: "level 3",
+            //         rate: 5
+            //     },
+            //     Languages: "Czech,Norwegian,Turkish",
+            //     country: "Czech",
+            //     daysToMake: 4,
+            //     description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
+            //     imgUrl: [
+            //         "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/0487fdb70fad4214574ff8cf694e2f87-1729681532/05%20v3/create-ai-based-assets-to-enhance-your-brand-or-website.jpg",
+            //         "https://cdn.pixabay.com/photo/2018/10/19/10/26/bicycle-3758313_960_720.png",
+            //         "https://cdn.pixabay.com/photo/2015/08/04/19/21/happy-birthday-875122_960_720.jpg",
+            //         "https://cdn.pixabay.com/photo/2018/10/19/10/26/bicycle-3758314_960_720.png"
+            //     ],
+            //     tags: [
+            //         "writing-translation",
+            //         "artisitic",
+            //         "proffesional",
+            //         "accessible"
+            //     ],
+            //     likedByUsers: ['mini-user'] // for user-wishlist : use $in
+            // },
             {
                 _id: 'i106',
                 title: "I will mix and master your music, experienced professional engineer",
@@ -325,6 +356,8 @@ function _createGigs() {
                     level: "level 3",
                     rate: 1
                 },
+                Languages: "Serbian,Norwegian,Croatian",
+                country: "Serbian",
                 daysToMake: 5,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -355,6 +388,8 @@ function _createGigs() {
                     level: "level 3",
                     rate: 3.5
                 },
+                Languages: "Pashto,Khmer,Croatian",
+                country: "Khmer",
                 daysToMake: 2,
                 description: "I will be your female singer songwriter in english and in french.",
                 imgUrl: [
@@ -384,6 +419,8 @@ function _createGigs() {
                     level: "level 3",
                     rate: 3.5
                 },
+                Languages: "Azeri,Khmer,Croatian",
+                country: "Khmer",
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
@@ -415,6 +452,8 @@ function _createGigs() {
                     level: "level 3",
                     rate: 4
                 },
+                Languages: "Azeri,Khmer,Kazakh",
+                country: "Khmer",
                 daysToMake: 7,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
@@ -432,64 +471,68 @@ function _createGigs() {
                 ],
                 likedByUsers: ['mini-user'] // for user-wishlist : use $in
             },
-            {
-                _id: 'i130',
-                title: "I will translate english to german or translate german to english professionally",
-                price: 30,
-                owner_id: "u130",
-                owner_rate: 1,
-                owner: {
-                    _id: "u130",
-                    fullname: "Nura Kersa",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/05/46/young-woman-1867618_960_720.jpg',
-                    level: "level 3",
-                    rate: 1
-                },
-                daysToMake: 6,
-                description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
-                imgUrl: [
-                    "https://cdn.pixabay.com/photo/2021/02/08/12/48/camera-5994642_960_720.png",
-                    "https://cdn.pixabay.com/photo/2022/09/14/22/12/camera-7455311_960_720.png",
-                    "https://cdn.pixabay.com/photo/2019/03/30/20/27/camera-4091991_960_720.png"
+            // {
+            //     _id: 'i130',
+            //     title: "I will translate english to german or translate german to english professionally",
+            //     price: 30,
+            //     owner_id: "u130",
+            //     owner_rate: 1,
+            //     owner: {
+            //         _id: "u130",
+            //         fullname: "Nura Kersa",
+            //         imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/05/46/young-woman-1867618_960_720.jpg',
+            //         level: "level 3",
+            //         rate: 1
+            //     },
+            //     Languages: "Galician,Khmer,Maltese",
+            //     country: "Irish Gaelic",
+            //     daysToMake: 6,
+            //     description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
+            //     imgUrl: [
+            //         "https://cdn.pixabay.com/photo/2021/02/08/12/48/camera-5994642_960_720.png",
+            //         "https://cdn.pixabay.com/photo/2022/09/14/22/12/camera-7455311_960_720.png",
+            //         "https://cdn.pixabay.com/photo/2019/03/30/20/27/camera-4091991_960_720.png"
 
-                ],
-                tags: [
-                    "digital-marketing",
-                    "artisitic",
-                    "proffesional",
-                    "accessible"
-                ],
-                likedByUsers: ['mini-user'] // for user-wishlist : use $in
-            },
-            {
-                _id: 'i140',
-                title: "I will translate english to german or translate german to english professionally",
-                price: 30,
-                owner_id: "u130",
-                owner_rate: 1,
-                owner: {
-                    _id: "u130",
-                    fullname: "Nura Kersa",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/05/46/young-woman-1867618_960_720.jpg',
-                    level: "level 3",
-                    rate: 1
-                },
-                daysToMake: 6,
-                description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
-                imgUrl: [
-                    "https://cdn.pixabay.com/photo/2021/02/08/12/48/camera-5994642_960_720.png",
-                    "https://cdn.pixabay.com/photo/2022/09/14/22/12/camera-7455311_960_720.png",
-                    "https://cdn.pixabay.com/photo/2019/03/30/20/27/camera-4091991_960_720.png"
+            //     ],
+            //     tags: [
+            //         "digital-marketing",
+            //         "artisitic",
+            //         "proffesional",
+            //         "accessible"
+            //     ],
+            //     likedByUsers: ['mini-user'] // for user-wishlist : use $in
+            // },
+            // {
+            //     _id: 'i140',
+            //     title: "I will translate english to german or translate german to english professionally",
+            //     price: 30,
+            //     owner_id: "u140",
+            //     owner_rate: 1,
+            //     owner: {
+            //         _id: "u140",
+            //         fullname: "Nura Kersa",
+            //         imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/05/46/young-woman-1867618_960_720.jpg',
+            //         level: "level 3",
+            //         rate: 1
+            //     },
+            //     Languages: "Tahitian,Khmer,Maltese",
+            //     country: "Tahitian",
+            //     daysToMake: 6,
+            //     description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
+            //     imgUrl: [
+            //         "https://cdn.pixabay.com/photo/2021/02/08/12/48/camera-5994642_960_720.png",
+            //         "https://cdn.pixabay.com/photo/2022/09/14/22/12/camera-7455311_960_720.png",
+            //         "https://cdn.pixabay.com/photo/2019/03/30/20/27/camera-4091991_960_720.png"
 
-                ],
-                tags: [
-                    "digital-marketing",
-                    "artisitic",
-                    "proffesional",
-                    "accessible"
-                ],
-                likedByUsers: ['mini-user'] // for user-wishlist : use $in
-            },
+            //     ],
+            //     tags: [
+            //         "digital-marketing",
+            //         "artisitic",
+            //         "proffesional",
+            //         "accessible"
+            //     ],
+            //     likedByUsers: ['mini-user'] // for user-wishlist : use $in
+            // },
             {
                 _id: 'i111',
                 title: "I will write SEO health, nutrition and fitness articles blog posts",
@@ -503,6 +546,8 @@ function _createGigs() {
                     level: "level 2",
                     rate: 4
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -518,7 +563,8 @@ function _createGigs() {
                     "accessible"
                 ],
                 likedByUsers: ['mini-user'] // for user-wishlist : use $in
-            }, {
+            },
+             {
                 _id: 'i112',
                 title: "I will provide automated social websites for passive income",
 
@@ -531,6 +577,8 @@ function _createGigs() {
                     level: "level 2",
                     rate: 5
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 owner_rate: 5,
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
@@ -560,6 +608,8 @@ function _createGigs() {
                     level: "level 1",
                     rate: 4
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -588,6 +638,8 @@ function _createGigs() {
                     level: "level 2",
                     rate: 2
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 owner_rate: 4,
                 daysToMake: 1,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
@@ -618,6 +670,8 @@ function _createGigs() {
                     level: "level 2",
                     rate: 5
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 daysToMake: 4,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -647,6 +701,8 @@ function _createGigs() {
                     level: "level 2",
                     rate: 1
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 daysToMake: 5,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -676,6 +732,8 @@ function _createGigs() {
                     level: "level 2",
                     rate: 2
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 owner_rate: 2,
                 daysToMake: 2,
                 description: "I will be your female singer songwriter in english and in french.",
@@ -706,6 +764,8 @@ function _createGigs() {
                     level: "level 2",
                     rate: 3
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -736,6 +796,8 @@ function _createGigs() {
                     level: "level 2",
                     rate: 4
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 daysToMake: 7,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -765,6 +827,8 @@ function _createGigs() {
                     level: "level 2",
                     rate: 1
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 daysToMake: 6,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -794,6 +858,8 @@ function _createGigs() {
                     level: "level 2",
                     rate: 4
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Turkish",
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
@@ -824,6 +890,7 @@ function _createGigs() {
                     level: "basic/premium",
                     rate: 2
                 },
+                Languages: "English,Swahili,Turkish",
                 country: "Ghana",
                 daysToMake: 26,
                 description: "Hello! Much obliged for visiting my gig :) In this gig I'm offering you an exceptionally 3 one of a kind, best and reasonable bundles. In case you are thinking for giving somebody uncommon an extremely delightful, eye getting gift( hyper practical hand drawing pencil sketch picture)? Kindly select the helpful bundle and submit your request at this moment and I'll give you an ideal picture sketch, hand drawing, practical drawing, pencil attracting high goal JPEG/PNG advanced document. I will give hand-drawn dark and White or hued reasonable pictures. Sympathetically give me clear reference photograph however much as could be expected. The material I utilized for Creating pencil representations are: Drawing materials: graphite pencil, charcoal, Bristol paper, mono eraser, brush, mixing stump, mechanical pencil, graphite powder and so on. You can give me anything: Picture photographs, Family photographs, Creature photographs, Any item photographs, Scene photographs, Engineering photographs, Anything you envision. Kindly reach me prior to submitting your request! Much appreciated. I DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITA",
@@ -884,6 +951,7 @@ function _createGigs() {
                     level: 'basic/premium',
                     rate: 4
                 },
+                Languages: "English,Swahili,Turkish",
                 country: 'Bangladesh',
                 daysToMake: 24,
                 description: 'Hey ! Thanks for visiting my gig :)\nIn this gig i\'m offering you a very 3 unique, preferable and affordable packages.\nIf you are thinking for giving someone special a very beautiful, eye catching gift( hyper realistic hand drawing pencil sketch portrait)?\nPlease select the desirable package and place your order right now and i\'ll give you a perfect portrait sketch, hand drawing, realistic drawing,pencil drawing in high resolution JPEG/PNG digital file.\nI will provide hand-drawn black & White or colored realistic portraits.\nKindly provide me clear reference photo as much as possible.\nThe material I used for Creating pencil portraits are:\nDrawing materials: graphite pencil, charcoal, Bristol paper, tombomono eraser, brush, blending stump, mechanical pencil, graphite powder etc .\nYou can give me anything:\nPortrait photos\nFamily photos\nAnimal photos\nAny product photos\nLandscape photos\nArchitecture photos\nAnything you imagine\nPlease contact me before placing your order! Thanks.\nI DO NOT DELIVER ORIGINAL PHYSICAL COPY BUT A HIGH RESOLUTION JPEG DIGITAL FILE, IF YOU WANT THE ORIGINAL ONE THEN MESSAGE ME FOR DETAILS.\nFeel free to ask me anything! :)\nThank You...\nvividstore',
@@ -911,6 +979,7 @@ function _createGigs() {
                     level: 'basic/premium',
                     rate: 5
                 },
+                Languages: "English,Swahili,Turkish",
                 country: 'Brazil',
                 daysToMake: 4,
                 description: 'Desenho de lápis hiperrealista da sua foto, posso adicionar detalhes de fundo e personalizar o desenho do jeito que você quiser.',
@@ -975,6 +1044,7 @@ function _createGigs() {
                     level: 'basic/premium',
                     rate: 2
                 },
+                Languages: "English,Swahili,Turkish",
                 country: 'Kenya',
                 daysToMake: 28,
                 description: 'Hello, welcome to my Gig, I write sociology psychology and all social sciences content\nI am an expert writer who can help you with writing essays, research projects, and articles on criminology, sociology, and psychology. I gained so much experience over the time. i can handle papers from undergraduate all the way to PHD in criminology and sociology and psychology.\nI always strive to provide best quality to my clients and provide plagiarism-free work. I am also familiar with the following reference formats: APA, MLA, HARVARD, CHICAGO\nPlease contact me before placing an order, thank you.',
@@ -1037,7 +1107,8 @@ function _createGigs() {
                     level: "level 3",
                     rate: 5
                 },
-                // country: 'Bangladesh',
+                Languages: "English,Swahili,Turkish",
+                country: 'Bangladesh',
                 daysToMake: 3,
                 description: 'Hello Sir/Ma\'am,\nHave a cordial welcome to Rashin07’s outstanding services on Fiverr.\nAre you searching for a trustworthy virtual assistant for your projects regarding data entry? I’m here to help. I’m an enthusiastic, hard-working and detail-oriented working person who has developed a mature and responsible approach to any task that I undertake. With excellent teamwork, we always try to work with dedication to achieve a certain objective on time. We are always at your service to provide budget-friendly qualitative work. Check out the following services & Order Now.\nOur Services:\nWeb Research\nCopy Paste Jobs\nData Entry\nData Scraping\nData Conversion (PDF/Image to excel)\nProduct Listing\nShopify / Woo-commerce Product Entry\nLead Generation\nMS Excel (Data Cleaning/Formatting /Chart/Macro)\nManual Typing\nAnd more!\nOur Specialties:\n24/7 customer service\nUnlimited Revisions\nOn-time delivery\nWork efficiently\nPrompt response\nNOTE – Please contact me before placing an order. Feel free to discuss the project & set the right estimations for you.\nRegards\nRashin Faria\nData Entry | Copy Paste | Web Scraping | Web Research | Product Entry',
                 imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207580502/original/6d05bb9cde191b9423733c6b49d0e11892e35ee0.jpg"],
@@ -1103,7 +1174,8 @@ function _createGigs() {
                     level: "3",
                     rate: 5
                 },
-                // country: "Pakistan",
+                Languages: "English,Swahili,Turkish",
+                country: "Pakistan",
                 daysToMake: 3,
                 description: "Looking for an experienced data entry expert? don't waste your time, just hire me and relax.\nWe are team of qualified professionals for guaranteed high quality work to our clients\nI will provide professional data entry work, data collecting from web, table graphs and all type of internet research like research related to businesses, companies information and enter into excel within fastest possible time.\nWhether you have big project like thousands of rows entries in excel or very tiny project like minutes of work, i'm here to provide you highly satisfied experience for your project.\nHere are the services we offer:\nData Entry\nWeb Research\nLead Generation\nCopy Paste Work\nCompanies Data Research\nInternet Research\nData Conversion into Excel\nTyping in Excel\nProperty Research\nCopy Paste Work\nPDF to Excel\nFormatting of excel sheets\nWhy hire me?\nGuaranteed quality work\nAll time communication during the project within Fiverr\nQuick Turnaround\nI will give my best and 100% to the project\nI can provide sample for the satisfaction before the order\nFeel free and don't hesitate to contact us for superior work\nNote: All communication and payment should be done via the fiverr platform.",
                 imgUrl: ["https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/8a1623fd3276ad7297d7647a8727bdf0-1589096119095/6c637953-9dc0-4c9c-b04d-c13c947fdc43.jpg"],
@@ -1238,6 +1310,8 @@ function _createGigs() {
                     level: "2",
                     rate: 3
                 },
+                Languages: "English,Swahili,Turkish",
+                country: "Pakistan",
                 daysToMake: 7,
                 description: "I will do excel data entry, copy paste, and any type of data entry\nHello, Welcome to my Gig. Are you looking for a professional virtual assistant for, Excel Data Entry, Typing Work Copy Paste Work, Data Entry, Data collection, Data mining, using MS Word, MS Excel, Google doc, or Google Spreadsheet? Then, you are at the right place. Following are the services that I'm offering.\nExcel Data Entry\nCopy Paste Work\nShopify Product listing\nProduct Listing\nData Entry\nData Conversion\nData Scraping\nJPEG to Excel or Word\nPDF to Excel or Word\nTyping in Excel or Word\nWordPress Data Entry\nWeb Research and Web Scrapping\nE-commerce Products Listing\nProperty Research, Public Record Search\nData Collection from LinkedIn/Instagram\nReal Estate Research and Data Entry (Name, Email, Phone, Address, etc.)\nWhy chose me?\nExtra fast delivery\n100% Quality assurance\nlowest possible rates\nQuick Reply.\nUnlimited Revisions to make sure Maximum customer satisfaction\nData Security\nPlease contact me before placing an order and get my free consultancy about the project how to do it in the best possible way. Also If you need sample work Please feel free to demand.\nThanks & Regards,\nAbrar Hussain",
                 imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/199776653/original/b710f145db1a54491e2d777831107c0174c78565.png"],
@@ -1270,7 +1344,7 @@ function _createGigs() {
                         "name": "brandersongroup",
                         "country": "United Kingdom",
                         "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
-                        "review": "I’ve worked with Abrar before, and once again he did a great job with what I’d asked him to do. Will definitely be working with him again.",
+                        "review": "Ive worked with Abrar before, and once again he did a great job with what I’d asked him to do. Will definitely be working with him again.",
                         "reviewedAt": "Published 2 months ago"
                     },
                     {
@@ -1303,6 +1377,7 @@ function _createGigs() {
                     level: "2",
                     rate: 3
                 },
+                Languages: "English,Swahili,Turkish",
                 country: "India",
                 daysToMake: 16,
                 description: "Hi there ! Thanks for stopping by !!\nA Team of Talented Graphic Designer with 8+ years of experience in Graphic Industry, expertise as Logo Maker, You'll get creative & AWESOME logo design for your business.\nMy portfolio : https://www.fiverr.com/users/design_desk/portfolio/NjFiYjE4NmMwZTgwMDUwMDAxZTMzMjJh\n★ Why Us? ★\nTalented Logo Maker Team\nFully custom made, creative, original, UNIQUE and AWESOME designs\nProfessional customer support 24/7\nHigh Quality work\n100% money back policy if not satisfied\n★ WHAT DO YOU GET? ★\n✔ Highly Professional, UNIQUE & High Quality designs\n✔ UNLIMITED revisions until u r 100% satisfied\n✔ Fast turn around time 24 to 48 hours only.\n✔ 100% original & unique vector design from Adobe Illustrator\n✔ Vector Source Files (scalable without any quality loss) (AI, EPS, PDF) for the final design ✔ PROFESSIONAL Communication & Outstanding Customer Support ✔ Guaranteed High Quality work\nIf you have any question,\nFeel free to★ Contact Me! ★I'll be happy to help !\nLet's get started!\n-Your Logo Maker",
@@ -1356,73 +1431,73 @@ function _createGigs() {
                     }
                 ]
             },
-            {
-                _id: "i132",
-                owner_id: "u132",
-                owner_rate: 5,
-                title: "I will create modern unique and creative logo design",
-                about: "I am a professional graphics designer from PakIsTaN... Designing is not only my job, it's my Passion. All I need from you is a rough sketch of your idea. Then you can just relax and see the magic happening. Not only you'll get stunning and professional designs, but also you'll have top class custome",
-                price: 61,
-                owner: {
-                    _id: "u132",
-                    _id: "u132",
-                    fullname: "soduzai_gfx1",
-                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg",
-                    level: "basic/premium",
-                    rate: 3
-                },
-                country: "Pakistan",
-                daysToMake: 2,
-                description: "Hi esteemed buyer!\nLooking for modern unique and creative 2d or 3d logo design? Yes, you're at the right place.\nHaving a vast experience with hundreds of satisfied customers across the globe, I extend my services to design modern unique and creative logo design to represent your brand idea in a befitting manner.\nWhat proves my individuality over others?\nQuick delivery, quality work and transforming your brain idea into a 3d creative unique and modern logo design are my attributes.\nMY GIG OFFERINGS ARE:\nBest customer care\nRevisions within 24 Hours\n100% satisfaction guaranteed\nModern unique and creative designing ideas\nLogically and aesthetically hypnotizing logos\n1 free revision after completion of order\nEditable and re-sizeable vector files\nFont download link included\nHigh resolution final files in zip\nNote: For Complex Illustrations and Mascots, please discuss in inbox before placing order! It is also not included in our packages.\nHave queries? Contact us in inbox anytime!\n★Hearing from you would be an absolute pleasure, Go ahead and ORDER NOW!★",
-                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/103152154/original/b89645456b7f6906afa872771737e980b6f57cfb.jpg"],
-                tags: [
-                    "modern logo",
-                    "creative logo",
-                    "logo design",
-                    "unique logo",
-                    "logo maker"
-                ],
-                likedByUsers: [
-                    "mini-user"
-                ],
-                "reviews": [
-                    {
-                        "name": "devsreads",
-                        "country": "United States",
-                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-                        "review": "Thank you SO MUCH to the seller. He was so patient and willing to work and correct as many times as we needed as some things got miscommunicated and he easily fixed them. Thank you!!!",
-                        "reviewedAt": "Published 3 days ago"
-                    },
-                    {
-                        "name": "raymondyslas",
-                        "country": "United States",
-                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-                        "review": "This designer is awesome. I have got my idea materialised in an efficient manner and the way I wanted. Seeing this logo, I would say this is the best designer to do any kind of graphics work.",
-                        "reviewedAt": "Published 1 month ago"
-                    },
-                    {
-                        "name": "gbsol579",
-                        "country": "United States",
-                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-                        "review": "This designer is so quick and efficient in his work. My order was delivered in few hours. The design is hypnotizing and truly reflects my business idea. Highly recommended!",
-                        "reviewedAt": "Published 1 month ago"
-                    },
-                    {
-                        "name": "antoniodixon65",
-                        "country": "United States",
-                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-                        "review": "This is a really good design. The designer owes the skills needed to actually understand and then materailize a buyer's idea. Commendable and highly recommended.",
-                        "reviewedAt": "Published 1 month ago"
-                    },
-                    {
-                        "name": "allendrozdowski",
-                        "country": "United States",
-                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-                        "review": "This designer has done a fantastic job. I like the design sense and colour combination of the designer. This is what I was looking for. I highly recommend him for graphics related work.",
-                        "reviewedAt": "Published 1 month ago"
-                    }
-                ]
-            },
+            // {
+            //     _id: "i132",
+            //     owner_id: "u132",
+            //     owner_rate: 5,
+            //     title: "I will create modern unique and creative logo design",
+            //     about: "I am a professional graphics designer from PakIsTaN... Designing is not only my job, it's my Passion. All I need from you is a rough sketch of your idea. Then you can just relax and see the magic happening. Not only you'll get stunning and professional designs, but also you'll have top class custome",
+            //     price: 61,
+            //     owner: {
+            //         _id: "u132",
+            //         _id: "u132",
+            //         fullname: "soduzai_gfx1",
+            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg",
+            //         level: "basic/premium",
+            //         rate: 3
+            //     },
+            //     country: "Pakistan",
+            //     daysToMake: 2,
+            //     description: "Hi esteemed buyer!\nLooking for modern unique and creative 2d or 3d logo design? Yes, you're at the right place.\nHaving a vast experience with hundreds of satisfied customers across the globe, I extend my services to design modern unique and creative logo design to represent your brand idea in a befitting manner.\nWhat proves my individuality over others?\nQuick delivery, quality work and transforming your brain idea into a 3d creative unique and modern logo design are my attributes.\nMY GIG OFFERINGS ARE:\nBest customer care\nRevisions within 24 Hours\n100% satisfaction guaranteed\nModern unique and creative designing ideas\nLogically and aesthetically hypnotizing logos\n1 free revision after completion of order\nEditable and re-sizeable vector files\nFont download link included\nHigh resolution final files in zip\nNote: For Complex Illustrations and Mascots, please discuss in inbox before placing order! It is also not included in our packages.\nHave queries? Contact us in inbox anytime!\n★Hearing from you would be an absolute pleasure, Go ahead and ORDER NOW!★",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/103152154/original/b89645456b7f6906afa872771737e980b6f57cfb.jpg"],
+            //     tags: [
+            //         "modern logo",
+            //         "creative logo",
+            //         "logo design",
+            //         "unique logo",
+            //         "logo maker"
+            //     ],
+            //     likedByUsers: [
+            //         "mini-user"
+            //     ],
+            //     "reviews": [
+            //         {
+            //             "name": "devsreads",
+            //             "country": "United States",
+            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            //             "review": "Thank you SO MUCH to the seller. He was so patient and willing to work and correct as many times as we needed as some things got miscommunicated and he easily fixed them. Thank you!!!",
+            //             "reviewedAt": "Published 3 days ago"
+            //         },
+            //         {
+            //             "name": "raymondyslas",
+            //             "country": "United States",
+            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            //             "review": "This designer is awesome. I have got my idea materialised in an efficient manner and the way I wanted. Seeing this logo, I would say this is the best designer to do any kind of graphics work.",
+            //             "reviewedAt": "Published 1 month ago"
+            //         },
+            //         {
+            //             "name": "gbsol579",
+            //             "country": "United States",
+            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            //             "review": "This designer is so quick and efficient in his work. My order was delivered in few hours. The design is hypnotizing and truly reflects my business idea. Highly recommended!",
+            //             "reviewedAt": "Published 1 month ago"
+            //         },
+            //         {
+            //             "name": "antoniodixon65",
+            //             "country": "United States",
+            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            //             "review": "This is a really good design. The designer owes the skills needed to actually understand and then materailize a buyer's idea. Commendable and highly recommended.",
+            //             "reviewedAt": "Published 1 month ago"
+            //         },
+            //         {
+            //             "name": "allendrozdowski",
+            //             "country": "United States",
+            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            //             "review": "This designer has done a fantastic job. I like the design sense and colour combination of the designer. This is what I was looking for. I highly recommend him for graphics related work.",
+            //             "reviewedAt": "Published 1 month ago"
+            //         }
+            //     ]
+            // },
             // {
             //     _id: "i133",
             //     owner_id: "u133",
@@ -1438,9 +1513,9 @@ function _createGigs() {
             //         rate: 4
             //     },
             //     country: "India",
-            //     daysToMake: 11,
+            //     daysToMake: 7,
             //     description: "ModernMarvel heartily welcomes you to Minimalist Modern Logo Design gig.\nWe are Brand Creators and professional business consultants. Each business has his own story to tell and having high recall value is prime purpose behind getting a LOGO. Thus, We believe in creating simple yet effective masterpiece which blown away your customers mind.\nYour idea of getting Modern memorable and attractive logo design is just one step away. So, Lets discuss and choose a best design for your business.\nOur recommendation BRANDING PACK @ $65 ONLY:\n5 BRANDED logos with minimal designs + vector source files\nAttractive Social media covers (FB + Twitter)\nProfessional stationery design (B card + letterhead)\nUnlimited revision rounds\nExclusive customer support\nRefund & Package selection guidelines:\nIf the designs are as per your initial shared brief, refund wont be a possible option. You can ask for revision if i missed out anything.\nMy samples are from my premium / standard package.\nWe are closed on Sunday.\nMy key skills:\nMinimalist Modern Logo Design | Minimal | Modern | Typography | Line art | Custom logo | Vintage |\nKeen to Get Started!",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/125798593/original/fea4f6af37e201fa9cb71a85583fedc171da2a26.jpg",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/125798593/original/fea4f6af37e201fa9cb71a85583fedc171da2a26.jpg"],
             //     tags: [
             //         "modern logo",
             //         "custom logo",
@@ -1507,7 +1582,7 @@ function _createGigs() {
             //     country: "Pakistan",
             //     daysToMake: 21,
             //     description: "Greetings!! Welcome to Budding Solutions.\n\"Your one-stop-shop for all your graphic needs\"\nIf you are looking for a Modern and Professional Business logo design, then you are at the right place. We focus on creating simple yet effective designs that elevate your business outlook and leave an everlasting impression.\nWe stand out from our competition due to our best-in-class Customer Support and Quality Designs.\nWhy Us?\n✔ Combination of experience and creativity\n✔ Unique and original designs\n✔ Superior customer care and satisfaction\n✔ Transparent and High-resolution image types\n✔ Different types of source files (AI, EPS, PDF and SVG)\n✔ Complete Branding Guide\n✔ Unlimited revisions until you are 100% satisfied\n✔ Full Copyrights\nMASCOT DESIGNS ARE NOT INCLUDED IN BASIC OR STANDARD GIGS.\nTHE DESIGNS SHOWN ON THE PORTFOLIO ARE FROM STANDARD OR PREMIUM PACKS.\nLogo Design | Professional Logo | Modern Logo | Badge | Hand drawn | Feminine | Signature | Business Logo\nWe look forward to working with you. Please don't hesitate to reach out at any time with any questions.\nPlease review the FAQ section for further clarification.",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/142024147/original/25c0cb214ccc1e1458cb975cddec0e3e348f75ee.jpg",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/142024147/original/25c0cb214ccc1e1458cb975cddec0e3e348f75ee.jpg"],
             //     tags: [
             //         "modern logo",
             //         "logo",
@@ -1557,72 +1632,73 @@ function _createGigs() {
             //         }
             //     ]
             // },
-            // {
-            //     _id: "i135",
-            //     owner_id: "u135",
-            //     owner_rate: 5,
-            //     title: "I will write you an attractive instagram bio",
-            //     about: "Thanks for stopping by! I'm a Social Media Specialist with 8+ years experience. I can help with all your Social Media related tasks! Send me a message. Let's get it done!",
-            //     price: 155,
-            //     owner: {
-            //         _id: "u135",
-            //         fullname: "bellavida123",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/9e2d7f453419c08e138fbfe9e65347df-696051281638594671.588431/DD8E6DDC-C231-47D3-B61A-97274452D3BF",
-            //         level: "basic/premium",
-            //         rate: 2
-            //     },
-            //     country: "Jamaica",
-            //     daysToMake: 25,
-            //     description: "The FIRST thing a potential follower sees on your page is your bio.\nStand out, and build trust with a bio that informs and captivates everyone who views it. This will not only attract new people to your page, but it will keep them there!\nYou've seen those profiles on Instagram that look amazing, and you deserve that for your business too.\nGet the Instagram bio you need, and with it, more followers and clients!\nWhat you'll receive:\n⭐ One unique, professionally designed bio\n⭐ A captivating layout that engages your viewers\n⭐ A call to action, if required\n⭐ 24 hour delivery\n⭐ 100% Satisfaction Guarantee\nLet's build you a great Instagram page that is sure to bring AND KEEP followers.\nIf you BUY a gig from me always feel free to request a revision if you need any part of your order revised. Thank you.",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/157827646/original/8f14f50a81ddd1a60b4af990ea5154a26975d150.jpg",
-            //     tags: [
-            //         "bio",
-            //         "instagram marketing",
-            //         "instagram",
-            //         "social media",
-            //         "social network"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "bswoll51",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "She was amazing! Told me exactly when she would start. Got it done and over-delivered! Tips to grow my following and exclusive tailoring of my bio. She can call me The Terminator because I'll be back. 🤣",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "dawnmichaela",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "My bio turned out better than I could have hoped for! She took all my words and ideas and turned it in to a clear and powerful bio. I highly recommend working with her. She is easy to communicate with, responds quickly, and got it done fast. I would definitely use her again.",
-            //             "reviewedAt": "Published 1 week ago"
-            //         },
-            //         {
-            //             "name": "iidark",
-            //             "country": "United Kingdom",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
-            //             "review": "Wonderful working with this seller. The work is as promised and delivered on time and on point. I would definitely recommend their work, in fact I'm about to book another gig from them.",
-            //             "reviewedAt": "Published 2 weeks ago"
-            //         },
-            //         {
-            //             "name": "singh_manu1313",
-            //             "country": "New Zealand",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1ff.png",
-            //             "review": "She is really good. I ordered two bio and both are amazing. Very easy to convey the message. And she did exactly what i was looking for. Definitely recommend",
-            //             "reviewedAt": "Published 1 week ago"
-            //         },
-            //         {
-            //             "name": "charliericeiii",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Thank you so much for creating my bios for me on my social media pages. We got it right how we wanted it to I appreciate that. God bless!",
-            //             "reviewedAt": "Published 3 weeks ago"
-            //         }
-            //     ]
-            // },
+            {
+                _id: "i135",
+                owner_id: "u135",
+                owner_rate: 5,
+                title: "I will write you an attractive instagram bio",
+                about: "Thanks for stopping by! I'm a Social Media Specialist with 8+ years experience. I can help with all your Social Media related tasks! Send me a message. Let's get it done!",
+                price: 155,
+                owner: {
+                    _id: "u135",
+                    fullname: "bellavida123",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/9e2d7f453419c08e138fbfe9e65347df-696051281638594671.588431/DD8E6DDC-C231-47D3-B61A-97274452D3BF",
+                    level: "basic/premium",
+                    rate: 2
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "Jamaica",
+                daysToMake: 25,
+                description: "The FIRST thing a potential follower sees on your page is your bio.\nStand out, and build trust with a bio that informs and captivates everyone who views it. This will not only attract new people to your page, but it will keep them there!\nYou've seen those profiles on Instagram that look amazing, and you deserve that for your business too.\nGet the Instagram bio you need, and with it, more followers and clients!\nWhat you'll receive:\n⭐ One unique, professionally designed bio\n⭐ A captivating layout that engages your viewers\n⭐ A call to action, if required\n⭐ 24 hour delivery\n⭐ 100% Satisfaction Guarantee\nLet's build you a great Instagram page that is sure to bring AND KEEP followers.\nIf you BUY a gig from me always feel free to request a revision if you need any part of your order revised. Thank you.",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/157827646/original/8f14f50a81ddd1a60b4af990ea5154a26975d150.jpg"],
+                tags: [
+                    "bio",
+                    "instagram marketing",
+                    "instagram",
+                    "social media",
+                    "social network"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "bswoll51",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "She was amazing! Told me exactly when she would start. Got it done and over-delivered! Tips to grow my following and exclusive tailoring of my bio. She can call me The Terminator because I'll be back. 🤣",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "dawnmichaela",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "My bio turned out better than I could have hoped for! She took all my words and ideas and turned it in to a clear and powerful bio. I highly recommend working with her. She is easy to communicate with, responds quickly, and got it done fast. I would definitely use her again.",
+                        "reviewedAt": "Published 1 week ago"
+                    },
+                    {
+                        "name": "iidark",
+                        "country": "United Kingdom",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+                        "review": "Wonderful working with this seller. The work is as promised and delivered on time and on point. I would definitely recommend their work, in fact I'm about to book another gig from them.",
+                        "reviewedAt": "Published 2 weeks ago"
+                    },
+                    {
+                        "name": "singh_manu1313",
+                        "country": "New Zealand",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1ff.png",
+                        "review": "She is really good. I ordered two bio and both are amazing. Very easy to convey the message. And she did exactly what i was looking for. Definitely recommend",
+                        "reviewedAt": "Published 1 week ago"
+                    },
+                    {
+                        "name": "charliericeiii",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Thank you so much for creating my bios for me on my social media pages. We got it right how we wanted it to I appreciate that. God bless!",
+                        "reviewedAt": "Published 3 weeks ago"
+                    }
+                ]
+            },
             // {
             //     _id: "i136",
             //     owner_id: "u136",
@@ -1640,7 +1716,7 @@ function _createGigs() {
             //     country: "Hong Kong",
             //     daysToMake: 21,
             //     description: "Why me?\nI have worked with Fortune 500 brands such as Adidas, L’Oreal, Xiaomi & Pfizer on numerous marketing and branding campaigns.\nI’ve successfully delivered 4000+ hashtag strategies with over 2600+ happy clients to help them achieve organic instagram growth.\nWhy my service?\nI will strategically research, analyze & handpick best-performing hashtags tailored to your Instagram account. I will teach you:\n✅ How you can effectively use hashtags to rank and grow organically\n✅ How to avoid bad hashtags to avoid negative growth\n✅ Stand out from your competition and increase your sales\n✅ How to increase traffic and conversion organically\n✅ Account optimization and posting secrets to gain new Instagram followers\nWhat will you get?\n✅ Data-backed high-ranking hashtags tailored to your niche and brand\n✅ Profile optimization so you can be discovered quickly\n✅ Personalized hashtag strategy to help you grow and increase your followers\n✅ Expert video guide to teach you to find high-ranking hashtags\n✅ Monthly newsletter based on Instagram's newest algorithm updates\n✅ Masters Course 2021/2022 (Platinum or Diamond Gig)",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/video/upload/so_0.0,t_gig_cards_web/jylhbgosxfqilptpru24.png",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/video/upload/so_0.0,t_gig_cards_web/jylhbgosxfqilptpru24.png"],
             //     tags: [
             //         "instagram hashtags",
             //         "instagram marketing",
@@ -1705,7 +1781,7 @@ function _createGigs() {
             //     country: "Vietnam",
             //     daysToMake: 7,
             //     description: "Do you want to Monitize your YouTube Channel?\ni'm the best for digital media marketing, i will help you make youtube monetization\nSafe methods we use:\n· Web 2.0\n· iFrame Embedding\n· PPC advertising campaign\n· Do SEO friendly Video optimization\n· Will share video in Suggested & related videos\n· Add video in Niche related playlists for more impressions\nI strictly follow YT and Fiverr TOS so it means you will get organic You Tube Promotion for your channel monetization.\nREQUIREMENT:\nChannel Link\nWhat do you get from this gig?\n● Watch time boost\n● Compliance with YT TOS\n● Fully Organic And Real Traffic\n● 100% chances of monetization\n● Naturally helps in Video Ranking\nThink that your best friend is Elon Musk, and tomorrow morning you are asking him to post a post asking people to watch your vide0, probably you will get monetized in less than an hour!\nI do the same, just without Elon Musk :)",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/167364631/original/ddbe1967fc0deba979b6d66f2871051245a1544a.jpeg",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/167364631/original/ddbe1967fc0deba979b6d66f2871051245a1544a.jpeg"],
             //     tags: [
             //         "youtube",
             //         "monetization",
@@ -1753,399 +1829,405 @@ function _createGigs() {
             //         }
             //     ]
             // },
-            // {
-            //     _id: "i138",
-            //     owner_id: "u138",
-            //     owner_rate: 5,
-            //     title: "I will develop a content strategy for your brand or business",
-            //     about: "Hello! My name is Maria, and I am a digital marketer with over 3 years of experience working with diverse brands and businesses. I am well versed in everything marketing, SEO, graphic design, writing, and video editing. I am a one-stop shop for whatever you and your brand needs. I look to working with you!",
-            //     price: 162,
-            //     owner: {
-            //         _id: "u138",
-            //         fullname: "mariarotunda",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d098c50d82476b11568f3a50111a8a89-1636128369729/ef737ebd-6908-47bc-be50-963dabe16d0e.jpg",
-            //         level: "basic/premium",
-            //         rate: 2
-            //     },
-            //     country: "United States",
-            //     daysToMake: 27,
-            //     description: "Quality content, industry-specific keywords, and a social media plan will help your business and brand soar! I am a digital marketing strategist and content creator who is ready to help build your online presence.\nWhat you will get:\nAn evaluation of your current page(s) to identify your strengths and weaknesses\nA custom strategy specific to your brand, mission, and standards\nCustom designed graphics created for your target audience\nSEO optimized keywords to use in captions and as hashtags\nAround the clock customer service and communication to help you with anything and everything you need\nI am here to take your brand to the next level! Message me with any questions you have.",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/video/upload/so_1.760625,t_gig_cards_web/ffupfvrslj3mos2byhrh.png",
-            //     tags: [
-            //         "instagram marketing",
-            //         "web marketing",
-            //         "social media manager",
-            //         "social marketers",
-            //         "seo marketing"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "thaddeuswill410",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Omg, This seller was amazing and exactly what we needed.. We were kinda in a funk and need to be saved. She did just that with amazing energy, a wonderful attitude and passion for what she does. The strategy was perfect, Thanks again for bringing us great value.. Highly Suggested..",
-            //             "reviewedAt": "Published 2 weeks ago"
-            //         },
-            //         {
-            //             "name": "nickjuliano",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Excellent job! I’ve been using Fiverr for 3 years now and by far one of the best results/deliverables that I’ve gotten. The video describing what you did was a step above the rest. I’ll definitely be implementing your suggestions. I appreciate all of your hard work.",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "joshuanathan474",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Really smooth transaction. She went above and beyond in detail for the marketing / brand style guides. Looking to get more tasks completed with the Seller.",
-            //             "reviewedAt": "Published 2 months ago"
-            //         },
-            //         {
-            //             "name": "onyxwoman",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "She did a really good job that prompted me to make some badly needed changes. The advice was really good. I especially liked the video input.",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "tcbrownvo",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Provided excellent service and good direction. Thank you.",
-            //             "reviewedAt": "Published 1 week ago"
-            //         }
-            //     ]
-            // },
-            // {
-            //     _id: "i139",
-            //     owner_id: "u139",
-            //     owner_rate: 5,
-            //     title: "I will perform research on any subject matter for you",
-            //     about: "I am a current Doctoral Researcher with a strong research and scientific history, having published academic papers and presented at numerous international conferences. I have a BSc (Hons), a MScR, and have nearly finished my PhD. My experience has given me excellent research and written communication skills, as well as knowledge of how to present and illustrate data digitally. I am highly experienced in the use of the Microsoft Office and Adobe suite of apps. Outside of my career I am very interested in applying my scientific training to aspects of fitness and nutrition.",
-            //     price: 59,
-            //     owner: {
-            //         _id: "u139",
-            //         fullname: "struhenderson",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/eb6eef20969192eca1d8b1301e91cb4f-1630440851285/60f03cc4-71f2-437b-a241-f9423b6e2728.jpg",
-            //         level: "basic/premium",
-            //         rate: 3
-            //     },
-            //     country: "United Kingdom",
-            //     daysToMake: 18,
-            //     description: "I have over 5 years of experience conducting high-quality, detailed research throughout my Master of Science by Research degree and PhD programme.\nThe training and projects I have undertaken in my degrees have given me the ability to efficiently source key information. In particular, the niche research required for academic theses has made me proficient at sourcing the most relevant details.\nFurthermore, I have learned how to synthesise a lot of information in a short period of time, incorporate it into further research, and write what I have learned into top-quality publications. This allows me to pinpoint the most important information and produce concise, detailed summaries.\nI will provide a document in whichever format you require (e.g. Word.docx, Adobe.pdf) complete with a detailed summary, references and links should you wish to conduct further research. If you would like me to conduct follow-up research based on what I have provided, please do not hesitate to get in touch for discounted rates.\n<---- PLEASE NOTE: I will not write academic articles, essays or papers. ---->\nPLEASE GET IN TOUCH BEFORE ORDERING TO DISCUSS YOUR REQUIREMENTS.",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/222820209/original/50b95e0afd209c75fa3693b835fd0db671249736.png",
-            //     tags: [
-            //         "online research",
-            //         "research",
-            //         "internet researcher"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "veeg10",
-            //             "country": "Jordan",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ef-1f1f4.png",
-            //             "review": "Amazing work! Every word is unique and all ideas were related to the research even though, the research question had some complexity. He even went extra miles and Straun is very genuine with great communication. I recommend Straun to anyone seeking for an excellent, clear research. THANKS! I am keen to see the next research!",
-            //             "reviewedAt": "Published 2 months ago"
-            //         },
-            //         {
-            //             "name": "schapes47",
-            //             "country": "Netherlands",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png",
-            //             "review": "Struan´s research is outstanding. Meticulous work and a stellar ability to synthesize information in the shortest amount of time. The price is also very fair taking the quality of the research into consideration. Can only recommend and if I ever need assistance in research I know whom to work with again!",
-            //             "reviewedAt": "Published 3 weeks ago"
-            //         },
-            //         {
-            //             "name": "harrybenham228",
-            //             "country": "United Kingdom",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
-            //             "review": "Once again, Struan exceeded expectations and delivered an excellent research review. He implements a lot of referencing, proving his depth of research- I will definitely work with him again, thank you!",
-            //             "reviewedAt": "Published 2 months ago"
-            //         },
-            //         {
-            //             "name": "harrybenham228",
-            //             "country": "United Kingdom",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
-            //             "review": "Struan's work is exceptional! His communication, service and final delivery were of the highest quality and even better than expected. I will definitely choose him for research work again!",
-            //             "reviewedAt": "Published 2 months ago"
-            //         },
-            //         {
-            //             "name": "bossbroc",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "My absolute go-to researcher!",
-            //             "reviewedAt": "Published 3 hours ago"
-            //         }
-            //     ]
-            // },
-            // {
-            //     _id: "i140",
-            //     owner_id: "u140",
-            //     owner_rate: 5,
-            //     title: "I will provide quality essays research and summaries on any topic",
-            //     about: "I am an enthusiastic and proficient writer with 4+ years of research related experience. My journey in the writing industry kicked off at the University where I did countless research and gained more experience. I will assist you with any kind of research and solve your different business needs. Please reach out for excellent and timely work.",
-            //     price: 71,
-            //     owner: {
-            //         _id: "u140",
-            //         fullname: "victoriaeva610",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/34a47e49caa09a703d81ef0621ad0ac1-1626197544385/3cb9eb7a-2163-4722-a1b0-0ddb9eb04d4e.png",
-            //         level: "basic/premium",
-            //         rate: 4
-            //     },
-            //     country: "Kenya",
-            //     daysToMake: 18,
-            //     description: "GET CUSTOM ORDERS, QUALITY WORK, AND AN AMAZING EXPERIENCE\nIf you're looking for a professional researcher and a committed writer for all your writing needs, click on this gig because I can't wait to work with YOU.\nI am an expert writer with over 8 years' experience. I guarantee quality, original content written from scratch, plagiarism free, and delivered within the shortest time possible. My main areas of expertise are\nResearch\nEnglish\nHistory\nBusiness\nPsychology\nnursing, arts\nEducation\nCriminal justice\nSociology\nSupply chain\nLogistics\nCase studies\nMarketing\nSummary Writing\nI will offer YOU:\n100% Plagiarism free content\nTimely turnaround\nTop-notch grammar\nWell researched and referenced content\n24/7 Customer support\nKindly contact me before placing an order.\nPS: Custom orders also available upon request",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/217276086/original/6a004b8b82868ab02836bdfcb42c4a0e4b042f87.png",
-            //     tags: [
-            //         "reports",
-            //         "articles",
-            //         "internet researcher",
-            //         "summaries"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "isabellaava851",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "The seller went above and beyond and highly recommend u look no further. Her ability to create such detailed projects has convinced me that she is the best at what she does and will work with her again and again.",
-            //             "reviewedAt": "Published 3 weeks ago"
-            //         },
-            //         {
-            //             "name": "lincoingabriel",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "This seller was extremely communicative, which I really appreciated. The seller was prompt with the delivery and the work was professionally done! I would highly recommend and use the services again!",
-            //             "reviewedAt": "Published 3 weeks ago"
-            //         },
-            //         {
-            //             "name": "tiffanyhaddish",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Awesome at communication and writing. Really sweet and understanding, goes above and beyond to assure customer satisfaction!! 5 out of 5 recommend!!!",
-            //             "reviewedAt": "Published 3 weeks ago"
-            //         },
-            //         {
-            //             "name": "loganmax688",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "a great buyer with great understanding on the task, I will definitely come again and again, I am really impressed.",
-            //             "reviewedAt": "Published 3 weeks ago"
-            //         },
-            //         {
-            //             "name": "candiceaponte",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "She got me my assignment back in 6 hours. Thank you so much",
-            //             "reviewedAt": "Published 7 hours ago"
-            //         }
-            //     ]
-            // },
-            // {
-            //     _id: "i141",
-            //     owner_id: "u141",
-            //     owner_rate: 5,
-            //     title: "I will deliver quality case study analysis, articles, research and summaries",
-            //     about: "I am a professional and diligent writer with more than 6 years experience as a freelance writer. My goal is your satisfaction and to deliver work that you will appreciate. Writing is my passion and I aim to do excellent work for all my clients that will meet the set goals and standards.",
-            //     price: 103,
-            //     owner: {
-            //         _id: "u141",
-            //         fullname: "angela_637",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/03e667c26a63c20863e016917c423eb0-1622910916319/85930fed-bb45-4b01-b117-3913f19b77d7.PNG",
-            //         level: "basic/premium",
-            //         rate: 4
-            //     },
-            //     country: "Kenya",
-            //     daysToMake: 11,
-            //     description: "Hi, thank you for clicking my gig.\nKindly contact me before placing an order to discuss the requirements and check for availability.\nAre you looking for a professional for your essays, articles, case study, reflections, summary and research work? Then look no further, you are on the right PLACE.\nI am here to provide you with high-quality and professional services. I have been in the writing industry for over six years. As a researcher, I have a keen interest in identifying major problems and proposing better solutions/recommendations against them.\nWhat you will get from this gig?\nUnique and creative content\nOn-time delivery\nEngaging content\nWell researched and quality work\n100% plagiarism-free\nN/B: I OFFER SERVICES ACCORDING TO FIVERR TERMS OF SERVICE (TOS).",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/210082068/original/f1d222ff641f41a63cce8235a6a5128f05b477bc.jpg",
-            //     tags: [
-            //         "research and summary",
-            //         "case study",
-            //         "research",
-            //         "summary",
-            //         "articles"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "myaznd",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Her work is absolutely amazing ! Delivered on time and very accommodating . would definitely recommend . I will be reaching out again .",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "evanclark",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "excellent experience. Angela delivered exactly what she said she would. Very thorough and High quality of service and communication. will definitely work with again!",
-            //             "reviewedAt": "Published 2 months ago"
-            //         },
-            //         {
-            //             "name": "ronneishapicket",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Didn’t need any modifications was absolutely perfect ! Got me an A so I highly recommend! And will be shopping in the future",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "klemicha",
-            //             "country": "Austria",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1f9.png",
-            //             "review": "Angela did a great job in a short time, understood the task easily, communicated well & has good language skills. Thanks a lot :)",
-            //             "reviewedAt": "Published 1 week ago"
-            //         },
-            //         {
-            //             "name": "whatsrealeasy",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "great work on the research",
-            //             "reviewedAt": "Published 4 days ago"
-            //         }
-            //     ]
-            // },
-            // {
-            //     _id: "i142",
-            //     owner_id: "u142",
-            //     owner_rate: 5,
-            //     title: "I will do market research, business research, swot analysis, and competitive analysis",
-            //     about: "Hi, my name is Lay. I'm a professional writer in Microsoft word, excel, PowerPoint expert with years of experience. Through my time of work, I have been able to manage tasks such as document formatting & editing, designing, cleanup, and typing of documents for both individual firms and local governments, having worked that long I'm proficient and have the capacity in executing tasks involved in different fields requested by the client. Welcome, let us work together. regards, Troyeb84.",
-            //     price: 72,
-            //     owner: {
-            //         _id: "u142",
-            //         fullname: "layee84",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/b398d51589f16ed08ca0510c2c5edbe2-1636020659427/ecb5ae5e-d22a-47bc-bd9f-e7b2f99c0994.jpg",
-            //         level: "basic/premium",
-            //         rate: 2
-            //     },
-            //     country: "Kenya",
-            //     daysToMake: 4,
-            //     descriptio: "Hello Fiverr Community,\nThis is Layee, A professional Business Consultant.\nBefore venturing in to any field in the business sector, it’s important to carry out a prior study, and carry out market research on that particular business.\nI will carry out a comprehensive market research for you, and come up with a detailed market research report.\nThe Market Research Report will cover the following areas depending on the package & availability of information: -\n· Market Research\n· Competitor analysis\n· Industry analysis\n· Product Research\n· Market Segmentation\n· Porter's Five Forces Analysis\n· Pestle Analysis\n· Market Trends\n· Market Drivers\n· Marketing Mix\n· Market Size\n· Total Available Market (TAM)\n· Demographics\n· SWOT Analysis\n· Market Growth\n· Marketing Options\n· Marketing Strategies\n· Future Markets\n· Web Research\n· Business Plan (Gig Extra)\nAnd Many More….\nThe success of your business is my primary objective/priority, and will offer all these services so that you are able to achieve your business objectives easily, and on time (or",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/232972469/original/679ec7f5d8e49604c2290664620969803d96f7c7.jpg",
-            //     tags: [
-            //         "competitive analysis",
-            //         "business research",
-            //         "market research",
-            //         "reports",
-            //         "swot analysis"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "njameshoward",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Great communication and speed",
-            //             "reviewedAt": "Published 2 weeks ago"
-            //         },
-            //         {
-            //             "name": "lucasnowak224",
-            //             "country": "Pakistan",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f5-1f1f0.png",
-            //             "review": "Brilliant communication, time management and highly appreciate the hardwork and input.",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "lucasnowak224",
-            //             "country": "Pakistan",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f5-1f1f0.png",
-            //             "review": "Met tight deadline with great communication and cooperation.",
-            //             "reviewedAt": "Published 4 weeks ago"
-            //         },
-            //         {
-            //             "name": "muradyoussef",
-            //             "country": "Austria",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1f9.png",
-            //             "review": "verrrrrrrrrrrrrrrry gooooooooooooooooood",
-            //             "reviewedAt": "Published 2 months ago"
-            //         },
-            //         {
-            //             "name": "cantillo16",
-            //             "country": "Costa Rica",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1f7.png",
-            //             "review": "Excellent service",
-            //             "reviewedAt": "Published 2 months ago"
-            //         }
-            //     ]
-            // },
-            // {
-            //     _id: "i143",
-            //     owner_id: "u143",
-            //     owner_rate: 5,
-            //     title: "I will translate english to hebrew and hebrew to english",
-            //     about: "Hi guys! I am a native level speaker (reader, writer, typer, dreamer) of Hebrew and English, and I live in beautiful Israel. I can translate English to Hebrew and Hebrew to English, for any type of content you need - articles, blog posts, social media posts, ads, books, presentation, reports and many more. I am SUPER organised and LOVE what I do. So let's start working on your projects! Contact me :)",
-            //     price: 120,
-            //     owner: {
-            //         _id: "u143",
-            //         fullname: "shiranmor17",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/2077b8d6eeb98061673b868ec51a9267-1636915857681/b31b149f-5e31-46bd-9a2e-27e94cc3e5e2.jpeg",
-            //         level: "basic/premium",
-            //         rate: 4
-            //     },
-            //     country: "Israel",
-            //     daysToMake: 28,
-            //     description: "Hello and welcome to my gig!\nI am Shiran and I have 3 years of experience in translations and 6 years of writing experience (Hebrew and English). I make a high-quality, accurate translations from Hebrew to English and English to Hebrew. I DO NOT USE GOOGLE TRANSLATE.\nI can translate any topic and many types of content. I will translate almost any text, article, book, social media posts, subtitle and even websites.\nNo technical or legal translation or transcription.",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/232298461/original/e2872bd49bcb0a344ca35cae4e6a858dbf794fb7.png",
-            //     tags: [
-            //         "hebrew to english",
-            //         "accurate translation",
-            //         "english to hebrew",
-            //         "hebrew",
-            //         "translation"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "adamronde",
-            //             "country": "Israel",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
-            //             "review": "I got my document translated by the deadline, with high efficiency and translation level. I got nice inputs and comments that helped the final delivery be excellent. thank you a lot for providing a great service.",
-            //             "reviewedAt": "Published 2 weeks ago"
-            //         },
-            //         {
-            //             "name": "worldpressnow",
-            //             "country": "Germany",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png",
-            //             "review": "Good communication, very friendly and quick delivery!",
-            //             "reviewedAt": "Published 2 weeks ago"
-            //         },
-            //         {
-            //             "name": "osherbanay1",
-            //             "country": "Israel",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
-            //             "review": "Amazing! very accurate and very quick, pleasure to work with!",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "talleizer",
-            //             "country": "Israel",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
-            //             "review": "shiran do a great job definitely recommanded",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "idankayam",
-            //             "country": "Israel",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
-            //             "review": "great she is the best",
-            //             "reviewedAt": "Published 1 month ago"
-            //         }
-            //     ]
-            // },
+            {
+                _id: "i138",
+                owner_id: "u138",
+                owner_rate: 5,
+                title: "I will develop a content strategy for your brand or business",
+                about: "Hello! My name is Maria, and I am a digital marketer with over 3 years of experience working with diverse brands and businesses. I am well versed in everything marketing, SEO, graphic design, writing, and video editing. I am a one-stop shop for whatever you and your brand needs. I look to working with you!",
+                price: 162,
+                owner: {
+                    _id: "u138",
+                    fullname: "mariarotunda",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d098c50d82476b11568f3a50111a8a89-1636128369729/ef737ebd-6908-47bc-be50-963dabe16d0e.jpg",
+                    level: "basic/premium",
+                    rate: 2
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "United States",
+                daysToMake: 27,
+                description: "Quality content, industry-specific keywords, and a social media plan will help your business and brand soar! I am a digital marketing strategist and content creator who is ready to help build your online presence.\nWhat you will get:\nAn evaluation of your current page(s) to identify your strengths and weaknesses\nA custom strategy specific to your brand, mission, and standards\nCustom designed graphics created for your target audience\nSEO optimized keywords to use in captions and as hashtags\nAround the clock customer service and communication to help you with anything and everything you need\nI am here to take your brand to the next level! Message me with any questions you have.",
+                imgUrl: ["https://fiverr-res.cloudinary.com/video/upload/so_1.760625,t_gig_cards_web/ffupfvrslj3mos2byhrh.png"],
+                tags: [
+                    "instagram marketing",
+                    "web marketing",
+                    "social media manager",
+                    "social marketers",
+                    "seo marketing"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "thaddeuswill410",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Omg, This seller was amazing and exactly what we needed.. We were kinda in a funk and need to be saved. She did just that with amazing energy, a wonderful attitude and passion for what she does. The strategy was perfect, Thanks again for bringing us great value.. Highly Suggested..",
+                        "reviewedAt": "Published 2 weeks ago"
+                    },
+                    {
+                        "name": "nickjuliano",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Excellent job! Ive been using Fiverr for 3 years now and by far one of the best results/deliverables that I’ve gotten. The video describing what you did was a step above the rest. I’ll definitely be implementing your suggestions. I appreciate all of your hard work.",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "joshuanathan474",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Really smooth transaction. She went above and beyond in detail for the marketing / brand style guides. Looking to get more tasks completed with the Seller.",
+                        "reviewedAt": "Published 2 months ago"
+                    },
+                    {
+                        "name": "onyxwoman",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "She did a really good job that prompted me to make some badly needed changes. The advice was really good. I especially liked the video input.",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "tcbrownvo",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Provided excellent service and good direction. Thank you.",
+                        "reviewedAt": "Published 1 week ago"
+                    }
+                ]
+            },
+            {
+                _id: "i139",
+                owner_id: "u139",
+                owner_rate: 5,
+                title: "I will perform research on any subject matter for you",
+                about: "I am a current Doctoral Researcher with a strong research and scientific history, having published academic papers and presented at numerous international conferences. I have a BSc (Hons), a MScR, and have nearly finished my PhD. My experience has given me excellent research and written communication skills, as well as knowledge of how to present and illustrate data digitally. I am highly experienced in the use of the Microsoft Office and Adobe suite of apps. Outside of my career I am very interested in applying my scientific training to aspects of fitness and nutrition.",
+                price: 59,
+                owner: {
+                    _id: "u139",
+                    fullname: "struhenderson",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/eb6eef20969192eca1d8b1301e91cb4f-1630440851285/60f03cc4-71f2-437b-a241-f9423b6e2728.jpg",
+                    level: "2",
+                    rate: 3
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "United Kingdom",
+                daysToMake: 18,
+                description: "I have over 5 years of experience conducting high-quality, detailed research throughout my Master of Science by Research degree and PhD programme.\nThe training and projects I have undertaken in my degrees have given me the ability to efficiently source key information. In particular, the niche research required for academic theses has made me proficient at sourcing the most relevant details.\nFurthermore, I have learned how to synthesise a lot of information in a short period of time, incorporate it into further research, and write what I have learned into top-quality publications. This allows me to pinpoint the most important information and produce concise, detailed summaries.\nI will provide a document in whichever format you require (e.g. Word.docx, Adobe.pdf) complete with a detailed summary, references and links should you wish to conduct further research. If you would like me to conduct follow-up research based on what I have provided, please do not hesitate to get in touch for discounted rates.\n<---- PLEASE NOTE: I will not write academic articles, essays or papers. ---->\nPLEASE GET IN TOUCH BEFORE ORDERING TO DISCUSS YOUR REQUIREMENTS.",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/222820209/original/50b95e0afd209c75fa3693b835fd0db671249736.png"],
+                tags: [
+                    "online research",
+                    "research",
+                    "internet researcher"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "veeg10",
+                        "country": "Jordan",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ef-1f1f4.png",
+                        "review": "Amazing work! Every word is unique and all ideas were related to the research even though, the research question had some complexity. He even went extra miles and Straun is very genuine with great communication. I recommend Straun to anyone seeking for an excellent, clear research. THANKS! I am keen to see the next research!",
+                        "reviewedAt": "Published 2 months ago"
+                    },
+                    {
+                        "name": "schapes47",
+                        "country": "Netherlands",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f3-1f1f1.png",
+                        "review": "Struan´s research is outstanding. Meticulous work and a stellar ability to synthesize information in the shortest amount of time. The price is also very fair taking the quality of the research into consideration. Can only recommend and if I ever need assistance in research I know whom to work with again!",
+                        "reviewedAt": "Published 3 weeks ago"
+                    },
+                    {
+                        "name": "harrybenham228",
+                        "country": "United Kingdom",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+                        "review": "Once again, Struan exceeded expectations and delivered an excellent research review. He implements a lot of referencing, proving his depth of research- I will definitely work with him again, thank you!",
+                        "reviewedAt": "Published 2 months ago"
+                    },
+                    {
+                        "name": "harrybenham228",
+                        "country": "United Kingdom",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+                        "review": "Struan's work is exceptional! His communication, service and final delivery were of the highest quality and even better than expected. I will definitely choose him for research work again!",
+                        "reviewedAt": "Published 2 months ago"
+                    },
+                    {
+                        "name": "bossbroc",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "My absolute go-to researcher!",
+                        "reviewedAt": "Published 3 hours ago"
+                    }
+                ]
+            },
+            {
+                _id: "i140",
+                owner_id: "u140",
+                owner_rate: 5,
+                title: "I will provide quality essays research and summaries on any topic",
+                about: "I am an enthusiastic and proficient writer with 4+ years of research related experience. My journey in the writing industry kicked off at the University where I did countless research and gained more experience. I will assist you with any kind of research and solve your different business needs. Please reach out for excellent and timely work.",
+                price: 71,
+                owner: {
+                    _id: "u140",
+                    fullname: "victoriaeva610",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/34a47e49caa09a703d81ef0621ad0ac1-1626197544385/3cb9eb7a-2163-4722-a1b0-0ddb9eb04d4e.png",
+                    level: "basic/premium",
+                    rate: 4
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "Kenya",
+                daysToMake: 18,
+                description: "GET CUSTOM ORDERS, QUALITY WORK, AND AN AMAZING EXPERIENCE\nIf you're looking for a professional researcher and a committed writer for all your writing needs, click on this gig because I can't wait to work with YOU.\nI am an expert writer with over 8 years' experience. I guarantee quality, original content written from scratch, plagiarism free, and delivered within the shortest time possible. My main areas of expertise are\nResearch\nEnglish\nHistory\nBusiness\nPsychology\nnursing, arts\nEducation\nCriminal justice\nSociology\nSupply chain\nLogistics\nCase studies\nMarketing\nSummary Writing\nI will offer YOU:\n100% Plagiarism free content\nTimely turnaround\nTop-notch grammar\nWell researched and referenced content\n24/7 Customer support\nKindly contact me before placing an order.\nPS: Custom orders also available upon request",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/217276086/original/6a004b8b82868ab02836bdfcb42c4a0e4b042f87.png"],
+                tags: [
+                    "reports",
+                    "articles",
+                    "internet researcher",
+                    "summaries"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "isabellaava851",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "The seller went above and beyond and highly recommend u look no further. Her ability to create such detailed projects has convinced me that she is the best at what she does and will work with her again and again.",
+                        "reviewedAt": "Published 3 weeks ago"
+                    },
+                    {
+                        "name": "lincoingabriel",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "This seller was extremely communicative, which I really appreciated. The seller was prompt with the delivery and the work was professionally done! I would highly recommend and use the services again!",
+                        "reviewedAt": "Published 3 weeks ago"
+                    },
+                    {
+                        "name": "tiffanyhaddish",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Awesome at communication and writing. Really sweet and understanding, goes above and beyond to assure customer satisfaction!! 5 out of 5 recommend!!!",
+                        "reviewedAt": "Published 3 weeks ago"
+                    },
+                    {
+                        "name": "loganmax688",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "a great buyer with great understanding on the task, I will definitely come again and again, I am really impressed.",
+                        "reviewedAt": "Published 3 weeks ago"
+                    },
+                    {
+                        "name": "candiceaponte",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "She got me my assignment back in 6 hours. Thank you so much",
+                        "reviewedAt": "Published 7 hours ago"
+                    }
+                ]
+            },
+            {
+                _id: "i141",
+                owner_id: "u141",
+                owner_rate: 5,
+                title: "I will deliver quality case study analysis, articles, research and summaries",
+                about: "I am a professional and diligent writer with more than 6 years experience as a freelance writer. My goal is your satisfaction and to deliver work that you will appreciate. Writing is my passion and I aim to do excellent work for all my clients that will meet the set goals and standards.",
+                price: 103,
+                owner: {
+                    _id: "u141",
+                    fullname: "angela_637",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/03e667c26a63c20863e016917c423eb0-1622910916319/85930fed-bb45-4b01-b117-3913f19b77d7.PNG",
+                    level: "basic/premium",
+                    rate: 4
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "Kenya",
+                daysToMake: 11,
+                description: "Hi, thank you for clicking my gig.\nKindly contact me before placing an order to discuss the requirements and check for availability.\nAre you looking for a professional for your essays, articles, case study, reflections, summary and research work? Then look no further, you are on the right PLACE.\nI am here to provide you with high-quality and professional services. I have been in the writing industry for over six years. As a researcher, I have a keen interest in identifying major problems and proposing better solutions/recommendations against them.\nWhat you will get from this gig?\nUnique and creative content\nOn-time delivery\nEngaging content\nWell researched and quality work\n100% plagiarism-free\nN/B: I OFFER SERVICES ACCORDING TO FIVERR TERMS OF SERVICE (TOS).",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/210082068/original/f1d222ff641f41a63cce8235a6a5128f05b477bc.jpg"],
+                tags: [
+                    "research and summary",
+                    "case study",
+                    "research",
+                    "summary",
+                    "articles"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "myaznd",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Her work is absolutely amazing ! Delivered on time and very accommodating . would definitely recommend . I will be reaching out again .",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "evanclark",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "excellent experience. Angela delivered exactly what she said she would. Very thorough and High quality of service and communication. will definitely work with again!",
+                        "reviewedAt": "Published 2 months ago"
+                    },
+                    {
+                        "name": "ronneishapicket",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Didn’t need any modifications was absolutely perfect ! Got me an A so I highly recommend! And will be shopping in the future",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "klemicha",
+                        "country": "Austria",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1f9.png",
+                        "review": "Angela did a great job in a short time, understood the task easily, communicated well & has good language skills. Thanks a lot :)",
+                        "reviewedAt": "Published 1 week ago"
+                    },
+                    {
+                        "name": "whatsrealeasy",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "great work on the research",
+                        "reviewedAt": "Published 4 days ago"
+                    }
+                ]
+            },
+            {
+                _id: "i142",
+                owner_id: "u142",
+                owner_rate: 5,
+                title: "I will do market research, business research, swot analysis, and competitive analysis",
+                about: "Hi, my name is Lay. I'm a professional writer in Microsoft word, excel, PowerPoint expert with years of experience. Through my time of work, I have been able to manage tasks such as document formatting & editing, designing, cleanup, and typing of documents for both individual firms and local governments, having worked that long I'm proficient and have the capacity in executing tasks involved in different fields requested by the client. Welcome, let us work together. regards, Troyeb84.",
+                price: 72,
+                owner: {
+                    _id: "u142",
+                    fullname: "layee84",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/b398d51589f16ed08ca0510c2c5edbe2-1636020659427/ecb5ae5e-d22a-47bc-bd9f-e7b2f99c0994.jpg",
+                    level: "basic/premium",
+                    rate: 2
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "Kenya",
+                daysToMake: 4,
+                descriptio: "Hello Fiverr Community,\nThis is Layee, A professional Business Consultant.\nBefore venturing in to any field in the business sector, it’s important to carry out a prior study, and carry out market research on that particular business.\nI will carry out a comprehensive market research for you, and come up with a detailed market research report.\nThe Market Research Report will cover the following areas depending on the package & availability of information: -\n· Market Research\n· Competitor analysis\n· Industry analysis\n· Product Research\n· Market Segmentation\n· Porter's Five Forces Analysis\n· Pestle Analysis\n· Market Trends\n· Market Drivers\n· Marketing Mix\n· Market Size\n· Total Available Market (TAM)\n· Demographics\n· SWOT Analysis\n· Market Growth\n· Marketing Options\n· Marketing Strategies\n· Future Markets\n· Web Research\n· Business Plan (Gig Extra)\nAnd Many More….\nThe success of your business is my primary objective/priority, and will offer all these services so that you are able to achieve your business objectives easily, and on time (or",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/232972469/original/679ec7f5d8e49604c2290664620969803d96f7c7.jpg"],
+                tags: [
+                    "competitive analysis",
+                    "business research",
+                    "market research",
+                    "reports",
+                    "swot analysis"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "njameshoward",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Great communication and speed",
+                        "reviewedAt": "Published 2 weeks ago"
+                    },
+                    {
+                        "name": "lucasnowak224",
+                        "country": "Pakistan",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f5-1f1f0.png",
+                        "review": "Brilliant communication, time management and highly appreciate the hardwork and input.",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "lucasnowak224",
+                        "country": "Pakistan",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f5-1f1f0.png",
+                        "review": "Met tight deadline with great communication and cooperation.",
+                        "reviewedAt": "Published 4 weeks ago"
+                    },
+                    {
+                        "name": "muradyoussef",
+                        "country": "Austria",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1f9.png",
+                        "review": "verrrrrrrrrrrrrrrry gooooooooooooooooood",
+                        "reviewedAt": "Published 2 months ago"
+                    },
+                    {
+                        "name": "cantillo16",
+                        "country": "Costa Rica",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1f7.png",
+                        "review": "Excellent service",
+                        "reviewedAt": "Published 2 months ago"
+                    }
+                ]
+            },
+            {
+                _id: "i143",
+                owner_id: "u143",
+                owner_rate: 5,
+                title: "I will translate english to hebrew and hebrew to english",
+                about: "Hi guys! I am a native level speaker (reader, writer, typer, dreamer) of Hebrew and English, and I live in beautiful Israel. I can translate English to Hebrew and Hebrew to English, for any type of content you need - articles, blog posts, social media posts, ads, books, presentation, reports and many more. I am SUPER organised and LOVE what I do. So let's start working on your projects! Contact me :)",
+                price: 120,
+                owner: {
+                    _id: "u143",
+                    fullname: "shiranmor17",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/2077b8d6eeb98061673b868ec51a9267-1636915857681/b31b149f-5e31-46bd-9a2e-27e94cc3e5e2.jpeg",
+                    level: "basic/premium",
+                    rate: 4
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "Israel",
+                daysToMake: 28,
+                description: "Hello and welcome to my gig!\nI am Shiran and I have 3 years of experience in translations and 6 years of writing experience (Hebrew and English). I make a high-quality, accurate translations from Hebrew to English and English to Hebrew. I DO NOT USE GOOGLE TRANSLATE.\nI can translate any topic and many types of content. I will translate almost any text, article, book, social media posts, subtitle and even websites.\nNo technical or legal translation or transcription.",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/232298461/original/e2872bd49bcb0a344ca35cae4e6a858dbf794fb7.png"],
+                tags: [
+                    "hebrew to english",
+                    "accurate translation",
+                    "english to hebrew",
+                    "hebrew",
+                    "translation"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "adamronde",
+                        "country": "Israel",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
+                        "review": "I got my document translated by the deadline, with high efficiency and translation level. I got nice inputs and comments that helped the final delivery be excellent. thank you a lot for providing a great service.",
+                        "reviewedAt": "Published 2 weeks ago"
+                    },
+                    {
+                        "name": "worldpressnow",
+                        "country": "Germany",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png",
+                        "review": "Good communication, very friendly and quick delivery!",
+                        "reviewedAt": "Published 2 weeks ago"
+                    },
+                    {
+                        "name": "osherbanay1",
+                        "country": "Israel",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
+                        "review": "Amazing! very accurate and very quick, pleasure to work with!",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "talleizer",
+                        "country": "Israel",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
+                        "review": "shiran do a great job definitely recommanded",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "idankayam",
+                        "country": "Israel",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
+                        "review": "great she is the best",
+                        "reviewedAt": "Published 1 month ago"
+                    }
+                ]
+            },
             // {
             //     _id: "i144",
             //     owner_id: "u144",
@@ -2163,7 +2245,7 @@ function _createGigs() {
             //     country: "Russia",
             //     daysToMake: 15,
             //     description: "**The one and only Top Rated Seller with flawless Russian as the mother tongue (34+ years in Moscow)**\nOn this page, you can order professional and flawless Russian to English translation and English to Russian translation by a native and experienced Russian and English translator.\nI work in the field of Russian to English and English to Russian translation since 2009 and have successfully received a diploma with honors and a Master of Arts degree in Spanish and English.\nIn case if you are looking for perfect quality at the best price, I am your best choice!\nI offer the following:\n- An individual approach for every customer\n- My goal is quality, and I will never make something average just to finish it as fast as I can\n- Free correction after implementation is offered for all the orders\n- Flexible rules and ultimate solutions for my customers\n- I research translated topics, reading articles and related websites in order to get the context\nI have vast experience in Russian and English translation of\n- religious documents\n- whitepapers (ICOs)\n- software\n- games\n- websites\n- CMS\n- agreements\n- manuals\n- subtitles\nand other materials\nOrder Russian and English translation",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/3296856/original/767ea5cb0ccd4893231d198cbd1e7a82a42d1faf.jpg",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/3296856/original/767ea5cb0ccd4893231d198cbd1e7a82a42d1faf.jpg"],
             //     tags: [
             //         "english to russian",
             //         "russian to english",
@@ -2192,7 +2274,7 @@ function _createGigs() {
             //         {
             //             "name": "lhancha",
             //             "country": "Morocco",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f2-1f1e6.png",
+            //             "flag": "Was very thorough and professional. Completed the work accurately and in a timely manner. I will order again in the future. Thank you.",
             //             "review": "Was very thorough and professional. Completed the work accurately and in a timely manner. I will order again in the future. Thank you.",
             //             "reviewedAt": "Published 1 month ago"
             //         },
@@ -2229,7 +2311,7 @@ function _createGigs() {
             //     country: "France",
             //     daysToMake: 6,
             //     description: "Who am I?\nI'm a French native translator (copywriter) born in Paris working as a freelancer since 2008 for well-known clients and agencies (KAYAK, L'EXPRESS, Expedia). If you've been looking for a French translator that'll actually make your translation accurate (english to french translation & french to english), you've just found him.\nI will :\nTranslate from English to French and French to English\nMake it sound natural (localization)\nFor resumes, documents, PDFs, and Amazon listing please message me first.\nWhy should you choose me?\n\"We highly recommend Alexis. He read the guidelines carefully and provided a top-quality output. And now he is working on another project with us.\" L'EXPRESS (Black Friday content)\n\"Alexis was very willing to take on new work, responded fast to messages, and finished the work ahead of schedule. He is open to changes and very flexible. I recommend him for any French translation work.\" KAYAK\nI've written and translated content into French / English for small businesses, entrepreneurs at all levels, Fortune 100 and tech giants, as well as celebrities and bestselling authors.",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/129378192/original/accecd46dd68bf0eae72b5c91db4edc34c625cd3.jpg",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/129378192/original/accecd46dd68bf0eae72b5c91db4edc34c625cd3.jpg"],
             //     tags: [
             //         "french to english",
             //         "translate french",
@@ -2277,71 +2359,72 @@ function _createGigs() {
             //         }
             //     ]
             // },
-            // {
-            //     _id: "i146",
-            //     owner_id: "u146",
-            //     owner_rate: 5,
-            //     title: "I will translate your website french to english, english to french",
-            //     about: "We are a small team consisting of bilingual English, French and Spanish speakers. We have extensive experience translating all kinds of documents ranging from academic essays to business reports, subtitles and scripts to short novels. We ensure all of our projects are completed with the highest degree of quality and our dedicated approach means that your translated document will be a perfect version, with attention paid over the register and vocabulary used.",
-            //     price: 109,
-            //     owner: {
-            //         _id: "u146",
-            //         fullname: "moremarks",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/c7335c7b5aa8d880333495ef8f4bbee5-1617624531791/a2fc714b-c261-490d-b93a-af081a385234.png",
-            //         level: "basic/premium",
-            //         rate: 4
-            //     },
-            //     country: "United Kingdom",
-            //     daysToMake: 16,
-            //     description: "I will translate all translations sent to me within 12 hours. I can translate French to English and English to French.\nTranslations completed by a Bilingual French & English speaker and an experienced translator. I have extensive experience translation all kinds of projects.\nIf you have any questions, please send a message am I will get back to you ass soon as possible. If you have a larger project to do, don't hesitate to get in contact and we can find a solution that works for you.\nPlease send a message so I can send you a custom order.",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/217112898/original/2857822ef954d4d7305529500a3b9ab3eee33a0c.png",
-            //     tags: [
-            //         "french to english",
-            //         "english translation",
-            //         "translation",
-            //         "french translation"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "theowl_mktg",
-            //             "country": "France",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1f7.png",
-            //             "review": "Amazing ! Extremely reactive and truly professional. We needed translation for a french marketing website : translations were delivered in a short span of time with high quality. Execution was excellent : the seller kept the text evocative and emotive. I really recommend !",
-            //             "reviewedAt": "Published 3 weeks ago"
-            //         },
-            //         {
-            //             "name": "saracousin",
-            //             "country": "Switzerland",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1ed.png",
-            //             "review": "Fast and great job",
-            //             "reviewedAt": "Published 3 days ago"
-            //         },
-            //         {
-            //             "name": "felipecabrer920",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Quick turnaround and quality work!",
-            //             "reviewedAt": "Published 3 weeks ago"
-            //         },
-            //         {
-            //             "name": "oliviercroce738",
-            //             "country": "France",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1f7.png",
-            //             "review": "Merci beaucoup pour la qualité du travail et la réactivité",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "stephanemeer",
-            //             "country": "France",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1f7.png",
-            //             "review": "Very fast and effective translation from French to English. Thank you so much for your help.",
-            //             "reviewedAt": "Published 1 month ago"
-            //         }
-            //     ]
-            // },
+            {
+                _id: "i146",
+                owner_id: "u146",
+                owner_rate: 5,
+                title: "I will translate your website french to english, english to french",
+                about: "We are a small team consisting of bilingual English, French and Spanish speakers. We have extensive experience translating all kinds of documents ranging from academic essays to business reports, subtitles and scripts to short novels. We ensure all of our projects are completed with the highest degree of quality and our dedicated approach means that your translated document will be a perfect version, with attention paid over the register and vocabulary used.",
+                price: 109,
+                owner: {
+                    _id: "u146",
+                    fullname: "moremarks",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/c7335c7b5aa8d880333495ef8f4bbee5-1617624531791/a2fc714b-c261-490d-b93a-af081a385234.png",
+                    level: "2",
+                    rate: 4
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "United Kingdom",
+                daysToMake: 16,
+                description: "I will translate all translations sent to me within 12 hours. I can translate French to English and English to French.\nTranslations completed by a Bilingual French & English speaker and an experienced translator. I have extensive experience translation all kinds of projects.\nIf you have any questions, please send a message am I will get back to you ass soon as possible. If you have a larger project to do, don't hesitate to get in contact and we can find a solution that works for you.\nPlease send a message so I can send you a custom order.",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/217112898/original/2857822ef954d4d7305529500a3b9ab3eee33a0c.png"],
+                tags: [
+                    "french to english",
+                    "english translation",
+                    "translation",
+                    "french translation"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "theowl_mktg",
+                        "country": "France",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1f7.png",
+                        "review": "Amazing ! Extremely reactive and truly professional. We needed translation for a french marketing website : translations were delivered in a short span of time with high quality. Execution was excellent : the seller kept the text evocative and emotive. I really recommend !",
+                        "reviewedAt": "Published 3 weeks ago"
+                    },
+                    {
+                        "name": "saracousin",
+                        "country": "Switzerland",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1ed.png",
+                        "review": "Fast and great job",
+                        "reviewedAt": "Published 3 days ago"
+                    },
+                    {
+                        "name": "felipecabrer920",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png",
+                        "review": "Quick turnaround and quality work!",
+                        "reviewedAt": "Published 3 weeks ago"
+                    },
+                    {
+                        "name": "oliviercroce738",
+                        "country": "France",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1f7.png",
+                        "review": "Merci beaucoup pour la qualité du travail et la réactivité",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "stephanemeer",
+                        "country": "France",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1eb-1f1f7.png",
+                        "review": "Very fast and effective translation from French to English. Thank you so much for your help.",
+                        "reviewedAt": "Published 1 month ago"
+                    }
+                ]
+            },
             // {
             //     _id: "i147",
             //     owner_id: "u147",
@@ -2359,7 +2442,7 @@ function _createGigs() {
             //     country: "Germany",
             //     daysToMake: 7,
             //     description: "Kindly contact me for orders above 90 seconds.\nWhat does my package include?\nMotion whiteboard video\nScriptwriting (Additional $50 per 150 words)\nVoice over; Male & Female(English and German)\nBackground music & imagery\nHD Video\nColored whiteboard\nCommercial Rights (Additional $20)\nBroadcast Rights (Additional $50)\nNote: Voice-over is available in German, US English, and UK English.\n.\n.\n.\nBitte kontaktieren Sie mich für Bestellungen über 90 Sekunden.\nWas beinhaltet mein Paket?\nMotion Whiteboard Video\nDrehbuchschreiben (Zusätzliche €50 pro 150 Wörter)\nVoice-over; Männlich & Weiblich (Englisch und Deutsch)\nHintergrundmusik und Bilder\nHD-Video\nFarbiges Whiteboard\nKommerzielle Rechte (Zusätzliche €20)\nÜbertragungsrechte (Zusätzliche €50)\nHinweis: Voice-Over ist in Deutsch, US-Englisch und UK-Englisch verfügbar.",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/video/upload/t_gig_cards_web/lrceizjt7bnvlvkd8dbo.png",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/video/upload/t_gig_cards_web/lrceizjt7bnvlvkd8dbo.png"],
             //     tags: [
             //         "whiteboard video",
             //         "explainer video",
@@ -2406,72 +2489,73 @@ function _createGigs() {
             //         }
             //     ]
             // },
-            // {
-            //     _id: "i148",
-            //     owner_id: "u148",
-            //     owner_rate: 5,
-            //     title: "I will create professional 2d animation explainer video",
-            //     about: "Hello Welcome to AMA Studio. If You are looking for Explainer video or Want to share your Story With World in Creative Way Or Maybe you launched a music and thinking about a video for it well you came to the right place, here in ama studio we provide professional animation with 3 different styles, we also provide scriptwriting and professional voiceovers with multiple gender and multiple accents so what are you waiting for Contact us Now.",
-            //     price: 78,
-            //     owner: {
-            //         _id: "u148",
-            //         fullname: "ama_studio1",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/18ecf7c17fc8aa50d64b8a89c500a5ad-1612199164491/1963fa7b-062c-4c52-a26d-30473a2d3fad.png",
-            //         level: "basic/premium",
-            //         rate: 5
-            //     },
-            //     country: "Pakistan",
-            //     daysToMake: 17,
-            //     description: "Are You Looking For A 2d Animation Explainer Video For Your Website, Product Or Service?\nWe Offer High Quality Video With Quick Turnaround Time Which Ensures Your Business Gets The Engaging Audience And Profit Turn Around.\nNeed Explainer Animation In Spanish (Español) ? German (Deutsch)? Italian (Italiano) ? No Problem! We Understand All Languages.\nWhat You Will Get And Each Package?\n• Fantastic 2d Animation\n• Full Hd 1080p\n• Background Imagery\n• Background Music\n• Professional Voice-over\n• Unlimited Revisions\nScript Writing Services Are Also Provided.\nIf You Have Any Custom Work Or Do You Have Any Storyboard Please Contact Me Before The Order For Custom Order\nBest Regards\nAMA",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/video/upload/t_gig_cards_web/efora4o9znelgccz7fkq.png",
-            //     tags: [
-            //         "explainer video",
-            //         "2d animation",
-            //         "2d animation video",
-            //         "cartoon animation",
-            //         "promotional video"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "andres_r_",
-            //             "country": "Germany",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png",
-            //             "review": "I was reluctant about using this kind of service at first, but I am very happy with the final result and positively surprised about how creative ama_studio is. I would recommend the service 100% and surely will use it again in the future. Fast, reliable, and the best price-quality ratio.",
-            //             "reviewedAt": "Published 2 days ago"
-            //         },
-            //         {
-            //             "name": "leonkaplun351",
-            //             "country": "Israel",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
-            //             "review": "WOW ! Amazing JOB ! After the first revision when I explained my needs They fixed it fast to exactly what I asked Great Communication We have a long term partnership from now Thank you",
-            //             "reviewedAt": "Published 3 weeks ago"
-            //         },
-            //         {
-            //             "name": "fiverrvg",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Seller communicated well and took time to properly understand my requirements. Seller accommodated revisions and worked with me to meet my expectations.",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "mrmichael1324",
-            //             "country": "United Kingdom",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
-            //             "review": "First time using Fiverr and could not of asked for a better experience. So fast and professional. EXACTLY what I wanted. 100% recommended.",
-            //             "reviewedAt": "Published 3 weeks ago"
-            //         },
-            //         {
-            //             "name": "reneshamcneal",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "They gave me everything I asked for and was very patient with me with all the requests I asked for.",
-            //             "reviewedAt": "Published 2 months ago"
-            //         }
-            //     ]
-            // },
+            {
+                _id: "i148",
+                owner_id: "u148",
+                owner_rate: 5,
+                title: "I will create professional 2d animation explainer video",
+                about: "Hello Welcome to AMA Studio. If You are looking for Explainer video or Want to share your Story With World in Creative Way Or Maybe you launched a music and thinking about a video for it well you came to the right place, here in ama studio we provide professional animation with 3 different styles, we also provide scriptwriting and professional voiceovers with multiple gender and multiple accents so what are you waiting for Contact us Now.",
+                price: 78,
+                owner: {
+                    _id: "u148",
+                    fullname: "ama_studio1",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/18ecf7c17fc8aa50d64b8a89c500a5ad-1612199164491/1963fa7b-062c-4c52-a26d-30473a2d3fad.png",
+                    level: "basic/premium",
+                    rate: 5
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "Pakistan",
+                daysToMake: 17,
+                description: "Are You Looking For A 2d Animation Explainer Video For Your Website, Product Or Service?\nWe Offer High Quality Video With Quick Turnaround Time Which Ensures Your Business Gets The Engaging Audience And Profit Turn Around.\nNeed Explainer Animation In Spanish (Español) ? German (Deutsch)? Italian (Italiano) ? No Problem! We Understand All Languages.\nWhat You Will Get And Each Package?\n• Fantastic 2d Animation\n• Full Hd 1080p\n• Background Imagery\n• Background Music\n• Professional Voice-over\n• Unlimited Revisions\nScript Writing Services Are Also Provided.\nIf You Have Any Custom Work Or Do You Have Any Storyboard Please Contact Me Before The Order For Custom Order\nBest Regards\nAMA",
+                imgUrl: ["https://fiverr-res.cloudinary.com/video/upload/t_gig_cards_web/efora4o9znelgccz7fkq.png"],
+                tags: [
+                    "explainer video",
+                    "2d animation",
+                    "2d animation video",
+                    "cartoon animation",
+                    "promotional video"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "andres_r_",
+                        "country": "Germany",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png",
+                        "review": "I was reluctant about using this kind of service at first, but I am very happy with the final result and positively surprised about how creative ama_studio is. I would recommend the service 100% and surely will use it again in the future. Fast, reliable, and the best price-quality ratio.",
+                        "reviewedAt": "Published 2 days ago"
+                    },
+                    {
+                        "name": "leonkaplun351",
+                        "country": "Israel",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
+                        "review": "WOW ! Amazing JOB ! After the first revision when I explained my needs They fixed it fast to exactly what I asked Great Communication We have a long term partnership from now Thank you",
+                        "reviewedAt": "Published 3 weeks ago"
+                    },
+                    {
+                        "name": "fiverrvg",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Seller communicated well and took time to properly understand my requirements. Seller accommodated revisions and worked with me to meet my expectations.",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "mrmichael1324",
+                        "country": "United Kingdom",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+                        "review": "First time using Fiverr and could not of asked for a better experience. So fast and professional. EXACTLY what I wanted. 100% recommended.",
+                        "reviewedAt": "Published 3 weeks ago"
+                    },
+                    {
+                        "name": "reneshamcneal",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "They gave me everything I asked for and was very patient with me with all the requests I asked for.",
+                        "reviewedAt": "Published 2 months ago"
+                    }
+                ]
+            },
             // {
             //     _id: "i149",
             //     owner_id: "u149",
@@ -2489,7 +2573,7 @@ function _createGigs() {
             //     country: "Nigeria",
             //     daysToMake: 12,
             //     description: "Hii, Welcome to my Whiteboard Animation Video Gig!\nIn this gig, I'll Create the Most EYE-CATCHING whiteboard animation videos tailored to fit your needs.\nThese unique whiteboard Explainer videos for your brand Or business will help to increase your sales and it will definitely create a unique impression on your clients by making them engaging.\nyou'll Get:\n1. The most Unique Explainer Videos compared to other normal whiteboard videos\n2. Fully Colored Videos\n3. Unlimited Revisions Until you're Satisfied\n4. High-Quality Delivery\n5. Fast Communication\n6. All Niche Available\n7. 100% Satisfaction Guaranty\n8. Moneyback Guaranty\n**************\nIf you need custom drawings please check my other gig! or Feel Free to Ping me We'll discuss it : )\nI'm also providing Voiceover and Script Writing Services Please check the extras for the same...\nKindly ensure all required information is readily available before ordering.\nStill, Have Questions?\nFeel Free to contact me Anytime I'm Always here to help you : )\nLooking forward to receiving your Order...\nRegards\nArnold",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/video/upload/so_26.270999,t_gig_cards_web/tfl3oturwkkl0qp55kmf.png",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/video/upload/so_26.270999,t_gig_cards_web/tfl3oturwkkl0qp55kmf.png"],
             //     tags: [
             //         "whiteboard video",
             //         "explainer video",
@@ -2555,7 +2639,7 @@ function _createGigs() {
             //     country: "Argentina",
             //     daysToMake: 12,
             //     description: "ENGAGE YOUR AUDIENCE!!!\nwith your own whiteboard animated doodle video\nULTRA FAST 48 Hours turn-around available\nPUT YOUR VIDEO MARKETING ON STEROIDS\nWe`ll create a fantastic speed-draw or whiteboard animation of any logo, picture, script or text\nWhat you get for $35:\n30-second video with voice over recording\nImages from our Exclusive Hand Drawn Library + 2 Custom Drawings\nBackground Music\nYou must Provide the Script for the video - Up to 75 words\n1080p Video in MP4 or any video format you need\nExtras Available\nFull HD 1920x1080 Delivery\nFast Delivery\nScript Writing\nWatermark\nColor\nSubtitles\nIf you have other requirements just contact us and we´ll reply soon.\n100% Satisfaction Guaranteed\nYour satisfaction is important to us.\nORDER NOW!\nATTENTION - Projects of 300+ words, contact me for a quote and timeframe first.",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/video/upload/so_4.985944,t_gig_cards_web/llttjkqfxz0ybon92ifg.png",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/video/upload/so_4.985944,t_gig_cards_web/llttjkqfxz0ybon92ifg.png"],
             //     tags: [
             //         "explainer video",
             //         "doodle",
@@ -2603,72 +2687,73 @@ function _createGigs() {
             //         }
             //     ]
             // },
-            // {
-            //     _id: "i151",
-            //     owner_id: "u151",
-            //     owner_rate: 5,
-            //     title: "I will write, rebrand, edit and optimize your linkedin profile",
-            //     about: "I'm one of Fiverr's original sellers and I will handle all of your copywriting and SEO blogging needs! You will see my reviews are OUTSTANDING. Fast turn-around and always here to help. :)",
-            //     price: 108,
-            //     owner: {
-            //         _id: "u151",
-            //         fullname: "mediagirl",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e3f2db9a69a2cc7b69c653d3185b6ba9-1592756841572/fbdf1383-4893-4f94-a3c9-a324c68aca4f.jpg",
-            //         level: "basic/premium",
-            //         rate: 4
-            //     },
-            //     country: "United States",
-            //     daysToMake: 17,
-            //     description: "You've got one chance to make a first impression.\nYour LinkedIn profile is that chance. Are you leaving potential employers with the best impression you can?\nAre you hire-able?\nI'm here to make sure your LinkedIn profile is branded and optimized to it's full potential! I will spend time analyzing, researching and rebranding your profile to help you get noticed.\nI'm back on Fiverr and ready to bring my expertise to help you reach your goals. I was one of the Original Top-Rated Sellers and my ratings speak for themselves. Over 8k gigs completed, and most all of my completed reviews are 5 star!\nI have 3 packages to choose from depending on the level of help you need.\nI hold a Bachelor's Degree in Communication from University of Southern California and have been writing in a professional capacity for over 10 years. I have extensive SEO knowledge and I am a trained copy writer, creative writer and content creation master. Let me help market you for your dream job!",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/161720033/original/b710f4f32dea2048e662276a241c9d5dfe638106.jpeg",
-            //     tags: [
-            //         "resume writer",
-            //         "linked in",
-            //         "linkedin",
-            //         "job hunting",
-            //         "resume writing"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "ppiork",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "The written communicate was good. I received a response within a few hours. I did not like that all communications had to go through the Fiverr platform, even after securing the project. (This might be a new Fiverr restriction - not sure.) A lot of time was lost in the wait whereas a call could have cleared up a lot of questions and given greater clarity sooner. Also, I didn't feel the seller fully understood the voice, tone, and purpose for my using the Fiverr. I had to repeat my purpose a couple of times. This seller is very responsive and with time and very detailed directions, she can provide what you're looking for.",
-            //             "reviewedAt": "Published 2 weeks ago"
-            //         },
-            //         {
-            //             "name": "larrin",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Thank you for the tips and rewrite. I wanted to know if you would be ok adding Chief Marketing Officer, Patriot Gold Group",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "adrienne0115",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Mediagirl is amazing, with a very quick turnaround. She took a most cumbersome task of redoing my LinkedIn, and made it absolutely something that I am proud of. I would highly recommend her services.",
-            //             "reviewedAt": "Published 4 days ago"
-            //         },
-            //         {
-            //             "name": "antonnakov",
-            //             "country": "Germany",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png",
-            //             "review": "Overall good service and very good value for money. I'd recommend it to others looking for a critical review of their LinkedIn Profile.",
-            //             "reviewedAt": "Published 5 days ago"
-            //         },
-            //         {
-            //             "name": "nyc1989",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Mediagirl is truly phenomenal. She has excellent writing skills and helped me to significantly improve my LinkedIn profile. I would highly recommend her.",
-            //             "reviewedAt": "Published 2 months ago"
-            //         }
-            //     ]
-            // },
+            {
+                _id: "i151",
+                owner_id: "u151",
+                owner_rate: 5,
+                title: "I will write, rebrand, edit and optimize your linkedin profile",
+                about: "I'm one of Fiverr's original sellers and I will handle all of your copywriting and SEO blogging needs! You will see my reviews are OUTSTANDING. Fast turn-around and always here to help. :)",
+                price: 108,
+                owner: {
+                    _id: "u151",
+                    fullname: "mediagirl",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e3f2db9a69a2cc7b69c653d3185b6ba9-1592756841572/fbdf1383-4893-4f94-a3c9-a324c68aca4f.jpg",
+                    level: "basic/premium",
+                    rate: 4
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "United States",
+                daysToMake: 17,
+                description: "You've got one chance to make a first impression.\nYour LinkedIn profile is that chance. Are you leaving potential employers with the best impression you can?\nAre you hire-able?\nI'm here to make sure your LinkedIn profile is branded and optimized to it's full potential! I will spend time analyzing, researching and rebranding your profile to help you get noticed.\nI'm back on Fiverr and ready to bring my expertise to help you reach your goals. I was one of the Original Top-Rated Sellers and my ratings speak for themselves. Over 8k gigs completed, and most all of my completed reviews are 5 star!\nI have 3 packages to choose from depending on the level of help you need.\nI hold a Bachelor's Degree in Communication from University of Southern California and have been writing in a professional capacity for over 10 years. I have extensive SEO knowledge and I am a trained copy writer, creative writer and content creation master. Let me help market you for your dream job!",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/161720033/original/b710f4f32dea2048e662276a241c9d5dfe638106.jpeg"],
+                tags: [
+                    "resume writer",
+                    "linked in",
+                    "linkedin",
+                    "job hunting",
+                    "resume writing"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "ppiork",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "The written communicate was good. I received a response within a few hours. I did not like that all communications had to go through the Fiverr platform, even after securing the project. (This might be a new Fiverr restriction - not sure.) A lot of time was lost in the wait whereas a call could have cleared up a lot of questions and given greater clarity sooner. Also, I didn't feel the seller fully understood the voice, tone, and purpose for my using the Fiverr. I had to repeat my purpose a couple of times. This seller is very responsive and with time and very detailed directions, she can provide what you're looking for.",
+                        "reviewedAt": "Published 2 weeks ago"
+                    },
+                    {
+                        "name": "larrin",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Thank you for the tips and rewrite. I wanted to know if you would be ok adding Chief Marketing Officer, Patriot Gold Group",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "adrienne0115",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Mediagirl is amazing, with a very quick turnaround. She took a most cumbersome task of redoing my LinkedIn, and made it absolutely something that I am proud of. I would highly recommend her services.",
+                        "reviewedAt": "Published 4 days ago"
+                    },
+                    {
+                        "name": "antonnakov",
+                        "country": "Germany",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png",
+                        "review": "Overall good service and very good value for money. I'd recommend it to others looking for a critical review of their LinkedIn Profile.",
+                        "reviewedAt": "Published 5 days ago"
+                    },
+                    {
+                        "name": "nyc1989",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Mediagirl is truly phenomenal. She has excellent writing skills and helped me to significantly improve my LinkedIn profile. I would highly recommend her.",
+                        "reviewedAt": "Published 2 months ago"
+                    }
+                ]
+            },
             // {
             //     _id: "i152",
             //     owner_id: "u152",
@@ -2686,7 +2771,7 @@ function _createGigs() {
             //     country: "United States",
             //     daysToMake: 22,
             //     description: "This gig is designed to maximize the full range of LinkedIn's networking and recruiting power through using accomplishment-based, optimized content with LinkedIn's internal search algorithms to ensure you appear on the radar of headhunters and recruiters.\nThis service is for clients seeking work with a company, not to promote a business.\nThe Process:\n1) Send in your fully current resume of 1-2 pages max. and the URL (link) to your LinkedIn page.\n2) I will create a full professional summary (the 'about' section) in Word.doc.\n3) I will also fully upgrade your job descriptions, which will be done on the same Word.doc as #2.\n4) Once you transfer this content into your LinkedIn profile, I will complete the full multi-point inspection of your entire public profile to ensure all areas of the profile are fully optimized.\nThe Results:\nMy clients typically see a 300% increase in LinkedIn traffic.\n* To couple a LinkedIn service with a resume/cover letter, please visit this gig:\nhttps://www.fiverr.com/harvardcv/create-edit-and-design-your-cv-cover-letter-and-linkedin-profile",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/131354127/original/7ea13693d5539c7714613fa799147a1e88cf91e3.jpg",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/131354127/original/7ea13693d5539c7714613fa799147a1e88cf91e3.jpg"],
             //     tags: [
             //         "linkedin profile",
             //         "linkedin",
@@ -2735,138 +2820,140 @@ function _createGigs() {
             //         }
             //     ]
             // },
-            // {
-            //     _id: "i153",
-            //     owner_id: "u153",
-            //     owner_rate: 5,
-            //     title: "I will revamp your linkedin profile or write a professional summary, bio",
-            //     about: "I am Hina, a Certified Professional Resume Writer and Career Consultant. I can write and design a job-oriented Resume and Cover Letter and Optimize your LinkedIn profiles. I have successfully helped recruit and land jobs for thousands of job seekers. As a professional Article Writer and Editor, I have extensive experience in Content Writing, Blog Post Writing, Proofreading Editing, and Copywriting. I am MS Office Certified and an expert in Data entry, file conversion, and PowerPoint presentations. Order with confidence! Always open to custom offers!",
-            //     price: 165,
-            //     owner: {
-            //         _id: "u153",
-            //         fullname: "haniwritertech",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/079e914e9f28e8269dee6bb109ef85a1-1570850131880/40fbde37-316f-4de2-9ca5-07b1300360d2.jpg",
-            //         level: "basic/premium",
-            //         rate: 2
-            //     },
-            //     country: "Pakistan",
-            //     daysToMake: 28,
-            //     description: "Are you want to make your LinkedIn profile, resume, and cover letter attractive so that the right employers can find you? I am here to assist you.\nI will revamp, create, and optimize your LinkedIn profile with the right choice of keywords. I know the importance of an attractive and professional Linkedin profile and summary that can help you get the job of your dreams.\nWhat you will get?\nEye-catching Headline title that will make you stand out\nKiller bio/summary to grab attention\nEducation, Certifications & Awards\nProfessional Experience\nLinkedIn profile optimization\nHighlight your skills\n100% satisfaction guarantee\nAts resume writing and cover letter\nNote: If you have any questions or special requirements, send me a message. I will be happy to assist you.\nBest Regards!\nHina",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/200950826/original/08090f735021ad8441f30fe2f38542ce95a2ead9.png",
-            //     tags: [
-            //         "profile optimization",
-            //         "linkedin profile",
-            //         "linkedin summary",
-            //         "resume writing",
-            //         "linkedin bio"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "stevengcc",
-            //             "country": "Malaysia",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f2-1f1fe.png",
-            //             "review": "i was in hospital when the job automatically completed. the fund was transferred and unfortunately she wrote the description wrongly. however she was willing to redo the work without any complains. very responsible freelancer. highly recommended",
-            //             "reviewedAt": "Published 1 week ago"
-            //         },
-            //         {
-            //             "name": "lharris02",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Seller was very fast and prompt, delivered within 12 hours! However, some of my job experiences were padded with skills and programming languages I'm not familiar with. Other than the job experiences, everything looks great.",
-            //             "reviewedAt": "Published 2 weeks ago"
-            //         },
-            //         {
-            //             "name": "rafhaelgomes992",
-            //             "country": "Brazil",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e7-1f1f7.png",
-            //             "review": "Haniwritertech wrote something even better than I was expecting in a really short period of time. I highly recommend it.",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "rajraj731",
-            //             "country": "United Kingdom",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
-            //             "review": "She has updated my profile in 4hrs time. I really appreciate your time and effort. I will recommend her for everyone",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "haftomg",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Thank you hani for doing all the good work in short period of time i can’t thank you enough. Very highly recommended!! Keep up the good work!!",
-            //             "reviewedAt": "Published 2 months ago"
-            //         }
-            //     ]
-            // },
-            // {
-            //     _id: "i154",
-            //     owner_id: "u154",
-            //     owner_rate: 5,
-            //     title: "I will write and optimize your linkedin profile in 24 hours",
-            //     about: "As a CV Writer, Resume Writer, Covering Letter Writer, and LinkedIn Profile Writer, I have written CVs for hundreds of people from all walks of life and within many different market sectors. I help job seekers build their LinkedIn presence and create compelling resumes, so they can get in front of recruiters, impress hiring managers, and land the perfect job for them. I'm excited to help you kickstart your career!",
-            //     price: 53,
-            //     owner: {
-            //         _id: "u154",
-            //         fullname: "muzamilbutt401",
-            //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/eb5d29b35cb0f6bd47e3a2f1fb8a55db-1595779512175/3d984139-fd41-42b2-a94c-fca974593c8a.jpg",
-            //         level: "basic/premium",
-            //         rate: 5
-            //     },
-            //     country: "Pakistan",
-            //     daysToMake: 14,
-            //     description: "✪ LinkedIn Writing and Optimization Services ✪\nDo you want to stand out and take your career or business to the next level?\nI help Entrepreneurs, Change Makers & Big Dreamers stand out and take direction so they can make a great digital first impression!\nMy extensive experience in International Recruitment and Resume Writing has allowed me to gain an in-depth knowledge of industry-specific requirements across a vast range of disciplines. I can make your LinkedIn profile stand out from the crowd!\nChoose one of the packages outlined below or request a custom offer to improve your personal LinkedIn success.\nPackages:\nBasic (Entry-Level Profile): Review and optimization of your LinkedIn Headline and Bio with keywords.\nStandard (Professional Profile): Full LinkedIn profile optimization, including Headline, Bio, and career history rewrite, skill suggestions, and industry-tailored recommendations.\nPremium (Profile Creation): Creation of a full profile from scratch, optimized to meet your career preferences.\nBusiness Profiles ( Message Me To Discuss)\nNow is the time to start moving your career or business to the next level!",
-            //     imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/159966352/original/1a65840f4a6b0333d7bd37ea876663dc54b9aeaf.jpg",
-            //     tags: [
-            //         "bio",
-            //         "linkedin profile",
-            //         "linkedin optimize",
-            //         "linkedin",
-            //         "resume writing"
-            //     ],
-            //     likedByUsers: [
-            //         "mini-user"
-            //     ],
-            //     "reviews": [
-            //         {
-            //             "name": "kofaisal",
-            //             "country": "Kuwait",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f0-1f1fc.png",
-            //             "review": "For my case, I didn’t see any value added; the seller could go to my profile and assess what are the things my profile needs. He asked to choose the premium package which means creation of a full LinkedIn profile from scratch. To be fair, I am going to list what are the things I have learned from him: how to put the symbol in the description, shared with me a list skills, that I have to put my full name in the first name, and how to customize my Linkedin URL. Finally, after I received the delivery, I asked if may he share with me a few versions of the “About” section. He said that he was not able to send more versions this is because I have to pay for it. Again, I have paid $50.",
-            //             "reviewedAt": "Published 1 month ago"
-            //         },
-            //         {
-            //             "name": "simplyjassi",
-            //             "country": "Germany",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png",
-            //             "review": "He is great to work with and I was very impressed how fast he produced work in this quality. My whole profile is coherent and appealing now. I am very happy with it! Also I appreciate when somebody makes changes until the result fits the customer perfectly. Thank you! I loved working with you :)",
-            //             "reviewedAt": "Published 2 weeks ago"
-            //         },
-            //         {
-            //             "name": "jovial1",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "Very accurate descriptions for Linkedin profile and on-time delivery! Will definitely recommend his services. Thank you so much & Happy holidays!!",
-            //             "reviewedAt": "Published 2 months ago"
-            //         },
-            //         {
-            //             "name": "zurismommy",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "The seller was very attentive and got the work done on the first attempt. I am very grateful for the time saved and the level of the work. Thank you!!",
-            //             "reviewedAt": "Published 1 week ago"
-            //         },
-            //         {
-            //             "name": "laispereira94",
-            //             "country": "United States",
-            //             "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
-            //             "review": "I wasn't super clear on what I wanted, and I appreciated their willingness to help and try again. I was super happy with the final product and will surely be recommending them in the future! Thank you again!",
-            //             "reviewedAt": "Published 1 week ago"
-            //         }
-            //     ]
-            // }
+            {
+                _id: "i153",
+                owner_id: "u153",
+                owner_rate: 5,
+                title: "I will revamp your linkedin profile or write a professional summary, bio",
+                about: "I am Hina, a Certified Professional Resume Writer and Career Consultant. I can write and design a job-oriented Resume and Cover Letter and Optimize your LinkedIn profiles. I have successfully helped recruit and land jobs for thousands of job seekers. As a professional Article Writer and Editor, I have extensive experience in Content Writing, Blog Post Writing, Proofreading Editing, and Copywriting. I am MS Office Certified and an expert in Data entry, file conversion, and PowerPoint presentations. Order with confidence! Always open to custom offers!",
+                price: 165,
+                owner: {
+                    _id: "u153",
+                    fullname: "haniwritertech",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/079e914e9f28e8269dee6bb109ef85a1-1570850131880/40fbde37-316f-4de2-9ca5-07b1300360d2.jpg",
+                    level: "basic/premium",
+                    rate: 2
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "Pakistan",
+                daysToMake: 28,
+                description: "Are you want to make your LinkedIn profile, resume, and cover letter attractive so that the right employers can find you? I am here to assist you.\nI will revamp, create, and optimize your LinkedIn profile with the right choice of keywords. I know the importance of an attractive and professional Linkedin profile and summary that can help you get the job of your dreams.\nWhat you will get?\nEye-catching Headline title that will make you stand out\nKiller bio/summary to grab attention\nEducation, Certifications & Awards\nProfessional Experience\nLinkedIn profile optimization\nHighlight your skills\n100% satisfaction guarantee\nAts resume writing and cover letter\nNote: If you have any questions or special requirements, send me a message. I will be happy to assist you.\nBest Regards!\nHina",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/200950826/original/08090f735021ad8441f30fe2f38542ce95a2ead9.png"],
+                tags: [
+                    "profile optimization",
+                    "linkedin profile",
+                    "linkedin summary",
+                    "resume writing",
+                    "linkedin bio"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "stevengcc",
+                        "country": "Malaysia",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f2-1f1fe.png",
+                        "review": "i was in hospital when the job automatically completed. the fund was transferred and unfortunately she wrote the description wrongly. however she was willing to redo the work without any complains. very responsible freelancer. highly recommended",
+                        "reviewedAt": "Published 1 week ago"
+                    },
+                    {
+                        "name": "lharris02",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Seller was very fast and prompt, delivered within 12 hours! However, some of my job experiences were padded with skills and programming languages I'm not familiar with. Other than the job experiences, everything looks great.",
+                        "reviewedAt": "Published 2 weeks ago"
+                    },
+                    {
+                        "name": "rafhaelgomes992",
+                        "country": "Brazil",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e7-1f1f7.png",
+                        "review": "Haniwritertech wrote something even better than I was expecting in a really short period of time. I highly recommend it.",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "rajraj731",
+                        "country": "United Kingdom",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+                        "review": "She has updated my profile in 4hrs time. I really appreciate your time and effort. I will recommend her for everyone",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "haftomg",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Thank you hani for doing all the good work in short period of time i can’t thank you enough. Very highly recommended!! Keep up the good work!!",
+                        "reviewedAt": "Published 2 months ago"
+                    }
+                ]
+            },
+            {
+                _id: "i154",
+                owner_id: "u154",
+                owner_rate: 5,
+                title: "I will write and optimize your linkedin profile in 24 hours",
+                about: "As a CV Writer, Resume Writer, Covering Letter Writer, and LinkedIn Profile Writer, I have written CVs for hundreds of people from all walks of life and within many different market sectors. I help job seekers build their LinkedIn presence and create compelling resumes, so they can get in front of recruiters, impress hiring managers, and land the perfect job for them. I'm excited to help you kickstart your career!",
+                price: 53,
+                owner: {
+                    _id: "u154",
+                    fullname: "muzamilbutt401",
+                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/eb5d29b35cb0f6bd47e3a2f1fb8a55db-1595779512175/3d984139-fd41-42b2-a94c-fca974593c8a.jpg",
+                    level: "basic/premium",
+                    rate: 5
+                },
+                Languages: "English,Swahili,Turkish",
+                country: "Pakistan",
+                daysToMake: 14,
+                description: "✪ LinkedIn Writing and Optimization Services ✪\nDo you want to stand out and take your career or business to the next level?\nI help Entrepreneurs, Change Makers & Big Dreamers stand out and take direction so they can make a great digital first impression!\nMy extensive experience in International Recruitment and Resume Writing has allowed me to gain an in-depth knowledge of industry-specific requirements across a vast range of disciplines. I can make your LinkedIn profile stand out from the crowd!\nChoose one of the packages outlined below or request a custom offer to improve your personal LinkedIn success.\nPackages:\nBasic (Entry-Level Profile): Review and optimization of your LinkedIn Headline and Bio with keywords.\nStandard (Professional Profile): Full LinkedIn profile optimization, including Headline, Bio, and career history rewrite, skill suggestions, and industry-tailored recommendations.\nPremium (Profile Creation): Creation of a full profile from scratch, optimized to meet your career preferences.\nBusiness Profiles ( Message Me To Discuss)\nNow is the time to start moving your career or business to the next level!",
+                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/159966352/original/1a65840f4a6b0333d7bd37ea876663dc54b9aeaf.jpg"],
+                tags: [
+                    "bio",
+                    "linkedin profile",
+                    "linkedin optimize",
+                    "linkedin",
+                    "resume writing"
+                ],
+                likedByUsers: [
+                    "mini-user"
+                ],
+                "reviews": [
+                    {
+                        "name": "kofaisal",
+                        "country": "Kuwait",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f0-1f1fc.png",
+                        "review": "For my case, I didn’t see any value added; the seller could go to my profile and assess what are the things my profile needs. He asked to choose the premium package which means creation of a full LinkedIn profile from scratch. To be fair, I am going to list what are the things I have learned from him: how to put the symbol in the description, shared with me a list skills, that I have to put my full name in the first name, and how to customize my Linkedin URL. Finally, after I received the delivery, I asked if may he share with me a few versions of the “About” section. He said that he was not able to send more versions this is because I have to pay for it. Again, I have paid $50.",
+                        "reviewedAt": "Published 1 month ago"
+                    },
+                    {
+                        "name": "simplyjassi",
+                        "country": "Germany",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png",
+                        "review": "He is great to work with and I was very impressed how fast he produced work in this quality. My whole profile is coherent and appealing now. I am very happy with it! Also I appreciate when somebody makes changes until the result fits the customer perfectly. Thank you! I loved working with you :)",
+                        "reviewedAt": "Published 2 weeks ago"
+                    },
+                    {
+                        "name": "jovial1",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "Very accurate descriptions for Linkedin profile and on-time delivery! Will definitely recommend his services. Thank you so much & Happy holidays!!",
+                        "reviewedAt": "Published 2 months ago"
+                    },
+                    {
+                        "name": "zurismommy",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "The seller was very attentive and got the work done on the first attempt. I am very grateful for the time saved and the level of the work. Thank you!!",
+                        "reviewedAt": "Published 1 week ago"
+                    },
+                    {
+                        "name": "laispereira94",
+                        "country": "United States",
+                        "flag": "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+                        "review": "I wasn't super clear on what I wanted, and I appreciated their willingness to help and try again. I was super happy with the final product and will surely be recommending them in the future! Thank you again!",
+                        "reviewedAt": "Published 1 week ago"
+                    }
+                ]
+            }
         ]
         utilService.saveToStorage(STORAGE_KEY, gigs)
     }

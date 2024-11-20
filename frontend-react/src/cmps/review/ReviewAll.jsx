@@ -48,7 +48,7 @@ const averageRating = calculateAverageRating(userReviews)
             <h4 style={{ margin: 0, padding: 0 }}>
                 {/* <span>{userReviews.length} </span> */}
                 
-                {averageRating} reviews for this Gig 
+                {userReviews.length} reviews for this Gig 
             </h4>
             <span style={{ paddingLeft: '540px'}}className="rate padding-all">{averageRating}</span>
             <div >

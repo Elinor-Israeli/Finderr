@@ -61,8 +61,10 @@ export default function UserSellerTable() {
   const totalOrders = orders.length
   const completedOrderPercent = orders.length > 0 ? completedOrdersCount / orders.length : 0;
   const pendingOrderPercent = orders.length > 0 ? pendingOrdersCount / orders.length : 0;
-
-  
+  // const annualRevenuePercent = annualRevenue / annualRevenueGoal
+  // const monthlyRevenuePercent = monthlyRevenue / monthlyRevenueGoal
+  // const annualRevenueGoal = 1000000; // Example goal for annual revenue
+// const monthlyRevenueGoal = annualRevenueGoal / 12
   if (!orders || orders.length === 0) return <div className="loader-container"><div className="loader"></div></div>
 
 
@@ -72,20 +74,38 @@ export default function UserSellerTable() {
     <div className="dashboard-item">
         <span>Annual Revenue</span>
         <h3>${monthlyRevenue}</h3>
+        {/* <ProgressChart2
+        count={annualRevenuePercent}
+        total={annualRevenueGoal}
+        bgc="green"
+        label="Annual Revenue"
+    /> */}
     </div>
     <div className="dashboard-item">
         <span>Monthly Revenue</span>
         <h3>${monthlyRevenue}</h3>
+        {/* <ProgressChart2
+        count={monthlyRevenuePercent}
+        total={annualRevenueGoal / 12} // Assuming an even distribution goal for each month
+        bgc="blue"
+        label="Monthly Revenue"
+    /> */}
     </div>
     <div className="dashboard-item">
         <span>Completed Orders</span>
         <h3>{completedOrdersCount}</h3>
+        <ProgressChart2
+        count={completedOrderPercent}
+        total={totalOrders}
+        bgc="green"
+        label="Completed Orders"
+    />
     </div>
     <div className="dashboard-item">
         <span>Pending Orders</span>
         <h3>{pendingOrdersCount}</h3>
         <ProgressChart2
-          count={pendingOrdersCount}
+          count={pendingOrderPercent}
           total={totalOrders}
           bgc="orange"
           label="Pending Orders"

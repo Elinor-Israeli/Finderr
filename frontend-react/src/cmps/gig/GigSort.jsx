@@ -1,66 +1,66 @@
-import { useEffect, useRef, useState } from 'react'
-import { gigService } from '../../services/gig/gig.service.local'
+// import { useEffect, useRef, useState } from "react";
+// import { setFilter } from "../store/actions/gig.actions";
+// import { useSelector } from "react-redux";
 
-export function SortBy({ onSort }) {
-  const [sortBy, setSortBy] = useState(gigService.getDefaultSort())
-  const [isSortByShown, setIsSortByShown] = useState(false)  
-  const ref = useRef()
+export function SortBy({ handleCloseSort }) {
+    // const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
+    // const [isChecked, setisChecked] = useState({ bestSelling: false, recommended: false, newestArrivals: false })
 
-  useEffect(() => {
-    const checkIfClickedOutside = (e) => {
-      if (isSortByShown && ref.current && !ref.current.contains(e.target)) {
-        setIsSortByShown(false) 
-      }
-    }
-    document.addEventListener("mousedown", checkIfClickedOutside)
+    // useEffect(() => {
+    //     switch (filterBy.sort) {
+    //         case 'bestSelling':
+    //             setisChecked({ bestSelling: true, recommended: false, newestArrivals: false })
+    //             break;
+    //         case 'recommended':
+    //             setisChecked({ bestSelling: false, recommended: true, newestArrivals: false })
+    //             break;
+    //         case 'newestArrivals':
+    //             setisChecked({ bestSelling: false, recommended: false, newestArrivals: true })
+    //             break;
 
-    return () => {
-      document.removeEventListener("mousedown", checkIfClickedOutside)
-    }
-  }, [isSortByShown])
+    //         default:
+    //             break;
+    //     }
+    // }, [filterBy])
 
-  function handleChangeSort({ target }) {
-    const { value } = target
-    const newSortBy = { ...sortBy, categorySort: value }
-    setSortBy(newSortBy)
-    onSort(newSortBy)
-    setIsSortByShown(false)
-  }
+    // function onSort(ev, type) {
+    //     ev.preventDefault()
+    //     setFilter({ ...filterBy, sort: type })
+    //     handleCloseSort()
 
-  return
-//    (
-    // <div className="gig-sort">
-    //   <span>Sort by</span>
-    //   <div className="filter-menu sort-by" ref={ref}>
-    //     {sortBy.categorySort}
-    //     <span className=" angle-down"></span>
-    //     {isSortByShown && (
-    //       <div className="sort-by-options">
-    //         <div className="sort-option">
-    //           <input
-    //             type="radio"
-    //             id="recommended"
-    //             name="sort-by"
-    //             value="recommended"
-    //             onChange={handleChangeSort}
-    //             checked={sortBy.categorySort === 'recommended'} 
-    //           />
-    //           <label htmlFor="recommended"><span><div className="checked-input"></div></span>Recommended</label>
-    //         </div>
-    //         <div className="sort-option">
-    //           <input
-    //             type="radio"
-    //             id="price"
-    //             name="sort-by"
-    //             value="price"
-    //             onChange={handleChangeSort}
-    //             checked={sortBy.categorySort === 'price'} 
-    //           />
-    //           <label htmlFor="price"><span><div className="checked-input"></div></span>Price</label>
-    //         </div>
-    //       </div>
-    //     )}
-    //   </div>
-    // </div>
-//   )
+    //     switch (filterBy.sort) {
+    //         case 'bestSelling':
+    //             setisChecked({ bestSelling: true, recommended: false, newestArrivals: false })
+    //             break;
+    //         case 'recommended':
+    //             setisChecked({ bestSelling: false, recommended: true, newestArrivals: false })
+    //             break;
+    //         case 'newestArrivals':
+    //             setisChecked({ bestSelling: false, recommended: false, newestArrivals: true })
+    //             break;
+
+    //         default:
+    //             break;
+    //     }
+    // }
+
+    return
+    //  <form className={`sort-gig-form`}>
+
+        {/* <button className="sort-option" onClick={() => onSort(event, 'bestSelling')}>
+            <div className={`${isChecked.bestSelling ? '' : 'transparent'}`}><svg width="14" height="14" viewBox="0 0 16 16" fill="#333" xmlns="http://www.w3.org/2000/svg"><path d="M13.6202 2.6083L5.4001 10.8284L2.37973 7.80805C2.23329 7.66161 1.99585 7.66161 1.84939 7.80805L0.96551 8.69193C0.819073 8.83836 0.819073 9.0758 0.96551 9.22227L5.13492 13.3917C5.28135 13.5381 5.51879 13.5381 5.66526 13.3917L15.0344 4.02252C15.1809 3.87608 15.1809 3.63865 15.0344 3.49218L14.1505 2.6083C14.0041 2.46186 13.7667 2.46186 13.6202 2.6083Z" /></svg></div>
+            <p>Best selling</p>
+        </button>
+
+        <button className="sort-option" onClick={() => onSort(event, 'recommended')}>
+            <div className={`${isChecked.recommended ? '' : 'transparent'}`}><svg width="14" height="14" viewBox="0 0 16 16" fill="#333" xmlns="http://www.w3.org/2000/svg"><path d="M13.6202 2.6083L5.4001 10.8284L2.37973 7.80805C2.23329 7.66161 1.99585 7.66161 1.84939 7.80805L0.96551 8.69193C0.819073 8.83836 0.819073 9.0758 0.96551 9.22227L5.13492 13.3917C5.28135 13.5381 5.51879 13.5381 5.66526 13.3917L15.0344 4.02252C15.1809 3.87608 15.1809 3.63865 15.0344 3.49218L14.1505 2.6083C14.0041 2.46186 13.7667 2.46186 13.6202 2.6083Z" /></svg></div>
+            <p>Recommended</p>
+        </button>
+
+        <button className="sort-option" onClick={() => onSort(event, 'newestArrivals')}>
+            <div className={`${isChecked.newestArrivals ? '' : 'transparent'}`}><svg width="14" height="14" viewBox="0 0 16 16" fill="#333" xmlns="http://www.w3.org/2000/svg"><path d="M13.6202 2.6083L5.4001 10.8284L2.37973 7.80805C2.23329 7.66161 1.99585 7.66161 1.84939 7.80805L0.96551 8.69193C0.819073 8.83836 0.819073 9.0758 0.96551 9.22227L5.13492 13.3917C5.28135 13.5381 5.51879 13.5381 5.66526 13.3917L15.0344 4.02252C15.1809 3.87608 15.1809 3.63865 15.0344 3.49218L14.1505 2.6083C14.0041 2.46186 13.7667 2.46186 13.6202 2.6083Z" /></svg></div>
+            <p>Newest arrivals</p>
+        </button>
+
+    </form> */}
 }

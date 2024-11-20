@@ -11,6 +11,7 @@ import { TopFilterBar } from '../../cmps/gig/listfilterBar'
 import { loadGigs } from '../../store/actions/gig.actions' 
 import { SET_FILTER, SET_SORT  } from '../../store/reducers/gig.reducer' 
 import { SortBy } from '../../cmps/gig/GigSort'
+import loader from '/img/thloader.svg'
 
 export function GigIndex() {
     const filterByFromStore = useSelector(storeState => storeState.gigModule.filterBy)
@@ -144,7 +145,9 @@ export function GigIndex() {
           {gigs.length > 0 ? (
             <p>{gigs.length}+ results</p>
           ) : (
-            <p>We are sorry. We were not able to find a match</p>
+      <div className="loader-container">
+              <img src={loader} className="thloader" />
+        </div>
           )}
 
           {gigs && <GigList gigs={gigs} />}

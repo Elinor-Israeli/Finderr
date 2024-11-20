@@ -7,7 +7,7 @@ import { GigCard } from '../../cmps/gig/GigCard'
 import { ReviewAll } from '../../cmps/review/ReviewAll'
 import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 import { UserInfo } from '../../cmps/user/UserInfo'
-
+// import loader from '/img/thloader.svg'
 
 export function GigDetails() {
     const { gigId } = useParams()
@@ -31,7 +31,7 @@ export function GigDetails() {
     }
 
     if (!gig) return <div className="loader-container">
-        <div className="loader"></div>
+        {!gig && <img src={loader} className="thloader" />}
     </div>
     const { imgUrl, fullname, rate, level, country } = gig.owner
 
@@ -40,7 +40,7 @@ export function GigDetails() {
             <div className="left">
                 <GigBreadcrumbs />
                 <h1 className='gig-details-title'>{gig.title}</h1>
-                <UserInfo user_id={gig.owner_id} compact={true}/>
+                <UserInfo user_id={gig.owner_id} compact={true} />
                 <div className="thumbnail">
                     <SlideDetails gig={gig} />
                 </div>
@@ -65,27 +65,27 @@ export function GigDetails() {
                         </li>
                     </ul>
                 </div>
-                <UserInfo user_id={gig.owner_id} compact={false}/>
+                <UserInfo user_id={gig.owner_id} compact={false} />
                 <div style={{ padding: '24px 0 0', fontFamily: 'Macan', fontSize: '16px' }}>
-                <div className="owner-description">
-                    <ul>
-                        <li><strong><span>From</span></strong><span>{gig.country}</span></li>
-                        <li><strong><span>Member since</span></strong><span>userOrders</span></li>
-                        <li><strong><span>Avg. response time</span></strong><span>5 hours</span></li>
-                        <li><strong><span>Last delivery</span></strong><span>about 1 hour</span></li>
-                        {/* <li><strong><span>Languages</span></strong><span>Israel</span></li> */}
-                        <li><strong><span>Languages</span></strong><span>{gig.Languages}</span></li>
-                    </ul>
-                    <p>
-                        {/* <span>{gig.about}</span> */}
-                        I have years of experience in creating 2d animated explainer videos. I would like to boost your business with my knowledge so that the orders with my 2D-Animation videos increase and your sales increase. You will see that you will only profit. Order now!
-                    </p>
+                    <div className="owner-description">
+                        <ul>
+                            <li><strong><span>From</span></strong><span>{gig.country}</span></li>
+                            <li><strong><span>Member since</span></strong><span>userOrders</span></li>
+                            <li><strong><span>Avg. response time</span></strong><span>5 hours</span></li>
+                            <li><strong><span>Last delivery</span></strong><span>about 1 hour</span></li>
+                            {/* <li><strong><span>Languages</span></strong><span>Israel</span></li> */}
+                            <li><strong><span>Languages</span></strong><span>{gig.Languages}</span></li>
+                        </ul>
+                        <p>
+                            {/* <span>{gig.about}</span> */}
+                            I have years of experience in creating 2d animated explainer videos. I would like to boost your business with my knowledge so that the orders with my 2D-Animation videos increase and your sales increase. You will see that you will only profit. Order now!
+                        </p>
+                    </div>
                 </div>
-            </div>
                 <ReviewAll user_id={gig.owner_id} />
             </div>
             <div className="right">
-                <GigCard gig={gig}/>
+                <GigCard gig={gig} />
             </div>
         </div>
     </section>

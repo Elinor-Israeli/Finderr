@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 // import { GigSort } from '../../cmps/gig/GigSort'
-import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs' 
+import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 
 import { GigList } from '../../cmps/gig/GigList'
 import { TopFilterBar } from '../../cmps/gig/listfilterBar'
 // import { SortBy } from '../../cmps/gig/SortBy'
-import { loadGigs } from '../../store/actions/gig.actions' 
-import { SET_FILTER, SET_SORT  } from '../../store/reducers/gig.reducer' 
+import { loadGigs } from '../../store/actions/gig.actions'
+import { SET_FILTER, SET_SORT } from '../../store/reducers/gig.reducer'
 import { SortBy } from '../../cmps/gig/GigSort'
 import loader from '/img/thloader.svg'
 
@@ -122,36 +122,34 @@ export function GigIndex() {
 
     return (
         <section className="gig-index full ">
-              <GigBreadcrumbs />
-          <h1 className='headline-name'>   
-            {
-              searchParams.get('title') && searchParams.get('title') !== ''
-                ? `Results for "${searchParams.get('title')}"`
-                : searchParams.get('category')
-                ? getCategoryName(searchParams.get('category'))
-                : 'Brand Style Guides' 
-            }
-          </h1>
-          {/* <span style={{fontSize:'300px',zIndex:'8999999999'}}>Icons!</span>   */}
-          <p className="topic-explain">Let us help you give your brand the best minimalist logo design by hiring an expert minimalist logo designer.
-</p>
-          <div className={`${filterAndSort}`}>
-            <div className="filter-sort-container">
-              <TopFilterBar onSetFilter={onSetFilter} />
-              <SortBy onSort={onSort} />
+            <GigBreadcrumbs />
+            <h1 className='headline-name'>
+                {
+                    searchParams.get('title') && searchParams.get('title') !== ''
+                        ? `Results for "${searchParams.get('title')}"`
+                        : searchParams.get('category')
+                            ? getCategoryName(searchParams.get('category'))
+                            : 'Brand Style Guides'
+                }
+            </h1>
+            <p className="topic-explain">Let us help you give your brand the best minimalist logo design by hiring an expert minimalist logo designer.
+            </p>
+            <div className={`${filterAndSort}`}>
+                <div className="filter-sort-container">
+                    <TopFilterBar onSetFilter={onSetFilter} />
+                    <SortBy onSort={onSort} />
+                </div>
             </div>
-          </div>
 
-          {gigs.length > 0 ? (
-            <p>{gigs.length}+ results</p>
-          ) : (
-            // <div>no math</div>
-      <div className="loader-container">
-              <img src={loader} className="thloader" />
-        </div>
-          )}
+            {gigs.length > 0 ? (
+                <p>{gigs.length}+ results</p>
+            ) : (
+                <div className="loader-container">
+                    <img src={loader} className="thloader" />
+                </div>
+            )}
 
-          {gigs && <GigList gigs={gigs} />}
+            {gigs && <GigList gigs={gigs} />}
         </section>
-      )
+    )
 }

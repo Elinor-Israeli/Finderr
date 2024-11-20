@@ -113,7 +113,7 @@ export function GigPayment({owner}) {
                         <span>Card number</span>
                         <input type="text"
                             name="card"
-                            value='054-236-456-50'
+                            value='044-2345356-455656-54560'
                         />
                     </label>
                     <div className="card-details">

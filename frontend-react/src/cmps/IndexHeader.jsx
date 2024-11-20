@@ -173,13 +173,13 @@ export function IndexHeader({ onSetFilter, isSticky }) {
   }
 
   const handleImageClick = () => {
-    setIsOrder(false);
-    setIsDropdown(false);
-    setIsImageModalOpen(true); // Open the modal
-  };
+    setIsOrder(false)
+    setIsDropdown(false)
+    setIsImageModalOpen(true)
+  }
 
   const closeImageModal = () => {
-    setIsImageModalOpen(false); // Close the modal
+    setIsImageModalOpen(false)
   }
   
   return (

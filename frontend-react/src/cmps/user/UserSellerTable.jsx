@@ -29,7 +29,6 @@ export default function UserSellerTable() {
   // const buyerOrders = orders.filter(order => order.buyer._id === user._id)
 
 
-
   useEffect(() => {
     if (!orders) return
     const completedOrdersTotal = orders
@@ -37,9 +36,6 @@ export default function UserSellerTable() {
       .reduce((acc, order) => acc + (order.gig.price || 0), 0)
     setMonthlyRevenue(completedOrdersTotal)
   }, [orders])
-
-
-
 
   function toggleStatusModal(orderId) {
 

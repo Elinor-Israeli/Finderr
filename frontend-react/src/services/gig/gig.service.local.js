@@ -19,23 +19,18 @@ export const gigService = {
 
 window.cs = gigService
 function getDefaultFilter() {
-    return { title: '', tags: [], daysToMake: '', minPrice: '', maxPrice: ''}
+    return { title: '', tags: [], daysToMake: '', minPrice: '', maxPrice: '' }
 }
 function getDefaultSort() {
-    return { categorySort: 'recommended' }
+    return 'recommended' 
 }
 
-async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sortBy = { categorySort: 'recommended' }, userId) {
+async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sort = 'recommended', userId) {
     var gigs = await storageService.query(STORAGE_KEY)
     if (userId) gigs = gigs.filter(gig => gig.owner_id === userId)
     if (filterBy.title) {
         const regex = new RegExp(filterBy.title, 'i')
         gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
-    }
-    if (sortBy.categorySort === 'recommended') {
-        gigs.sort((a, b) => b.owner_rate - a.owner_rate) 
-    } else if (sortBy.categorySort === 'price') {
-        gigs.sort((a, b) => a.price - b.price)  
     }
     if (filterBy.tags?.length) {
         gigs = gigs.filter(gig => gig.tags.some(tag => filterBy.tags.includes(tag)))
@@ -49,6 +44,17 @@ async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sortBy 
     if (filterBy.maxPrice) {
         gigs = gigs.filter(gig => gig.price <= filterBy.maxPrice)
     }
+
+    if (sort === 'bestSelling') {
+        gigs.sort((gig1, gig2) =>
+            (getAvgRating(gig2.reviews) - getAvgRating(gig1.reviews)))
+    } else if (sort === 'recommended') {
+        gigs.sort((gig1, gig2) => 
+        (gig2.likedByUsers.length - gig1.likedByUsers.length))
+    } else if (sort === 'newestArrivals') {
+        gigs.sort((gig1, gig2) => new Date(gig2.createdAt) - new Date(gig1.createdAt));
+    }
+
     return gigs
 }
 
@@ -73,18 +79,18 @@ async function save(gig) {
 }
 
 const languages = [
-    "English", "Spanish", "Mandarin Chinese", "Hindi", "Arabic", "Portuguese", "Bengali", 
-    "Russian", "Japanese", "Punjabi", "German", "French", "Javanese", "Korean", "Vietnamese", 
-    "Tamil", "Turkish", "Italian", "Urdu", "Malay", "Thai", "Persian", "Dutch", "Swahili", 
-    "Polish", "Ukrainian", "Romanian", "Greek", "Hungarian", "Czech", "Slovak", "Finnish", 
-    "Swedish", "Danish", "Norwegian", "Bulgarian", "Serbian", "Croatian", "Hebrew", "Burmese", 
-    "Sinhala", "Lao", "Khmer", "Zulu", "Afrikaans", "Yoruba", "Hausa", "Igbo", "Pashto", "Kurdish", 
-    "Azeri", "Kazakh", "Uzbek", "Armenian", "Georgian", "Albanian", "Bosnian", "Latvian", 
-    "Lithuanian", "Estonian", "Maltese", "Basque", "Galician", "Catalan", "Welsh", 
-    "Scottish Gaelic", "Irish Gaelic", "Maori", "Samoan", "Tongan", "Fijian", "Tahitian", 
-    "Haitian Creole", "Malagasy", "Swati", "Tswana", "Xhosa", "Sotho", "Somali", "Amharic", 
-    "Tigrinya", "Oromo", "Kinyarwanda", "Kirundi", "Wolof", "Bambara", "Fulani", "Tibetan", 
-    "Nepali", "Mongolian", "Chechen", "Uyghur", "Tagalog", "Cebuano", "Ilocano", "Hmong", "Aymara", 
+    "English", "Spanish", "Mandarin Chinese", "Hindi", "Arabic", "Portuguese", "Bengali",
+    "Russian", "Japanese", "Punjabi", "German", "French", "Javanese", "Korean", "Vietnamese",
+    "Tamil", "Turkish", "Italian", "Urdu", "Malay", "Thai", "Persian", "Dutch", "Swahili",
+    "Polish", "Ukrainian", "Romanian", "Greek", "Hungarian", "Czech", "Slovak", "Finnish",
+    "Swedish", "Danish", "Norwegian", "Bulgarian", "Serbian", "Croatian", "Hebrew", "Burmese",
+    "Sinhala", "Lao", "Khmer", "Zulu", "Afrikaans", "Yoruba", "Hausa", "Igbo", "Pashto", "Kurdish",
+    "Azeri", "Kazakh", "Uzbek", "Armenian", "Georgian", "Albanian", "Bosnian", "Latvian",
+    "Lithuanian", "Estonian", "Maltese", "Basque", "Galician", "Catalan", "Welsh",
+    "Scottish Gaelic", "Irish Gaelic", "Maori", "Samoan", "Tongan", "Fijian", "Tahitian",
+    "Haitian Creole", "Malagasy", "Swati", "Tswana", "Xhosa", "Sotho", "Somali", "Amharic",
+    "Tigrinya", "Oromo", "Kinyarwanda", "Kirundi", "Wolof", "Bambara", "Fulani", "Tibetan",
+    "Nepali", "Mongolian", "Chechen", "Uyghur", "Tagalog", "Cebuano", "Ilocano", "Hmong", "Aymara",
     "Quechua"
 ]
 
@@ -566,7 +572,7 @@ function _createGigs() {
                 ],
                 likedByUsers: ['mini-user'] // for user-wishlist : use $in
             },
-             {
+            {
                 _id: 'i112',
                 title: "I will provide automated social websites for passive income",
 
@@ -843,6 +849,11 @@ function _createGigs() {
                     "digital-marketing",
                     "artisitic",
                     "proffesional",
+                    "accessible",
+                    "logo design",
+                    "graphic-design",
+                    "artisitic",
+                    "proffesional",
                     "accessible"
                 ],
                 likedByUsers: ['mini-user']
@@ -875,7 +886,9 @@ function _createGigs() {
                     "digital-marketing",
                     "artisitic",
                     "proffesional",
-                    "accessible"
+                    "accessible",
+                    "logo design",
+                    "graphic-design",
                 ],
 
                 likedByUsers: ['mini-user']
@@ -889,7 +902,7 @@ function _createGigs() {
                     _id: "u1122",
                     fullname: "frederickkessie",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
-                    level: "basic/premium",
+                    level: "3",
                     rate: 2
                 },
                 Languages: "English,Swahili,Turkish",
@@ -901,7 +914,10 @@ function _createGigs() {
                     "realistic  drawing",
                     "hand drawing",
                     "portrait drawing",
-                    "pencil sketch"],
+                    "pencil sketch",
+                    "logo design",
+                    "graphic-design",
+                ],
                 likedByUsers: ["mini-user"],
                 reviews: [
                     {
@@ -950,7 +966,7 @@ function _createGigs() {
                     _id: 'u1123',
                     fullname: 'vividstore',
                     imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg',
-                    level: 'basic/premium',
+                    level: '2',
                     rate: 4
                 },
                 Languages: "English,Swahili,Turkish",
@@ -963,7 +979,10 @@ function _createGigs() {
                     'realistic drawing',
                     'pencil portrait',
                     'sketch',
-                    'pencil sketch'
+                    'pencil sketch',
+                    "logo design",
+                    "graphic-design",
+
                 ],
                 likedByUsers: [
                     'mini-user'
@@ -978,7 +997,7 @@ function _createGigs() {
                     _id: 'u1124',
                     fullname: 'andreacarvalho_',
                     imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg',
-                    level: 'basic/premium',
+                    level: '3',
                     rate: 5
                 },
                 Languages: "English,Swahili,Turkish",
@@ -991,7 +1010,9 @@ function _createGigs() {
                     'drawing',
                     'portrait',
                     'realistic',
-                    'painting'
+                    'painting',
+                    "logo design",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     'mini-user'
@@ -1043,7 +1064,7 @@ function _createGigs() {
                     _id: 'u1126',
                     fullname: 'winny_writer',
                     imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e34531bf0bbed9d144dba7384f6473b6-1621577835789/60307055-cde9-4dc2-9e9e-4daa421991d3.jpg',
-                    level: 'basic/premium',
+                    level: '3',
                     rate: 2
                 },
                 Languages: "English,Swahili,Turkish",
@@ -1052,7 +1073,8 @@ function _createGigs() {
                 description: 'Hello, welcome to my Gig, I write sociology psychology and all social sciences content\nI am an expert writer who can help you with writing essays, research projects, and articles on criminology, sociology, and psychology. I gained so much experience over the time. i can handle papers from undergraduate all the way to PHD in criminology and sociology and psychology.\nI always strive to provide best quality to my clients and provide plagiarism-free work. I am also familiar with the following reference formats: APA, MLA, HARVARD, CHICAGO\nPlease contact me before placing an order, thank you.',
                 imgUrl: 'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207813409/original/9557f50a12d8fccb5c52fb65b35f91cc036f99c6.jpg',
                 tags: [
-                    'technical writing'
+                    'technical writing',
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     'mini-user'
@@ -1119,7 +1141,9 @@ function _createGigs() {
                     'manual typing',
                     'data entry',
                     'copy paste',
-                    'product listing'
+                    'product listing',
+                    "logo design",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     'mini-user'
@@ -1186,7 +1210,9 @@ function _createGigs() {
                     "data entry",
                     "lead generation",
                     "data entry excel",
-                    "data entry typing"
+                    "data entry typing",
+                    "logo design",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -1253,7 +1279,9 @@ function _createGigs() {
                     "data entry",
                     "lead generation",
                     "data entry excel",
-                    "data entry typing"
+                    "data entry typing",
+                    "logo design",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -1296,9 +1324,9 @@ function _createGigs() {
                     }
                 ]
             },
-           
+
             {
-               
+
                 owner_rate: 5,
                 title: "I will do excel data entry, copypaste, and any type of data entry",
                 about: "I'm glad you're here! My name is Abrar Hussain. I’m a professional Transcriptionist and data entry expert. I’ve a BS degree in Mechanical engineering. From last more than three years, I’ve been working as a Data entry operator and English language transcriptionist. To me, customer satisfaction and providing the best quality work are always my top priorities. I’m really good at MS Office and Transcript. Get yourselves a skillful creator and professional Assistant by simply contacting me. So, drop a message, and let's get started. I am also available for long term projects. Thanks!",
@@ -1322,7 +1350,9 @@ function _createGigs() {
                     "virtual assistant",
                     "data entry",
                     "copy paste",
-                    "typing jobs"
+                    "typing jobs",
+                    "logo design",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -1390,7 +1420,8 @@ function _createGigs() {
                     "logo design",
                     "modern",
                     "unique",
-                    "logo maker"
+                    "logo maker",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -1920,7 +1951,8 @@ function _createGigs() {
                 tags: [
                     "online research",
                     "research",
-                    "internet researcher"
+                    "internet researcher",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -1986,7 +2018,8 @@ function _createGigs() {
                     "reports",
                     "articles",
                     "internet researcher",
-                    "summaries"
+                    "summaries",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -2053,7 +2086,8 @@ function _createGigs() {
                     "case study",
                     "research",
                     "summary",
-                    "articles"
+                    "articles",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -2107,7 +2141,7 @@ function _createGigs() {
                     _id: "u142",
                     fullname: "layee84",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/b398d51589f16ed08ca0510c2c5edbe2-1636020659427/ecb5ae5e-d22a-47bc-bd9f-e7b2f99c0994.jpg",
-                    level: "basic/premium",
+                    level: "3",
                     rate: 2
                 },
                 Languages: "English,Swahili,Turkish",
@@ -2120,7 +2154,8 @@ function _createGigs() {
                     "business research",
                     "market research",
                     "reports",
-                    "swot analysis"
+                    "swot analysis",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -2187,7 +2222,8 @@ function _createGigs() {
                     "accurate translation",
                     "english to hebrew",
                     "hebrew",
-                    "translation"
+                    "translation",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -2384,7 +2420,8 @@ function _createGigs() {
                     "french to english",
                     "english translation",
                     "translation",
-                    "french translation"
+                    "french translation",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -2515,7 +2552,8 @@ function _createGigs() {
                     "2d animation",
                     "2d animation video",
                     "cartoon animation",
-                    "promotional video"
+                    "promotional video",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -2700,7 +2738,7 @@ function _createGigs() {
                     _id: "u151",
                     fullname: "mediagirl",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e3f2db9a69a2cc7b69c653d3185b6ba9-1592756841572/fbdf1383-4893-4f94-a3c9-a324c68aca4f.jpg",
-                    level: "basic/premium",
+                    level: "3",
                     rate: 4
                 },
                 Languages: "English,Swahili,Turkish",
@@ -2713,7 +2751,8 @@ function _createGigs() {
                     "linked in",
                     "linkedin",
                     "job hunting",
-                    "resume writing"
+                    "resume writing",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -2833,7 +2872,7 @@ function _createGigs() {
                     _id: "u153",
                     fullname: "haniwritertech",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/079e914e9f28e8269dee6bb109ef85a1-1570850131880/40fbde37-316f-4de2-9ca5-07b1300360d2.jpg",
-                    level: "basic/premium",
+                    level: "3",
                     rate: 2
                 },
                 Languages: "English,Swahili,Turkish",
@@ -2846,7 +2885,8 @@ function _createGigs() {
                     "linkedin profile",
                     "linkedin summary",
                     "resume writing",
-                    "linkedin bio"
+                    "linkedin bio",
+                    "graphic-design",
                 ],
                 likedByUsers: [
                     "mini-user"
@@ -2900,7 +2940,7 @@ function _createGigs() {
                     _id: "u154",
                     fullname: "muzamilbutt401",
                     imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/eb5d29b35cb0f6bd47e3a2f1fb8a55db-1595779512175/3d984139-fd41-42b2-a94c-fca974593c8a.jpg",
-                    level: "basic/premium",
+                    level: "3",
                     rate: 5
                 },
                 Languages: "English,Swahili,Turkish",
@@ -2955,8 +2995,373 @@ function _createGigs() {
                         "reviewedAt": "Published 1 week ago"
                     }
                 ]
-            }
+            },
+            // {
+            //     _id: "i155",
+            //     owner_id: "u155",
+            //     owner_rate: 4.8,
+            //     title: "I will design a professional logo for your business",
+            //     about: "As an experienced graphic designer, I specialize in creating stunning logos that represent your brand identity. I ensure high-quality and impactful designs to leave a lasting impression.",
+            //     price: 75,
+            //     owner: {
+            //         _id: "u155",
+            //         fullname: "graphicgenius",
+            //         imgUrl: "https://example.com/u155.jpg",
+            //         level: "2",
+            //         rate: 4.8
+            //     },
+            //     Languages: "English,Spanish",
+            //     country: "United States",
+            //     daysToMake: 5,
+            //     description: "✪ Professional Logo Design Services ✪\nYour logo is the face of your business, and I'm here to help you make it unforgettable. I will design a custom logo tailored to your needs and preferences, ensuring it aligns with your brand values.",
+            //     imgUrl: ["https://images.pexels.com/photos/29481495/pexels-photo-29481495.jpeg"],
+            //     tags: [
+            //         "graphic-design",
+            //         "logo design",
+            //         "branding",
+            //         "professional design",
+            //         "custom logo"
+            //     ],
+            //     likedByUsers: ["user123", "user456"]
+            // },
+            // {
+            //     _id: "i156",
+            //     owner_id: "u156",
+            //     owner_rate: 4.9,
+            //     title: "I will create a responsive website for your business",
+            //     about: "I am a web developer with 5+ years of experience in building professional and responsive websites. Let me help you establish a powerful online presence.",
+            //     price: 250,
+            //     owner: {
+            //         _id: "u156",
+            //         fullname: "webmasterpro",
+            //         imgUrl: "https://example.com/u156.jpg",
+            //         level: "3",
+            //         rate: 4.9
+            //     },
+            //     Languages: "English,French",
+            //     country: "Canada",
+            //     daysToMake: 15,
+            //     description: "✪ Responsive Website Design ✪\nI will design and develop a fully responsive website for your business, ensuring compatibility across all devices and browsers. My goal is to deliver a user-friendly and visually appealing website that drives results.",
+            //     imgUrl: ["https://images.pexels.com/photos/29459845/pexels-photo-29459845.jpeg"],
+            //     tags: [
+            //         "graphic-design",
+            //         "web design",
+            //         "responsive design",
+            //         "frontend development",
+            //         "user experience"
+            //     ],
+            //     likedByUsers: ["user789"]
+            // },
+            // {
+            //     _id: "i157",
+            //     owner_id: "u157",
+            //     owner_rate: 4.7,
+            //     title: "I will design a creative business card",
+            //     about: "Specializing in creating sleek and professional business cards that leave a lasting impression. Perfect for entrepreneurs and professionals.",
+            //     price: 20,
+            //     owner: {
+            //         _id: "u157",
+            //         fullname: "cardcreator",
+            //         imgUrl: "https://example.com/u157.jpg",
+            //         level: "3",
+            //         rate: 4.7
+            //     },
+            //     Languages: "English,Portuguese",
+            //     country: "Brazil",
+            //     daysToMake: 3,
+            //     description: "✪ Business Card Design ✪\nI will create a personalized business card that fits your style and profession. From minimalist to bold, I've got you covered.",
+            //     imgUrl: ["https://images.pexels.com/photos/29418745/pexels-photo-29418745.jpeg"],
+            //     tags: ["graphic-design", "business card", "branding", "stationery", "professional"],
+            //     likedByUsers: ["user111", "user222"]
+            // },
+            // {
+            //     _id: "i158",
+            //     owner_id: "u158",
+            //     owner_rate: 4.6,
+            //     title: "I will create an eye-catching flyer",
+            //     about: "With years of experience in graphic design, I will create a flyer that grabs attention and conveys your message effectively.",
+            //     price: 40,
+            //     owner: {
+            //         _id: "u158",
+            //         fullname: "flyerdesigns",
+            //         imgUrl: "https://example.com/u158.jpg",
+            //         level: "1",
+            //         rate: 4.6
+            //     },
+            //     Languages: "English,German",
+            //     country: "Germany",
+            //     daysToMake: 4,
+            //     description: "✪ Flyer Design Services ✪\nWhether for events, promotions, or business, I design flyers that stand out. My designs are visually appealing and effectively communicate your purpose.",
+            //     imgUrl: ["https://images.pexels.com/photos/29414465/pexels-photo-29414465.jpeg"],
+            //     tags: ["graphic-design", "flyer", "promotion", "event", "creative design"],
+            //     likedByUsers: ["user333"]
+            // },
+            // {
+            //     _id: "i159",
+            //     owner_id: "u159",
+            //     owner_rate: 4.9,
+            //     title: "I will create a 3D mockup for your product",
+            //     about: "Expert in creating stunning 3D product mockups for e-commerce, marketing, and presentations.",
+            //     price: 100,
+            //     owner: {
+            //         _id: "u159",
+            //         fullname: "mockupmaster",
+            //         imgUrl: "https://example.com/u159.jpg",
+            //         level: "2",
+            //         rate: 4.9
+            //     },
+            //     Languages: "English,Italian",
+            //     country: "Italy",
+            //     daysToMake: 10,
+            //     description: "✪ 3D Mockup Design ✪\nI will deliver high-quality 3D mockups that showcase your product professionally. Perfect for advertising and presentations.",
+            //     imgUrl: ["https://example.com/i159.jpg"],
+            //     tags: ["graphic-design", "3D design", "mockup", "product showcase", "visualization"],
+            //     likedByUsers: ["user444", "user555"]
+            // },
+            // {
+            //     _id: "i160",
+            //     owner_id: "u160",
+            //     owner_rate: 4.8,
+            //     title: "I will edit your photos professionally",
+            //     about: "I provide professional photo editing services, including retouching, color correction, and background removal.",
+            //     price: 15,
+            //     owner: {
+            //         _id: "u160",
+            //         fullname: "photoeditor",
+            //         imgUrl: "https://example.com/u160.jpg",
+            //         level: "basic",
+            //         rate: 4.8
+            //     },
+            //     Languages: "English,Arabic",
+            //     country: "Egypt",
+            //     daysToMake: 2,
+            //     description: "✪ Photo Editing Services ✪\nFrom portraits to product photos, I offer professional editing services to enhance your images and make them shine.",
+            //     imgUrl: ["https://example.com/i160.jpg"],
+            //     tags: ["graphic-design", "photo editing", "retouching", "background removal", "color correction"],
+            //     likedByUsers: ["user666"]
+            // },
+            // {
+            //     _id: "i160",
+            //     owner_id: "u160",
+            //     owner_rate: 4.7,
+            //     title: "I will edit and proofread your documents",
+            //     about: "I provide meticulous editing and proofreading services to ensure your documents are error-free and professional.",
+            //     price: 30,
+            //     owner: {
+            //         _id: "u160",
+            //         fullname: "editexpert",
+            //         imgUrl: "https://example.com/u160.jpg",
+            //         level: "basic",
+            //         rate: 4.7
+            //     },
+            //     Languages: "English",
+            //     country: "Australia",
+            //     daysToMake: 2,
+            //     description: "From grammar checks to style improvements, I will polish your documents to perfection, ensuring clarity and professionalism.",
+            //     imgUrl: ["https://example.com/i160.jpg"],
+            //     tags: ["editing", "graphic-design", "proofreading", "grammar", "writing improvement"],
+            //     likedByUsers: ["user567", "user345"]
+            // },
+            // {
+            //     _id: "i161",
+            //     owner_id: "u161",
+            //     owner_rate: 4.8,
+            //     title: "I will create stunning social media graphics",
+            //     about: "I specialize in creating visually appealing social media graphics to boost engagement and promote your brand.",
+            //     price: 40,
+            //     owner: {
+            //         _id: "u161",
+            //         fullname: "socialdesignpro",
+            //         imgUrl: "https://example.com/u161.jpg",
+            //         level: "standard",
+            //         rate: 4.8
+            //     },
+            //     Languages: "English,French",
+            //     country: "Canada",
+            //     daysToMake: 3,
+            //     description: "Whether you need graphics for Instagram, Facebook, or Twitter, I design visuals that grab attention and drive results.",
+            //     imgUrl: ["https://example.com/i161.jpg"],
+            //     tags: ["social media", "graphic-design", "graphics", "branding", "digital design"],
+            //     likedByUsers: ["user111", "user222"]
+            // },
+            // {
+            //     _id: "i162",
+            //     owner_id: "u162",
+            //     owner_rate: 4.6,
+            //     title: "I will design a responsive WordPress website",
+            //     about: "I build professional and fully responsive WordPress websites that are tailored to meet your business needs.",
+            //     price: 200,
+            //     owner: {
+            //         _id: "u162",
+            //         fullname: "webbuilderpro",
+            //         imgUrl: "https://example.com/u162.jpg",
+            //         level: "expert",
+            //         rate: 4.6
+            //     },
+            //     Languages: "English",
+            //     country: "India",
+            //     daysToMake: 7,
+            //     description: "A great website is key to your online presence. Let me create a modern, fast, and user-friendly WordPress website for you.",
+            //     imgUrl: ["https://example.com/i162.jpg"],
+            //     tags: ["WordPress", "graphic-design", "web development", "responsive design", "SEO"],
+            //     likedByUsers: ["user888", "user999"]
+            // },
+            // {
+            //     _id: "i163",
+            //     owner_id: "u163",
+            //     owner_rate: 4.9,
+            //     title: "I will create engaging YouTube thumbnails",
+            //     about: "Get custom YouTube thumbnails designed to boost your video's click-through rate and audience engagement.",
+            //     price: 15,
+            //     owner: {
+            //         _id: "u163",
+            //         fullname: "thumbnailguru",
+            //         imgUrl: "https://example.com/u163.jpg",
+            //         level: "basic",
+            //         rate: 4.9
+            //     },
+            //     Languages: "English",
+            //     country: "United States",
+            //     daysToMake: 1,
+            //     description: "Eye-catching thumbnails are essential for YouTube success. Let me design one that gets your video noticed!",
+            //     imgUrl: ["https://example.com/i163.jpg"],
+            //     tags: ["YouTube", "graphic-design", "thumbnail", "design", "video marketing"],
+            //     likedByUsers: ["user234", "user567"]
+            // },
+            // {
+            //     _id: "i164",
+            //     owner_id: "u164",
+            //     owner_rate: 4.8,
+            //     title: "I will translate English to French professionally",
+            //     about: "As a native French speaker, I offer precise and contextually accurate English-to-French translations.",
+            //     price: 50,
+            //     owner: {
+            //         _id: "u164",
+            //         fullname: "languagepro",
+            //         imgUrl: "https://example.com/u164.jpg",
+            //         level: "standard",
+            //         rate: 4.8
+            //     },
+            //     Languages: "English,French",
+            //     country: "France",
+            //     daysToMake: 3,
+            //     description: "Translate your documents, websites, or content seamlessly from English to French with a professional touch.",
+            //     imgUrl: ["https://example.com/i164.jpg"],
+            //     tags: ["translation", "graphic-design", "French", "English", "language"],
+            //     likedByUsers: ["user333", "user444"]
+            // },
+            // {
+            //     _id: "i165",
+            //     owner_id: "u165",
+            //     owner_rate: 4.7,
+            //     title: "I will develop a custom mobile app for your business",
+            //     about: "I create high-performance mobile apps tailored to your specific business requirements.",
+            //     price: 500,
+            //     owner: {
+            //         _id: "u165",
+            //         fullname: "appmaster",
+            //         imgUrl: "https://example.com/u165.jpg",
+            //         level: "expert",
+            //         rate: 4.7
+            //     },
+            //     Languages: "English",
+            //     country: "Germany",
+            //     daysToMake: 14,
+            //     description: "From concept to deployment, I deliver mobile apps that provide seamless user experiences.",
+            //     imgUrl: ["https://example.com/i165.jpg"],
+            //     tags: ["mobile app", "graphic-design", "Android", "iOS", "development"],
+            //     likedByUsers: ["user555", "user666"]
+            // },
+            // {
+            //     _id: "i166",
+            //     owner_id: "u166",
+            //     owner_rate: 4.9,
+            //     title: "I will write SEO-friendly blog posts and articles",
+            //     about: "I provide engaging, well-researched content optimized for search engines.",
+            //     price: 80,
+            //     owner: {
+            //         _id: "u166",
+            //         fullname: "contentking",
+            //         imgUrl: "https://example.com/u166.jpg",
+            //         level: "standard",
+            //         rate: 4.9
+            //     },
+            //     Languages: "English",
+            //     country: "United Kingdom",
+            //     daysToMake: 5,
+            //     description: "Attract readers and improve your website's SEO with my professionally written articles.",
+            //     imgUrl: ["https://example.com/i166.jpg"],
+            //     tags: ["content writing" ,"graphic-design", "blogging", "SEO", "articles"],
+            //     likedByUsers: ["user777", "user888"]
+            // },
+            // {
+            //     _id: "i167",
+            //     owner_id: "u167",
+            //     owner_rate: 4.6,
+            //     title: "I will create 3D product animations",
+            //     about: "I specialize in high-quality 3D product animations that highlight every detail of your product.",
+            //     price: 300,
+            //     owner: {
+            //         _id: "u167",
+            //         fullname: "animatorpro",
+            //         imgUrl: "https://example.com/u167.jpg",
+            //         level: "expert",
+            //         rate: 4.6
+            //     },
+            //     Languages: "English",
+            //     country: "Japan",
+            //     daysToMake: 10,
+            //     description: "Showcase your product with stunning 3D animations that capture attention and drive sales.",
+            //     imgUrl: ["https://example.com/i167.jpg"],
+            //     tags: ["3D animation", "graphic-design", "product showcase", "visuals", "motion graphics"],
+            //     likedByUsers: ["user999", "user000"]
+            // },
+            // {
+            //     _id: "i168",
+            //     owner_id: "u168",
+            //     owner_rate: 4.7,
+            //     title: "I will design minimalist business cards",
+            //     about: "Crafting elegant, minimalist business cards that leave a lasting impression.",
+            //     price: 25,
+            //     owner: {
+            //         _id: "u168",
+            //         fullname: "cardcrafter",
+            //         imgUrl: "https://example.com/u168.jpg",
+            //         level: "basic",
+            //         rate: 4.7
+            //     },
+            //     Languages: "English",
+            //     country: "South Korea",
+            //     daysToMake: 2,
+            //     description: "Your business card is your introduction. Let me design one that speaks volumes.",
+            //     imgUrl: ["https://example.com/i168.jpg"],
+            //     tags: ["business card", "graphic-design", "minimalist", "branding"],
+            //     likedByUsers: ["user111", "user222"]
+            // },
+            // {
+            //     _id: "i169",
+            //     owner_id: "u169",
+            //     owner_rate: 4.8,
+            //     title: "I will create detailed architectural 3D models",
+            //     about: "I provide professional 3D modeling services for architectural designs.",
+            //     price: 400,
+            //     owner: {
+            //         _id: "u169",
+            //         fullname: "archimaster",
+            //         imgUrl: "https://example.com/u169.jpg",
+            //         level: "expert",
+            //         rate: 4.8
+            //     },
+            //     Languages: "English",
+            //     country: "Italy",
+            //     daysToMake: 12,
+            //     description: "Transform your architectural concepts into realistic 3D models that impress clients.",
+            //     imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/121778216/original/55069f1….png"],
+            //     tags: ["3D modeling", "graphic-design", "architecture", "design", "visualization"],
+            //     likedByUsers: ["user333", "user444"]
+            // },
         ]
+
         utilService.saveToStorage(STORAGE_KEY, gigs)
     }
 }
@@ -2974,3 +3379,6 @@ function getEmptyGig(title = '', description = '', price = 0, tags = [], daysToM
         wishList
     }
 }
+
+
+

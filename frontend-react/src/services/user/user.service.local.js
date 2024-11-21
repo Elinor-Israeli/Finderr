@@ -96,7 +96,7 @@ function _createUsers() {
         users = [
             {
                 _id: "u102",
-                fullname: "Carol",
+                fullname: "Demi",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
                 username: "Boya",
                 password: "secret",
@@ -242,9 +242,9 @@ function _createUsers() {
             },
             {
                 _id: "u108",
-                fullname: "Mumu Asa",
+                fullname: "Mark",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibabaa",
+                username: "Mark",
                 password: "secret",
                 level: 3,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
@@ -268,9 +268,9 @@ function _createUsers() {
             },
             {
                 _id: "u109",
-                fullname: "Alibaba",
-                imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibaba10",
+                fullname: "Emma",
+                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_original/v1/attachments/profile/photo/3110358213b5c68c7528642de4dc5456-1718607287523/87b04afd-e3a8-4879-b07d-6f0388bfc9d8.jpg',
+                username: "Dan10",
                 password: "secret",
                 level: 3,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
@@ -385,7 +385,7 @@ function _createUsers() {
             },
             {
                 _id: "u130",
-                fullname: "Nura Kersa",
+                fullname: "Nir",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/03/12/20/57/woman-3220835_960_720.jpg',
                 username: "user130",
                 password: "secret",
@@ -411,7 +411,7 @@ function _createUsers() {
             },
             {
                 _id: "u111",
-                fullname: "Bobo Basa",
+                fullname: "Barbara",
                 imgUrl: 'https://cdn.pixabay.com/photo/2016/11/29/03/35/girl-1867092_960_720.jpg',
                 username: "user130",
                 password: "secret",
@@ -645,7 +645,7 @@ function _createUsers() {
             },
             {
                 _id: "u119",
-                fullname: "Quti Vvfa",
+                fullname: "Derek Sharp",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/11/08/23/52/man-3803551_960_720.jpg',
                 username: "user119",
                 password: "secret",
@@ -671,8 +671,8 @@ function _createUsers() {
             },
             {
                 _id: "u120",
-                fullname: "Nura Kersa",
-                imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
+                fullname: "Finneas",
+                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/d5f413c399d629f8e664960479b2d72f-1693000318230/1e891a69-2e2e-4398-9867-689d68a7f903.jpeg',
                 username: "user120",
                 password: "secret",
                 level: 3,
@@ -683,7 +683,7 @@ function _createUsers() {
                         id: "madeId",
                         gig: "{optional-mini-gig}",
                         txt: " are qualities that exemplify someone who is not only thoughtful and considerate but also efficient and effective in their actions. A person who is kind goes out of their way to help others, showing empathy and care in every interaction. The addition of being quick and efficient means that they also manage their time well, completing tasks rapidly without sacrificing quality. This combination of compassion and productivity is highly valuable in both personal and professional settings, making such individuals stand out as exemplary team players or leaders.",
-                        rate: 1,
+                        rate: 5,
                         by: {
                             _id: "u115",
                             fullname: "Jo Bara",
@@ -697,7 +697,7 @@ function _createUsers() {
             },
             {
                 _id: "u121",
-                fullname: "Bobo Basa",
+                fullname: "Brad",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user121",
                 password: "secret",
@@ -724,7 +724,7 @@ function _createUsers() {
             {
                 _id: "u122",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibaba6",
+                username: "Dana",
                 password: "secret",
                 level: 3,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
@@ -774,7 +774,7 @@ function _createUsers() {
             {
                 _id: "u124",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibaba",
+                username: "Merdith",
                 password: "secret",
                 level: 3,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
@@ -799,7 +799,7 @@ function _createUsers() {
             {
                 _id: "u125",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibaba",
+                username: "Nasrin",
                 password: "secret",
                 level: 3,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
@@ -824,7 +824,9 @@ function _createUsers() {
             {
                 _id: "u126",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibaba2",
+                username: "Sari",
+                fullname: "Sari",
+
                 password: "secret",
                 level: 3,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
@@ -848,10 +850,10 @@ function _createUsers() {
             },
             {
                 _id: "u127",
-                imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibaba",
+                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/77bafcda971c8f8b8f7b5c9777c49e8a-1728723826955/04fae5b6-19d9-4fc0-8af2-064821b978d9.jpg',
+                username: "Tal",
                 password: "secret",
-                fullname: "Alibaba",
+                fullname: "Tal",
 
                 level: 3,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
@@ -891,10 +893,10 @@ function _createUsers() {
             },
             {
                 _id: "u128",
-                imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibaba",
+                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/f216e27d386793e9421f8589f9951f3c-1652366550519/6436ef8a-2f83-46ef-b8d9-3b17d9bfd89c.jpg',
+                username: "Emily Blunt",
                 password: "secret",
-                fullname: "Alibaba",
+                fullname: "Emily Blunt",
                 level: 3,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
                 rate: 5,
@@ -933,10 +935,10 @@ function _createUsers() {
             },
             {
                 _id: "u129",
-                imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibaba",
+                imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/badfa8fa94ab60786a2b4565f351d705-1729170121445/be04c8e5-2fee-4bfb-ad1a-8c2a969a1ffc.jpg',
+                username: "Ali",
                 password: "secret",
-                fullname: "Alibaba",
+                fullname: "Ali",
                 level: 3,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
                 rate: 5,
@@ -976,9 +978,9 @@ function _createUsers() {
             {
                 _id: "u130",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibaba",
+                username: "Nimrod89",
                 password: "secret",
-                fullname: "Alibaba",
+                fullname: "Nimrod",
                 level: 2,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
                 rate: 5,
@@ -1018,9 +1020,9 @@ function _createUsers() {
             {
                 _id: "u131",
                 imgUrl: 'https://cdn.pixabay.com/photo/2017/05/31/04/59/beautiful-2359121_960_720.jpg',
-                username: "Alibaba",
+                username: "Billy",
                 password: "secret",
-                fullname: "Alibaba",
+                fullname: "Billy",
                 level: 2,
                 description: "I am a Visual Designer with over 7 years of professional experience, specialising in branding, logo, and UI/UX design. I am driven by a passion for crafting unique, minimalist, and timeless designs that capture the essence of authentic brands and companies across all industries.",
                 rate: 5,
@@ -1059,7 +1061,7 @@ function _createUsers() {
             },
             {
                 _id: "u132",
-                fullname: "Nura Kersa",
+                fullname: "Nir",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1102,7 +1104,7 @@ function _createUsers() {
            
             {
                 _id: "u133",
-                fullname: "Nura Kersa",
+                fullname: "Jhon",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1159,7 +1161,7 @@ function _createUsers() {
             },
             {
                 _id: "u134",
-                fullname: "Nura Kersa",
+                fullname: "Florace",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1231,7 +1233,7 @@ function _createUsers() {
             },
             {
                 _id: "u135",
-                fullname: "Nura Kersa",
+                fullname: "Ahamad",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1303,7 +1305,7 @@ function _createUsers() {
             },
             {
                 _id: "u136",
-                fullname: "Nura Kersa",
+                fullname: "Cristina",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1375,7 +1377,7 @@ function _createUsers() {
             },
             {
                 _id: "u137",
-                fullname: "Nura Kersa",
+                fullname: "Olga",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1447,7 +1449,7 @@ function _createUsers() {
             },
             {
                 _id: "u138",
-                fullname: "Nura Kersa",
+                fullname: "Natsha",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1519,7 +1521,7 @@ function _createUsers() {
             },
             {
                 _id: "u139",
-                fullname: "Nura Kersa",
+                fullname: "Merav",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1576,7 +1578,7 @@ function _createUsers() {
             },
             {
                 _id: "u140",
-                fullname: "Nura Kersa",
+                fullname: "Yam",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1648,7 +1650,7 @@ function _createUsers() {
             },
             {
                 _id: "u141",
-                fullname: "Nura Kersa",
+                fullname: "Sofia",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1720,8 +1722,8 @@ function _createUsers() {
             },
             {
                 _id: "u142",
-                fullname: "Nura Kersa",
-                imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
+                fullname: "Roger",
+                imgUrl: 'https://img.freepik.com/free-photo/portrait-smiling-charming-young-man-grey-t-shirt-standing-against-plain-background_23-2148213406.jpg?ga=GA1.1.1939521901.1731435666&semt=ais_hybrid',
                 username: "user120",
                 password: "secret",
                 level: 2,
@@ -1793,8 +1795,8 @@ function _createUsers() {
             },
             {
                 _id: "u143",
-                fullname: "Nura Kersa",
-                imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
+                fullname: "Lebron",
+                imgUrl: 'https://img.freepik.com/premium-photo/handsome-isolated-wall-with-fingers-crossing_1368-36995.jpg?ga=GA1.1.1939521901.1731435666&semt=ais_hybrid',
                 username: "user120",
                 password: "secret",
                 level: 2,
@@ -1865,7 +1867,7 @@ function _createUsers() {
             },
             {
                 _id: "u144",
-                fullname: "Nura Kersa",
+                fullname: "Koby",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -1937,7 +1939,7 @@ function _createUsers() {
             },
             {
                 _id: "u145",
-                fullname: "Nura Kersa",
+                fullname: "Rafael",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -2009,7 +2011,7 @@ function _createUsers() {
             },
             {
                 _id: "u146",
-                fullname: "Nura Kersa",
+                fullname: "Shir",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -2081,7 +2083,7 @@ function _createUsers() {
             },
             {
                 _id: "u147",
-                fullname: "Nura Kersa",
+                fullname: "Natalya",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -2153,7 +2155,7 @@ function _createUsers() {
             },
             {
                 _id: "u148",
-                fullname: "Nura Kersa",
+                fullname: "Amanda",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -2225,7 +2227,7 @@ function _createUsers() {
             },
             {
                 _id: "u149",
-                fullname: "Nura Kersa",
+                fullname: "Amy",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -2297,7 +2299,7 @@ function _createUsers() {
             },
             {
                 _id: "u150",
-                fullname: "Nura Kersa",
+                fullname: "Barak",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -2369,8 +2371,8 @@ function _createUsers() {
             },
             {
                 _id: "u151",
-                fullname: "Nura Kersa",
-                imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
+                fullname: "Tulsi",
+                imgUrl: 'https://img.freepik.com/free-photo/lifestyle-people-emotions-casual-concept-confident-nice-smiling-asian-woman-cross-arms-chest-confident-ready-help-listening-coworkers-taking-part-conversation_1258-59335.jpg?ga=GA1.1.1939521901.1731435666&semt=ais_hybrid',
                 username: "user120",
                 password: "secret",
                 level: 2,
@@ -2441,7 +2443,7 @@ function _createUsers() {
             },
             {
                 _id: "u152",
-                fullname: "Nura Kersa",
+                fullname: "Percy",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",
@@ -2513,8 +2515,8 @@ function _createUsers() {
             },
             {
                 _id: "u153",
-                fullname: "Nura Kersa",
-                imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
+                fullname: "Shelly",
+                imgUrl: 'https://img.freepik.com/free-photo/vertical-shot-happy-dark-skinned-female-with-curly-hair_273609-15519.jpg?ga=GA1.1.1939521901.1731435666&semt=ais_hybrid',
                 username: "user120",
                 password: "secret",
                 level: 2,
@@ -2585,7 +2587,7 @@ function _createUsers() {
             },
             {
                 _id: "u154",
-                fullname: "Nura Kersa",
+                fullname: "Abby",
                 imgUrl: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
                 username: "user120",
                 password: "secret",

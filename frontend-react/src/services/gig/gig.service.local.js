@@ -196,7 +196,7 @@ function _createGigs() {
                 title: "I will provide a great logo for you",
                 price: 15,
                 owner_id: "u102",
-                owner_rate: 4,
+                owner_rate: 5,
                 owner: {
                     _id: "u102",
                     fullname: "Boya",
@@ -210,10 +210,9 @@ function _createGigs() {
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
                 imgUrl: [
-                    "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123020_960_720.jpg",
-                    "https://cdn.pixabay.com/photo/2022/01/30/18/28/lines-6981892_960_720.jpg",
-                    "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123019_960_720.jpg",
-                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/378248214/original/99e4871876679239674652a835c72bc80afb937e/create-ai-based-assets-to-enhance-your-brand-or-website.jpg"
+                    "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/110928855/original/c3fc46f6ac4d0287a2511cf5b06144aaa499326d.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/110928855/original/7ca6bdb0455fd2b541a96b9e7c566da52930168a/do-minimalist-logo-design.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/110928855/original/8b65c55172f99d57b28fe8030a9d6695f2f21a6f/do-minimalist-logo-design.jpg",
                 ],
                 tags: [
                     "graphic-design",
@@ -259,11 +258,11 @@ function _createGigs() {
                 _id: 'i103',
                 title: "I will do elegant professional business logo design services",
                 price: 12,
-                owner_id: "u102",
+                owner_id: "u126",
                 owner_rate: 4,
                 owner: {
-                    _id: "u102",
-                    fullname: "Boya",
+                    _id: "u126",
+                    fullname: "Sari",
                     imgUrl: 'https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg',
                     level: "level 1",
                     rate: 5
@@ -274,10 +273,9 @@ function _createGigs() {
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
                 imgUrl: [
-                    "https://cdn.pixabay.com/photo/2023/01/10/10/33/path-7709452_960_720.png",
-                    "https://cdn.pixabay.com/photo/2022/08/01/18/35/ocean-7358753_960_720.jpg",
-                    "https://cdn.pixabay.com/photo/2023/01/05/08/17/bird-7698384_960_720.jpg",
-                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/378248214/original/99e4871876679239674652a835c72bc80afb937e/create-ai-based-assets-to-enhance-your-brand-or-website.jpg"
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/23197467/original/d4f9121d0d962301e3ef52c1a5217bf003889e2a/design-an-impressive-logo.jpg",
+                    "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20231004/The%20Pudgy%20Pilot_ocez0n.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/fe83cf4d240504f0b090a573dd2fbd09-1709558877/Green%20Ark%20Investments_A%20Mockup%205/design-an-impressive-logo.jpg"
 
                 ],
                 tags: [
@@ -455,8 +453,8 @@ function _createGigs() {
                 owner_rate: 4,
                 owner: {
                     _id: "u109",
-                    fullname: "Bill Loney",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2018/03/12/20/57/woman-3220835_960_720.jpg',
+                    fullname: "Emma",
+                    imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_original/v1/attachments/profile/photo/3110358213b5c68c7528642de4dc5456-1718607287523/87b04afd-e3a8-4879-b07d-6f0388bfc9d8.jpg',
                     level: "level 3",
                     rate: 4
                 },
@@ -466,10 +464,10 @@ function _createGigs() {
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 description2: "Professional, Clean, Modern & Stunning WordPress Website All Devices are Responsive and User Friendly E-commerce and Payment method integration Social Media integration and Live Chat Speed Optimization & SSL Certificate Installation Domain and Hosting Setup WordPress and Plugins Installation Use Demo Copy right free graphic",
                 imgUrl: [
-                    "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/6826741ae53df1b3f973b22ddb4d8fad-1721629613/weed%20004/create-ai-based-assets-to-enhance-your-brand-or-website.jpg",
-                    "https://cdn.pixabay.com/photo/2016/04/01/09/24/automobile-1299344_960_720.png",
-                    "https://cdn.pixabay.com/photo/2013/07/12/19/31/cadillac-154920_960_720.png",
-                    "https://cdn.pixabay.com/photo/2012/04/11/18/28/car-29281_960_720.png"
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/324001381/original/fb1b824eedf063e8f23b57d73c0969bc9033993a/do-modern-minimalist-luxury-business-logo-design-1a80.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/324001381/original/0507af1676f66ba00a8cc9000d62e85782e8c3c8/do-modern-minimalist-luxury-business-logo-design-1a80.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/324001381/original/2b7ab3e89a19f186c23fcce0b3b1ffc1b7babc24/do-modern-minimalist-luxury-business-logo-design-1a80.jpg",
+                    "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20240607/branding%20Cannbies_divrmr.jpg"
                 ],
                 tags: [
                     "graphic-design",
@@ -543,7 +541,7 @@ function _createGigs() {
             // },
             {
                 _id: 'i111',
-                title: "I will write SEO health, nutrition and fitness articles blog posts",
+                title: "I will do 3 modern minimalist logo design for your business",
                 price: 17,
                 owner_id: "u111",
                 owner_rate: 2,
@@ -559,9 +557,9 @@ function _createGigs() {
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
-                    "https://cdn.pixabay.com/photo/2022/06/18/16/55/cute-7270285_960_720.png",
-                    "https://cdn.pixabay.com/photo/2021/01/19/02/37/cat-5929889_960_720.png",
-                    "https://cdn.pixabay.com/photo/2022/05/13/12/44/room-7193628_960_720.png"
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/192945874/original/45074ea0dfcd30781722c0cc82cdd54355d2102d/do-minimal-logo-design.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/192945874/original/93ff8be5d9b11b94cbb4ec7bfa2a2efc041736ba/do-minimal-logo-design.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/192945874/original/cfbc1e5c5410119fe6997ab6829aa843006db4a1/do-minimal-logo-design.jpg"
 
                 ],
                 tags: [
@@ -574,7 +572,7 @@ function _createGigs() {
             },
             {
                 _id: 'i112',
-                title: "I will provide automated social websites for passive income",
+                title: "I will do modern versatile minimalist luxury business logo design",
 
                 price: 15,
                 owner_id: "u112",
@@ -591,9 +589,9 @@ function _createGigs() {
                 daysToMake: 2,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
-                    "https://cdn.pixabay.com/photo/2022/01/30/18/28/lines-6981892_960_720.jpg",
-                    "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123020_960_720.jpg",
-                    "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123019_960_720.jpg"
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/329437940/original/289c156161c400527a6f3a0cd3c94e177da0e417/do-minimalist-logo-design.png",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/329437940/original/2fcc47499d07bbb72d2a1e098cfb7bb0ccec57cb/do-minimalist-logo-design.png",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/329437940/original/6f0b39fba11e0d0dbb8e36a3b3df88b485f47eb1/do-minimalist-logo-design.png"
                 ],
                 tags: [
                     "graphic-design",
@@ -622,9 +620,9 @@ function _createGigs() {
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
 
-                    "https://cdn.pixabay.com/photo/2022/08/01/18/35/ocean-7358753_960_720.jpg",
-                    "https://cdn.pixabay.com/photo/2023/01/05/08/17/bird-7698384_960_720.jpg",
-                    "https://cdn.pixabay.com/photo/2023/01/10/10/33/path-7709452_960_720.png",
+                    "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20230723/LOGO-DESIGN_tzmukv.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/f1e78f55e2c30f9e605703c2b03a301d-1694636599/1/do-minimalist-logo-design.png",
+                    "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/31c279ea906bb7de7240e5494038c7d9-1694636652/2/do-minimalist-logo-design.png",
                 ],
                 tags: [
                     "graphic-design",
@@ -810,9 +808,9 @@ function _createGigs() {
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
 
-                    "https://cdn.pixabay.com/photo/2013/07/12/19/31/cadillac-154920_960_720.png",
-                    "https://cdn.pixabay.com/photo/2012/04/11/18/28/car-29281_960_720.png",
-                    "https://cdn.pixabay.com/photo/2016/04/01/09/24/automobile-1299344_960_720.png"
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/2687733/original/c5d51f42c35abd4a3e0c9e510f43aacb11d4fad2/design-a-retro-vintage-logo.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/2687733/original/e1ecb09dc04071c76a3e6563c743c57a3cebe0ec/design-a-retro-vintage-logo.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/2687733/original/509114576f1abace30cf75f1f4eed98d87355320/design-a-retro-vintage-logo.jpg"
                 ],
                 tags: [
                     "graphic-design",
@@ -824,7 +822,7 @@ function _createGigs() {
             },
             {
                 _id: 'i120',
-                title: "I will translate english to german or translate german to english professionally",
+                title: "I will design a retro vintage logo",
                 price: 30,
                 owner_id: "u120",
                 owner_rate: 1,
@@ -840,9 +838,9 @@ function _createGigs() {
                 daysToMake: 6,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
-                    "https://cdn.pixabay.com/photo/2021/02/08/12/48/camera-5994642_960_720.png",
-                    "https://cdn.pixabay.com/photo/2022/09/14/22/12/camera-7455311_960_720.png",
-                    "https://cdn.pixabay.com/photo/2019/03/30/20/27/camera-4091991_960_720.png"
+                    "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20170608/Gig1-ilovepdf-compressed_mucfxe.jpg",
+                    "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20170608/Gig2-ilovepdf-compressed_l1ryfk.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/06171dae5e4dfec1c87bfc6ee7d33f0a-1728225356/ElGalp%C3%B3ndelMate4/design-a-retro-vintage-logo.jpg"
 
                 ],
                 tags: [
@@ -860,7 +858,7 @@ function _createGigs() {
             },
             {
                 _id: 'i121',
-                title: "I will write SEO health, nutrition and fitness articles blog posts",
+                title: "I will do 3 modern minimalist logo design for your business",
                 price: 17,
                 owner_id: "u121",
                 owner_rate: 1,
@@ -876,10 +874,10 @@ function _createGigs() {
                 daysToMake: 3,
                 description: "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
                 imgUrl: [
-                    "https://cdn.pixabay.com/photo/2021/01/19/02/37/cat-5929889_960_720.png",
-                    "https://cdn.pixabay.com/photo/2022/06/18/16/55/cute-7270285_960_720.png",
+                    "https://fiverr-res.cloudinary.com/image/upload/t_gig_pdf_gallery_view_ver4,f_jpg/20230321/Logo-04_bzvjv2.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/afc1343462af4a164255c1b0bed0b83f-1691478050/Logo%20Mock%20Final/do-minimal-logo-design.jpg",
                     // "https://www.istockphoto.com/photo/road-trip-romance-gm1707927462-539418998?utm_source=pixabay&utm_medium=affiliate&utm_campaign=ADP_photo_sponsored_P1&utm_content=https%3A%2F%2Fpixabay.com%2Fphotos%2Fcat-roux-old-look-profile-animal-5183427%2F&utm_term=adventure",
-                    "https://cdn.pixabay.com/photo/2022/05/13/12/44/room-7193628_960_720.png"
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/db4462531ebcf14f9725ed0eb1820099-1690959745/Logo%20Mock%20Final/do-minimal-logo-design.jpg"
 
                 ],
                 tags: [
@@ -1119,7 +1117,7 @@ function _createGigs() {
             // },
             {
                 _id: "i127",
-                title: "I will do data entry, copy paste, web research as your VA",
+                title: "I will do modern timeless logo design with copyrights",
                 about: 'Hello! This is Rashin Faria, a Data Entry Specialist & Virtual Assistant at your service. I have excellent experience in Data Entry, Data Processing, Data Uploading, MS Word/Excel, Google Spreadsheet, PDF, Web Research, Ecommerce Product Entry, Data Scraping and others. With a 24/7 supporting team we work together for the betterment of the projects. We have extensive experience to do our project very fast and professionally. Client satisfaction is our first priority. Order Now! Regards Rashin Faria',
                 price: 200,
                 owner_id: "u127",
@@ -1127,7 +1125,7 @@ function _createGigs() {
                 owner: {
                     _id: "u127",
                     fullname: "Jo Bara",
-                    imgUrl: 'https://cdn.pixabay.com/photo/2017/08/06/15/13/woman-2593366_960_720.jpg',
+                    imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/77bafcda971c8f8b8f7b5c9777c49e8a-1728723826955/04fae5b6-19d9-4fc0-8af2-064821b978d9.jpg',
                     level: "level 3",
                     rate: 5
                 },
@@ -1135,7 +1133,10 @@ function _createGigs() {
                 country: 'Bangladesh',
                 daysToMake: 3,
                 description: 'Hello Sir/Ma\'am,\nHave a cordial welcome to Rashin07’s outstanding services on Fiverr.\nAre you searching for a trustworthy virtual assistant for your projects regarding data entry? I’m here to help. I’m an enthusiastic, hard-working and detail-oriented working person who has developed a mature and responsible approach to any task that I undertake. With excellent teamwork, we always try to work with dedication to achieve a certain objective on time. We are always at your service to provide budget-friendly qualitative work. Check out the following services & Order Now.\nOur Services:\nWeb Research\nCopy Paste Jobs\nData Entry\nData Scraping\nData Conversion (PDF/Image to excel)\nProduct Listing\nShopify / Woo-commerce Product Entry\nLead Generation\nMS Excel (Data Cleaning/Formatting /Chart/Macro)\nManual Typing\nAnd more!\nOur Specialties:\n24/7 customer service\nUnlimited Revisions\nOn-time delivery\nWork efficiently\nPrompt response\nNOTE – Please contact me before placing an order. Feel free to discuss the project & set the right estimations for you.\nRegards\nRashin Faria\nData Entry | Copy Paste | Web Scraping | Web Research | Product Entry',
-                imgUrl: ["https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207580502/original/6d05bb9cde191b9423733c6b49d0e11892e35ee0.jpg"],
+                imgUrl: ["https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/115722335/original/a97a040130a654a1cd79940188aa398680920eca/design-minimalist-logo-design.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/115722335/original/5655a351acead96fa69c29acde4abe0948d585f6/design-minimalist-logo-design.jpg",
+                    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/115722335/original/b02532dda6153b61668903d96f09b15d3022b642/design-minimalist-logo-design.jpg"
+                ],
                 tags: [
                     'web research',
                     'manual typing',
@@ -1188,7 +1189,7 @@ function _createGigs() {
             },
             {
                 _id: "i128",
-                title: "I will do data entry,web research and lead generation work in excel",
+                title: "I will do modern, professional business logo design with copyrights",
                 about: "Hello fiverr community,my name is Muhammad Waqar and i'm here to help you with your lead generation, web research and data entry projects. We are a group of experts which work together for the betterment of the projects we take from our clients. So don't forget to reach out me for your next project. Thank you very much",
                 price: 134,
                 owner_id: "u128",
@@ -1196,7 +1197,7 @@ function _createGigs() {
                 owner: {
                     _id: "u128",
                     fullname: "waqarcreatives",
-                    imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
+                    imgUrl: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/70eec3c605a7ac4cd14f13462f2dff2b-1694111481/DIA-01/design-unique-logo-with-all-copyrights-f446.jpg",
                     level: "3",
                     rate: 5
                 },
@@ -1204,7 +1205,7 @@ function _createGigs() {
                 country: "Pakistan",
                 daysToMake: 3,
                 description: "Looking for an experienced data entry expert? don't waste your time, just hire me and relax.\nWe are team of qualified professionals for guaranteed high quality work to our clients\nI will provide professional data entry work, data collecting from web, table graphs and all type of internet research like research related to businesses, companies information and enter into excel within fastest possible time.\nWhether you have big project like thousands of rows entries in excel or very tiny project like minutes of work, i'm here to provide you highly satisfied experience for your project.\nHere are the services we offer:\nData Entry\nWeb Research\nLead Generation\nCopy Paste Work\nCompanies Data Research\nInternet Research\nData Conversion into Excel\nTyping in Excel\nProperty Research\nCopy Paste Work\nPDF to Excel\nFormatting of excel sheets\nWhy hire me?\nGuaranteed quality work\nAll time communication during the project within Fiverr\nQuick Turnaround\nI will give my best and 100% to the project\nI can provide sample for the satisfaction before the order\nFeel free and don't hesitate to contact us for superior work\nNote: All communication and payment should be done via the fiverr platform.",
-                imgUrl: ["https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/8a1623fd3276ad7297d7647a8727bdf0-1589096119095/6c637953-9dc0-4c9c-b04d-c13c947fdc43.jpg"],
+                imgUrl: ["https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/252322613/original/4bf4a5f907cc22a954ff12314b1d9ae3b1d9b51f/create-a-modern-minimalist-and-luxury-logo-design.jpg"],
                 tags: [
                     "web research",
                     "data entry",
@@ -1257,7 +1258,7 @@ function _createGigs() {
             },
             {
                 _id: "i129",
-                title: "I will do data entry,web research and lead generation work in excel",
+                title: "I will create a modern minimalist and luxury logo design",
                 about: "Hello fiverr community,my name is Muhammad Waqar and i'm here to help you with your lead generation, web research and data entry projects. We are a group of experts which work together for the betterment of the projects we take from our clients. So don't forget to reach out me for your next project. Thank you very much",
                 price: 134,
                 owner_id: "u129",
@@ -1273,7 +1274,7 @@ function _createGigs() {
                 Languages: "English",
                 daysToMake: 3,
                 description: "Looking for an experienced data entry expert? don't waste your time, just hire me and relax.\nWe are team of qualified professionals for guaranteed high quality work to our clients\nI will provide professional data entry work, data collecting from web, table graphs and all type of internet research like research related to businesses, companies information and enter into excel within fastest possible time.\nWhether you have big project like thousands of rows entries in excel or very tiny project like minutes of work, i'm here to provide you highly satisfied experience for your project.\nHere are the services we offer:\nData Entry\nWeb Research\nLead Generation\nCopy Paste Work\nCompanies Data Research\nInternet Research\nData Conversion into Excel\nTyping in Excel\nProperty Research\nCopy Paste Work\nPDF to Excel\nFormatting of excel sheets\nWhy hire me?\nGuaranteed quality work\nAll time communication during the project within Fiverr\nQuick Turnaround\nI will give my best and 100% to the project\nI can provide sample for the satisfaction before the order\nFeel free and don't hesitate to contact us for superior work\nNote: All communication and payment should be done via the fiverr platform.",
-                imgUrl: ["https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/8a1623fd3276ad7297d7647a8727bdf0-1589096119095/6c637953-9dc0-4c9c-b04d-c13c947fdc43.jpg"],
+                imgUrl: ["https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/252322613/original/d2a30f73b23e582e4f29ab8212bd48b02c7c71d9/create-a-modern-minimalist-and-luxury-logo-design.jpg"],
                 tags: [
                     "web research",
                     "data entry",

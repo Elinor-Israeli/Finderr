@@ -113,7 +113,7 @@ export default function UserSellerTable() {
     <div className="income-order-dashboard">
       <div className="dashboard-item">
         <span>Annual Revenue</span>
-        <h3>${monthlyRevenue}</h3>
+        <h3>1450$</h3>
         {/* <ProgressChart2
         count={annualRevenuePercent}
         total={annualRevenueGoal}

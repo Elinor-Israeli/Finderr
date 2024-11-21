@@ -1,39 +1,40 @@
-import { useState, useEffect, useRef } from 'react'
-
-import { socketService, SOCKET_EMIT_ORDER_WATCH, SOCKET_EVENT_ORDER_FROM_YOU  } from '../services/socket.service'
-import { eventBus, showSuccessMsg  } from '../services/event-bus.service' 
+import { useState, useEffect, useRef } from 'react';
+import { eventBus, showSuccessMsg, showErrorMsg } from '../services/event-bus.service';
 
 export function UserMsg() {
-  const [msg, setMsg] = useState(null)
-  const timeoutIdRef = useRef()
+  const [msg, setMsg] = useState(null);
+  const timeoutIdRef = useRef();
 
   useEffect(() => {
+    // Listen for 'show-msg' events from the eventBus
     const unsubscribe = eventBus.on('show-msg', (msg) => {
-      setMsg(msg)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      setMsg(msg);
+
+      // Automatically close the message after 3 seconds
       if (timeoutIdRef.current) {
-        timeoutIdRef.current = null
-        clearTimeout(timeoutIdRef.current)
+        clearTimeout(timeoutIdRef.current);
       }
-      timeoutIdRef.current = setTimeout(closeMsg, 3000)
-    })
+      timeoutIdRef.current = setTimeout(() => {
+        setMsg(null);
+      }, 3000);
+    });
 
-    socketService.on(SOCKET_EVENT_ORDER_FROM_YOU, (userName) => {
-      showSuccessMsg(`New order from ${userName}`)
-    })
+    // Cleanup event listener on unmount
+    return () => unsubscribe();
+  }, []);
 
-    socketService.on(SOCKET_EMIT_ORDER_WATCH, ({ sellerName, status }) => {
-      showSuccessMsg(`Your order from ${sellerName} was ${status}`)
-    })
-
-  }, [])
-
+  // Function to manually close the message
   function closeMsg() {
-    setMsg(null)
+    setMsg(null);
+    if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
   }
 
-  if (!msg) return <span></span>
-  return <section className={`user-msg ${msg.type}`}>
-    {msg.txt}
-  </section>
+  if (!msg) return null; // If no message, render nothing
+
+  return (
+    <section className={`user-msg ${msg.type} visible`}>
+      <p>{msg.txt}</p>
+      <button onClick={closeMsg}>X</button>
+    </section>
+  );
 }

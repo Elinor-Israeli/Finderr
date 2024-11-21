@@ -39,14 +39,50 @@ export default function UserSellerTable() {
     setMonthlyRevenue(completedOrdersTotal)
   }, [orders])
 
-  function toggleStatusModal(orderId) {
+  // function toggleStatusModal(orderId) {
 
-    setIsModal(prevModal => ({
-      ...prevModal,
-      id: orderId,
-      status: prevModal.id !== orderId ? true : !prevModal.status
-    }))
+  //   setIsModal(prevModal => ({
+  //     ...prevModal,
+  //     id: orderId,
+  //     status: prevModal.id !== orderId ? true : !prevModal.status
+  //   }))
+  // }
+
+  function renderStatusButtons(order) {
+    if (order.status === 'pending') {
+      return (
+        <div className="status-buttons">
+          <button className='approved'onClick={() => updateStatus('Approved', order)}>Approve</button>
+          <button  className="declined" onClick={() => updateStatus('Declined', order)}>Decline</button>
+        </div>
+      );
+    }
+    if (order.status === 'Approved') {
+      return (
+        <div className="status-buttons">
+          <button className="completed" onClick={() => updateStatus('Completed', order)}>Complete</button>
+        </div>
+      )
+    }
+    if (order.status === 'Declined') {
+      return (
+        <div className="status-buttons">
+          <button className="declined" disabled>Declined</button>
+        </div>
+      )
+    }
+
+    if (order.status === 'Completed') {
+      return (
+        <div className="status-buttons">
+          <span className="done">Done!</span>
+        </div>
+      )
+    }
+
+    return null
   }
+
 
   function updateStatus(status, order) {
     const updatedOrder = { ...order, status }
@@ -132,14 +168,16 @@ export default function UserSellerTable() {
           <div>{order.buyer.fullname}</div>
           <div>${order.gig.price}</div>
           <div className="status-container">
-            <span className={order.status} onClick={() => toggleStatusModal(order._id)}>{order.status} </span>
+            {/* <span className={order.status} onClick={() => toggleStatusModal(order._id)}>{order.status} </span>
             {user && user._id === order.seller._id && isModal.status && isModal.id === order._id && (
               <div className="status-options">
                 <span className="approved" onClick={() => updateStatus("Approved", order)}>Approved</span>
                 <span className="completed" onClick={() => updateStatus("Completed", order)}>Completed</span>
                 <span className="declined" onClick={() => updateStatus("Declined", order)}>Declined</span>
               </div>
-            )}
+            )} */}
+             {/* <span className={order.status}>{order.status}</span> */}
+             {renderStatusButtons(order)}
           </div>
         </li>)}
       <li className='table-header'>

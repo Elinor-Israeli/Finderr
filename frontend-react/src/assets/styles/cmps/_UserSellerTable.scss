@@ -1,6 +1,6 @@
 .dashboard {
   margin-bottom: 1em;
-  width: 700px;
+  width: 750px;
   font: 'Macan';
   align-self: flex-end;
   justify-self: center;
@@ -58,7 +58,7 @@
       display: flex;
       justify-content: center;
       align-items: start;
-      margin-left: 0.5em;
+      margin-right: 3em;
     }
 
     img {
@@ -74,7 +74,7 @@
 
     div {
       display: flex;
-      flex-direction: column;
+      // flex-direction: column;
       flex-grow: 1;
       padding: .5em;
     }
@@ -101,21 +101,53 @@
     color: #feb849;
   }
 
-  .Approved {
-    color: #21ca79;
+  .approved {
+    background-color: #1dbf73;
+    color: black;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-family:'Macan';
+    &:hover{
+        font-size:1em;
+        transition: font-size 0.5s ease-in-out;
+    }
+    
   }
 
-  .Completed {
-    color: #5b85fd;
+  .completed {
+    background-color: #5b85fd;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-family:'Macan';
   }
 
-  .Declined {
-    color: #f46875;
+  .declined {
+    background-color: #f46875;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-family:'Macan';
+  }
+
+  .done{
+    font-weight: bolder;
+    background-color: plum;
+    border-radius: 5px;
+    padding: 5px;
+    color: black;
+    font-size: 0.9em;
   }
 
   .status-container {
     position: relative;
     padding: 0;
+    // background-color:  rgb(225, 213, 213);
+    // border-radius: 5px;
   }
 
   .status-options {
@@ -155,7 +187,7 @@
   justify-content: space-evenly;
   align-items: center;
   height: 150px;
-  margin: 0 0 40px;
+  margin: 0 0 100px;
   padding: 30px 0;
   border: 1px solid #dadbdd;
   border-radius: 5px;
@@ -168,7 +200,7 @@
     align-items: center;
     max-width: 252px;
     flex: 1;
-    justify-content: space-between;
+    // justify-content: space-between;
     padding: 0 10px;
 
     span {
@@ -176,6 +208,7 @@
       font-weight: 700;
       font-size: 1rem;
       color: #74767e;
+      margin-bottom: 15px;
       font: 'Macan';
 
     }

@@ -9,6 +9,8 @@ import { ProgressChart2 } from '../ProgressChart2'
 import { orderService } from '../../services/order.service.local'
 import { loadOrders } from '../../store/actions/order.actions'
 import { userService } from '../../services/user/user.service.local'
+import { MonthlyRevenue } from '../MonthlyRevenue '
+import { MonthlyRevenueVisualizer } from '../MonthlyRevenueVisualizer'
 
 
 export default function UserSellerTable() {
@@ -52,6 +54,10 @@ export default function UserSellerTable() {
     setIsModal({ id: '', status: false })
   }
 
+ function getTxtToShow(txt, length)  {
+    return txt.length < length ? txt : `${txt.substring(0, length)}...`
+}
+
   const pendingOrdersCount = orders.filter(order => order.status === 'pending').length
   const completedOrdersCount = orders.filter(order => order.status === 'Completed').length
   const totalOrders = orders.length
@@ -61,6 +67,8 @@ export default function UserSellerTable() {
   // const monthlyRevenuePercent = monthlyRevenue / monthlyRevenueGoal
   // const annualRevenueGoal = 1000000; // Example goal for annual revenue
   // const monthlyRevenueGoal = annualRevenueGoal / 12
+  const monthlyRevenueGoal = 600
+
   if (!orders || orders.length === 0) return <div className="loader-container"><div className="loader"></div></div>
 
 
@@ -80,6 +88,7 @@ export default function UserSellerTable() {
       <div className="dashboard-item">
         <span>Monthly Revenue</span>
         <h3>${monthlyRevenue}</h3>
+        
         {/* <ProgressChart2
         count={monthlyRevenuePercent}
         total={annualRevenueGoal / 12} 
@@ -119,7 +128,7 @@ export default function UserSellerTable() {
       {sellerOrders.map(order =>
         <li key={order._id}>
           <div className="img-container"><img src={order.seller.imgUrl} alt="" onClick={() => navigate(`/gig/${order.gig._id}`)} /></div>
-          <div className="gig-title">{order.gig.title}</div>
+          <div className="gig-title">{getTxtToShow(order.gig.title, 55)}</div>
           <div>{order.buyer.fullname}</div>
           <div>${order.gig.price}</div>
           <div className="status-container">
@@ -141,6 +150,12 @@ export default function UserSellerTable() {
         <div className='status-col'>Status</div>
       </li>
     </ul>
+    <div>
+    {/* <MonthlyRevenueVisualizer /> */}
+    {/* {user && user._id === order.seller._id &&(
+    <MonthlyRevenue monthlyRevenue={monthlyRevenue} monthlyRevenueGoal={monthlyRevenueGoal} />
+    )} */}
+    </div>
   </section>
 }
 

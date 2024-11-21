@@ -1,0 +1,239 @@
+  /* Container for the whole component */
+  .monthly-revenue-container {
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f4f4f9;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Title and revenue display */
+  .revenue-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .revenue-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .revenue-amount {
+    font-size: 32px;
+    font-weight: 600;
+    color: #00bfae;
+    margin: 10px 0;
+  }
+  
+  .goal-status {
+    margin-top: 10px;
+  }
+  
+  .goal-status-text {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .goal-status-text.achieved {
+    color: #4caf50;
+  }
+  
+  .goal-status-text.pending {
+    color: #ff9800;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  
+  .progress {
+    height: 100%;
+    border-radius: 10px;
+    background-color: #00bfae;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .goal-info {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .goal-title {
+    color: #333;
+  }
+  
+  .goal-amount {
+    color: #00bfae;
+    font-weight: 700;
+  }
+  
+  /* Chart container */
+  .chart-container {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    margin: 20px 0;
+  }
+  
+  /* Revenue stats section */
+  .revenue-stats {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .stat-item {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .stat-title {
+    font-weight: bold;
+  }
+  
+  .stat-value {
+    color: #00bfae;
+    font-weight: 600;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .monthly-revenue-container {
+      padding: 10px;
+    }
+  
+    .revenue-title {
+      font-size: 20px;
+    }
+  
+    .revenue-amount {
+      font-size: 28px;
+    }
+  
+    .goal-status-text {
+      font-size: 14px;
+    }
+  
+    .goal-info {
+      font-size: 14px;
+    }
+  
+    .revenue-stats {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .stat-item {
+      margin-bottom: 10px;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+  // .monthly-revenue-visualizer {
+  //   padding: 20px;
+  //   border-radius: 12px;
+  //   background: #f4f6f8;
+  //   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  //   font-family: 'Arial', sans-serif;
+  //   max-width: 500px;
+  //   margin: auto;
+  // }
+  
+  // header {
+  //   text-align: center;
+  //   margin-bottom: 20px;
+  // }
+  
+  // .revenue-summary {
+  //   font-size: 14px;
+  //   margin-top: 5px;
+  // }
+  
+  // .status-badge {
+  //   display: inline-block;
+  //   padding: 5px 10px;
+  //   border-radius: 5px;
+  //   color: white;
+  //   font-weight: bold;
+  // }
+  
+  // .progress-bar-section {
+  //   margin: 20px 0;
+  // }
+  
+  // .progress-bar {
+  //   height: 20px;
+  //   background: #e0e0e0;
+  //   border-radius: 10px;
+  //   overflow: hidden;
+  // }
+  
+  // .progress-fill {
+  //   height: 100%;
+  //   transition: width 0.4s ease, background 0.4s ease;
+  // }
+  
+  // .progress-label {
+  //   text-align: center;
+  //   font-size: 14px;
+  //   margin-top: 5px;
+  // }
+  
+  // .trend-chart {
+  //   margin: 20px 0;
+  // }
+  
+  // .trend-container {
+  //   display: flex;
+  //   align-items: flex-end;
+  //   gap: 10px;
+  //   height: 150px;
+  //   background: #f9f9f9;
+  //   padding: 10px;
+  //   border-radius: 10px;
+  // }
+  
+  // .trend-bar {
+  //   flex: 1;
+  //   border-radius: 4px;
+  //   transition: height 0.3s ease, background 0.3s ease;
+  //   position: relative;
+  // }
+  
+  // .trend-label {
+  //   position: absolute;
+  //   top: -20px;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   font-size: 12px;
+  //   font-weight: bold;
+  // }
+  
+  // .insights ul {
+  //   list-style: none;
+  //   padding: 0;
+  // }
+  
+  // .insights li {
+  //   margin: 10px 0;
+  //   line-height: 1.5;
+  // }
+  

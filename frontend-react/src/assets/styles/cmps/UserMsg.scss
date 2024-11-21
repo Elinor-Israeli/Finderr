@@ -21,6 +21,8 @@ $user-msg-delay: 3s;
     transition: all 0.6s ease-out;
     padding-left: 10px; 
     transition: opacity $user-msg-duration ease-out, top $user-msg-duration ease-in-out;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+
 
 }
 

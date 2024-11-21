@@ -196,7 +196,7 @@ function _createGigs() {
                 title: "I will provide a great logo for you",
                 price: 15,
                 owner_id: "u102",
-                owner_rate: 4,
+                owner_rate: 5,
                 owner: {
                     _id: "u102",
                     fullname: "Boya",

@@ -18,7 +18,7 @@ export function UserMsg() {
       }
       timeoutIdRef.current = setTimeout(() => {
         setMsg(null)
-      }, 90333333300)
+      },3000)
     })
 
     return () => unsubscribe()

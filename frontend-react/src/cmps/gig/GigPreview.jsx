@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { updateGig } from '../../store/actions/gig.actions'
 import { FaRegHeart } from "react-icons/fa";
 import { SlideGigPreview } from '../slide/SlideGigPreview'
+import { showSuccessMsg } from '../../services/event-bus.service';
 
 
 export function GigPreview({ gig }) {
@@ -56,9 +57,11 @@ export function GigPreview({ gig }) {
           if (userIndex > -1) {
             updatedGig.wishList.splice(userIndex, 1)
             setHeart(false)
+            showSuccessMsg(`Remove to ${user.fullname}`)
           } else {
             updatedGig.wishList.push(user._id)
             setHeart(true)
+            showSuccessMsg(`Saved to ${user.fullname}`)
           }
     
           await updateGig(updatedGig)

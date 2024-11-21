@@ -230,6 +230,9 @@ export function IndexHeader({ onSetFilter, isSticky }) {
             {/* User-specific Links (Orders, Wishlist, etc.) */}
             {user &&
               <>
+               <Link to="/dashboard" className="dashboard-link">
+                <span>Dashboard</span>
+              </Link>
                 {(windowSize > 900) && <div className="user-orders">
                   <Link onClick={handleOrder}>Orders</Link>
                   {isOrder && <UserBuyGig />}
@@ -242,6 +245,8 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                                 style={{aspectRatio: 'unset'}}
                             />
                 </Link>
+                
+               
                 {(windowSize > 900) && <div className="user-header-img">
                   <img src={user.imgUrl}
                     alt='user'
@@ -256,7 +261,10 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                       setIsDropdown(!isDropdown)
                     }} />
                   {isDropdown && <DropdownLogin loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} user={user} />}
+                  
+                  
                 </div>}
+                
               </>
             }
             {!user &&
@@ -270,11 +278,9 @@ export function IndexHeader({ onSetFilter, isSticky }) {
             }
 
             {/* Dashboard Link */}
-            {user && (
-              <Link to="/dashboard" className="dashboard-link">
-                <span>Dashboard</span>
-              </Link>
-            )}
+           
+             
+           
           </div>
         </div>
       </div>

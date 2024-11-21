@@ -284,10 +284,11 @@ $padding_max_double: 64px;
     font: 32px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 32px;
     line-height: 35.2px;
-    max-width: 328px;
+    mIN-width: 628px;
     // color: #62646a ;
     letter-spacing: -.04em;
     text-align: center;
+    
     margin: 0 auto;
     // position: absolute;
     // z-index: 1;
@@ -310,7 +311,7 @@ $padding_max_double: 64px;
         font-size: 2rem;
         font-weight: 700;
         font: 40px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
-
+        margin-left: -50px;
         // @include media-query-grid(sm) {
         //     font-size: 40px;
         // }

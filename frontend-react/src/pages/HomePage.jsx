@@ -2,7 +2,7 @@
 
 // import { GigCategoryMenu } from "../cmps/gig/GigCategoryMenu";
 import { CategoryMenu2 } from "./gig/GigCategoryMenu2";
-import { IndexHeader } from "../cmps/IndexHeader"; 
+import { IndexHeader } from "../cmps/IndexHeader";
 
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -17,6 +17,7 @@ import { SlideList } from "../cmps/slide/SlideList";
 // import { HomePageSlider } from "./HomePageSlide";
 import { Search } from "../cmps/HederSearch";
 import { gigService } from "../services/gig/gig.service.local";
+import VideoPlayer from "../cmps/VideoPlayer";
 
 export function HomePage({ onSetFilter }) {
     const location = useLocation()
@@ -79,36 +80,36 @@ export function HomePage({ onSetFilter }) {
 
     return (
         <section className="">
-            <IndexHeader className={headerClass}/> 
-           
+            <IndexHeader className={headerClass} />
+
             <section className="home-page full main-layout">
-            
-                <div className="hero-container full main-layout">                        
-                       
-                        <h1 className="hero-msg">
-                            Scale your professional work force with<i className="special-font"> freelance</i>
-                        </h1>
-                        <div className="search-bar full main-layout">
-                            <Search onSetFilter={onSetFilter} />
-                        </div>
-                        <section className="trusted-by">
-                            <span>Trusted </span>
-                            <span style={{marginLeft:'-25px'}}> by: </span>
-                            <ul>
-                                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/payoneer.7c1170d.svg" alt="Payoneer" width="82.42" height="16" /></li>
-                                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal.d398de5.svg" alt="PayPal" width="53.01" height="12.69" /></li>
-                                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/pg.22fca85.svg" alt="P&G" width="33.13" height="13.8" /></li>
-                                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/netflix.b310314.svg" alt="NETFLIX" width="53.64" height="14.37" /></li>
-                                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/google.e74f4d9.svg" alt="Google" width="53.41" height="17.87" /></li>
-                                <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta.ff37dd3.svg" alt="meta" width="70" height="14" /></li>
-                            </ul>
-                        </section>
+
+                <div className="hero-container full main-layout">
+
+                    <h1 className="hero-msg">
+                        Scale your professional work force with<i className="special-font"> freelance</i>
+                    </h1>
+                    <div className="search-bar full main-layout">
+                        <Search onSetFilter={onSetFilter} />
+                    </div>
+                    <section className="trusted-by">
+                        <span>Trusted </span>
+                        <span style={{ marginLeft: '-25px' }}> by: </span>
+                        <ul>
+                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/payoneer.7c1170d.svg" alt="Payoneer" width="82.42" height="16" /></li>
+                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal.d398de5.svg" alt="PayPal" width="53.01" height="12.69" /></li>
+                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/pg.22fca85.svg" alt="P&G" width="33.13" height="13.8" /></li>
+                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/netflix.b310314.svg" alt="NETFLIX" width="53.64" height="14.37" /></li>
+                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/google.e74f4d9.svg" alt="Google" width="53.41" height="17.87" /></li>
+                            <li><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta.ff37dd3.svg" alt="meta" width="70" height="14" /></li>
+                        </ul>
+                    </section>
                     {/* </div> */}
                 </div>
             </section >
             <div>
                 <CategoryMenu2 onSetFilter={onSetFilter} />
-                
+
                 <SlideList onSetFilter={onSetFilter} />
 
                 {/* <div>
@@ -142,7 +143,7 @@ export function HomePage({ onSetFilter }) {
                             </div>
 
                             <div className="selling-item">
-                            <span>
+                                <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14" fill="#003912">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.203.432a1.89 1.89 0 0 0-2.406 0l-1.113.912a1.9 1.9 0 0 1-.783.384l-1.395.318c-.88.2-1.503.997-1.5 1.915l.007 1.456c0 .299-.065.594-.194.863L.194 7.59a1.98 1.98 0 0 0 .535 2.388l1.12.903c.231.185.417.422.543.692l.615 1.314a1.91 1.91 0 0 0 2.166 1.063l1.392-.33c.286-.068.584-.068.87 0l1.392.33a1.91 1.91 0 0 0 2.166-1.063l.615-1.314c.126-.27.312-.507.542-.692l1.121-.903c.707-.57.93-1.563.535-2.388l-.625-1.309a2 2 0 0 1-.194-.863l.006-1.456a1.95 1.95 0 0 0-1.5-1.915L10.1 1.728a1.9 1.9 0 0 1-.784-.384zm2.184 5.883a.74.74 0 0 0 0-1.036.71.71 0 0 0-1.018 0L6.565 8.135 5.095 6.73a.71.71 0 0 0-1.018.032.74.74 0 0 0 .032 1.036L6.088 9.69a.71.71 0 0 0 1.001-.016z"></path>
                                     </svg>
@@ -155,7 +156,7 @@ export function HomePage({ onSetFilter }) {
                             </div>
 
                             <div className="selling-item">
-                            <span>
+                                <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14" fill="#003912">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.203.432a1.89 1.89 0 0 0-2.406 0l-1.113.912a1.9 1.9 0 0 1-.783.384l-1.395.318c-.88.2-1.503.997-1.5 1.915l.007 1.456c0 .299-.065.594-.194.863L.194 7.59a1.98 1.98 0 0 0 .535 2.388l1.12.903c.231.185.417.422.543.692l.615 1.314a1.91 1.91 0 0 0 2.166 1.063l1.392-.33c.286-.068.584-.068.87 0l1.392.33a1.91 1.91 0 0 0 2.166-1.063l.615-1.314c.126-.27.312-.507.542-.692l1.121-.903c.707-.57.93-1.563.535-2.388l-.625-1.309a2 2 0 0 1-.194-.863l.006-1.456a1.95 1.95 0 0 0-1.5-1.915L10.1 1.728a1.9 1.9 0 0 1-.784-.384zm2.184 5.883a.74.74 0 0 0 0-1.036.71.71 0 0 0-1.018 0L6.565 8.135 5.095 6.73a.71.71 0 0 0-1.018.032.74.74 0 0 0 .032 1.036L6.088 9.69a.71.71 0 0 0 1.001-.016z"></path>
                                     </svg>
@@ -168,7 +169,7 @@ export function HomePage({ onSetFilter }) {
                             </div>
 
                             <div className="selling-item">
-                            <span>
+                                <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14" fill="#003912">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.203.432a1.89 1.89 0 0 0-2.406 0l-1.113.912a1.9 1.9 0 0 1-.783.384l-1.395.318c-.88.2-1.503.997-1.5 1.915l.007 1.456c0 .299-.065.594-.194.863L.194 7.59a1.98 1.98 0 0 0 .535 2.388l1.12.903c.231.185.417.422.543.692l.615 1.314a1.91 1.91 0 0 0 2.166 1.063l1.392-.33c.286-.068.584-.068.87 0l1.392.33a1.91 1.91 0 0 0 2.166-1.063l.615-1.314c.126-.27.312-.507.542-.692l1.121-.903c.707-.57.93-1.563.535-2.388l-.625-1.309a2 2 0 0 1-.194-.863l.006-1.456a1.95 1.95 0 0 0-1.5-1.915L10.1 1.728a1.9 1.9 0 0 1-.784-.384zm2.184 5.883a.74.74 0 0 0 0-1.036.71.71 0 0 0-1.018 0L6.565 8.135 5.095 6.73a.71.71 0 0 0-1.018.032.74.74 0 0 0 .032 1.036L6.088 9.69a.71.71 0 0 0 1.001-.016z"></path>
                                     </svg>
@@ -187,7 +188,12 @@ export function HomePage({ onSetFilter }) {
                     </div>
                 </div>
             </section>
-        </section>
+            <VideoPlayer />
+            {/* <video width="560" height="315" controls>
+                <source src="/img/fivver-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>  */}
+                   </section>
     )
 }
 

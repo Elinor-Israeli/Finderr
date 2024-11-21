@@ -190,9 +190,7 @@ export default function UserSellerTable() {
     </ul>
     <div>
     {/* <MonthlyRevenueVisualizer /> */}
-    {/* {user && user._id === order.seller._id &&(
     <MonthlyRevenue monthlyRevenue={monthlyRevenue} monthlyRevenueGoal={monthlyRevenueGoal} />
-    )} */}
     </div>
   </section>
 }

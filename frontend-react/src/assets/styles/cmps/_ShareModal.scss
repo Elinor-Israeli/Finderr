@@ -1,0 +1,48 @@
+.share-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 222;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 600px;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+    float: right;
+  }
+  
+  .share-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .share-btn {
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+
+
+  }
+  
+  .share-btn:hover {
+  }
+  

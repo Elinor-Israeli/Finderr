@@ -22,11 +22,16 @@ function UserWishList() {
     ? gigs.filter((gig) => gig.wishList && gig.wishList.includes(user._id)) 
     : []
 
+ 
+
   return (
     <div className="wish-list">
       <h1 style={{marginTop:'23px'}}>My list</h1>
       <p style={{marginTop:'23px', fontSize:'1.4rem'}}>Organize your go-to freelancers and favorite services into </p>
       <p style={{marginTop:'-13px', fontSize:'1.4rem'}}>custom lists you can easily access and share with your team.</p>
+      <h3 style={{marginTop: '10px', fontSize: '1.2rem'}}>
+        You have {wishListGigs.length} {wishListGigs.length === 1 ? 'gig' : 'gigs'} in your wishlist.
+      </h3>
       <ul className="gig-list">
         {wishListGigs.length > 0 ? (
           wishListGigs.map((gig) => (

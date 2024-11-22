@@ -7,12 +7,19 @@ import { GigCard } from '../../cmps/gig/GigCard'
 import { ReviewAll } from '../../cmps/review/ReviewAll'
 import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 import { UserInfo } from '../../cmps/user/UserInfo'
+import { loadGigs } from '../../store/actions/gig.actions'
+import { useSelector } from 'react-redux'
+import ShareModal from '../../cmps/ShareModal'
+import PricingTable from '../../cmps/PricingTable'
 // import loader from '/img/thloader.svg'
 
 export function GigDetails() {
     const { gigId } = useParams()
     const navigate = useNavigate()
     const [gig, setGig] = useState()
+    const [showModal, setShowModal] = useState(false)
+    const user = useSelector((storeState) => storeState.userModule.user)
+    let gigs = useSelector((storeState) => storeState.gigModule.gigs)
 
     useEffect(() => {
         loadGig()
@@ -30,8 +37,16 @@ export function GigDetails() {
         }
     }
 
+    function getWishCount (gigId)  {
+        return gigs.filter(gig => gig.wishList && gig.wishList.includes(gigId)).length
+      }
+
+      function handleShareClick () {
+        setShowModal(true)
+    }
+
     if (!gig) return <div className="loader-container">
-      <div>loading...</div>
+        <div>loading...</div>
     </div>
     const { imgUrl, fullname, rate, level, country } = gig.owner
 
@@ -81,12 +96,25 @@ export function GigDetails() {
                             I have years of experience in creating 2d animated explainer videos. I would like to boost your business with my knowledge so that the orders with my 2D-Animation videos increase and your sales increase. You will see that you will only profit. Order now!
                         </p>
                     </div>
+                    <div>
+                    <PricingTable gig={gig}/>
+                    </div>
                 </div>
                 <ReviewAll user_id={gig.owner_id} />
             </div>
             <div className="right">
+                {/* <h3>
+                    <img
+                        src="./img/gray_heart.png"
+                        alt="Heart"
+                        className="heart-img"
+                    /> */}
+              {/* <p>{getWishCount(gig._id)} people have added this gig to their wish list.</p> */}
+              {/* </h3> */}
+              <button onClick={handleShareClick} className="share-btn">Share this Gig</button>
                 <GigCard gig={gig} />
             </div>
         </div>
+        {showModal && <ShareModal gigUrl={`https://yourwebsite.com/gig/${gigId}`} onClose={() => setShowModal(false)} />}
     </section>
 }

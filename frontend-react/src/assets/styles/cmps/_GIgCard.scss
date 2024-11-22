@@ -64,7 +64,7 @@
     // top: 132px;
     // margin-left: 0;
     top: 50px;
-    margin-top: 80px;
+    margin-top: 66px;
 
   }
 }
@@ -262,6 +262,7 @@ span.svg-payment {
   cursor: pointer;
   text-decoration: none;
   font-family: 'Macan';
+  scroll-behavior: smooth;
 
   &:hover {
     text-decoration: none;

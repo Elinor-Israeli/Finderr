@@ -1,14 +1,24 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { IoIosArrowRoundForward } from "react-icons/io"; //! here
+import { RxShare1 } from "react-icons/rx";
+import ShareModal from '../ShareModal';
 
 export function GigCard({ gig, onSetChat }) {
     const [program, setProgram] = useState(1)
+    const [showModal, setShowModal] = useState(false)
+    const { gigId } = useParams()
 
     function handleProgram(num) {
         if (num === 1) setProgram(1)
         if (num === 2) setProgram(2)
         if (num === 3) setProgram(3)
+    }
+
+
+    function handleShareClick () {
+        setShowModal(true)
     }
 
    let randomValue = null
@@ -24,6 +34,14 @@ export function GigCard({ gig, onSetChat }) {
 
     return (
         <div className="gig-details-side">
+            {/* <section> */}
+              <button onClick={handleShareClick} className="share-btn-share">
+                <div className="icon-container">
+                <RxShare1 />
+                </div>
+              </button>
+              {showModal && <ShareModal gigUrl={`http://localhost:5173//gig/${gigId}`} onClose={() => setShowModal(false)} />}
+              {/* </section> */}
             <div className="gig-program">
                 <div className="gig-program-name">
                     <button
@@ -203,7 +221,7 @@ export function GigCard({ gig, onSetChat }) {
                 )}
                 <a href="/compare-packages" className="center-container">
                     <button className="compare-packages-button">
-                        Compare packages
+                    <a style={{ scrollBehavior: 'smooth', fontFamily: "Macan",color: '#404145' }} href="#Compare packages" >Compare packages</a>
                     </button>
                 </a>
             </div>

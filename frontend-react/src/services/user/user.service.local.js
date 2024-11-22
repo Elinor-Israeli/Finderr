@@ -295,7 +295,7 @@ function _createUsers() {
                         id: "3e45",
                         gig: "{optional-mini-gig}",
                         txt: "He is great to work with and I was very impressed how fast he produced work in this quality. My whole profile is coherent and appealing now. I am very happy with it! Also I appreciate when somebody makes changes until the result fits the customer perfectly. Thank you! I loved working with you :)",
-                        rate: 3,
+                        rate: 5,
                         by: {
                             _id: "u103",
                             fullname: "simplyjassi",
@@ -325,7 +325,7 @@ function _createUsers() {
                         id: "3e47",
                         gig: "{optional-mini-gig}",
                         txt: "The seller was very attentive and got the work done on the first attempt. I am very grateful for the time saved and the level of the work. Thank you!!",
-                        rate: 4,
+                        rate: 5,
                         by: {
                             _id: "u103",
                             fullname: "zurismommy",

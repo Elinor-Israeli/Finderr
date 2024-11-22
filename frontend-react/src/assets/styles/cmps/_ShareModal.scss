@@ -1,48 +1,182 @@
-// .share-modal {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     background-color: rgba(0, 0, 0, 0.5);
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     z-index: 222;
-//   }
-  
-//   .modal-content {
-//     background: white;
-//     padding: 20px;
-//     border-radius: 8px;
-//     min-width: 600px;
-//   }
-  
-//   .close-btn {
-//     background: none;
-//     border: none;
-//     font-size: 20px;
-//     color: black;
-//     cursor: pointer;
-//     float: right;
-//   }
-  
-//   .share-buttons {
-//     display: flex;
-//     flex-direction: row;
-//     gap: 10px;
-//   }
-  
-//   .share-btn {
-//     padding: 10px;
-//     text-align: center;
-//     text-decoration: none;
-//     border-radius: 5px;
-//     font-size: 20px;
+.share-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999 ;
 
 
-//   }
-  
-//   .share-btn:hover {
-//   }
-  
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        min-width: 600px;
+        z-index: 9999;
+
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        float: right;
+        background: none;
+        color: #95979d;
+
+    }
+
+    .share-buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .share-btn {
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 20px;
+
+
+    }
+
+    .linkedin-icon-share,
+    .whatsapp-icon-share,
+    .twitter-icon-share,
+    .facebook-icon-share {
+        font-size: 45px;
+
+    }
+
+    .whatsapp-icon-share {
+        fill: #25D366;
+
+        &:hover {
+            fill: #128C7E;
+
+        }
+    }
+
+    .linkedin-icon-share {
+        fill: #0077B5;
+
+        &:hover {
+            fill: #005582;
+        }
+    }
+
+    .twitter-icon-share {
+        fill: #1DA1F2;
+
+        &:hover {
+            fill: #1991DB;
+        }
+    }
+
+    .facebook-icon-share {
+        fill: #1877F2;
+
+        &:hover {
+            fill: #1558A1;
+        }
+    }
+
+    .circle-wrapper {
+        position: relative;
+        width: 56px;
+        height: 56px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgb(153, 153, 153);
+    }
+
+    .background-circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        fill: #FFF;
+        stroke: #CCC;
+    }
+
+    .link-icon-share {
+        position: absolute;
+        font-size: 35px;
+        color: rgb(153, 153, 153);
+    }
+
+    .share-whatsapp:hover .whatsapp-icon-share {
+        fill: #128C7E;
+    }
+
+    .share-whatsapp:hover .whatsapp-text {
+        text-decoration: underline;
+    }
+
+    .facebook-text:hover .facebook-icon-share {
+        fill: #1558A1;
+    }
+
+    .share-facebook:hover .facebook-text {
+        text-decoration: underline;
+    }
+
+    .twitter-text:hover .twitter-icon-share {
+        fill: #1991DB;
+    }
+
+    .share-twitter:hover .twitter-text {
+        text-decoration: underline;
+    }
+
+    .linkedIn-text:hover .linkedIn-icon-share {
+        fill: #005582;
+    }
+
+    .share-linkedIn:hover .linkedIn-text {
+        text-decoration: underline;
+    }
+
+    .share-whatsapp:hover .whatsapp-icon-share {
+        fill: #128C7E;
+      }
+      
+      .share-whatsapp:hover .whatsapp-text {
+        text-decoration: underline;
+      }
+      
+      .share-whatsapp:hover p {
+        text-decoration: underline;
+      }
+}
+
+.share-btn-share {
+        background: none;
+        border: none;
+        cursor: pointer;
+      .icon-container {
+        display: inline-block;
+        background-color: #f0f0f0;
+        padding: 4px 12px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        text-align: end;
+        align-self: flex-end;
+        align-items: end;
+        margin-left: 300px;
+        
+      }
+      
+      .icon-container svg {
+        font-size: 18px;
+        color: #333;
+      }
+}

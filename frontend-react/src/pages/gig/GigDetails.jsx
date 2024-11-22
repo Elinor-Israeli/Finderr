@@ -9,9 +9,10 @@ import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 import { UserInfo } from '../../cmps/user/UserInfo'
 import { loadGigs } from '../../store/actions/gig.actions'
 import { useSelector } from 'react-redux'
-import ShareModal from '../../cmps/ShareModal'
+// import ShareModal from '../../cmps/ShareModal'
 import PricingTable from '../../cmps/PricingTable'
 // import loader from '/img/thloader.svg'
+
 
 export function GigDetails() {
     const { gigId } = useParams()
@@ -41,9 +42,6 @@ export function GigDetails() {
         return gigs.filter(gig => gig.wishList && gig.wishList.includes(gigId)).length
       }
 
-      function handleShareClick () {
-        setShowModal(true)
-    }
 
     if (!gig) return <div className="loader-container">
         <div>loading...</div>
@@ -111,10 +109,9 @@ export function GigDetails() {
                     /> */}
               {/* <p>{getWishCount(gig._id)} people have added this gig to their wish list.</p> */}
               {/* </h3> */}
-              <button onClick={handleShareClick} className="share-btn">Share this Gig</button>
+            
                 <GigCard gig={gig} />
             </div>
         </div>
-        {showModal && <ShareModal gigUrl={`https://yourwebsite.com/gig/${gigId}`} onClose={() => setShowModal(false)} />}
     </section>
 }

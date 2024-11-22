@@ -50,7 +50,7 @@ const averageRating = calculateAverageRating(userReviews)
                 
                 {userReviews.length} reviews for this Gig 
             </h4>
-            <span style={{ paddingLeft: '540px'}}className="rate padding-all">{averageRating}</span>
+            <span style={{ paddingLeft: '540px'}}className="rate padding-all">{averageRating.toFixed(1)}</span>
             <div >
             <StarRating value={averageRating} />
             

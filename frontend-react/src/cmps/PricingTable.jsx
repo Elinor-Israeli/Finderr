@@ -6,7 +6,7 @@ function PricingTable({ gig }) {
 
    let randomValue = null
 
-    function generateRandom(min = 20, max = 60, reset = false) {
+    function generateRandom(min = 20, max = 90, reset = false) {
         if (reset || randomValue === null) {
             randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
         }
@@ -15,7 +15,7 @@ function PricingTable({ gig }) {
 
     return (
         <div className="pricing-table">
-            <h2 style={{ fontSize: '1.25rem',paddingBottom:'25px'}}>Compare packages</h2> //! here
+            <div style={{fontSize:'20px',  scrollBehavior: 'smooth'}} id="Compare packages">Compare packages</div>
             <table>
                 <thead>
                     <tr>
@@ -23,8 +23,8 @@ function PricingTable({ gig }) {
                             <p style={{ marginTop: '-1.25em' }}>Package</p>
                         </th>
                         <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${gig.price}</p> Basic </th>
-                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${generateRandom(30, 60, true)} //! here</p> Standard</th>
-                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>₪333.46</p> Premium</th>
+                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${generateRandom(30, 60, true)}</p> Standard</th>
+                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${generateRandom(60, 90, true)}</p> Premium</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -78,9 +78,9 @@ function PricingTable({ gig }) {
                     </tr>
                     <tr>
                         <td>Delivery Time</td>
+                        <td style={{ textAlign: 'center' }}>3 days</td>
                         <td style={{ textAlign: 'center' }}>1 day</td>
-                        <td style={{ textAlign: 'center' }}>1 day</td>
-                        <td style={{ textAlign: 'center' }}>1 day</td>
+                        <td style={{ textAlign: 'center' }}>7 days</td>
                     </tr>
                     <tr style={{ backgroundColor: 'white' }}>
                         <td style={{ textAlign: 'center' }}></td>

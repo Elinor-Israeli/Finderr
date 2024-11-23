@@ -22,8 +22,8 @@ export function UserBuyGig() {
         <img className="buy-order-img" src={order.gig.imgUrl[0]} />
         <div className="buy-order-info">
           <div>{order.gig.title}</div>
-          <div className="buy-order-date">
-            {moment(order.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+          <div className="buy-order-date" style={{ color: 'blue', fontStyle: 'italic' }}>
+         {moment(order.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
           </div>
           <div className="buy-order-seller-status">
             <div className="buy-order-sellername">{order.seller.fullname}</div>

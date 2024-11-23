@@ -35,12 +35,12 @@ export function GigCard({ gig, onSetChat }) {
     return (
         <div className="gig-details-side">
             {/* <section> */}
-              <button onClick={handleShareClick} className="share-btn-share">
+              {/* <button onClick={handleShareClick} className="share-btn-share">
                 <div className="icon-container">
                 <RxShare1 />
                 </div>
               </button>
-              {showModal && <ShareModal gigUrl={`http://localhost:5173//gig/${gigId}`} onClose={() => setShowModal(false)} />}
+              {showModal && <ShareModal gigUrl={`http://localhost:5173//gig/${gigId}`} onClose={() => setShowModal(false)} />} */}
               {/* </section> */}
             <div className="gig-program">
                 <div className="gig-program-name">

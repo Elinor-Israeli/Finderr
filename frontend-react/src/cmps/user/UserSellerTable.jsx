@@ -6,13 +6,9 @@ import moment from 'moment';
 import { updateOrder } from '../../store/actions/order.actions'
 
 // import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'
-import { ProgressChart } from '../ProgressChart'
 import { ProgressChart2 } from '../ProgressChart2'
-import { orderService } from '../../services/order.service.local'
 import { loadOrders } from '../../store/actions/order.actions'
-import { userService } from '../../services/user/user.service.local'
 import { MonthlyRevenue } from '../MonthlyRevenue '
-import { MonthlyRevenueVisualizer } from '../MonthlyRevenueVisualizer'
 
 
 export default function UserSellerTable() {
@@ -115,7 +111,7 @@ export default function UserSellerTable() {
     <div className="income-order-dashboard">
       <div className="dashboard-item">
         <span>Annual Revenue</span>
-        <h3>1450$</h3>
+        <h3>${monthlyRevenue}</h3>
         {/* <ProgressChart2
         count={annualRevenuePercent}
         total={annualRevenueGoal}

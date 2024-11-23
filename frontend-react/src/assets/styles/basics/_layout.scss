@@ -17,25 +17,4 @@
     .side-end {
         grid-column: -1 / 2;
     }
-
-    // @include for-narrow-layout {
-    //     grid-template-columns:
-    //     minmax($layoutPadding, 1fr)  
-    //     minmax(auto, $narrow-breakpoint) 
-    //     minmax($layoutPadding, 1fr) ;
-    // }
-    
-    // @include for-normal-layout {
-    //     grid-template-columns:
-    //     minmax($layoutPadding, 1fr)  
-    //     minmax(auto, $normal-breakpoint) 
-    //     minmax($layoutPadding, 1fr) ;
-    // }
-    
-    // @include for-wide-layout {
-    //     grid-template-columns:
-    //     minmax($layoutPadding, 1fr)  
-    //     minmax(auto, $width-breakpoint) 
-    //     minmax($layoutPadding, 1fr) ;
-    // }
 }

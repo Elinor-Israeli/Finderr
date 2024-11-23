@@ -183,7 +183,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
   }
   
   return (
-   
+   <section>
     <section className={`my-header`}>
       <div className="index-header main layout">
         <div className={`index-header-container main-layout ${isSticky ? 'sticky' : ''}`}>
@@ -284,9 +284,10 @@ export function IndexHeader({ onSetFilter, isSticky }) {
           </div>
         </div>
       </div>
-
-      {/* Gig Category Menu */}
-      <div>
+     
+    </section>
+    {/* <div className='full' style={{display: 'grid', gridColumn: '1 / -1',gridTemplateColumns: '1fr'}}> */}
+    <div className='full' >
         <GigCategoryMenu onSetFilter={onSetFilter} />
       </div>
     </section>

@@ -42,7 +42,7 @@
 
   li {
     display: grid;
-    grid-template-columns: 2fr 2fr 1fr 2fr 2fr;
+    grid-template-columns: 2fr 2fr 1fr 2fr 2fr 2fr;
     border: 1px solid $clr11;
     // color: $clr5;
     font-family: 'Macan';
@@ -84,7 +84,7 @@
     }
 
     @media (min-width: $mobile-breakpoint) {
-      grid-template-columns: 2fr 3fr 2fr 1fr 2fr;
+      grid-template-columns: 2fr 3fr 2fr 1fr 2fr 2fr;
       // margin-bottom: 1em;
 
       &:not(:first-child) {

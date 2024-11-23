@@ -166,8 +166,8 @@ export default function UserSellerTable() {
           <div>{order.buyer.fullname}</div>
           <div>${order.gig.price}</div>
           <div className="date-created-time">
-        {moment(order.createdAt).format('h:mm:ss a')}
-      </div>
+          {moment(order.createdAt).format('MMM Do YYYY, h:mm:ss a')} 
+          </div>
           <div className="status-container">
             {/* <span className={order.status} onClick={() => toggleStatusModal(order._id)}>{order.status} </span>
             {user && user._id === order.seller._id && isModal.status && isModal.id === order._id && (
@@ -186,8 +186,8 @@ export default function UserSellerTable() {
         <div className='gig-col'>Gig</div>
         <div className='date-col'>Buyer</div>
         <div className='price-col'>Price</div>
-        <div className='status-col'>Status</div>
         <div className='date-col-time'>time</div>
+        <div className='status-col'>Status</div>
       </li>
     </ul>
     <div>

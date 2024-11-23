@@ -136,8 +136,6 @@ export function GigPreview({ gig }) {
                 <Link className="gig-preview__title" to={`/gig/${gig._id}`}>
                     <div className="gig-preview__long-txt">
                         <span>{getTxtToShow(gig.title, 75)}</span>
-                        {/* {gig.title2 && gig.title2.trim() !== "\u200B" && <p>{gig.title2}</p>} */}
-
                     </div>
                 </Link>
                 <div className="gig-rate-price">

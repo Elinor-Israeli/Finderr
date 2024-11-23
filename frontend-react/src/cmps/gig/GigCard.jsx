@@ -23,7 +23,7 @@ export function GigCard({ gig, onSetChat }) {
 
    let randomValue = null
 
-    function generateRandom(min = 20, max = 60, reset = false) {
+    function generateRandom(min = 10, max = 60, reset = false) {
         if (reset || randomValue === null) {
             randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
         }
@@ -118,7 +118,7 @@ export function GigCard({ gig, onSetChat }) {
 
                 {program === 2 && (
                     <div className="gig-program-info">
-                        <h2 className="gig-program-price">${generateRandom(30, 60, true)}</h2>
+                        <h2 className="gig-program-price">${gig.price + generateRandom(10, 50, true)}</h2>
                         <p className='dec-gig'>
                             <span className="gig-program-basic">Standard2 </span>
                             {gig.title}

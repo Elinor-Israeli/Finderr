@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import moment from 'moment';
+
 import { updateOrder } from '../../store/actions/order.actions'
 
 // import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'
@@ -167,6 +169,9 @@ export default function UserSellerTable() {
           <div className="gig-title">{getTxtToShow(order.gig.title, 55)}</div>
           <div>{order.buyer.fullname}</div>
           <div>${order.gig.price}</div>
+          {/* <div className="date-created-time">
+        {moment(order.createdAt).format('h:mm:ss a')}
+      </div> */}
           <div className="status-container">
             {/* <span className={order.status} onClick={() => toggleStatusModal(order._id)}>{order.status} </span>
             {user && user._id === order.seller._id && isModal.status && isModal.id === order._id && (
@@ -186,6 +191,7 @@ export default function UserSellerTable() {
         <div className='date-col'>Buyer</div>
         <div className='price-col'>Price</div>
         <div className='status-col'>Status</div>
+        {/* <div className='date-col-time'>time</div> */}
       </li>
     </ul>
     <div>

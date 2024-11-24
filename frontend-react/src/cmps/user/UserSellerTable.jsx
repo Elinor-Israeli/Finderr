@@ -166,7 +166,7 @@ export default function UserSellerTable() {
           <div>{order.buyer.fullname}</div>
           <div>${order.gig.price}</div>
           <div className="date-created-time">
-          {moment(order.createdAt).format('MMM Do YYYY, h:mm:ss a')} 
+          {moment(order.createdAt).format('MMM Do YY')} 
           </div>
           <div className="status-container">
             {/* <span className={order.status} onClick={() => toggleStatusModal(order._id)}>{order.status} </span>

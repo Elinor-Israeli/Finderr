@@ -32,6 +32,7 @@ $green: #32a852;
 }
 
 .categories-menu-package {
+    grid-column: 1 / -1;
     width: 100%;
     position: relative;
     border-top: 1px solid #e4e5e7;

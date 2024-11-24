@@ -26,7 +26,7 @@ function VideoPlayer() {
         muted  
         autoPlay
         onEnded={handleVideoEnd}
-        style={{ width: '100%', height: '590px', borderRadius: '16px', objectFit: 'cover' }}
+        style={{ width: '100%', height: '590px', borderRadius: '16px', objectFit: 'cover', marginBottom: '100px' }}
 
       >
         <source src="/img/fivver-video.mp4" type="video/mp4" />

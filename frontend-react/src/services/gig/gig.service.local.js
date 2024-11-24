@@ -447,7 +447,7 @@ function _createGigs() {
 
             {
                 _id: 'i109',
-                title: "I will create a stunning commercial brand video",
+                title: "I will create a stunning commercial brand ",
                 price: 25,
                 owner_id: "u109",
                 owner_rate: 4,

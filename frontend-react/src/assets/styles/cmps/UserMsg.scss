@@ -55,7 +55,9 @@
 }
 
 .user-msg.error {
-    background-color: rgb(216, 59, 59);
+    // background-color: rgb(216, 59, 59);
+    background-color: white;
+    color: rgb(204, 19, 19);
 }
 
 svg.checkmark-icon {

@@ -181,113 +181,94 @@ export function IndexHeader({ onSetFilter, isSticky }) {
   const closeImageModal = () => {
     setIsImageModalOpen(false)
   }
-  
+
   return (
-   <section>
-    <section className={`my-header`}>
-      <div className="index-header main layout">
-        <div className={`index-header-container main-layout ${isSticky ? 'sticky' : ''}`}>
+    <section>
+      <section className={`my-header`}>
+        <div className="index-header main layout">
+          <div className={`index-header-container main-layout ${isSticky ? 'sticky' : ''}`}>
 
-          {/* Logo Section */}
-          <Link to="/">
-            <div className="logo">
-              <span className='logo-text'>finderr</span>
-              <span className='logo-dot'>.</span>
-            </div>
-          </Link>
-
-          {/* Search Form (Visible only on certain pages, check if pathname is '/') */}
-          <form className="index-search" onSubmit={onSubmitFilter}>
-            <div className="search-index-input">
-              <input
-                type="text"
-                className={`gig-search ${pathname !== '/' ? 'long-placeholder' : ''}`}
-                id="title"
-                name="title"
-                placeholder={onPlaceholder()}
-                value={filterByToEdit.title}
-                onChange={handleChange}
-                ref={elInputRef}
-              />
-              <button className='btn-index-search'>
-                <span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="white">
-                    <path d="m15.89 14.653-3.793-3.794a.37.37 0 0 0-.266-.109h-.412A6.499 6.499 0 0 0 6.5 0C2.91 0 0 2.91 0 6.5a6.499 6.499 0 0 0 10.75 4.919v.412c0 .1.04.194.11.266l3.793 3.794a.375.375 0 0 0 .531 0l.707-.707a.375.375 0 0 0 0-.53ZM6.5 11.5c-2.763 0-5-2.238-5-5 0-2.763 2.237-5 5-5 2.762 0 5 2.237 5 5 0 2.762-2.238 5-5 5Z"></path>
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </form>
-
-          {/* Navigation Links */}
-          <div className="links">
-
-            {/* Explore Link */}
-            <Link to="gig">
-              <span>Explore</span>
+            <Link to="/">
+              <div className="logo">
+                <span className='logo-text'>finderr</span>
+                <span className='logo-dot'>.</span>
+              </div>
             </Link>
 
-            {/* User-specific Links (Orders, Wishlist, etc.) */}
-            {user &&
-              <>
-               <Link to="/dashboard" className="dashboard-link">
-                <span>Dashboard</span>
+            <form className="index-search" onSubmit={onSubmitFilter}>
+              <div className="search-index-input">
+                <input
+                  type="text"
+                  className={`gig-search ${pathname !== '/' ? 'long-placeholder' : ''}`}
+                  id="title"
+                  name="title"
+                  placeholder={onPlaceholder()}
+                  value={filterByToEdit.title}
+                  onChange={handleChange}
+                  ref={elInputRef}
+                />
+                <button className='btn-index-search'>
+                  <span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="white">
+                      <path d="m15.89 14.653-3.793-3.794a.37.37 0 0 0-.266-.109h-.412A6.499 6.499 0 0 0 6.5 0C2.91 0 0 2.91 0 6.5a6.499 6.499 0 0 0 10.75 4.919v.412c0 .1.04.194.11.266l3.793 3.794a.375.375 0 0 0 .531 0l.707-.707a.375.375 0 0 0 0-.53ZM6.5 11.5c-2.763 0-5-2.238-5-5 0-2.763 2.237-5 5-5 2.762 0 5 2.237 5 5 0 2.762-2.238 5-5 5Z"></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </form>
+            <div className="links">
+              <Link to="gig">
+                <span>Explore</span>
               </Link>
-                {(windowSize > 900) && <div className="user-orders">
-                  <Link onClick={handleOrder}>Orders</Link>
-                  {isOrder && <UserBuyGig />}
-                </div>}
-                <Link to="/wishlist" className="heart" title="save to list">
-                  <img
-                                src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
-                                alt="Heart"
-                                className="heart-img"
-                                style={{aspectRatio: 'unset'}}
-                            />
-                </Link>
-                
-               
-                {(windowSize > 900) && <div className="user-header-img">
-                  <img src={user.imgUrl}
-                    alt='user'
-                    style={{
-                      borderRadius: '50%',
-                      width: '2em',
-                      height: '2em',
-                      cursor: 'pointer',
-                    }}
-                    onClick={() => {
-                      setIsOrder(false)
-                      setIsDropdown(!isDropdown)
-                    }} />
-                  {isDropdown && <DropdownLogin loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} user={user} />}
-                  
-                  
-                </div>}
-                
-              </>
-            }
-            {!user &&
-              <>
-                {isModal && <ModalLogin onLogin={onLogin} onSignup={onSignup}
-                  onCloseModal={onCloseModal} setIsSignup={setIsSignup} isSignup={isSignup} />}
-                {(windowSize > 900) && <Link className='sign-in-link' onClick={() => { onOpenModal(); setIsSignup(false) }}>Sign in</Link>}
-                {(windowSize > 900) && <button className="join-btn-index-header"
-                  onClick={() => { onOpenModal(); setIsSignup(true) }}>Join</button>}
-              </>
-            }
-
-            {/* Dashboard Link */}
-           
-             
-           
+              {user &&
+                <>
+                  <Link to="/dashboard" className="dashboard-link">
+                    <span>Dashboard</span>
+                  </Link>
+                  {(windowSize > 900) && <div className="user-orders">
+                    <Link onClick={handleOrder}>Orders</Link>
+                    {isOrder && <UserBuyGig />}
+                  </div>}
+                  <Link to="/wishlist" className="heart" title="save to list">
+                    <img
+                      src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
+                      alt="Heart"
+                      className="heart-img"
+                      style={{ aspectRatio: 'unset' }}
+                    />
+                  </Link>
+                  {(windowSize > 900) && <div className="user-header-img">
+                    <img src={user.imgUrl}
+                      alt='user'
+                      style={{
+                        borderRadius: '50%',
+                        width: '2em',
+                        height: '2em',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => {
+                        setIsOrder(false)
+                        setIsDropdown(!isDropdown)
+                      }} />
+                    {isDropdown && <DropdownLogin loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} user={user} />}
+                  </div>}
+                </>
+              }
+              {!user &&
+                <>
+                  {isModal && <ModalLogin onLogin={onLogin} onSignup={onSignup}
+                    onCloseModal={onCloseModal} setIsSignup={setIsSignup} isSignup={isSignup} />}
+                  {(windowSize > 900) && <Link className='sign-in-link' onClick={() => { onOpenModal(); setIsSignup(false) }}>Sign in</Link>}
+                  {(windowSize > 900) && <button className="join-btn-index-header"
+                    onClick={() => { onOpenModal(); setIsSignup(true) }}>Join</button>}
+                </>
+              }
+            </div>
           </div>
         </div>
-      </div>
-     
-    </section>
-    {/* <div className='full' style={{display: 'grid', gridColumn: '1 / -1',gridTemplateColumns: '1fr'}}> */}
-    <div className='full' >
+      </section>
+      {/* <div className='full' style={{display: 'grid', gridColumn: '1 / -1',gridTemplateColumns: '1fr'}}> */}
+      <div className='full' >
         <GigCategoryMenu onSetFilter={onSetFilter} />
       </div>
     </section>

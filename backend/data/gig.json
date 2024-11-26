@@ -1,0 +1,27 @@
+{
+  "_id": "i102",
+  "title": "I will provide a great logo for you",
+
+  "price": "15",
+  "owner": {
+    "_id": "u102",
+    "fullname": "Dudu Sa",
+    "imgUrl": "https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg",
+    "level": "basic/premium",
+    "rate": "3"
+  },
+  "daysToMake": 2,
+  "description": "Best Gig for Travel Affiliates Programs absolutely automated websites!!! Up to 3,000,000 Hotels, 600 Airlines, Over 1,000 Cruises, 23,000 tours & activities from 2,200 global destinations, and a variety of Car Rental companies on one website. Start Earning Money more traffic makes generate more money. Each time your users click on the deals suggested by the Search Engine, you will be making affiliate commissions, also on booking.",
+  "imgUrl": [
+    "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123020_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2022/01/30/18/28/lines-6981892_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2022/04/10/09/45/background-7123019_960_720.jpg"
+  ],
+  "tags": [
+    "graphic-design",
+    "artisitic",
+    "proffesional",
+    "accessible"
+  ],
+  "likedByUsers": ["mini-user"] 
+}

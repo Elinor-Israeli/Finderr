@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { gigService } from '../../services/gig/gig.service.local'
+import { gigService } from '../../services/gig/gig.service.remote'
 
 export function SlideList({ onSetFilter }) {
     const slides = gigService.getGigSlides()

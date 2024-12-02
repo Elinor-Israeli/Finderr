@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { userService } from '../../services/user/user.service.local'
+import { userService } from '../../services/user/user.service.remote' 
 import { ReviewList } from './ReviewList'
 
 export function ReviewIndex({ gig }) {

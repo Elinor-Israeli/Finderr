@@ -2,6 +2,7 @@ import { StarRating } from '../../cmps/review/StarRating'
 import { LongTxt } from '../../cmps/LongTxt'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { userService } from '../../services/user/user.service.remote'
 
 export function UserInfo({ user_id, compact,owner }) {
     const [user, setUser] = useState(null)

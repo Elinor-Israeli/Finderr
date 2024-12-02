@@ -1,4 +1,4 @@
-import { gigService } from "../../services/gig/gig.service.local"
+import { gigService } from "../../services/gig/gig.service.remote" 
 import { useState } from "react"
 
 

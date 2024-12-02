@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { gigService } from '../../services/gig/gig.service.local'
+import { gigService } from '../../services/gig/gig.service.remote'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 export function CategoryMenu2({ onSetFilter }) {

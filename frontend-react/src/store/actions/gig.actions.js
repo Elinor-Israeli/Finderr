@@ -1,8 +1,8 @@
 import { store } from '../store'
 import { ADD_GIG, REMOVE_GIG, SET_GIGS, UPDATE_GIG  } from '../reducers/gig.reducer'
 import { LOADING_DONE,LOADING_START } from '../reducers/system.reducer'
-import { gigService } from '../../services/gig/gig.service.local' 
-import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service'
+import { gigService } from '../../services/gig/gig.service.remote'
+// import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service'
 
 export function getActionRemoveGig(gigId) {
     return {
@@ -23,10 +23,10 @@ export function getActionUpdateGig(gig) {
     }
 }
 
-export async function loadGigs(filterBy, sortBy, userId) {
+export async function loadGigs(filterBy, userId) {
     try {
         store.dispatch({ type: LOADING_START })
-        const gigs = await gigService.query(filterBy, sortBy, userId)
+        const gigs = await gigService.query(filterBy, userId)
         store.dispatch({ type: SET_GIGS, gigs })
     } catch (err) {
         console.log('Cannot load gigs', err)

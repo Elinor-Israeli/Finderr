@@ -4,7 +4,7 @@ import { ReviewBar } from './ReviewBar'
 import { ReviewList } from './ReviewList'
 import { StarRating } from './StarRating'
 
-import { userService } from '../../services/user/user.service.local'
+import { userService } from '../../services/user/user.service.remote'
 import { GiRoundStar } from "react-icons/gi";
 
 export function ReviewAll({ user_id }) {

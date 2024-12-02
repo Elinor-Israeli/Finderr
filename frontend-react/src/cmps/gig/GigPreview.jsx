@@ -5,6 +5,7 @@ import { updateGig } from '../../store/actions/gig.actions'
 import { FaRegHeart } from "react-icons/fa";
 import { SlideGigPreview } from '../slide/SlideGigPreview'
 import { showSuccessMsg } from '../../services/event-bus.service';
+import { userService } from '../../services/user/user.service.remote'; 
 
 
 export function GigPreview({ gig }) {

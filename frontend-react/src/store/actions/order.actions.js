@@ -1,7 +1,7 @@
 import { store } from '../store' 
 import { ADD_ORDER, SET_ORDERS, UPDATE_ORDER  } from '../reducers/order.reducer'
 
-import { orderService } from '../../services/order.service.local' 
+import { orderService } from '../../services/order.service'
 import { socketService, SOCKET_EVENT_ORDER_ADDED } from '../../services/socket.service'
 
 export function getActionAddOrder(order) {

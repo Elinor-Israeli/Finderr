@@ -1,7 +1,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { gigService } from '../../services/gig/gig.service.local'
+import { gigService } from '../../services/gig/gig.service.remote'
 
 export function TopFilterBar({ onSetFilter }) {
     const filterByFromStore = useSelector((storeState) => storeState.gigModule.filterBy)

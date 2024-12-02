@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
-import { gigService } from '../../services/gig/gig.service.local'
-import { userService } from '../../services/user/user.service.local'
+import { gigService } from '../../services/gig/gig.service.remote'
+import { userService } from '../../services/user/user.service.remote'
 import { addOrder } from '../../store/actions/order.actions'
 // "/img/language.png"
 import credit from '/img/credit.svg'

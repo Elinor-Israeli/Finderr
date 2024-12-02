@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { GigPreview } from '../gig/GigPreview'
 
-import { userService } from '../../services/user/user.service.local' 
+import { userService } from '../../services/user/user.service.remote'
 
 export function UserList({ gigs, onRemoveGig, user }) {
   const loginUser = userService.getLoggedinUser()

@@ -9,8 +9,8 @@ import MenuItem from '@mui/material/MenuItem'
 import { addGig } from '../../store/actions/gig.actions'
 import { ImgUploader } from '../ImgUploader' 
 
-import { gigService } from '../../services/gig/gig.service.local' 
-import { userService } from '../../services/user/user.service.local' 
+import { gigService } from '../../services/gig/gig.service.remote'
+import { userService } from '../../services/user/user.service.remote'  
 
 export function GigEdit() {
     const navigate = useNavigate()

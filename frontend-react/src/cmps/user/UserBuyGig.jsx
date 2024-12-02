@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import { loadOrders } from '../../store/actions/order.actions'
 
-import { userService } from '../../services/user/user.service.local'
+import { userService } from '../../services/user/user.service.remote'; 
 
 export function UserBuyGig() {
   let orders = useSelector((storeState) => storeState.orderModule.orders)

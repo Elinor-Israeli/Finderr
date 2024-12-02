@@ -12,11 +12,11 @@ import { SET_FILTER } from '../store/reducers/gig.reducer'
 import { useEffect, useRef, useState } from 'react'
 
 
-import { userService } from '../services/user/user.service.local'
+import { userService } from "../services/user/user.service.remote";
 import { SlideList } from "../cmps/slide/SlideList";
 // import { HomePageSlider } from "./HomePageSlide";
 import { Search } from "../cmps/HederSearch";
-import { gigService } from "../services/gig/gig.service.local";
+import { gigService } from "../services/gig/gig.service.remote"; 
 import VideoPlayer from "../cmps/VideoPlayer";
 
 export function HomePage({ onSetFilter }) {

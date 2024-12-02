@@ -11,7 +11,7 @@ import { loadWatchedUser } from '../store/user/user.actions'
 import { ReviewList } from '../cmps/review/ReviewList'
 import { ReviewBar } from '../cmps/review/ReviewBar'
 
-import { userService } from '../services/user/user.service.local'
+import { userService } from '../services/user/user.service.remote'; 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import UserSellerTable from '../cmps/user/UserSellerTable'
 

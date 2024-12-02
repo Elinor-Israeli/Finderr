@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { gigService } from '../../services/gig/gig.service.local'
+import { gigService } from '../../services/gig/gig.service.remote'
 import { showErrorMsg } from '../../services/event-bus.service'
 import { SlideDetails } from '../../cmps/slide/slide-details'
 import { GigCard } from '../../cmps/gig/GigCard'

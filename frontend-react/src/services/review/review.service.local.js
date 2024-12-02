@@ -1,5 +1,5 @@
 import { storageService } from '../async-storage.service'
-import { userService } from '../user/user.service.local'
+import { userService } from '../user/user.service.remote' 
 
 export const reviewService = {
 	add,

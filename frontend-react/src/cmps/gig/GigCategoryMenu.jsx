@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { gigService } from '../../services/gig/gig.service.local'
+import { gigService } from '../../services/gig/gig.service.remote' 
 
 export function GigCategoryMenu({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())

@@ -1,6 +1,6 @@
 import { storageService } from '../async-storage.service'
 import { utilService } from '../util.service'
-import { userService } from '../user/user.service.local'
+import { userService } from '../user/user.service.remote'
 
 const STORAGE_KEY = 'gig'
 _createGigs()
@@ -14,18 +14,15 @@ export const gigService = {
     getDefaultFilter,
     getGigSlides,
     getGigSelling,
-    getDefaultSort
 }
 
 window.cs = gigService
 function getDefaultFilter() {
     return { title: '', tags: [], daysToMake: '', minPrice: '', maxPrice: '' }
 }
-function getDefaultSort() {
-    return 'recommended' 
-}
 
-async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sort = 'recommended', userId) {
+
+async function query(filterBy = { title: '', tags: [], daysToMake: '' }, userId) {
     var gigs = await storageService.query(STORAGE_KEY)
     if (userId) gigs = gigs.filter(gig => gig.owner_id === userId)
     if (filterBy.title) {
@@ -45,15 +42,15 @@ async function query(filterBy = { title: '', tags: [], daysToMake: '' }, sort = 
         gigs = gigs.filter(gig => gig.price <= filterBy.maxPrice)
     }
 
-    if (sort === 'bestSelling') {
-        gigs.sort((gig1, gig2) =>
-            (getAvgRating(gig2.reviews) - getAvgRating(gig1.reviews)))
-    } else if (sort === 'recommended') {
-        gigs.sort((gig1, gig2) => 
-        (gig2.likedByUsers.length - gig1.likedByUsers.length))
-    } else if (sort === 'newestArrivals') {
-        gigs.sort((gig1, gig2) => new Date(gig2.createdAt) - new Date(gig1.createdAt));
-    }
+    // if (sort === 'bestSelling') {
+    //     gigs.sort((gig1, gig2) =>
+    //         (getAvgRating(gig2.reviews) - getAvgRating(gig1.reviews)))
+    // } else if (sort === 'recommended') {
+    //     gigs.sort((gig1, gig2) => 
+    //     (gig2.likedByUsers.length - gig1.likedByUsers.length))
+    // } else if (sort === 'newestArrivals') {
+    //     gigs.sort((gig1, gig2) => new Date(gig2.createdAt) - new Date(gig1.createdAt));
+    // }
 
     return gigs
 }

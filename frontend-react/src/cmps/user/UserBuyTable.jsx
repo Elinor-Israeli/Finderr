@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 import { loadOrders } from '../../store/order/order.actions'
 
-import { userService } from '../../services/user.service'
+import { userService } from '../../services/user/user.service.remote'
 
 export function UserBuyTable() {
   let orders = useSelector((storeState) => storeState.orderModule.orders)

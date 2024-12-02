@@ -9,7 +9,7 @@ import { GiRoundStar } from "react-icons/gi";
 import { loadUser, updateUser } from '../store/user/user.actions'
 import { ImgUploader } from '../cmps/ImgUploader'
 
-import { userService } from '../services/user/user.service.local'
+import { userService } from '../services/user/user.service.remote';
 import { StarRating } from '../cmps/review/StarRating';
 
 export function UserProfile({ watchedUser, userReviews }) {

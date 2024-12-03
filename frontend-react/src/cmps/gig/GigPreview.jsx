@@ -10,6 +10,7 @@ import { userService } from '../../services/user/user.service.remote';
 
 export function GigPreview({ gig }) {
     const user = useSelector((storeState) => storeState.userModule.user)
+    console.log("gigpr", gig)
 
     const [heart, setHeart] = useState(false)
     const [owner, setOwner] = useState(null)
@@ -125,10 +126,10 @@ export function GigPreview({ gig }) {
                         <div className="gig-preview__owner-level-container">
                             <span
                                 className="gig-preview__owner-level"
-                                style={owner.level === 3 ? { backgroundColor: '#ffe0b3', padding: '2px 6px', borderRadius: '4px' } : {}}
+                                style={gig.owner.level === 3 ? { backgroundColor: '#ffe0b3', padding: '2px 6px', borderRadius: '4px' } : {}}
                             >
-                                {owner.level === 3 ? `Top Rated ${owner.level}` : `Level ${owner.level}`}
-                                {renderLevelStars(owner.level)}
+                                {gig.owner.level === 3 ? `Top Rated ${gig.owner.level}` : `Level ${gig.owner.level}`}
+                                {renderLevelStars(gig.owner.level)}
                             </span>
                         </div>
                     </div>
@@ -146,14 +147,14 @@ export function GigPreview({ gig }) {
                         </svg>
                         <div className="gig-preview__rate-num">{owner.rate}</div>
                         {/* <div className="gig-preview__ratings-count">({gig.owner?.ratingsCount})</div> */}
-                        <div className="gig-preview__ratings-count">({owner.reviews.length})</div>
+                        {/* <div className="gig-preview__ratings-count">({owner.reviews.length})</div> */}
                        
                         {/* <div className='ratings-count'>({gig.owner && gig.owner.ratingsCount})</div> */}
                     </div>
 
                     <Link className="gig-preview__price" to={`/gig/${gig._id}`}>
                         <span className="gig-preview__price-margin">
-                            From ${gig.price.toFixed(2)}
+                            From ${gig.price}
                         </span>
                     </Link>
                 </div>

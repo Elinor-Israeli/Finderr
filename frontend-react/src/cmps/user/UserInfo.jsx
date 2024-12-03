@@ -122,7 +122,7 @@ export function UserInfo({ user_id, compact,owner }) {
                 </div>
             </div>
             <button className="contact-me">Contact me</button>
-            {/* {gig && <button><Link to={`/user/${gig.owner._id}`}>Contact Me</Link></button>} */}
+            {/* {gig && <button><Link to={`/user/${gig.owner_id}`}>Contact Me</Link></button>} */}
            
             {/* <div>
                 <p className='under-Languages'>

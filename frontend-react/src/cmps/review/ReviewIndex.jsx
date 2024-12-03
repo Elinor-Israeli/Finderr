@@ -19,7 +19,7 @@ export function ReviewIndex({ gig }) {
 
     async function loadUserReviews() {
         try {
-            const userReviews = await userService.getUserReviews(gig.owner._id)
+            const userReviews = await userService.getUserReviews(gig.owner_id)
             setUserReviews(userReviews)
         } catch (err) {
             console.log('userReviews =>', err)

@@ -5,6 +5,8 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 export function SlideGigPreview({ gig }) {
     let slides = gig.imgUrl
+    console.log('slides', slides);
+    
     const [slideIndex, setSlideIndex] = useState(0)
     const [isDynamic, setIsDynamic] = useState(0)
 

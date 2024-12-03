@@ -51,7 +51,7 @@ export function GigPayment({owner}) {
             return
         }
 
-        // if (!gig.owner || !gig.owner._id) {
+        // if (!gig.owner || !gig.owner_id) {
         //     showErrorMsg('Invalid gig owner')
         //     return
         // }
@@ -62,7 +62,7 @@ export function GigPayment({owner}) {
                 fullname: user.fullname,
               },
             seller: {
-                _id: gig.owner._id,
+                _id: gig.owner_id,
                 fullname: gig.owner.fullname,
                 imgUrl: gig.owner.imgUrl,
             },
@@ -186,10 +186,10 @@ export function GigPayment({owner}) {
             <div className="payment-summary">
                 <div className="payment-taxes">
                     <div><span style={{paddingBottom: '0.25em'}}>Service</span><span style={{paddingBottom: '0.25em'}}>$12.39</span></div>
-                    <div><span>VAT</span><span>${(randomNumber).toFixed(2)}</span></div>
+                    <div><span>VAT</span><span></span></div>
                 </div>
                 <div className="payment-total">
-                    <div><span style={{ fontSize: '16px',fontWeight:'bold',paddingBottom: '0.5em' }}>Total</span><span style={{ fontSize: '16px',fontWeight:'bold',paddingBottom: '0.5em' }}>${(gig.price + randomNumber + 3.49).toFixed(2)}</span></div>
+                    <div><span style={{ fontSize: '16px',fontWeight:'bold',paddingBottom: '0.5em' }}>Total</span><span style={{ fontSize: '16px',fontWeight:'bold',paddingBottom: '0.5em' }}></span></div>
                     <div><span>Total delivery time</span><span>3 days</span></div>
                 </div>
                 <button className="payment-btn" type="submit" form="payment-form" style={{ fontSize: '16px',fontWeight:'bold' }}>Confirm & Pay</button>
@@ -200,7 +200,7 @@ export function GigPayment({owner}) {
                     SSL Secure Payment
                 </div>
                 <div style={{ marginTop: '16px' ,fontSize: '14px',fontFamily:'Macan'}}>
-                    You will be charged <span>${(gig.price + randomNumber + 3.49).toFixed(2)}</span>. Total amount includes currency conversion fees.
+                    You will be charged <span></span>. Total amount includes currency conversion fees.
                 </div>
             </div>
         </aside>

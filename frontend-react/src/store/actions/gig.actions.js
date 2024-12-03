@@ -27,6 +27,7 @@ export async function loadGigs(filterBy, userId) {
     try {
         store.dispatch({ type: LOADING_START })
         const gigs = await gigService.query(filterBy, userId)
+        console.log("got gigs", gigs)
         store.dispatch({ type: SET_GIGS, gigs })
     } catch (err) {
         console.log('Cannot load gigs', err)

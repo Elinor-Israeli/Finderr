@@ -107,7 +107,7 @@ export function UserIndex() {
                 </div>
                 {/* {loginUser?._id === userId && orders.filter(order => order.seller._id === loginUser._id).length !== 0 && loginUser && <UserSellerTable
                     orders={orders.filter(order => order.seller._id === loginUser._id)} length={120} />}
-                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner._id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />} */}
+                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner_id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />} */}
                 {/* {<UserSellerTable
                     orders={orders.filter(order => order.seller._id === loginUser._id)} length={120} />} */}
             </main>

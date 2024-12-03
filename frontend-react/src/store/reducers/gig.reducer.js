@@ -20,7 +20,9 @@ export function gigReducer(state = initialState, action) {
     var gigs
     switch (action.type) {
         case SET_GIGS:
+            console.log("state: ", state)
             newState = { ...state, gigs: action.gigs }
+            console.log("newState: ", newState)
             break
         case REMOVE_GIG:
             const lastRemovedGig = state.gigs.find(gig => gig._id === action.gigId)

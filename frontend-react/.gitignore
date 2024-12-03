@@ -24,4 +24,3 @@ dist-ssr
 *.sw?
 # Avoid these entries in .gitignore
 node_modules/
-*.json

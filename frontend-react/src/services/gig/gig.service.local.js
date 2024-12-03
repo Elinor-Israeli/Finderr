@@ -3,7 +3,7 @@ import { utilService } from '../util.service'
 import { userService } from '../user/user.service.remote'
 
 const STORAGE_KEY = 'gig'
-_createGigs()
+// _createGigs()
 
 export const gigService = {
     query,

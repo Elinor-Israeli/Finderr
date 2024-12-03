@@ -5,7 +5,7 @@ import moment from 'moment';
 
 import { updateOrder } from '../../store/actions/order.actions'
 
-// import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'
+import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'; 
 import { ProgressChart2 } from '../ProgressChart2'
 import { loadOrders } from '../../store/actions/order.actions'
 import { MonthlyRevenue } from '../MonthlyRevenue '
@@ -37,14 +37,19 @@ export default function UserSellerTable() {
     setMonthlyRevenue(completedOrdersTotal)
   }, [orders])
 
-  // function toggleStatusModal(orderId) {
+  
 
-  //   setIsModal(prevModal => ({
-  //     ...prevModal,
-  //     id: orderId,
-  //     status: prevModal.id !== orderId ? true : !prevModal.status
-  //   }))
-  // }
+  function updateStatus(status, order) {
+    order.status = status
+    updateOrder(order)
+    socketService.emit(SOCKET_EVENT_ORDER_UPDATED,
+      {
+        sellerName: order.seller.fullname,
+        status: order.status,
+        buyerId: order.buyer._id
+      })
+      setIsModal({ id: '', status: false })
+    }
 
   function renderStatusButtons(order) {
     if (order.status === 'pending') {
@@ -82,11 +87,11 @@ export default function UserSellerTable() {
   }
 
 
-  function updateStatus(status, order) {
-    const updatedOrder = { ...order, status }
-    updateOrder(updatedOrder)
-    setIsModal({ id: '', status: false })
-  }
+  // function updateStatus(status, order) {
+  //   const updatedOrder = { ...order, status }
+  //   updateOrder(updatedOrder)
+  //   setIsModal({ id: '', status: false })
+  // }
 
  function getTxtToShow(txt, length)  {
     return txt.length < length ? txt : `${txt.substring(0, length)}...`

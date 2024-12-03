@@ -1,32 +1,39 @@
 import { useState, useEffect, useRef } from 'react';
-import { eventBus, showSuccessMsg, showErrorMsg } from '../services/event-bus.service';
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
+import { socketService, SOCKET_EMIT_ORDER_WATCH,SOCKET_EVENT_ORDER_FROM_YOU  } from '../services/socket.service';
+
 import { HiMiniXMark } from "react-icons/hi2";
 
+import { eventBus,  showSuccessMsg } from '../services/event-bus.service';
+import { changeUserMsg } from '../store/system/system.actions'
+
 export function UserMsg() {
-  const [msg, setMsg] = useState(null);
-  const timeoutIdRef = useRef();
+  const [msg, setMsg] = useState(null)
+  const timeoutIdRef = useRef()
 
   useEffect(() => {
-    // Listen for 'show-msg' events from the eventBus
     const unsubscribe = eventBus.on('show-msg', (msg) => {
-      setMsg(msg);
-
-      // Automatically close the message after 3 seconds
+      setMsg(msg)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       if (timeoutIdRef.current) {
-        clearTimeout(timeoutIdRef.current);
+        timeoutIdRef.current = null
+        clearTimeout(timeoutIdRef.current)
       }
-      timeoutIdRef.current = setTimeout(() => {
-        setMsg(null)
-      },3000)
+      timeoutIdRef.current = setTimeout(closeMsg, 3000)
     })
 
-    return () => unsubscribe()
+    socketService.on(SOCKET_EVENT_ORDER_FROM_YOU, (userName) => {
+      showSuccessMsg(`New order from ${userName}`)
+    })
+
+    socketService.on(SOCKET_EMIT_ORDER_WATCH, ({ sellerName, status }) => {
+      showSuccessMsg(`Your order from ${sellerName} was ${status}`)
+    })
+
   }, [])
 
   function closeMsg() {
     setMsg(null)
-    if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current)
   }
 
   if (!msg) return null

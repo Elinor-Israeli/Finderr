@@ -41,6 +41,7 @@
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.7.2",
     "three": "^0.170.0",
+    "vite-plugin-svgr": "^4.3.0",
     "workbox-background-sync": "^7.3.0",
     "workbox-broadcast-update": "^7.3.0",
     "workbox-cacheable-response": "^7.3.0",

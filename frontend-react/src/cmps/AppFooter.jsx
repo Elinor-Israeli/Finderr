@@ -3,11 +3,10 @@ import React from "react";
 // import { Accordion } from "../Accordion/Accordion.jsx";
 export function AppFooter() {
     return ([
-        <section className="footer-container full">
-        <div className="footer">
+        <section className="footer-container full  ">
+        <div className="footer ">
             <div className="container">
-                <div className="top">
-                    {/* <hr /> */}
+                <div className="top main-layout">
                     <div className="item">
                         <ul>
                             <h2>Categories</h2>
@@ -78,7 +77,7 @@ export function AppFooter() {
                             <li><a href="#">Invite a Friend</a></li>
                             <li><a href="#">Press & News</a></li>
                             <li><a href="#">Investor Relations</a></li>
-                            <a href="https://pro.fiverr.com/cp/project-partner?source=footer" target="_blank" rel="noopener">Project Management Service</a>
+                           <li><a href="https://pro.fiverr.com/cp/project-partner?source=footer" target="_blank" rel="noopener">Project Management Service</a></li> 
                         </ul>
                     </div>
                     {/* <div className="item"> */}

@@ -46,7 +46,7 @@ export function Search({ onSetFilter }) {
                 id="title"
                 name="title"
                 placeholder={onPlaceholder()}
-                value={filterByToEdit.title}
+                value={filterByToEdit.categories}
                 onChange={handleChange}
                 ref={elInputRef}
             />

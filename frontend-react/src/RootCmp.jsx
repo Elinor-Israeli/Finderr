@@ -13,10 +13,11 @@ import { UserIndex } from './pages/UserIndex'
 import UserWishList from './pages/UserWishList'
 import { UserMsg } from './cmps/UserMsg'
 import UserSellerTable from './cmps/user/UserSellerTable'
+
 // import { GigOrderIndex } from './pages/GigOrderIndex'
 
 // import { GigBreadcrumbs } from './cmps/gig/GigBreadcrumbs'
-// import { GigCategoryMenu } from './cmps/gig/GigCategoryMenu'
+import { GigCategoryMenu } from './cmps/gig/GigCategoryMenu'
 
 
 export function RootCmp() {
@@ -25,8 +26,13 @@ export function RootCmp() {
     const isDashboard = pathname.startsWith('/dashboard')
     
     return (
-        <div className="main-container  main-layout full">
-            {pathname !== '/' && <IndexHeader />} 
+        
+        <div className="main-container main-layout ">
+             <IndexHeader />
+             
+      
+      
+            {/* {pathname !== '/' && <IndexHeader />}  */}
             {/* <GigCategoryMenu/> */}
           
            
@@ -34,7 +40,7 @@ export function RootCmp() {
             {/* <AppHeader /> */}
             {/* <GigBreadcrumbs /> */}
             <UserMsg />
-
+           
             <main>
                 <Routes>
                     <Route path="" element={<HomePage/>} />

@@ -28,12 +28,8 @@ $breakpoints: (
     }
 }
 
-section.home-page.full.main-layout {
-    // padding: 0px 32px;
 
-}
 
-// .main-layout {
 
 .home-page {
     margin: 0 0 16px;
@@ -43,12 +39,12 @@ section.home-page.full.main-layout {
     align-items: center;
     flex-direction: column;
     position: relative;
-    padding: 40px 20px;
+    padding: 100px 20px;
     border-radius: 16px;
     background-size: cover;
     background-position: center;
     // margin-top: em(150px); //! scroll
-    margin-top: em(10px);
+    margin-top: em(50px);
   
 
  
@@ -111,7 +107,7 @@ section.home-page.full.main-layout {
 @media (max-width: 900px) {
 
     .home-page {
-        margin: 0 0 16px;
+        // margin: 0 0 16px;
         background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
         background-size: cover;
         background-position: center;
@@ -602,8 +598,8 @@ $padding_max_double: 64px;
 }
 
 .hidden {
-    height: 332px;
-    overflow: hidden;
+    // height: 332px;
+    // overflow: hidden;
 }
 
 .collapse {

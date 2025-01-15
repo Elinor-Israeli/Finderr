@@ -28,9 +28,12 @@
 
     }
     .logo {
-        font-size: 34px;
-        font-weight: bold;
+        font-size: 40px;
+        font-family: 'Macan';
+        font-weight: 900;
+    letter-spacing: -3px;
         padding: 10px;
+        color: #62646a;
 
         .logo-dot {
             color: #1dbf73;
@@ -43,7 +46,7 @@
         .top {
             display: flex;
             justify-content: space-between;
-            gap: 10px;
+            gap: 50px;
 
             .item {
                 display: flex;
@@ -53,10 +56,10 @@
                 // padding: 0px 0px 40px;
 
                 h2 {
-                    font-size: 16px !important;
+                    // font-size: 580px;
                     color: #404145;
-                    font-size: 18px;
-                    // font-family: 'Macan';
+                    font-size: 20px;
+                    font-family: 'Macan';
                     display: block;
                 }
 
@@ -77,8 +80,9 @@
                         text-decoration: none;
                         color: #74767e;
                         transition: color .2s;
-                        font-size: 15px !important;
-                        font: 16px  Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+                        font-size: 20px ;
+                        font-family: 'Macan';
+                       
                     }
 
                     &:hover {
@@ -126,7 +130,7 @@
                 display: flex;
                 align-items: center;
                 gap: 30px;
-                padding: 16px 0px 0px;
+                padding: 50px 0px 0px;
 
                 .social {
                     display: flex;
@@ -181,8 +185,9 @@
             white-space: nowrap;
             font-size: 16px;
             // line-height: 21px;
-            color: #B5B6BA;
-            font-family: 16px 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            // color: #B5B6BA;
+            color: #1dbf73;
+            font-family: 'Macan';
         }
 
     }
@@ -259,6 +264,7 @@ div.top {
         font-size: 16px !important;
         // line-height: 21px;
         color: #B5B6BA;
+
         font-family: 16px 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 }
@@ -320,7 +326,7 @@ h2.left {
     }
 
     .top {
-        width: 1400px;
+        width:100%  ;
         // border-top: 1px solid gray;
         // margin: 0px em(126.5px);
         align-self: center;

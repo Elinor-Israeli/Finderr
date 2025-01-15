@@ -59,7 +59,7 @@ export function TopFilterBar({ onSetFilter }) {
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
 
         if (field === "daysToMake") {
-            setIsDeliveryShow(false) // Filter before applying
+            setIsDeliveryShow(false) 
             onSetFilter(newFilterBy)
         }
     }

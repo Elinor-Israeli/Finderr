@@ -18,6 +18,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
   const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
   const elInputRef = useRef(null)
   const [isCategoryMenuVisible, setIsCategoryMenuVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
   const [showSearch, setShowSearch] = useState(false)
   const loginUser = userService.getLoggedinUser()
   const [headerClassName, setHeaderClassName] = useState('')
@@ -102,11 +103,11 @@ export function IndexHeader({ onSetFilter, isSticky }) {
   }
 
   function onPlaceholder() {
-    let placeholder = 'Search for any service...'
+    let placeholder = 'What service are you looking for today?'
     if (pathname === '/') {
-      placeholder = 'Search for any service...'
+      placeholder = 'What service are you looking for today?'
     } else if (pathname !== '/' && windowSize < 900) {
-      placeholder = 'Search for any service...'
+      placeholder = 'What service are you looking for today?'
     }
     return placeholder
   }
@@ -117,12 +118,12 @@ export function IndexHeader({ onSetFilter, isSticky }) {
     let categoryParams
     let queryStringParams
 
-    if (filterBy.title !== '') {
-      queryStringParams = `?title=${filterBy.title}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`;
+    if (filterBy.categories !== '') {
+      queryStringParams = `?categories=${filterBy.categories}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
       navigate(`/gig${queryStringParams}`)
     } else {
       categoryParams = filterBy.tags[0] || ''
-      queryStringParams = `?category=${categoryParams}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`;
+      queryStringParams = `?categories=${categoryParams}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
       navigate(`/gig${queryStringParams}`)
     }
   }
@@ -182,12 +183,36 @@ export function IndexHeader({ onSetFilter, isSticky }) {
     setIsImageModalOpen(false)
   }
 
-  return (
-    <section>
-      <section className={`my-header`}>
-        <div className="index-header main layout">
-          <div className={`index-header-container main-layout ${isSticky ? 'sticky' : ''}`}>
+  useEffect(() => {
 
+    const handleScroll = () => {
+
+        const scrollPosition = window.scrollY
+
+
+        const threshold = 400
+
+        // Set visibility based on the scroll position
+        if (scrollPosition >= threshold) {
+            setIsVisible(true)
+        } else {
+            setIsVisible(false)
+        }
+    };
+
+    // Attach scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    }
+}, [])
+
+  return (
+    <section className="index-header full">
+          <div className={`index-header-container main-layout `}>
+<div style={{display: 'flex', alignItems: 'center',justifyContent: 'space-between'}} >
             <Link to="/">
               <div className="logo">
                 <span className='logo-text'>finderr</span>
@@ -195,7 +220,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
               </div>
             </Link>
 
-            <form className="index-search" onSubmit={onSubmitFilter}>
+            <form className={`index-search ${isVisible ? 'block-header' : 'hidden'}`} onSubmit={onSubmitFilter}>
               <div className="search-index-input">
                 <input
                   type="text"
@@ -216,9 +241,9 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                 </button>
               </div>
             </form>
-            <div className="links">
+            <div className="links ">
               <Link to="gig">
-                <span>Explore</span>
+                <span className='explore-btn'>Explore</span>
               </Link>
               {user &&
                 <>
@@ -264,13 +289,14 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                 </>
               }
             </div>
-          </div>
-        </div>
-      </section>
-      {/* <div className='full' style={{display: 'grid', gridColumn: '1 / -1',gridTemplateColumns: '1fr'}}> */}
-      <div className='full' >
+            {/* <div className='full' >
         <GigCategoryMenu onSetFilter={onSetFilter} />
-      </div>
+      </div> */}
+          </div>
+          </div>
+      
+      {/* <div className='full' style={{display: 'grid', gridColumn: '1 / -1',gridTemplateColumns: '1fr'}}> */}
+     
     </section>
   )
 }

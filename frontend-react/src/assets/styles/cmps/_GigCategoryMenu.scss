@@ -32,112 +32,105 @@ $green: #32a852;
 }
 
 .categories-menu-package {
-    grid-column: 1 / -1;
-    width: 100%;
+    
     position: relative;
-    border-top: 1px solid #e4e5e7;
     border-bottom: 1px solid #e4e5e7;
     opacity: 1;
     padding: 10px;
-     //! scroll
-    // position: fixed;
-    // padding: 8px;
-    // background-color: #fff;
-    // z-index: 1111;
-    // margin-top: em(89px); //! scroll
+    // ! scroll
+    position: fixed;
+    background-color: #fff;
+    z-index: 1111;
 
-    // &:hover {
-    //     border-bottom: 1px solid #32a852;
-    //     transition: transform 0.2s;
-    //     opacity: 1;
-    //     transform: rotateX(0deg);
-    // }
+    &:hover {
+        transition: transform 0.2s;
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
 
  
 
     // display: flex;
-
-    &.hidden {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    &.visible {
-        position: fixed; /* Fixed when scrolled */
-        top: 0;
-        left: 0;
-        z-index: 1000; /* Ensures it stays on top */
-        background-color: white;
-        opacity: 1;
-        padding: 8px; /* Padding when visible */
-        transition: opacity 0.3s ease-in-out; /* Smooth transition */
-    }
-
-    a {
+    .menu-title{
+        font-family: "Macan";
+        font-size: 20px;
         cursor: pointer;
         padding: 12px 0px;
-        font-size: 16px;
-        font-family: 'Macan';
-       
 
         &:hover {
             border-bottom: 4px solid #32a852;
             transition: transform 0.2s;
-            opacity: 1;
-            transform: rotateX(0deg);
         }
     }
 
-    &.has-overflow {
-        &.has-overflow-vertical {
-            height: 40px;
-            border-bottom: 1px color($grey, 400) solid;
-        }
-
-        ul.categories {
-            overflow: hidden;
-        }
+    &.hidden {
+        // opacity: 0;
+        // transition: opacity 0.3s ease-in-out;
     }
 
-    button:not(.agencies-banner-cta) {
-        background: linear-gradient(to right,
-                $white_opaque 50%,
-                $white_transparent 100%);
-        color: color($grey, 1000);
-        border: none;
-        font-size: 10px;
-        position: absolute;
-        z-index: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 65px;
-        height: 100%;
-
-        &.left {
-            left: 0;
-        }
-
-        &.right {
-            right: 0;
-            background: linear-gradient(to left,
-                    $white_opaque 50%,
-                    $white_transparent 100%);
-        }
+    &.visible {
+        // position: fixed; 
+        // top: 0;
+        // left: 0;
+        // z-index: 1000; 
+        // background-color: white;
+        // opacity: 1;
+        // // padding: 8px; 
+        // transition: opacity 0.3s ease-in-out;
     }
 
-    .categories-badge {
-        position: relative;
-        top: -1px;
-        margin-left: 6px;
-    }
+
+
+    // &.has-overflow {
+    //     &.has-overflow-vertical {
+    //         height: 40px;
+    //         border-bottom: 1px color($grey, 400) solid;
+    //     }
+
+    //     ul.categories {
+    //         overflow: hidden;
+    //     }
+    // }
+
+    // button:not(.agencies-banner-cta) {
+    //     background: linear-gradient(to right,
+    //             $white_opaque 50%,
+    //             $white_transparent 100%);
+    //     color: color($grey, 1000);
+    //     border: none;
+    //     font-size: 10px;
+    //     position: absolute;
+    //     z-index: 1;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     width: 65px;
+    //     height: 100%;
+
+    //     &.left {
+    //         left: 0;
+    //     }
+
+    //     &.right {
+    //         right: 0;
+    //         background: linear-gradient(to left,
+    //                 $white_opaque 50%,
+    //                 $white_transparent 100%);
+    //     }
+    // }
+
+    // .categories-badge {
+    //     position: relative;
+    //     top: -1px;
+    //     margin-left: 6px;
+    // }
 
     .categories {
         padding: 0;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
-        // max-width: 1400px;
+       
 
         .top-level {
             .sub-menu-item {

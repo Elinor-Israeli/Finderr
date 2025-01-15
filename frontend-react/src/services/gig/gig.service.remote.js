@@ -1,5 +1,4 @@
 import { httpService } from '../http.service' 
-// import { userService } from '../user/user.service.remote' 
 
 export const gigService = {
     query,
@@ -16,11 +15,11 @@ export const gigService = {
 window.cs = gigService
 
 function getDefaultFilter() {
-    return { title: '', tags: [], daysToMake: '', minPrice: '', maxPrice: '' }
+    return { categories: [],  daysToMake: '', minPrice: '', maxPrice: '' }
 }
 
-async function query(filterBy = getDefaultFilter(), userId = '') {
-    return httpService.get(`gig`, { params: { filterBy, userId } })
+async function query(filterBy = getDefaultFilter()) {
+    return httpService.get(`gig`, filterBy)
 }
 
 function getById(gigId) {

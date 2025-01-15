@@ -9,20 +9,17 @@ export const SET_SORT = 'SET_SORT'
 
 const initialState = {
     gigs: [],
-    cart: [],
     lastRemovedGig: null,
     filterBy: gigService.getDefaultFilter(),
 
 }
 
 export function gigReducer(state = initialState, action) {
-    var newState = state
-    var gigs
+    let newState = state
+    let gigs
     switch (action.type) {
         case SET_GIGS:
-            console.log("state: ", state)
             newState = { ...state, gigs: action.gigs }
-            console.log("newState: ", newState)
             break
         case REMOVE_GIG:
             const lastRemovedGig = state.gigs.find(gig => gig._id === action.gigId)
@@ -37,9 +34,11 @@ export function gigReducer(state = initialState, action) {
             newState = { ...state, gigs }
             break
         case SET_FILTER:
-            return { ...state, filterBy: action.filterBy }
+            newState = { ...state, filterBy: action.filterBy }
+            break
         case SET_SORT:
-            return { ...state, sortBy: action.sortBy }
+            newState = { ...state, sortBy: action.sortBy }
+            break
         default:
     }
     return newState

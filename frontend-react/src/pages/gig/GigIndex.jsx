@@ -2,22 +2,21 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-// import { GigSort } from '../../cmps/gig/GigSort'
 import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 
 import { GigList } from '../../cmps/gig/GigList'
 import { TopFilterBar } from '../../cmps/gig/listfilterBar'
-// import { SortBy } from '../../cmps/gig/SortBy'
 import { loadGigs } from '../../store/actions/gig.actions'
 import { SET_FILTER, SET_SORT } from '../../store/reducers/gig.reducer'
 import { SortBy } from '../../cmps/gig/GigSort'
 import loader from '/img/thloader.svg'
 
 export function GigIndex() {
-    const filterByFromStore = useSelector(storeState => storeState.gigModule.filterBy)
     const sortBy = useSelector((storeState) => storeState.gigModule.sortBy)
     const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
     let gigs = useSelector(storeState => storeState.gigModule.gigs)
+    console.log('gigsI', gigs)
+    console.log('gigModule', useSelector(storeState => storeState.gigModule))
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
     const dispatch = useDispatch()
     const [searchParams] = useSearchParams()
@@ -39,58 +38,43 @@ export function GigIndex() {
     }, [])
 
     useEffect(() => {
-        loadGigs(filterBy, sortBy)
-    }, [filterBy, sortBy])
+        loadGigs(filterBy)
+    }, [filterBy])
 
     function renderParams() {
-        if (searchParams.get('title')) {
-            filterBy.title = searchParams.get('title')
-        }
-
-        if (searchParams.get('category')) {
-            filterBy.tags = [searchParams.get('category')]
+        console.log(searchParams.getAll('categories'));
+        
+        if (searchParams.getAll('categories')) {
+            filterBy.categories = searchParams.getAll('categories')[0].split(',')
+            console.log('fb:', filterBy.categories);
         }
 
         if (searchParams.get('minPrice')) {
-            filterBy.minPrice = [searchParams.get('minPrice')]
+            filterBy.minPrice = searchParams.get('minPrice')
         }
 
         if (searchParams.get('maxPrice')) {
-            filterBy.maxPrice = [searchParams.get('maxPrice')]
+            filterBy.maxPrice = searchParams.get('maxPrice')
         }
 
         if (searchParams.get('daysToMake')) {
-            filterBy.daysToMake = [searchParams.get('daysToMake')]
+            filterBy.daysToMake = searchParams.get('daysToMake')
         }
         onSetFilter(filterBy)
     }
 
     function onSetFilter(filterBy) {
-        if (filterByFromStore.tags[0]) {
-            filterBy.tags = filterByFromStore.tags
-        }
-        if (filterByFromStore.title) filterBy.title = filterByFromStore.title
-
         dispatch({ type: SET_FILTER, filterBy })
 
-        let categoryParams
-        let queryStringParams
-
-        if (filterByFromStore.title) {
-            queryStringParams = `?title=${filterBy.title}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
-            navigate(`/gig${queryStringParams}`)
-        }
-
-        else {
-            if (filterByFromStore.tags[0] !== '' && filterByFromStore.tags[0] !== undefined) { categoryParams = filterByFromStore.tags[0] }
-            else { categoryParams = '' }
-            queryStringParams = `?category=${categoryParams}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
-            navigate(`/gig${queryStringParams}`)
-        }
+       let queryStringParams = `?categories=${filterBy.categories}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
+        navigate(`/gig${queryStringParams}`)
     }
 
-    function getCategoryName(category) {
-        switch (category) {
+    
+    
+
+    function getCategoryName(categories) {
+        switch (categories) {
             case "graphic-design":
                 return <h1>Graphic & Design</h1>
             case "digital-marketing":
@@ -125,10 +109,10 @@ export function GigIndex() {
             <GigBreadcrumbs />
             <h1 className='headline-name'>
                 {
-                    searchParams.get('title') && searchParams.get('title') !== ''
-                        ? `Results for "${searchParams.get('title')}"`
-                        : searchParams.get('category')
-                            ? getCategoryName(searchParams.get('category'))
+                    searchParams.get('categories') && searchParams.get('categories') !== ''
+                        ? `Results for "${searchParams.get('categories')}"`
+                        : searchParams.get('categories')
+                            ? getCategoryName(searchParams.get('categories'))
                             : 'Brand Style Guides'
                 }
             </h1>

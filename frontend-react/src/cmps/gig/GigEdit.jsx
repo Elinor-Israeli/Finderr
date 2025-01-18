@@ -49,7 +49,7 @@ export function GigEdit() {
 
     const onSave = async () => {
         try {
-            await addGig(gigToEdit)
+            await addGig(gigToEdit) 
             navigate(`/user/${loginUser._id}`)
         } catch (err) {
             console.log('Cannot save gig: ', err)
@@ -64,10 +64,10 @@ export function GigEdit() {
         { value: "video-animation", name: "Video & Animation", key: 5 },
         { value: "music-audio", name: "Music & Audio", key: 6 },
         { value: "programming-Tech", name: "Programming & Tech", key: 7 },
-        { value: "Business", name: "Business", key: 8 },
-        { value: "Lifestyle", name: "Lifestyle", key: 9 },
+        { value: "business", name: "Business", key: 8 },
+        { value: "lifestyle", name: "Lifestyle", key: 9 },
         { value: "data", name: "Data", key: 10 },
-        { value: "Photography", name: "Photography", key: 11 },
+        { value: "photography", name: "Photography", key: 11 },
     ]
 
     function updateTags(tag) {

@@ -22,64 +22,22 @@ import VideoPlayer from "../cmps/VideoPlayer";
 
 export function HomePage({ onSetFilter }) {
     const location = useLocation()
-    // const loginUser = userService.getLoggedinUser()
-    // const [headerClassName, setHeaderClassName] = useState('')
-    // const user = useSelector(storeState => storeState.userModule.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    // const sellingTxt = gigService.getGigSelling()
-    // const [isModal, setIsModal] = useState(false)
-    // const [isDropdown, setIsDropdown] = useState(false)
-    // const [isOrder, setIsOrder] = useState(false)
-    // const [isSignup, setIsSignup] = useState(false)
-    // const [isOpenMenu, setIsOpenMenu] = useState(false)
-    // const { pathname } = window.location
-    // const [windowSize, setWindowSize] = useState(null)
-    // const headerRef = useRef(null)
     const [isVisible, setIsVisible] = useState(false);
-
-
-    // useEffect(() => {
-    //     function handleResize() {
-    //         setWindowSize(window.innerWidth)
-    //     }
-    //     window.addEventListener("resize", handleResize)
-    //     handleResize()
-    //     return () => window.removeEventListener("resize", handleResize)
-    // }, [])
-
-    // useEffect(() => {
-    //     function handleScroll() {
-    //         if (window.scrollY >= 150 && pathname === '/') setHeaderClassName('app-header header-home-page main-layout sticky full')
-    //         else if (window.scrollY < 150 && pathname === '/') setHeaderClassName('app-header header-home-page main-layout')
-    //         else setHeaderClassName('main-layout grid-full')
-    //     }
-    //     window.addEventListener("scroll", handleScroll)
-    //     handleScroll()
-    //     return () => window.removeEventListener("scroll", handleScroll)
-    // }, [pathname, setWindowSize])
 
     useEffect(() => {
 
         const handleScroll = () => {
-
             const scrollPosition = window.scrollY
-
-
             const threshold = 700
-
-            // Set visibility based on the scroll position
             if (scrollPosition >= threshold) {
                 setIsVisible(true)
             } else {
                 setIsVisible(false)
             }
-        };
-
-        // Attach scroll event listener
+        }
         window.addEventListener('scroll', handleScroll);
-
-        // Clean up the event listener on component unmount
         return () => {
             window.removeEventListener('scroll', handleScroll);
         }

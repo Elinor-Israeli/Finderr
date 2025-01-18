@@ -71,7 +71,7 @@ export function GigCategoryMenu({ onSetFilter }) {
                     </button>
 
                     <ul className="categories categories-menu-package__categories nav-links" id="categories" ref={CategorySliderRef}>
-                        <li onClick={() => filterByCategory(['graphic-design', 'design', 'logo-design'])}>
+                        <li onClick={() => filterByCategory(['graphic-design', 'design', 'logo-design','logo'])}>
                             <a className='menu-title'>Graphic & Design</a>
                         </li>
                         <li onClick={() => filterByCategory(['digital-marketing', 'digital'])}>

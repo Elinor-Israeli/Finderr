@@ -151,7 +151,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
       await logout()
       setIsDropdown(false)
       showSuccessMsg(`Bye now`)
-      navigate('/gig')
+      navigate('/')
     } catch (err) {
       showErrorMsg('Cannot logout')
     }
@@ -242,7 +242,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
               </div>
             </form>
             <div className="links ">
-              <Link to="gig">
+              <Link to="/gig">
                 <span className='explore-btn'>Explore</span>
               </Link>
               {user &&

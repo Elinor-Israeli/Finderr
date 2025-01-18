@@ -5,8 +5,8 @@ export const orderService = {
     save,
 }
 
-async function query(userId) {
-    return httpService.get('order', { params: userId })
+async function query(role) {
+    return httpService.get('order', {  role })
 }
 
 async function save(order) {

@@ -37,23 +37,23 @@
       flex-direction: row;
   
       .user-main {
-        flex-basis: 58.33333%;
-        padding-left: 2em;
+        // flex-basis: 58.33333%;
+        // padding-left: 2em;
       }
   
       .user-info {
-        flex-basis: 41.66667%;
-        padding-right: 2em;
+        // flex-basis: 41.66667%;
+        // padding-right: 2em;
       }
     }
   
     @media (min-width: $padded-break-normal) {
       .user-main {
-        flex-basis: 66.66667%;
+        // flex-basis: 66.66667%;
       }
   
       .user-info {
-        flex-basis: 33.33333%;
+        // flex-basis: 33.33333%;
       }
     }
   
@@ -63,19 +63,24 @@
   }
   
   .gig-add-btn {
-    background-color: $clr12;
     display: flex;
-    align-items: center;
+    background-color: #1dbf73;
+    color: black;
+    padding: 5px 5px;
+    // margin-right: 5px;
+    border-radius: 5px;
+    font-size:1em;
+    font-family:'Macan';
     justify-content: center;
-  
-    a {
-      font-size: rem(24px);
-      color: $clr3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+    margin-bottom: 10px;
+
+
+    width: 200px;
+    &:hover{
+        font-size:1.2em;
+        transition: font-size 0.5s ease-in-out;
     }
+    
   
     span:first-of-type {
       font-size: rem(32px);

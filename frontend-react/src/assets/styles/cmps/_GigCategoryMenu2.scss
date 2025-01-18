@@ -11,10 +11,7 @@ $green: #32a852;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        // background-color: red;
         gap: 15px;
-        // padding: 20px;
-        // margin: 0 0 32px;
     }
 }
 
@@ -23,18 +20,13 @@ ul#categories2.categories2 {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    // background-color: green;
-    // gap: 15px;
-    // padding: 20px;
-    // margin: 0px 0px 32px;
+   
 }
 
 .card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // width: 100%;
-    // gap: 10px;
     color: #222325;
 }
 
@@ -45,13 +37,12 @@ ul#categories2.categories2 {
         display: inline-block;
         width: 160px;
         height: 160px;
-        // margin: 10px;
-        // padding: 10px 10px 25px;
+       
         border: 1px solid #ddd;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
-        // gap: 15px;
+       
         cursor: pointer;
 
         img {
@@ -60,7 +51,6 @@ ul#categories2.categories2 {
             top: 10px;
             mix-blend-mode: darken;
             width: 40px;
-            // align-self: center;
             display: flex;
             justify-content: flex-start;
         }
@@ -78,7 +68,6 @@ ul#categories2.categories2 {
             left: 10px;
             position: relative;
             width: 100%;
-            /* Ensures the span is on the left */
             padding-right: 0;
             font-weight: bold;
             font-family: "Macan";
@@ -90,21 +79,19 @@ ul#categories2.categories2 {
         }
 
         a {
-            // background-color: $white;
+            
             font: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
             color: #222325 !important;
             text-decoration: none;
             transition: color 0.2s;
             margin-right: auto;
-            // font-size: 14px;
+           
             margin: 0;
             padding: 0;
-            // display: none;
-            // justify-content: flex-start ;
-
+           
 
             &:hover {
-                // color: $green;
+               
                 text-decoration: none;
             }
 
@@ -116,7 +103,7 @@ ul#categories2.categories2 {
 
             &.link-blue,
             &.link-blue:hover {
-                // color: $blue;  // Apply blue color for .link-blue class
+               
             }
 
             &[disabled] {
@@ -152,16 +139,7 @@ ul#categories2.categories2 {
         background-color: gray;
     }
 
-    // .card-container {
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     flex-wrap: wrap;
-    //     width: 100%;
-    //     // gap: 10px;
-    //     color: #222325;
-    //     ;
-    // }
+   
 
     .card {
 
@@ -169,7 +147,6 @@ ul#categories2.categories2 {
         width: 105px;
         height: 88px;
         margin: 10px;
-        // padding: 25px;
         border: 1px solid #ddd;
         padding: 10px 10px 25px;
         border-radius: 10px;
@@ -179,16 +156,7 @@ ul#categories2.categories2 {
         transition: transform 0.3s ease;
         row-gap: 24px;
         cursor: pointer;
-        // .card-container {
-        //     display: flex;
-        //     flex-direction: column;
-        //     align-items: center;
-        //     flex-wrap: wrap;
-        //     width: 100%;
-        //     // gap: 10px;
-        //     color: #222325;
-        //     ;
-        // }
+       
 
         .card {
 
@@ -196,7 +164,6 @@ ul#categories2.categories2 {
             width: 105px;
             height: 88px;
             margin: 10px;
-            // padding: 25px;
             border: 1px solid #ddd;
             padding: 10px 10px 25px;
             border-radius: 10px;
@@ -311,15 +278,7 @@ ul#categories2.categories2 {
                         text-decoration: none;
                     }
 
-                    &.link-blue,
-                    &.link-blue:hover {
-                        // color: $blue;  // Apply blue color for .link-blue class
-                    }
-
-                    &.link-blue,
-                    &.link-blue:hover {
-                        // color: $blue;  // Apply blue color for .link-blue class
-                    }
+                   
 
                     &[disabled] {
                         text-decoration: none;
@@ -364,7 +323,6 @@ li.card:hover {
 .prev,
 .next {
     cursor: pointer;
-    // padding: 10px;
     position: absolute;
     top: 35%;
     background-color: $clr3;
@@ -382,7 +340,6 @@ li.card:hover {
     .prev,
     .next {
         cursor: pointer;
-        // padding: 10px;
         position: absolute;
         top: 35%;
         background-color: $clr3;

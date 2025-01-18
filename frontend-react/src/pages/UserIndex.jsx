@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { FaTelegramPlane } from "react-icons/fa";
 
 import { loadGigs, removeGig } from '../store/actions/gig.actions'
-import { loadOrders } from '../store/actions/order.actions'
 import { UserList } from '../cmps/user/UserList'
 import { UserProfile } from './UserProfile'
 import { loadWatchedUser } from '../store/user/user.actions'
@@ -13,29 +11,24 @@ import { ReviewBar } from '../cmps/review/ReviewBar'
 
 import { userService } from '../services/user/user.service.remote'; 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import UserSellerTable from '../cmps/user/UserSellerTable'
 
 export function UserIndex() {
-    const orders = useSelector(storeState => storeState.orderModule.orders)
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
     const sortBy = useSelector((storeState) => storeState.gigModule.sortBy)
     const { userId } = useParams()
-    const loginUser = userService.getLoggedinUser()
     const [time, setTime] = useState('')
 
     const [user, setUser] = useState(null)
 
     useEffect(() => {
         userId && loadWatchedUser(userId)
-        loadOrders()
         loadUser()
         loadGigs(filterBy, sortBy, userId)
     }, [filterBy, userId])
 
     useEffect(() => {
-        // Function to update time
         const updateTime = () => {
             const currentDate = new Date()
             const hours = currentDate.getHours()
@@ -79,10 +72,9 @@ export function UserIndex() {
                 <UserProfile watchedUser={watchedUser} />
                 <div className="user-review-bar">{watchedUser && watchedUser.reviews && <ReviewBar userReviews={watchedUser.reviews} />}</div>
                 {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner_id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
-
                 {watchedUser && watchedUser.reviews && <ReviewList userReviews={watchedUser.reviews} />}
             </aside>
-            <main className="user-main">
+            {/* <main className="user-main">
                 <div className="card-user">
                     <div className="card-header">
                         <img src={watchedUser?.imgUrl}></img>
@@ -105,12 +97,12 @@ export function UserIndex() {
                         </div>
                     </div>
                 </div>
-                {/* {loginUser?._id === userId && orders.filter(order => order.seller._id === loginUser._id).length !== 0 && loginUser && <UserSellerTable
+                {loginUser?._id === userId && orders.filter(order => order.seller._id === loginUser._id).length !== 0 && loginUser && <UserSellerTable
                     orders={orders.filter(order => order.seller._id === loginUser._id)} length={120} />}
-                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner_id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />} */}
-                {/* {<UserSellerTable
-                    orders={orders.filter(order => order.seller._id === loginUser._id)} length={120} />} */}
-            </main>
+                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner_id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
+                {<UserSellerTable
+                    orders={orders.filter(order => order.seller._id === loginUser._id)} length={120} />}
+            </main> */}
         </section>
     )
 }

@@ -26,7 +26,7 @@ export function GigPreview({ gig }) {
         } else {
           setHeart(false)
         }
-      
+    
         loadOwner()
       }, [user, gig])
 
@@ -123,15 +123,15 @@ export function GigPreview({ gig }) {
                     {owner && owner.imgUrl && <img className="gig-preview__owner-img" src={owner.imgUrl} alt="Owner" />}
                     <div className="gig-preview__owner">
                         <Link className="gig-preview__owner-name" to={`/user/${owner?._id}`}>{owner?.fullname}</Link>
-                        <div className="gig-preview__owner-level-container">
+                        {owner && owner.level && <div className="gig-preview__owner-level-container">
                             <span
                                 className="gig-preview__owner-level"
-                                style={gig.owner.level === 3 ? { backgroundColor: '#ffe0b3', padding: '2px 6px', borderRadius: '4px' } : {}}
+                                style={owner.level === 3 ? { backgroundColor: '#ffe0b3', padding: '2px 6px', borderRadius: '4px' } : {}}
                             >
-                                {gig.owner.level === 3 ? `Top Rated ${gig.owner.level}` : `Level ${gig.owner.level}`}
-                                {renderLevelStars(gig.owner.level)}
+                                {owner.level === 3 ? `Top Rated ${owner.level}` : `Level ${owner.level}`}
+                                {renderLevelStars(owner.level)}
                             </span>
-                        </div>
+                        </div>}
                     </div>
                 </div>
 

@@ -39,3 +39,25 @@
     background-color: white;
     transition: opacity 0.3s ease-in-out;
   }
+
+.gig-user-list{
+    display: grid;
+    margin-bottom: 3rem;
+    grid-template-rows: repeat(1, 1fr); 
+    align-items: center;
+    justify-items: center;
+    gap: 1rem;
+
+
+    @media (min-width: $mobile-breakpoint) {
+        grid-template-rows: repeat(2, 1fr); 
+    }
+
+    @media (min-width: $narrow-breakpoint) {
+        grid-template-rows: repeat(3, 1fr); 
+    }
+
+    @media (min-width: $normal-breakpoint) {
+        grid-template-rows: repeat(4, 1fr); 
+    }
+}

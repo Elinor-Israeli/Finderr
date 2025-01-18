@@ -29,9 +29,7 @@ export async function loadGigs(filterBy) {
         const gigs = await gigService.query(filterBy)
        
         store.dispatch({ type: SET_GIGS, gigs })
-        console.log('gigD', gigs)
     } catch (err) {
-        console.log('Cannot load gigs', err)
         throw err
     } finally {
         store.dispatch({ type: LOADING_DONE })
@@ -49,6 +47,7 @@ export async function removeGig(gigId) {
 }
 
 export async function addGig(gig) {
+    console.log('gig32', gig)
     try {
         const savedGig = await gigService.save(gig)
         console.log('Added Gig', savedGig)
@@ -56,6 +55,7 @@ export async function addGig(gig) {
         return savedGig
     } catch (err) {
         console.log('Cannot add gig', err)
+        console.log('gig42', gig)
         throw err
     }
 }

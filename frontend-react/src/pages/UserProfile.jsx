@@ -35,7 +35,7 @@ export function UserProfile({ watchedUser, userReviews }) {
       {userId && <>
         <div className="user-profile-info" >
           <div className="img-profile-container">
-            {isSameUser && <div className="upload-camera "></div>}
+            {/* {isSameUser && <div className="upload-camera "></div>} */}
             {isSameUser && <img src={loginUser?.imgUrl}></img>}
             {!isSameUser && <img src={watchedUser?.imgUrl}></img>}
             <div className='info-profile-details'>
@@ -71,8 +71,10 @@ export function UserProfile({ watchedUser, userReviews }) {
             </div>
           </div>
         </div>
-        <h5 style={{fontSize: '16px', fontFamily:'macan-bold'}}>About Me</h5>
-        <p style={{fontSize: '16px', fontFamily:'macan-light'}}>👋 Hi there! I'm Bensbahou Younes, a Top-Rated Full Stack web developer with 4+ years of expertise in JavaScript and Python. My services include: 🤖 AI Chatbot Development 💡 JavaScript Deobfuscation & Debugging 🕵️ Web Scraping & Automation 🌐 Custom Browser Extensions When you work with me, you'll get: 🔧 Professional Expertise 🕒 Prompt Communication 🚀 On-time Delivery 👁 Attention to Detail And some fun stuff planned 🤐. I'll be committed to delivering the best. Let's collaborate and turn your ideas into reality. Contact me now, and let's get started on your project!</p>
+        <div className='my-info'>
+        <h5 style={{fontSize: '16px', fontFamily:'Macan'}}>About Me</h5>
+        <p style={{fontSize: '16px', fontFamily:'Macan'}}>👋 Hi there! I'm {watchedUser?.username}, a Top-Rated Full Stack web developer with 4+ years of expertise in JavaScript and Python. My services include: 🤖 AI Chatbot Development 💡 JavaScript Deobfuscation & Debugging 🕵️ Web Scraping & Automation 🌐 Custom Browser Extensions When you work with me, you'll get: 🔧 Professional Expertise 🕒 Prompt Communication 🚀 On-time Delivery 👁 Attention to Detail And some fun stuff planned 🤐. I'll be committed to delivering the best. Let's collaborate and turn your ideas into reality. Contact me now, and let's get started on your project!</p>
+        </div>
       </>}
     </div >
 

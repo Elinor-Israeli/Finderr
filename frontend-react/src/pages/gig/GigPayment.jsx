@@ -16,7 +16,6 @@ export function GigPayment({owner}) {
     const [gig, setGig] = useState(null)
     const navigate = useNavigate()
     const { gigId } = useParams()
-    console.log('gig',gig);
     
 
     useEffect(() => {
@@ -41,6 +40,7 @@ export function GigPayment({owner}) {
 
     async function onSubmitPayment(ev) {
         ev.preventDefault()
+
         if (!user) {
             showErrorMsg('Please login before continue ordering')
             return
@@ -78,12 +78,9 @@ export function GigPayment({owner}) {
             await addOrder(order)
             showSuccessMsg('Your order has been sent')
             socketService.emit(SOCKET_EMIT_SET_TOPIC, order._id)
-            console.log('Your order has been sent');
-            
-            //* on a real time  
-            //! only socket 
+            console.log('Your order has been sent')
 
-            navigate('/gig')
+            navigate('/')
         }
         catch (err) {
             showErrorMsg('Something went wrong')

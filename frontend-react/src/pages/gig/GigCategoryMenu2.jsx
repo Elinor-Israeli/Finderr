@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { gigService } from '../../services/gig/gig.service.remote'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 export function CategoryMenu2({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
@@ -10,35 +9,11 @@ export function CategoryMenu2({ onSetFilter }) {
     const [linesSetDisplay, setLinesSetDisplay] = useState('')
     const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 900)
     const { pathname } = window.location
-    // const [slideIndex, setSlideIndex] = useState(0)
-    // const [isDynamic, setIsDynamic] = useState(0)
+
     const sliderRef = useRef()
     const [isAtStart, setIsAtStart] = useState(true) 
     const [isAtEnd, setIsAtEnd] = useState(true)
 
-
-
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         if (window.innerWidth > 600 && window.scrollY >= 300 && pathname === '/') {
-    //             setCategoryMenuClassName('categories-menu')
-    //             setLinesSetDisplay('main-app-header full')
-    //         } else if (window.scrollY < 300 && pathname === '/') {
-    //             setCategoryMenuClassName('no-display')
-    //             setLinesSetDisplay('no-display')
-    //         } else if (window.innerWidth < 600) {
-    //             setCategoryMenuClassName('no-display')
-    //             setLinesSetDisplay('no-display')
-    //         } else {
-    //             setCategoryMenuClassName('categories-menu')
-    //             setLinesSetDisplay('main-app-header full')
-    //         }
-    //     }
-
-    //     window.addEventListener("scroll", handleScroll)
-    //     handleScroll()
-    //     return () => window.removeEventListener("scroll", handleScroll)
-    // }, [pathname])
 
     useEffect(() => {
         const handleResize = () => setIsWideScreen(window.innerWidth >= 900)
@@ -47,18 +22,18 @@ export function CategoryMenu2({ onSetFilter }) {
     }, [])
 
     const categories = [
-        { tags: ["graphics-design"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/graphics-design-thin.ff38893.svg", title: <>Graphics<br />& Design</> },
-        { tags: ["digital-marketing"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/digital-marketing-thin.68edb44.svg", title: <>Digital<br />Marketing</> },
-        { tags: ["writing-translation"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/writing-translation-thin.fd3699b.svg", title: <>Writing<br />& Translation</> },
-        { tags: ["video-animation"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/video-animation-thin.9d3f24d.svg", title: <>Video<br />& Animation</> },
-        { tags: ["ai-services"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/ai-services-thin.104f389.svg", title: "AI Services"},
-        { tags: ["music-audio"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/music-audio-thin.43a9801.svg", title: "Music & Audio" },
-        { tags: ["business"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/business-thin.885e68e.svg", title: <>Business</> },
-        { tags: ["consulting"], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/consulting-thin.d5547ff.svg", title: <>Consulting</> }
+        {  categories: ['graphic-design', 'design', 'logo-design','logo'], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/graphics-design-thin.ff38893.svg", title: <>Graphics<br />& Design</> },
+        {  categories: ['digital-marketing', 'digital'], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/digital-marketing-thin.68edb44.svg", title: <>Digital<br />Marketing</> },
+        {  categories: ['writing-translation', 'translation'], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/writing-translation-thin.fd3699b.svg", title: <>Writing<br />& Translation</> },
+        {  categories: ['video-animation', 'animation'], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/video-animation-thin.9d3f24d.svg", title: <>Video<br />& Animation</> },
+        {  categories: ['programming-tech', 'tech'], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/ai-services-thin.104f389.svg", title: "AI Services"},
+        {  categories: ['music-audio', 'audio'], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/music-audio-thin.43a9801.svg", title: "Music & Audio" },
+        {  categories: ['business'], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/business-thin.885e68e.svg", title: <>Business</> },
+        {  categories: ['lifestyle'], imgSrc: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/consulting-thin.d5547ff.svg", title: <>Consulting</> }
     ]
 
-    function filterByCategory(tags) {
-        const updatedFilter = { ...filterByToEdit, tags }
+    function filterByCategory( categories) {
+        const updatedFilter = { ...filterByToEdit,  categories }
         setFilterByToEdit(updatedFilter)
         onSetFilter(updatedFilter)
     }
@@ -96,7 +71,7 @@ export function CategoryMenu2({ onSetFilter }) {
                 )}
                 <ul className="categories2" id="categories2" ref={CategorysliderRef}>
                     {categories.map((category, index) => (
-                        <div key={index} onClick={() => filterByCategory(category.tags)} className="card-container">
+                        <div key={index} onClick={() => filterByCategory(category.categories)} className="card-container">
                             {isWideScreen ? (
                                 <li className="card">
                                     <a href="#">

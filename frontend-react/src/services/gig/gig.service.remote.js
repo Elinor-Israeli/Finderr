@@ -31,13 +31,14 @@ async function remove(gigId) {
 }
 
 async function save(gig) {
+    console.log('gig52', gig)
     var savedGig
     if (gig._id) {
         savedGig = await httpService.put(`gig/${gig._id}`, gig)
     } else {
-        // gig.owner = userService.getLoggedinUser()
         savedGig = await httpService.post('gig', gig)
     }
+    console.log('gig62', gig)
     return savedGig
 }
 
@@ -142,7 +143,7 @@ function getEmptyGig(
     imgUrl = [],
     about = "I have many hobbies :) I love creativity and enjoy helping others.",
     wishList = [],
-    chat = []
+    chat = [],
 ) {
     return {
         title,

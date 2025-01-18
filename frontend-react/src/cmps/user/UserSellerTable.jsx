@@ -14,7 +14,9 @@ import { MonthlyRevenue } from '../MonthlyRevenue '
 export default function UserSellerTable() {
 
   let orders = useSelector((storeState) => storeState.orderModule.orders)
+  console.log('orders', orders)
   const user = useSelector((storeState) => storeState.userModule.user)
+  console.log('user', user)
 
   const [isModal, setIsModal] = useState({ id: '', status: false })
   // const [totalSum, setTotalSum] = useState(0)
@@ -22,10 +24,10 @@ export default function UserSellerTable() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    loadOrders()
+    loadOrders('seller')
   }, [])
 
-  const sellerOrders = orders.filter(order => order.seller._id === user._id)
+  // const sellerOrders = orders.filter(order => order.seller._id === user._id)
   // const buyerOrders = orders.filter(order => order.buyer._id === user._id)
 
 
@@ -102,10 +104,7 @@ export default function UserSellerTable() {
   const totalOrders = orders.length
   const completedOrderPercent = orders.length > 0 ? completedOrdersCount / orders.length : 0;
   const pendingOrderPercent = orders.length > 0 ? pendingOrdersCount / orders.length : 0;
-  // const annualRevenuePercent = annualRevenue / annualRevenueGoal
-  // const monthlyRevenuePercent = monthlyRevenue / monthlyRevenueGoal
-  // const annualRevenueGoal = 1000000; // Example goal for annual revenue
-  // const monthlyRevenueGoal = annualRevenueGoal / 12
+  
   const monthlyRevenueGoal = 600
 
   if (!orders || orders.length === 0) return <div className="loader-container"><div className="loader"></div></div>
@@ -117,23 +116,13 @@ export default function UserSellerTable() {
       <div className="dashboard-item">
         <span>Annual Revenue</span>
         <h3>${monthlyRevenue}</h3>
-        {/* <ProgressChart2
-        count={annualRevenuePercent}
-        total={annualRevenueGoal}
-        bgc="green"
-        label="Annual Revenue"
-    /> */}
+        
       </div>
       <div className="dashboard-item">
         <span>Monthly Revenue</span>
         <h3>${monthlyRevenue}</h3>
         
-        {/* <ProgressChart2
-        count={monthlyRevenuePercent}
-        total={annualRevenueGoal / 12} 
-        bgc="blue"
-        label="Monthly Revenue"
-    /> */}
+       
       </div>
       <div className="dashboard-item">
         <span>Completed Orders</span>
@@ -164,7 +153,7 @@ export default function UserSellerTable() {
 
     <ul className="orders-dashboard">
 
-      {sellerOrders.map(order =>
+      {orders.map(order =>
         <li key={order._id}>
           <div className="img-container"><img src={order.seller.imgUrl} alt="" onClick={() => navigate(`/gig/${order.gig._id}`)} /></div>
           <div className="gig-title">{getTxtToShow(order.gig.title, 55)}</div>
@@ -174,15 +163,6 @@ export default function UserSellerTable() {
           {moment(order.createdAt).format('MMM Do YY')} 
           </div>
           <div className="status-container">
-            {/* <span className={order.status} onClick={() => toggleStatusModal(order._id)}>{order.status} </span>
-            {user && user._id === order.seller._id && isModal.status && isModal.id === order._id && (
-              <div className="status-options">
-                <span className="approved" onClick={() => updateStatus("Approved", order)}>Approved</span>
-                <span className="completed" onClick={() => updateStatus("Completed", order)}>Completed</span>
-                <span className="declined" onClick={() => updateStatus("Declined", order)}>Declined</span>
-              </div>
-            )} */}
-             {/* <span className={order.status}>{order.status}</span> */}
              {renderStatusButtons(order)}
           </div>
         </li>)}
@@ -196,7 +176,6 @@ export default function UserSellerTable() {
       </li>
     </ul>
     <div>
-    {/* <MonthlyRevenueVisualizer /> */}
     <MonthlyRevenue monthlyRevenue={monthlyRevenue} monthlyRevenueGoal={monthlyRevenueGoal} />
     </div>
   </section>

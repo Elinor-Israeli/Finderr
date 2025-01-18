@@ -1,5 +1,3 @@
-
-
 .gig-list {
     display: grid;
     margin-bottom: 3rem;
@@ -21,3 +19,53 @@
         grid-template-columns: repeat(4, 1fr); 
     }
 }
+
+
+.gig-preview {
+    position: relative;
+    flex: 1 1 20%; 
+    max-width: 300px; 
+    box-sizing: border-box; 
+    margin-bottom: 20px;
+  }
+  
+  .user-preview-btns {
+    position: absolute;
+    top: 110px; 
+    right: -400px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+  }
+  
+  
+  .gig-edit-btn-left,
+  .gig-edit-btn-right {
+    color: white; 
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .gig-edit-btn-left {
+    background-color: #d9534f; 
+    font-size: 18px;
+    width: 100px;
+    border-radius:5px;
+  }
+  
+  .gig-edit-btn-right {
+    background-color: #28a745; 
+    font-size: 18px;
+    width: 100px;
+    border-radius:5px;
+    align-content: center;
+  }
+  
+  .gig-edit-btn-left:hover,
+  .gig-edit-btn-right:hover {
+    opacity: 0.8; 
+  }
+  

@@ -19,10 +19,11 @@ export function getActionUpdateOrder(order) {
 
 
 
-export async function loadOrders(userId) {
-    try {
-        const orders = await orderService.query(userId)
+export async function loadOrders(role) {
+     try {
+        const orders = await orderService.query( role)
         store.dispatch({ type: SET_ORDERS, orders })
+        
     } catch (err) {
         console.log('Cannot load orders', err)
         throw err

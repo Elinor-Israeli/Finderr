@@ -15,14 +15,13 @@ export function GigIndex() {
     const sortBy = useSelector((storeState) => storeState.gigModule.sortBy)
     const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
     let gigs = useSelector(storeState => storeState.gigModule.gigs)
-    console.log('gigsI', gigs)
-    console.log('gigModule', useSelector(storeState => storeState.gigModule))
+
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
     const dispatch = useDispatch()
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
     const [filterAndSort, setFilterAndSort] = useState('')
-
+    console.log('gigs', gigs)
     useEffect(() => {
         function handleScroll() {
             if (window.scrollY >= 140) setFilterAndSort('filter-sort full  filter-sort-shadow')
@@ -42,11 +41,8 @@ export function GigIndex() {
     }, [filterBy])
 
     function renderParams() {
-        console.log(searchParams.getAll('categories'));
-        
-        if (searchParams.getAll('categories')) {
+        if (searchParams.getAll('categories').length != 0) {
             filterBy.categories = searchParams.getAll('categories')[0].split(',')
-            console.log('fb:', filterBy.categories);
         }
 
         if (searchParams.get('minPrice')) {
@@ -60,38 +56,45 @@ export function GigIndex() {
         if (searchParams.get('daysToMake')) {
             filterBy.daysToMake = searchParams.get('daysToMake')
         }
+        console.log("onSetFilter")
         onSetFilter(filterBy)
     }
 
     function onSetFilter(filterBy) {
         dispatch({ type: SET_FILTER, filterBy })
 
-       let queryStringParams = `?categories=${filterBy.categories}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
+        let queryStringParams = `?categories=${filterBy.categories}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
+
+        console.log(queryStringParams)
+
         navigate(`/gig${queryStringParams}`)
+
+        console.log('after navigation')
     }
 
-    
-    
+
+
 
     function getCategoryName(categories) {
+        console.log('categories' , categories)
         switch (categories) {
-            case "graphic-design":
+            case ['graphic-design', 'design', 'logo-design','logo']:
                 return <h1>Graphic & Design</h1>
-            case "digital-marketing":
+            case ['digital-marketing', 'digital']:
                 return <h1>Digital & Marketing</h1>
-            case "writing-translation":
+            case ['writing-translation', 'translation']:
                 return <h1>Writing & Translation</h1>
-            case "video-animation":
+            case ['video-animation', 'animation']:
                 return <h1>Video & Animation</h1>
-            case "music-audio":
+            case ['music-audio', 'audio']:
                 return <h1>Music & Audio</h1>
-            case "programming-tech":
+            case ['programming-tech', 'tech']:
                 return <h1>Programming & Tech</h1>
-            case "business":
+            case ['business']:
                 return <h1>Business</h1>
-            case "lifestyle":
+            case ['lifestyle']:
                 return <h1>Lifestyle</h1>
-            case "trending":
+            case ['trending']:
                 return <h1>Trending</h1>
             default: return
         }

@@ -76,31 +76,10 @@ $padded-break-wide: $width-breakpoint + $layoutPadding * 2;
   }
 
   @font-face {
-    font-family: 'Macan-light';
-    src: url('../../fonts/macan/MacanPanWeb.ttf') format('ttf');
+    font-family: 'Domaine';
+    src: url('../../fonts/DomainDisplay-Regular/DomaineDispNar-SemiboldItalic.otf') format('otf');
     font-weight: normal;
     font-style: normal;
   }
 
-  // @font-face {
-  //   font-family: 'Macan-lighter';
-  //   src: url('../../fonts/macan/macan-semibold.woff2') format('woff2');
-  //   font-weight: lighter;
-  //   font-style: normal;
-  // }
-
-//   @font-face {
-//     font-family: 'Macan-light';
-//     src: url('../../fonts/macan/MacanPanWeb.woff2') format('woff2'),
-//          url('../../fonts/macan/MacanPanWeb.woff') format('woff'),
-//          url('../../fonts/macan/MacanPanWeb.ttf') format('truetype'); 
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
-@font-face {
-  font-family: 'Dream';
-  src: url('../../fonts/playfair-display/DomaineDispNar-Regular.otf') format('otf');
-  font-weight: normal;
-  font-style: normal;
-}
+  

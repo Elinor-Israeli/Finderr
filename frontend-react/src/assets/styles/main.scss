@@ -1,5 +1,4 @@
 // Setup
-@import "setup/variables";
 @import "setup/functions";
 @import "setup/mixins";
 @import "setup/typography";
@@ -53,15 +52,13 @@
 @import "cmps/GigBreadcrumbs";
 @import "cmps/IndexHeader";
 @import "cmps/LoginSignup";
-@import "cmps/UserBuyGig";
+@import "cmps/UserBuyerGig";
 @import "cmps/UserList";
 @import "cmps/GigSort";
 @import "cmps/ThLoader";
 @import "cmps/MonthlyRevenue";
 @import "cmps/PricingTable";
 @import "cmps/ShareModal";
-@import "cmps/Modal";
-
 @import "cmps/UserSellerTable";
 
 

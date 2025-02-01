@@ -10,7 +10,6 @@
     min-height: 400px;  
     font-family: 'Macan';
     background-color: #fff;
-    // padding: 16px;
     box-sizing: border-box;
 
     .gig-preview__img-container {
@@ -35,11 +34,9 @@
 
     .gig-preview__content {
         width: 100%;
-        // display: flex;
         flex-direction: column;
         justify-content: space-between;
         flex-grow: 1;  
-        // margin-top: 10px;  
         
         .gig-preview__owner-info {
             display: flex;
@@ -54,7 +51,6 @@
                 height: 25px;
                 border-radius: 50%;
                 margin-right: 8px;
-                // margin-top: 14px;
             }
 
             .gig-preview__owner {
@@ -64,7 +60,6 @@
                 width: 100%;
 
                 .gig-preview__owner-name {
-                    // margin-top: 10px;
                     white-space: nowrap;
                     color: #222325;
 
@@ -134,7 +129,6 @@
         .gig-preview__price {
             width: 100%;
             display: flex;
-            // align-items: flex-end;
             font-size: 1em;
             line-height: 1.3;
 

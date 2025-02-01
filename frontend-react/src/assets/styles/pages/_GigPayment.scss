@@ -158,11 +158,6 @@
                 max-width: 252px;
                 margin-inline-end: 2em;
             }
-
-            // .date,
-            // .code {
-            //     max-width: 110px;
-            // }
         }
     }
 
@@ -190,7 +185,6 @@
         align-items: center;
         padding-bottom: 1em;
         margin-bottom: 1em;
-        // border-bottom: 1px solid $clr7;
     }
 
     .basic {
@@ -209,7 +203,6 @@
             font-size: 16px;
         }
 
-        span:first-of-type {}
     }
 
     li {
@@ -239,7 +232,6 @@
 
     .payment-taxes,
     .payment-total {
-        // border-bottom: 1px solid $clr7;
         margin-bottom: 1em;
         font-size: 16px;
         font-family: 'Macan';
@@ -331,8 +323,7 @@
     display: inline-block;
     font-weight: inherit;
     font-style: inherit;
-    // width: 40px;
-    // height: 40px; //! not working on the icon intresting
+   
     opacity: 0;
     pointer-events: none;
     fill: color($grey, 1000);

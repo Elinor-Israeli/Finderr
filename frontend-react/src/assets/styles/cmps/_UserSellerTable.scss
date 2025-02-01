@@ -43,7 +43,6 @@
     display: grid;
     grid-template-columns: 2fr 2fr 1fr 2fr 2fr 2fr;
     border: 1px solid $clr11;
-    // color: $clr5;
     font-family: 'Macan';
 
 
@@ -83,7 +82,6 @@
 
     @media (min-width: $mobile-breakpoint) {
       grid-template-columns: 2fr 3fr 2fr 1fr 2fr 2fr;
-      // margin-bottom: 1em;
 
       &:not(:first-child) {
         border: 1px solid $clr11;
@@ -147,8 +145,7 @@
   .status-container {
     position: relative;
     padding: 0;
-    // background-color:  rgb(225, 213, 213);
-    // border-radius: 5px;
+   
   }
 
   .status-options {
@@ -201,7 +198,6 @@
     align-items: center;
     max-width: 252px;
     flex: 1;
-    // justify-content: space-between;
     padding: 0 10px;
 
     span {

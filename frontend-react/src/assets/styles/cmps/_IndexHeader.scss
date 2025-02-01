@@ -7,26 +7,11 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    
     background-color: white;
-     //! scroll
-    // position: fixed;
-    // top: 0;
-    // width: 100%;
-    // z-index: 1111; 
-    // background-color: #fff; //! scroll
-
-    
-
     .index-header-container {
         padding: 20px 0px;
         transition: all 0.3s ease; 
         
-        // margin-left: 200px;
-        // margin-right: 200px;
-
-        
-
         .logo {
             justify-content: flex-start;
             font-size: 45px;
@@ -45,11 +30,8 @@
 
         .index-search {
             display: flex;
-            // justify-self: center;
             align-items: center;
             justify-content: space-between;
-
-            // justify-content: space-between;
             background-color: white;
             border-radius: 5px;
             width: 70%; 
@@ -71,7 +53,6 @@
                     height: 45px; 
                     outline: none;
                     padding: 0 10px; 
-                    // border-radius: 5px;
                     border: 0.3px solid #c5c6c9;
                     border-right: white;
                 }
@@ -160,7 +141,6 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     }
 
-    
 }
 
 

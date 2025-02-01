@@ -43,14 +43,12 @@ $breakpoints: (
     border-radius: 16px;
     background-size: cover;
     background-position: center;
-    // margin-top: em(150px); //! scroll
     margin-top: em(50px);
   
 
  
 
     @include media-query-grid(sm) {
-        // padding: 48px 40px;
         background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
         background-image: none;
     }
@@ -107,7 +105,6 @@ $breakpoints: (
 @media (max-width: 900px) {
 
     .home-page {
-        // margin: 0 0 16px;
         background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
         background-size: cover;
         background-position: center;
@@ -123,8 +120,7 @@ $breakpoints: (
     }
 
     .special-font {
-        // font-family: "TestDomaineDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-        // font-family:'Dream' !important;
+        font-family: 'Domaine';
         font-family: playfair-semi;
         font-weight: 400;
         font-size: 40px !important;
@@ -132,7 +128,6 @@ $breakpoints: (
 }
 
 
-// }
 
 $grid_gutters: (
     xs: 6px,
@@ -202,8 +197,7 @@ $padding_max_double: 64px;
             @include gutter(xs);
         }
 
-        // The reason xs gets a custom treatment is due to the fact that the grid is `xs` by default
-        // and it does not correspond to any breakpoint, but instead, to the lack thereof
+         
         @include gutter-compensation(xs);
         @include column($layout, xs);
         @include center(xs);
@@ -281,13 +275,9 @@ $padding_max_double: 64px;
     font-size: 32px;
     line-height: 35.2px;
     mIN-width: 628px;
-    // color: #62646a ;
     letter-spacing: -.04em;
     text-align: center;
-    
     margin: 0 auto;
-    // position: absolute;
-    // z-index: 1;
 }
 
 
@@ -306,11 +296,9 @@ $padding_max_double: 64px;
         color: $clr3;
         font-size: 2rem;
         font-weight: 700;
-        font: 40px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+        font: 40px 'Macan', Helvetica Neue, Helvetica, Arial, sans-serif;
         margin-left: -50px;
-        // @include media-query-grid(sm) {
-        //     font-size: 40px;
-        // }
+    
     }
 }
 
@@ -338,18 +326,15 @@ $padding_max_double: 64px;
     }
 
     .special-font {
-        // font-family: "TestDomaineDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: 'Domaine';
         font-weight: 400;
-        font-size: 60px !important;
+        font-size: 80px !important;
     }
 }
 
 
 .trusted-by {
-    // margin-bottom: 6rem;
-    // gap: 40px;
     margin-top: 2rem;
-    // bottom: -2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -385,8 +370,6 @@ $padding_max_double: 64px;
         width: 18px;
         height: 18px;
         margin: 0;
-        // margin-top: -2px;
-        // margin-left: -5px;
     }
 
     .search-input {
@@ -404,7 +387,6 @@ $padding_max_double: 64px;
     .search-btn {
         display: flex;
         position: absolute;
-        // top: 6px;
         right: 6px;
         height: 40px;
         width: 40px;
@@ -423,14 +405,12 @@ $padding_max_double: 64px;
         position: relative;
         padding: 8px 12px;
         border: 1px solid transparent;
-        // border-radius: $border_radius;
         font-weight: 600;
         font-size: 16px;
         line-height: 100%;
         text-decoration: none;
         text-align: center;
         cursor: pointer;
-        // transition: $animation_duration_fast_01 $animation_timing_function_standard;
 
         .loading-icon {
             position: absolute;
@@ -500,13 +480,7 @@ $padding_max_double: 64px;
 }
 
 .trusted-by {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // position: absolute;
-    // opacity: 0.5;
-    // bottom: 32px;
-    // flex-direction: row;
+  
     gap: 32px;
 
     ul {
@@ -522,7 +496,6 @@ $padding_max_double: 64px;
         }
 
         img {
-            // color: #62646a;
             filter: grayscale(0.6) brightness(0.4) sepia(1) hue-rotate(180deg) saturate(50%) contrast(0.8);
             font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
         }
@@ -581,9 +554,7 @@ $padding_max_double: 64px;
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: $white;
     border-radius: 50%;
-    // box-shadow: $box_shadow_z1;
     z-index: 2;
 }
 
@@ -598,8 +569,7 @@ $padding_max_double: 64px;
 }
 
 .hidden {
-    // height: 332px;
-    // overflow: hidden;
+   
 }
 
 .collapse {
@@ -614,7 +584,6 @@ $padding_max_double: 64px;
 .divider {
     width: 100%;
     height: 1px;
-    // background-color: map-get($grey, 400);
 }
 
 
@@ -787,12 +756,6 @@ $grey: (
         gap: 10px;
     }
 
-    // @include media-query-grid('lg') {
-    //     margin: 16px 6px;
-    //     width: 280px;
-    //     padding: 30px 10px;
-    //     border-radius: 20px;
-    // }
 }
 
 @mixin media-query-grid($size) {
@@ -819,7 +782,6 @@ $grey: (
 .selling-proposition {
     background-color: #f1fdf7;
     padding: em(48px) 0;
-    // margin-bottom: em(48px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -848,12 +810,10 @@ $grey: (
 
     @include for-narrow-layout {
         padding: em(64px) 0;
-        // margin-bottom: em(80px);
     }
 
     @include for-normal-layout {
         padding: em(96px) 0;
-        // margin-bottom: em(96px);
     }
 
     .fiverr-pro {
@@ -887,18 +847,14 @@ $grey: (
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // font-family: macan-light;
 
     h2 {
-        // margin-bottom: 1em;
         font-size: 48px;
     }
 
     h6 {
-
         font-size: inherit;
         display: flex;
-        // margin-left: -12px;
         margin-bottom: .5em;
     }
 
@@ -919,7 +875,6 @@ $grey: (
 
     .selling-proposition {
         display: grid;
-        // grid-template-columns: 1fr ;
         gap: 10px;
         padding: 0;
     }
@@ -928,7 +883,6 @@ $grey: (
         display: grid;
         grid-template-columns: 1fr;
         padding: 32px 24px;
-        // gap: 20px;
     }
 
     .selling-item {
@@ -943,7 +897,6 @@ $grey: (
     }
 
     h2 {
-        // margin-bottom: 1em;
         font-size: 32px !important;
 
         .fiverr-pro {
@@ -1005,6 +958,3 @@ $grey: (
 
 
 
-// .header-container-header-img {
-//     grid-column: span 1;
-// }

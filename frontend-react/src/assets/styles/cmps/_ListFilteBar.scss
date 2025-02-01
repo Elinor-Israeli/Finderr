@@ -1,6 +1,5 @@
 .top-filter-bar {
     @include flex;
-    
     .active-filter {
         background-color: #e8faf4;
         border-color: #a6eaca;
@@ -411,14 +410,12 @@ div.filter-menu.filter-delivery.active-filter {
     }
 
     label {
-        // font-family: macan-regular;
         font-size: rem(10px);
         margin-bottom: em(4px, 12px);
     }
 
     ::placeholder {
         font-size: rem(12px);
-        // font-family: macan-semibold;
         padding: em(8px, 14px) em(12px, 14px);
     }
 

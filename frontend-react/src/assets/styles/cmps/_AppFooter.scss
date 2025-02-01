@@ -10,14 +10,7 @@
 }
 
 .footer {
-    // display: flex;
-    // justify-content: center;
-    // color: #999;
-    // // margin: 50px 0px;
-    // // padding: 32px 24px 0px ;
-    // display: flex;
-    // flex-wrap: wrap;
-
+   
     img {
         width: 24px;
         height: 24px;
@@ -41,7 +34,6 @@
     }
 
     .container {
-        // width: 1400px;
 
         .top {
             display: flex;
@@ -53,10 +45,8 @@
                 flex-direction: column;
                 color: #74767e;
                 gap: 20px;
-                // padding: 0px 0px 40px;
 
                 h2 {
-                    // font-size: 580px;
                     color: #404145;
                     font-size: 20px;
                     font-family: 'Macan';
@@ -94,7 +84,6 @@
         }
 
         hr {
-            // margin: 50px 0px;
             margin: 0;
             height: 0px;
             border: 1px solid rgb(237, 235, 235);
@@ -113,7 +102,6 @@
                 gap: 20px;
 
                 span {
-                    // font-size: 13px;
 
                     &.footer-logo {
                         font-size: 16px;
@@ -184,8 +172,6 @@
             min-width: 0;
             white-space: nowrap;
             font-size: 16px;
-            // line-height: 21px;
-            // color: #B5B6BA;
             color: #1dbf73;
             font-family: 'Macan';
         }
@@ -255,16 +241,13 @@ div.top {
         grid-template-columns: repeat(3, 1fr);
         row-gap: 10px;
         column-gap: 20px;
-        // padding-bottom: 24px;
-        // padding-top: 64px;
+       
         padding: 64px 32px 24px;
     }
 
     span.footer-logo {
         font-size: 16px !important;
-        // line-height: 21px;
         color: #B5B6BA;
-
         font-family: 16px 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 }
@@ -284,7 +267,7 @@ div.left {
 }
 
 h2.left {
-    font-family: macan-bold;
+    font-family: 'Macan';
 }
 
 @media only screen and (min-width: 1160px) {
@@ -302,10 +285,6 @@ h2.left {
             }
         }
     }
-
-    // .footer-container {
-    //     margin: 0px 90px;
-    // }
 
 }
 
@@ -327,8 +306,6 @@ h2.left {
 
     .top {
         width:100%  ;
-        // border-top: 1px solid gray;
-        // margin: 0px em(126.5px);
         align-self: center;
     }
 

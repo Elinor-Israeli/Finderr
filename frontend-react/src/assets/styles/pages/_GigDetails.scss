@@ -5,7 +5,6 @@
 
 
     .gig-details-container {
-        // padding: 40px 0px;
         display: flex;
 
         .left {
@@ -274,9 +273,7 @@
         color: $clr5;
       }
   
-      &:nth-child(2n) {
-        // font-family: macan-bold;
-      }
+
     }
   }
 

@@ -10,7 +10,6 @@ import { userService } from '../../services/user/user.service.remote';
 
 export function GigPreview({ gig }) {
     const user = useSelector((storeState) => storeState.userModule.user)
-    console.log("gigpr", gig)
 
     const [heart, setHeart] = useState(false)
     const [owner, setOwner] = useState(null)
@@ -94,13 +93,9 @@ export function GigPreview({ gig }) {
         ))
     }
 
-
-
     if (!owner) return <div className="loader-container">
         <div className="loader"></div>
     </div>
-
-    
 
     return (
         <div className="gig-preview__container">
@@ -112,7 +107,6 @@ export function GigPreview({ gig }) {
                             src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
                             alt="Heart"
                             className="heart-img"
-
                         />
                     </button>
                 </div>

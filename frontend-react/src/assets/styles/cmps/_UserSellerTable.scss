@@ -9,7 +9,6 @@
 .statstic-dashboard {
   @include flex;
   border: 1px solid $clr11;
-  // margin-bottom: 1em;
 
   h4 {
     margin-bottom: .5em;
@@ -74,7 +73,6 @@
 
     div {
       display: flex;
-      // flex-direction: column;
       flex-grow: 1;
       padding: .5em;
     }

@@ -1,0 +1,80 @@
+.buy-order-list {
+  border: 1px solid $clr7;
+  height: fit-content;
+  width: 500px;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  transform: translateY(1%);
+  max-height: 500px;
+  overflow: auto;
+  border-bottom: 1px solid $clr7 ;
+  align-items: center;
+  z-index: 10000;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+
+  h3,
+  p {
+    color: $clr5;
+    text-align: center;
+  }
+
+  div {
+    // color: $clr5;
+  }
+
+  .buy-order-info {
+    text-align: left;
+  }
+
+  .order-container {
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    border-bottom: 1px solid $clr7;
+  }
+
+  .buy-order-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+  }
+
+  .buy-order-seller-status {
+    display: flex;
+  }
+
+  .buy-order-sellername {
+    color: $clr6;
+    margin-right: 10px;
+  }
+
+  .pending {
+    color: #feb849;
+  }
+
+  .Approved {
+    color: #21ca79;
+  }
+
+  .Completed {
+    color: #5b85fd;
+  }
+
+  .Declined {
+    color: #f46875;
+  }
+}
+
+.svg-wrap {
+  text-align: center;
+  padding: 39px 31px;
+  display: block;
+
+  svg {
+    width: 60px;
+    text-align: center;
+  }
+
+
+}

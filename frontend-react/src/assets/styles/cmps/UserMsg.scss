@@ -48,14 +48,12 @@
     cursor: pointer;
 }
 .user-msg.success {
-    // background-color: rgb(41, 189, 73);
     background-color: white;
     color: black;
 
 }
 
 .user-msg.error {
-    // background-color: rgb(216, 59, 59);
     background-color: white;
     color: rgb(204, 19, 19);
 }
@@ -66,7 +64,6 @@ svg.checkmark-icon {
     border-radius: 25px;
     position: relative;
     top: 5px;
-    // left: -10px;
     font-size: 23px;
     p {
         margin: 0;

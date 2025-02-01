@@ -38,15 +38,15 @@ export function GigDetails() {
         }
     }
 
-    function getWishCount (gigId)  {
+    function getWishCount(gigId) {
         return gigs.filter(gig => gig.wishList && gig.wishList.includes(gigId)).length
-      }
+    }
 
 
     if (!gig) return <div className="loader-container">
         <div>loading...</div>
     </div>
-    const { imgUrl, fullname, rate, level, country } = gig.owner
+    const { imgUrl, fullname, rate, level, country } = gig.owner || {};
 
     return <section className="gig-details">
         <div className="gig-details-container">
@@ -95,7 +95,7 @@ export function GigDetails() {
                         </p>
                     </div>
                     <div>
-                    <PricingTable gig={gig}/>
+                        <PricingTable gig={gig} />
                     </div>
                 </div>
                 <ReviewAll user_id={gig.owner_id} />
@@ -107,9 +107,9 @@ export function GigDetails() {
                         alt="Heart"
                         className="heart-img"
                     /> */}
-              {/* <p>{getWishCount(gig._id)} people have added this gig to their wish list.</p> */}
-              {/* </h3> */}
-            
+                {/* <p>{getWishCount(gig._id)} people have added this gig to their wish list.</p> */}
+                {/* </h3> */}
+
                 <GigCard gig={gig} />
             </div>
         </div>

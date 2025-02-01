@@ -1,14 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { gigService } from '../../services/gig/gig.service.remote'
-
 
 export function GigCategoryMenu({ onSetFilter }) {
-    const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const CategorySliderRef = useRef()
-    const [isVisible, setIsVisible] = useState(false)
+    const [_, setIsVisible] = useState(false)
     const [isLeftDisabled, setIsLeftDisabled] = useState(true)
     const [isRightDisabled, setIsRightDisabled] = useState(true)
-    // const [active, setActive] = useState(false)
     const { pathname } = window.location
 
     useEffect(() => {

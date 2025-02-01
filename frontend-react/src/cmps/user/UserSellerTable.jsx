@@ -1,34 +1,23 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import moment from 'moment';
-
+import moment from 'moment'
 import { updateOrder } from '../../store/actions/order.actions'
-
 import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'; 
 import { ProgressChart2 } from '../ProgressChart2'
 import { loadOrders } from '../../store/actions/order.actions'
 import { MonthlyRevenue } from '../MonthlyRevenue '
 
-
 export default function UserSellerTable() {
 
   let orders = useSelector((storeState) => storeState.orderModule.orders)
-  console.log('orders', orders)
-  const user = useSelector((storeState) => storeState.userModule.user)
-  console.log('user', user)
-
-  const [isModal, setIsModal] = useState({ id: '', status: false })
-  // const [totalSum, setTotalSum] = useState(0)
+  const [setIsModal] = useState({ id: '', status: false })
   const [monthlyRevenue, setMonthlyRevenue] = useState(0)
   const navigate = useNavigate()
 
   useEffect(() => {
     loadOrders('seller')
   }, [])
-
-  // const sellerOrders = orders.filter(order => order.seller._id === user._id)
-  // const buyerOrders = orders.filter(order => order.buyer._id === user._id)
 
 
   useEffect(() => {

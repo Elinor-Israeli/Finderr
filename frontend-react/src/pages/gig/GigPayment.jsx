@@ -9,7 +9,7 @@ import credit from '/img/credit.svg'
 import paypal from '/img/paypal.svg'
 import { socketService, SOCKET_EMIT_SET_TOPIC } from '../../services/socket.service'
 
-export function GigPayment({ owner }) {
+export function GigPayment() {
     const [isChecked, setIsChecked] = useState(false)
     const user = userService.getLoggedinUser()
     const [gig, setGig] = useState(null)

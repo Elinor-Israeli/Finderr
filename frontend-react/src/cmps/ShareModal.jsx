@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import {useEffect, useRef } from 'react'
 import { FaFacebook } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { TiSocialLinkedinCircular } from "react-icons/ti";

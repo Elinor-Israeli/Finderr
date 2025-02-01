@@ -8,13 +8,8 @@ export function CategoryMenu2({ onSetFilter }) {
     const [categoryMenuClassName, setCategoryMenuClassName] = useState('')
     const [linesSetDisplay, setLinesSetDisplay] = useState('')
     const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 900)
-    const { pathname } = window.location
-
     const sliderRef = useRef()
-    const [isAtStart, setIsAtStart] = useState(true) 
-    const [isAtEnd, setIsAtEnd] = useState(true)
-
-
+   
     useEffect(() => {
         const handleResize = () => setIsWideScreen(window.innerWidth >= 900)
         window.addEventListener("resize", handleResize)

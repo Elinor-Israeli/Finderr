@@ -3,25 +3,21 @@ import { SET_FILTER } from '../store/reducers/gig.reducer'
 import { useEffect, useRef, useState } from 'react'
 import { userService } from '../services/user/user.service.remote' 
 import { gigService } from '../services/gig/gig.service.remote'
-import { GigCategoryMenu } from './gig/GigCategoryMenu'
 import { useDispatch, useSelector } from 'react-redux'
 import { UserBuyGig } from './user/UserBuyGig'
 import { login, logout, signup } from '../store/user/user.actions'
 import { ModalLogin } from './ModalLogin'
-import { AppHeaderMobile } from './AppHeaderMobile'
 import { DropdownLogin } from './DropdownLogin'
-import { Search } from './HederSearch'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import UserSellerTable from './user/UserSellerTable'
 
 export function IndexHeader({ onSetFilter, isSticky }) {
   const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
   const elInputRef = useRef(null)
-  const [isCategoryMenuVisible, setIsCategoryMenuVisible] = useState(false)
+  const [_, setIsCategoryMenuVisible] = useState(false)
   const [isVisible, setIsVisible] = useState(false);
-  const [showSearch, setShowSearch] = useState(false)
+  const [__, setShowSearch] = useState(false)
   const loginUser = userService.getLoggedinUser()
-  const [headerClassName, setHeaderClassName] = useState('')
+  const [___, setHeaderClassName] = useState('')
   const user = useSelector(storeState => storeState.userModule.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -32,9 +28,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const { pathname } = window.location
   const [windowSize, setWindowSize] = useState(null)
-  const headerRef = useRef(null)
-  const [heart, setHeart] = useState(false)
-  const [isImageModalOpen, setIsImageModalOpen] = useState(false)
+  const [____, setIsImageModalOpen] = useState(false)
 
   useEffect(() => {
     function handleResize() {
@@ -256,7 +250,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
                   </div>}
                   <Link to="/wishlist" className="heart" title="save to list">
                     <img
-                      src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
+                      src="./img/gray_heart.png"
                       alt="Heart"
                       className="heart-img"
                       style={{ aspectRatio: 'unset' }}

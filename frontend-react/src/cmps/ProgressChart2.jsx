@@ -1,9 +1,7 @@
-import React from 'react';
-
 export function ProgressChart2({ count, total, bgc, label }) {
     const percent = total > 0 ? count / total : 0
     const strokePercent = 283 - (283 * percent)
-    const gradientId = `progressGradient-${bgc}`; // Unique gradient ID
+    const gradientId = `progressGradient-${bgc}`
 
     return (
         <section className="progress-chart">

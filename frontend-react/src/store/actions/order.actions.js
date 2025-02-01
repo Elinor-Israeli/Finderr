@@ -1,8 +1,6 @@
 import { store } from '../store' 
 import { ADD_ORDER, SET_ORDERS, UPDATE_ORDER  } from '../reducers/order.reducer'
-
 import { orderService } from '../../services/order.service'
-import { socketService, SOCKET_EVENT_ORDER_ADDED } from '../../services/socket.service'
 
 export function getActionAddOrder(order) {
     return {
@@ -33,20 +31,12 @@ export async function loadOrders(role) {
 export async function addOrder(order) {
     try {
         const savedOrder = await orderService.save(order)
-        // socketService.emit(SOCKET_EVENT_ORDER_ADDED,
-            // {
-            //     buyerName: order.buyer.fullname,
-            //     sellerId: order.seller._id
-            // })
-        // store.dispatch(getActionAddOrder(savedOrder))
         return savedOrder
     } catch (err) {
         console.log('Cannot add order', err)
         throw err
     }
 }
-
-
 
 export async function updateOrder(order) {
     try {

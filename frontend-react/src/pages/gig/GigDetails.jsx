@@ -7,19 +7,14 @@ import { GigCard } from '../../cmps/gig/GigCard'
 import { ReviewAll } from '../../cmps/review/ReviewAll'
 import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 import { UserInfo } from '../../cmps/user/UserInfo'
-import { loadGigs } from '../../store/actions/gig.actions'
 import { useSelector } from 'react-redux'
-// import ShareModal from '../../cmps/ShareModal'
 import PricingTable from '../../cmps/PricingTable'
-// import loader from '/img/thloader.svg'
 
 
 export function GigDetails() {
     const { gigId } = useParams()
     const navigate = useNavigate()
     const [gig, setGig] = useState()
-    const [showModal, setShowModal] = useState(false)
-    const user = useSelector((storeState) => storeState.userModule.user)
     let gigs = useSelector((storeState) => storeState.gigModule.gigs)
 
     useEffect(() => {
@@ -37,11 +32,6 @@ export function GigDetails() {
             navigate('/gig')
         }
     }
-
-    function getWishCount(gigId) {
-        return gigs.filter(gig => gig.wishList && gig.wishList.includes(gigId)).length
-    }
-
 
     if (!gig) return <div className="loader-container">
         <div>loading...</div>
@@ -61,9 +51,7 @@ export function GigDetails() {
                 <div className="gig-about">
                     <h3 className='about-gig-header'>About This Gig</h3>
                     <p>{gig.description}</p>
-                    {/* <span>What you'll get:</span>
-                    <p>{gig.description2}</p> */}
-                    {/* <span>Why you should hire me :</span> */}
+                    
                 </div>
                 <div className="gig-about-filter">
                     <ul>
@@ -86,11 +74,9 @@ export function GigDetails() {
                             <li><strong><span>Member since</span></strong><span>userOrders</span></li>
                             <li><strong><span>Avg. response time</span></strong><span>5 hours</span></li>
                             <li><strong><span>Last delivery</span></strong><span>about 1 hour</span></li>
-                            {/* <li><strong><span>Languages</span></strong><span>Israel</span></li> */}
                             <li><strong><span>Languages</span></strong><span>{gig.Languages}</span></li>
                         </ul>
                         <p>
-                            {/* <span>{gig.about}</span> */}
                             I have years of experience in creating 2d animated explainer videos. I would like to boost your business with my knowledge so that the orders with my 2D-Animation videos increase and your sales increase. You will see that you will only profit. Order now!
                         </p>
                     </div>
@@ -101,15 +87,6 @@ export function GigDetails() {
                 <ReviewAll user_id={gig.owner_id} />
             </div>
             <div className="right">
-                {/* <h3>
-                    <img
-                        src="./img/gray_heart.png"
-                        alt="Heart"
-                        className="heart-img"
-                    /> */}
-                {/* <p>{getWishCount(gig._id)} people have added this gig to their wish list.</p> */}
-                {/* </h3> */}
-
                 <GigCard gig={gig} />
             </div>
         </div>

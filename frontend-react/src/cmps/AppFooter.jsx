@@ -1,105 +1,85 @@
-
-import React from "react";
-// import { Accordion } from "../Accordion/Accordion.jsx";
 export function AppFooter() {
     return ([
-        <section className="footer-container full  ">
+        <section className="footer-container full">
         <div className="footer ">
             <div className="container">
                 <div className="top main-layout">
                     <div className="item">
                         <ul>
                             <h2>Categories</h2>
-                            <li><a href="#">Graphics & Design</a></li>
-                            <li><a href="#">Digital Marketing</a></li>
-                            <li><a href="#">Writing & Translation</a></li>
-                            <li><a href="#">Video & Animation</a></li>
-                            <li><a href="#">Music & Audio</a></li>
-                            <li><a href="#">Programming & Tech</a></li>
-                            <li><a href="#">AI Services</a></li>
-                            <li><a href="#">Consulting</a></li>
-                            <li><a href="#">Data</a></li>
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Personal Growth & Hobbies</a></li>
-                            <li><a href="#">Finance</a></li>
-                            <li><a href="#">Photography</a></li>
-                            <li><a href="#">End-to-End Projects</a></li>
-                            <li><a href="#">Service Catalog</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Graphics & Design</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Digital Marketing</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Writing & Translation</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Video & Animation</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Music & Audio</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Programming & Tech</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">AI Services</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Consulting</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Data</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Business</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Personal Growth & Hobbies</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Finance</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Photography</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">End-to-End Projects</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Service Catalog</a></li>
                         </ul>
                     </div>
                     <div className="item">
                         <ul>
                             <h2>For Clients</h2>
-                            <li><a href="#">How finderr Works</a></li>
-                            <li><a href="#">Customer Success Stories</a></li>
-                            <li><a href="#">Trust & Safety</a></li>
-                            <li><a href="#">Quality Guide</a></li>
-                            <li><a href="#">finderr Learn</a></li>
-                            <li><a href="#">finderr Guides</a></li>
-                            <li><a href="#">finderr Answers</a></li>
+                            <a href="https://example.com" target="_blank" rel="noopener noreferrer">Visit Example</a>
+
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">How finderr Works</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Customer Success Stories</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Trust & Safety</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Quality Guide</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">finderr Learn</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">finderr Guides</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">finderr Answers</a></li>
                         </ul>
                     </div>
                     <div className="item">
                         <ul>
                             <h2>For Freelancers</h2>
-                            <li><a href="#">Become a finderr Freelancer</a></li>
-                            <li><a href="#">Become an Agency</a></li>
-                            <li><a href="#">Kickstart</a></li>
-                            <li><a href="#">Community Hub</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Events</a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">Become a finderr Freelancer</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Become an Agency</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Kickstart</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Community Hub</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Forum</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Events</a></li>
                         </ul>
                     </div>
                     <div className="item">
                         <ul>
                             <h2>Business Solutions</h2>
-                            <li><a href="#">finderr Pro</a></li>
-                            <li><a href="#">Project Management Service</a></li>
-                            <li><a href="#">ClearVoice Content Marketing</a></li>
-                            <li><a href="#">Working Not Working Creative Talent</a></li>
-                            <li><a href="#">AutoDS Dropshipping Tool</a></li>
-                            <li><a href="#">finderr Logo Maker</a></li>
-                            <li><a href="#">Contact Sales</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">finderr Pro</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Project Management Service</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">ClearVoice Content Marketing</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Working Not Working Creative Talent</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">AutoDS Dropshipping Tool</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">finderr Logo Maker</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Contact Sales</a></li>
                         </ul>
                     </div>
                     <div className="item">
                         <ul>
                             <h2>Company</h2>
-                            <li><a href="#">About finderr</a></li>
-                            <li><a href="#">Help & Support</a></li>
-                            <li><a href="#">Social Impact</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Partnerships</a></li>
-                            <li><a href="#">Creator Network</a></li>
-                            <li><a href="#">Affiliates</a></li>
-                            <li><a href="#">Invite a Friend</a></li>
-                            <li><a href="#">Press & News</a></li>
-                            <li><a href="#">Investor Relations</a></li>
-                           <li><a href="https://pro.fiverr.com/cp/project-partner?source=footer" target="_blank" rel="noopener">Project Management Service</a></li> 
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">About finderr</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Help & Support</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Social Impact</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Careers</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Terms of Service</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Partnerships</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Creator Network</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Affiliates</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Invite a Friend</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Press & News</a></li>
+                            <li><a href="#"target="_blank" rel="noopener noreferrer">Investor Relations</a></li>
+                           <li><a href="https://pro.fiverr.com/cp/project-partner?source=footer" target="_blank" rel="noopener noreferrer">Project Management Service</a></li> 
                         </ul>
                     </div>
-                    {/* <div className="item"> */}
-                        {/* <h2>More From Fiverr</h2> */}
-                        {/* <Accordion title="More From Fiverr"> */}
-                            {/* <ul>
-                                <li><a href="#">Fiverr Enterprise</a></li>
-                                <li><a href="#">Fiverr Business</a></li>
-                                <li><a href="#">Fiverr Pro</a></li>
-                                <li><a href="#">Fiverr Logo Maker</a></li>
-                                <li><a href="#">Get Inspired</a></li>
-                                <li><a href="#">Fiverr Select</a></li>
-                                <li><a href="#">ClearVoice</a></li>
-                                <li><a href="#">Content Marketing</a></li>
-                                <li><a href="#">Fiverr Workspace</a></li>
-                                <li><a href="#">Invoice Software</a></li>
-                                <li><a href="#">Learn</a></li>
-                                <li><a href="#">Online Courses</a></li>
-                                <li><a href="#">Working Not Working</a></li>
-                            </ul> */}
-                        {/* </Accordion> */}
-                    {/* </div> */}
+    
                 </div>
                 <hr />
                 <div className="bottom">
@@ -122,14 +102,12 @@ export function AppFooter() {
                         </div>
                         <div className="link">
                             <img src="/img/language.png" alt="" />
-                            {/* <img src="/img/man.svg" alt="" /> */}
                             <span>English</span>
                         </div>
                         <div className="link">
                             <img src="/img/coin.png" alt="" />
                             <span>USD</span>
                         </div>
-                        {/* <img src="/img/accessibility.png" alt="" /> */}
 
                     </div>
                 </div>
@@ -138,4 +116,3 @@ export function AppFooter() {
         </section>
     ])
 }
-// export default Footer; //! here layout on mobile

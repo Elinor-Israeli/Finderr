@@ -4,8 +4,6 @@ import { utilService } from '../util.service'
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 const STORAGE_KEY = 'user'
 
-// _createUsers()
-
 export const userService = {
     login,
     logout,
@@ -83,12 +81,6 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
-
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123',score: 10000, isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-// })()
 
 function _createUsers() {
     let users = utilService.loadFromStorage(STORAGE_KEY)
@@ -231,7 +223,6 @@ function _createUsers() {
                         by: {
                             _id: "u147",
                             country: "Thailand",
-                            country: "United States",
                             reviewedAt: 'Published 4 days ago',
                             flag: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
                             fullname: "zedisindeeddead",

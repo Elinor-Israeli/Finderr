@@ -1,11 +1,9 @@
-import React from 'react'
 import { Routes, Route, useLocation } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
 import { GigIndex } from './pages/gig/GigIndex'
 import { GigDetails } from './pages/gig/GigDetails'
 import { AppFooter } from './cmps/AppFooter'
-// import { AppHeader} from './cmps/AppHeader'
 import { IndexHeader} from './cmps/IndexHeader'
 import { GigEdit } from './cmps/gig/GigEdit'
 import { GigPayment } from './pages/gig/GigPayment'
@@ -13,11 +11,6 @@ import { UserIndex } from './pages/UserIndex'
 import UserWishList from './pages/UserWishList'
 import { UserMsg } from './cmps/UserMsg'
 import UserSellerTable from './cmps/user/UserSellerTable'
-
-// import { GigOrderIndex } from './pages/GigOrderIndex'
-
-// import { GigBreadcrumbs } from './cmps/gig/GigBreadcrumbs'
-import { GigCategoryMenu } from './cmps/gig/GigCategoryMenu'
 
 
 export function RootCmp() {

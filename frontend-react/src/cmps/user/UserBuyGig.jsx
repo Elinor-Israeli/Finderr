@@ -1,14 +1,10 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import moment from 'moment';
-
+import moment from 'moment'
 import { loadOrders } from '../../store/actions/order.actions'
-
-import { userService } from '../../services/user/user.service.remote'; 
 
 export function UserBuyGig() {
   let orders = useSelector((storeState) => storeState.orderModule.orders)
-  const user = userService.getLoggedinUser()
 
   useEffect(() => {
     loadOrders('buyer')

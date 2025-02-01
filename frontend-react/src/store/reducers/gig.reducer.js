@@ -16,23 +16,24 @@ const initialState = {
 
 export function gigReducer(state = initialState, action) {
     let newState = state
-    let gigs
     switch (action.type) {
         case SET_GIGS:
             newState = { ...state, gigs: action.gigs }
             break
-        case REMOVE_GIG:
+        case REMOVE_GIG: {
             const lastRemovedGig = state.gigs.find(gig => gig._id === action.gigId)
-            gigs = state.gigs.filter(gig => gig._id !== action.gigId)
+            const gigs = state.gigs.filter(gig => gig._id !== action.gigId)
             newState = { ...state, gigs, lastRemovedGig }
             break
+        }
         case ADD_GIG:
             newState = { ...state, gigs: [...state.gigs, action.gig] }
             break
-        case UPDATE_GIG:
-            gigs = state.gigs.map(gig => (gig._id === action.gig._id) ? action.gig : gig)
+        case UPDATE_GIG: {
+            const gigs = state.gigs.map(gig => (gig._id === action.gig._id) ? action.gig : gig)
             newState = { ...state, gigs }
             break
+        }
         case SET_FILTER:
             newState = { ...state, filterBy: action.filterBy }
             break

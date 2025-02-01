@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
@@ -16,7 +16,7 @@ export function GigEdit() {
     const navigate = useNavigate()
     const { gigId } = useParams()
     const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
-    const [imgToGig, setImgToEdit] = useState()
+    const [setImgToEdit] = useState()
     const gigForFormik = { ...gigToEdit, tags2: '' }
     const loginUser = userService.getLoggedinUser()
 
@@ -83,7 +83,7 @@ export function GigEdit() {
             onSubmit={onSave}
             enableReinitialize
         >
-            {({ errors, touched, values, setFieldValue }) => {
+            {({ errors, touched, setFieldValue }) => {
                 return (
                     <Form className='gig-edit-form'>
                         <div className='gig-edit-form-wrapper'>

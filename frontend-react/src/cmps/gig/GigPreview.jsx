@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { updateGig } from '../../store/actions/gig.actions'
-import { FaRegHeart } from "react-icons/fa";
 import { SlideGigPreview } from '../slide/SlideGigPreview'
 import { showSuccessMsg } from '../../services/event-bus.service';
 import { userService } from '../../services/user/user.service.remote'; 
@@ -10,11 +9,9 @@ import { userService } from '../../services/user/user.service.remote';
 
 export function GigPreview({ gig }) {
     const user = useSelector((storeState) => storeState.userModule.user)
-
     const [heart, setHeart] = useState(false)
     const [owner, setOwner] = useState(null)
     
-
     useEffect(() => {
         if (user) {
           if (Array.isArray(gig.wishList) && gig.wishList.includes(user._id)) {
@@ -55,7 +52,7 @@ export function GigPreview({ gig }) {
     
           const userIndex = updatedGig.wishList.indexOf(user._id)
     
-          if (userIndex > -1) {
+          if (userIndex != -1) {
             updatedGig.wishList.splice(userIndex, 1)
             setHeart(false)
             showSuccessMsg(`Remove to ${user.fullname}`)

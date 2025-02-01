@@ -1,6 +1,4 @@
 import { GigPreview } from "./GigPreview"
-import { Link } from 'react-router-dom'
-
 
 export function GigList({ gigs }) {
     console.log('GigList gigs: ', gigs)

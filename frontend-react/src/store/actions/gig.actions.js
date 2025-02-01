@@ -2,7 +2,6 @@ import { store } from '../store'
 import { ADD_GIG, REMOVE_GIG, SET_GIGS, UPDATE_GIG  } from '../reducers/gig.reducer'
 import { LOADING_DONE,LOADING_START } from '../reducers/system.reducer'
 import { gigService } from '../../services/gig/gig.service.remote'
-// import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service'
 
 export function getActionRemoveGig(gigId) {
     return {

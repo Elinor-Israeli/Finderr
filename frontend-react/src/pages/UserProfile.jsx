@@ -3,12 +3,8 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { IoLocationOutline } from "react-icons/io5";
 import { FiMessageCircle } from "react-icons/fi";
-import { GiRoundStar } from "react-icons/gi";
-
-
 import { loadUser, updateUser } from '../store/user/user.actions'
 import { ImgUploader } from '../cmps/ImgUploader'
-
 import { userService } from '../services/user/user.service.remote';
 import { StarRating } from '../cmps/review/StarRating';
 

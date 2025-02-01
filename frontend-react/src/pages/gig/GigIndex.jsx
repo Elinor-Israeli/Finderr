@@ -8,11 +8,9 @@ import { GigList } from '../../cmps/gig/GigList'
 import { TopFilterBar } from '../../cmps/gig/listfilterBar'
 import { loadGigs } from '../../store/actions/gig.actions'
 import { SET_FILTER, SET_SORT } from '../../store/reducers/gig.reducer'
-import { SortBy } from '../../cmps/gig/GigSort'
 import loader from '/img/thloader.svg'
 
 export function GigIndex() {
-    const sortBy = useSelector((storeState) => storeState.gigModule.sortBy)
     const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
     let gigs = useSelector(storeState => storeState.gigModule.gigs)
 
@@ -100,10 +98,6 @@ export function GigIndex() {
         }
     }
 
-    function onSort(sortBy) {
-        dispatch({ type: SET_SORT, sortBy })
-    }
-
     if (!gigs.length && isLoading) return <div> loading...</div>
 
 
@@ -124,7 +118,6 @@ export function GigIndex() {
             <div className={`${filterAndSort}`}>
                 <div className="filter-sort-container">
                     <TopFilterBar onSetFilter={onSetFilter} />
-                    <SortBy onSort={onSort} />
                 </div>
             </div>
 

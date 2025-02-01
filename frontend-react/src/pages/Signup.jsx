@@ -15,8 +15,6 @@ export function Signup() {
     }
 
     function handleChange(ev) {
-        const type = ev.target.type
-
         const field = ev.target.name
         const value = ev.target.value
         setCredentials({ ...credentials, [field]: value })

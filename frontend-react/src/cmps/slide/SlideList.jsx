@@ -5,23 +5,11 @@ import { gigService } from '../../services/gig/gig.service.remote'
 export function SlideList({ onSetFilter }) {
     const slides = gigService.getGigSlides()
     const sliderRef = useRef()
-    const [lastDirection, setLastDirection] = useState('')
-    // const filterByToEdit = useRef(gigService.getDefaultFilter())
+    const [setLastDirection] = useState('')
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
 
     const [isAtStart, setIsAtStart] = useState(true)
     const [isAtEnd, setIsAtEnd] = useState(false)
-
-    const categories = [
-        {  categories: ['graphic-design', 'design', 'logo-design','logo'], title: <>Graphics<br />& Design</> },
-        {  categories: ['digital-marketing', 'digital'], title: <>Digital<br />Marketing</> },
-        {  categories: ['writing-translation', 'translation'], title: <>Writing<br />& Translation</> },
-        {  categories: ['video-animation', 'animation'], title: <>Video<br />& Animation</> },
-        {  categories: ['programming-tech', 'tech'], title: "AI Services"},
-        {  categories: ['music-audio', 'audio'], title: "Music & Audio" },
-        {  categories: ['business'], title: <>Business</> },
-        {  categories: ['lifestyle'], title: <>Consulting</> }
-    ]
 
     function filterByCategory( categories) {
         const updatedFilter = { ...filterByToEdit,  categories }
@@ -104,8 +92,7 @@ export function SlideList({ onSetFilter }) {
                 </button>
                 <ul className="slider" ref={sliderRef}>
                     {slides.map((slide, idx) => {
-                        // Set background color based on slide category
-                        const backgroundColor = categoryColors[slide.category] || '#FFFFFF'; // default 
+                        const backgroundColor = categoryColors[slide.category] || '#FFFFFF'; 
 
                         return (
                             <li
@@ -113,7 +100,6 @@ export function SlideList({ onSetFilter }) {
                                 key={idx}
                                 style={{ backgroundColor }}
                             >
-                                {/* Use dynamically generated categories */}
                                 <div onClick={() => filterByCategory([slide.category.toLowerCase().replace(/\s+/g, '-')])}>
                                     <div className="card-content">
                                         <h4>{slide.category}</h4>

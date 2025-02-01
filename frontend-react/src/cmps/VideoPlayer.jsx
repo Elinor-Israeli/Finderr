@@ -1,4 +1,4 @@
-import React, { useRef,useEffect } from 'react';
+import { useRef,useEffect } from 'react'
 
 function VideoPlayer() {
   const videoRef = useRef()
@@ -36,4 +36,4 @@ function VideoPlayer() {
   )
 }
 
-export default VideoPlayer;
+export default VideoPlayer

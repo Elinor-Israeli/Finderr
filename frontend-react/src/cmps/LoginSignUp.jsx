@@ -1,14 +1,10 @@
 
 import { useState, useEffect } from 'react'
-// import { useHistory } from 'react-router-dom'
-// import FacebookLogin from 'react-facebook-login'
 
 export function LoginSignup(props) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
-    // const history = useHistory()
     useEffect(() => {
         document.body.classList.add('modal-open')
-
         return () => {
             document.body.classList.remove('modal-open')
         }
@@ -50,28 +46,6 @@ export function LoginSignup(props) {
             onClose()
         }
     }
-
-    // const responseFacebook = (response) => {
-    //     console.log('Facebook login response:', response)
-    //     if (response.status !== 'unknown') {
-
-    //         const { name, email, userID, accessToken } = response
-    //         const fbUser = { name, email, userID, accessToken }
-    //         props.onLogin(fbUser) 
-    //         props.onCloseModal()
-    //     }
-    // }
-
-
-    // const responseApple = (response) => {
-    //     console.log('Apple login response:', response)
-    //     if (response) {
-    //         const { name, email } = response
-    //         const appleUser = { name, email }
-    //         props.onLogin(appleUser)
-    //         props.onCloseModal()
-    //     }
-    // }
 
     const { username, password } = credentials
     return (

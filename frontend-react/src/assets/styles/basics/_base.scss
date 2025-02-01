@@ -7,13 +7,9 @@ html {
     color: $clr2;
 }
 
-// .no-display {
-//     display: none;
-// }  //! scroll
     
 body {
-    // max-width: 1024px;
-    // margin: 0 auto;
+   
     scroll-behavior: smooth;
     margin: 0;
     font: 400 16px / 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -34,7 +30,7 @@ img {
 }
 
 p {
-    margin: 0 0 1em; //! here
+    margin: 0 0 1em; 
 }
 
 a {
@@ -69,15 +65,4 @@ input {
     width: 100%;
 } 
 
-// .logo {
-//     font-family: macan-regular;;
-//     font-size: 2.5em;
-//     letter-spacing: -0.02em;
-//     margin-left: 100px;
-
-//     color: gray;
-//     .span {
-//         color: #1dbf73;
-//     }
-// }
 

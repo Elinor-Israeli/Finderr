@@ -9,7 +9,6 @@
 @import "basics/layout";
 @import "basics/helpers";
 @import "basics/base";
-// @import "basics/links";
 @import "basics/forms";
 
 
@@ -19,18 +18,13 @@
 @import "pages/GigPayment";
 @import "pages/GigEdit";
 @import "pages/HomePage";
-// @import "pages/CarIndex";
-// @import "pages/ReviewIndex";
-// @import "pages/UserDetails";
-// @import "pages/TaskDetails";
-// @import "pages/LoginSignup";
+
 
 // slide
 @import "cmps/slide/SlideGig";
 @import "cmps/slide/SlideList";
 @import "cmps/slide/DetailsCarousel";
 @import "cmps/slide/SlideDetails";
-// @import "cmps/slide/SlidegigPreview";
 
 
 // Review
@@ -71,19 +65,12 @@
 @import "cmps/UserSellerTable";
 
 
-// @import "cmps/SortBy";
 
 @import "cmps/app-header/AppHeader";
-@import "cmps/app-header/GigCategoryMenu";
 @import "cmps/app-header/GigSearch";
-// @import "cmps/AppFooter";
 @import "cmps/UserMsg";
 
-// @import "cmps/CarFilter";
-// @import "cmps/ReviewEdit";
-// @import "cmps/ReviewList";
-// @import "cmps/ReviewPreview";
+
 @import "cmps/GigList";
 @import "cmps/GigIndex";
-// @import "cmps/CarPreview";
 

@@ -1,7 +1,6 @@
 .top-filter-bar {
     @include flex;
     
-
     .active-filter {
         background-color: #e8faf4;
         border-color: #a6eaca;
@@ -132,7 +131,6 @@
     }
 }
 
-// $grey-100: #f0f0f0;
 .price-filter-scroll {
 
     input {
@@ -146,13 +144,6 @@
         display: block;
         font-size: rem(14px);
         margin-bottom: 4px;
-
-        // &::after {
-        //     background-color: color($grey, 100);
-        // }
-        // &:hover {
-        //     background-color: color($grey-100);
-        // }
     }
 }
 
@@ -317,7 +308,6 @@ div.filter-menu.filter-delivery.active-filter {
         }
 
         label {
-            // font-family: macan-regular;
             display: flex;
             cursor: pointer;
             padding: 12px;
@@ -390,7 +380,6 @@ div.filter-menu.filter-delivery.active-filter {
 
     button {
         font-size: inherit;
-        // padding: em(4px, 14px) em(12px, 14px);
         border-radius: em(4px);
         color: $clr3;
         color:white;
@@ -470,199 +459,3 @@ div.filter-menu.filter-delivery.active-filter {
     width:120px;
 }
 
-//!
-
-// .top-filter-bar {
-//     @include flex;
-//     font-family: 'Macan';
-
-//     &__active-filter {
-//         background-color: #e8faf4;
-//         border-color: #a6eaca;
-//         transition: all 0.5s ease;
-//     }
-
-//     &__filter-daysToMake-btns {
-//         align-items: center;
-//         border-top: 1px solid #e4e5e7;
-//         display: flex;
-//         gap: 16px;
-//         justify-content: space-between;
-//         padding: 16px 24px;
-
-//         .top-filter-bar__apply-time {
-//             padding: 10px 20px;
-//             background-color: #222325;
-//             color: white;
-//             text-align: center;
-//             border-radius: 10px;
-//         }
-
-//         .top-filter-bar__clear-all {
-//             border: none;
-//             line-height: 24px;
-//             padding: 0;
-//             font-family: macan-simbilold;
-//         }
-//     }
-
-//     &__filter-menu {
-//         margin-inline-end: em(12px);
-//         padding: em(12px) em(12px);
-//         border-radius: em(5px);
-//         border: 1px solid $clr7;
-//         cursor: pointer;
-//         position: relative;
-//         width: 166px;
-//         height: 48px;
-//         font-family: 'Macan';
-//         align-self: center;
-//     }
-// }
-
-// .top-filter-bar__delivery-filter-options,
-// .top-filter-bar__price-filter-scroll {
-//     position: absolute;
-//     left: 0;
-//     top: em(48px);
-//     background-color: $clr3;
-//     border-radius: em(4px);
-//     border: 1px solid #e4e5e7;
-//     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
-//     min-height: 150px;
-//     overflow-y: scroll;
-//     font-family: 'Macan';
-// }
-
-// .top-filter-bar__delivery-filter-options {
-//     width: 295px;
-//     padding: 24px;
-//     max-height: 460px;
-//     transition: all .24s cubic-bezier(.215, .61, .355, 1);
-//     box-sizing: border-box;
-
-//     .top-filter-bar__delivery-option {
-//         &:not(:last-child) {
-//             margin-bottom: em(12px);
-//         }
-
-//         label {
-//             font-family: macan-regular;
-//             display: flex;
-//             cursor: pointer;
-//             padding: 12px;
-//         }
-
-//         input[type="radio"] {
-//             display: none;
-//             margin-left: em(8px);
-//         }
-
-//         input[type="radio"]+label span {
-//             width: 18px;
-//             height: 18px;
-//             margin-left: 8px;
-//             border-radius: 50%;
-//             background-color: transparent;
-//             border: 1px solid #222325;
-//             margin-top: 1.5px;
-//             display: flex;
-//             justify-content: center;
-//             align-items: center;
-//             cursor: pointer;
-//         }
-
-//         input[type="radio"]:checked+label .top-filter-bar__checked-input {
-//             background: #222325;
-//             border: 1px solid #222325;
-//             width: 8px;
-//             height: 8px;
-//         }
-//     }
-// }
-
-// .top-filter-bar__price-filter-scroll {
-//     input {
-//         width: 120px;
-//         height: 40px;
-//         border: 1px solid #dadbdd;
-//         border-radius: 4px;
-//     }
-
-//     label {
-//         display: block;
-//         font-size: rem(14px);
-//         margin-bottom: 4px;
-//     }
-// }
-
-// .top-filter-bar__filter-price-btns {
-//     @include flex;
-//     font-family: macan-regular;
-//     font-size: rem(12px);
-//     padding: em(16px) em(24px);
-//     border-top: 1px solid $clr12;
-
-//     button {
-//         font-size: inherit;
-//         padding: em(4px, 14px);
-//         border-radius: em(4px);
-//         color: black;
-//         line-height: 1.6;
-//     }
-
-//     @media (min-width: $mobile-breakpoint) {
-//         font-size: rem(14px);
-//     }
-// }
-
-// .top-filter-bar__price-filter-inputs {
-//     @include flex;
-//     flex-direction: column;
-//     padding: em(12px) em(24px);
-//     padding-bottom: em(24px);
-//     z-index: 11111;
-
-//     &>*:not(:last-child) {
-//         margin-bottom: em(12px);
-//     }
-
-//     label {
-//         font-family: macan-regular;
-//         font-size: rem(10px);
-//         margin-bottom: em(4px, 12px);
-//     }
-
-//     ::placeholder {
-//         font-size: rem(12px);
-//         font-family: macan-semibold;
-//         padding: em(8px, 14px);
-//     }
-
-//     @media (min-width: $mobile-breakpoint) {
-//         flex-direction: row;
-//         &>*:not(:last-child) {
-//             margin-bottom: 0;
-//             margin-right: em(12px);
-//         }
-
-//         label {
-//             font-size: rem(12px);
-//         }
-
-//         ::placeholder {
-//             font-size: rem(14px);
-//         }
-//     }
-// }
-
-// .top-filter-bar__filter-menu.top-filter-bar__filter-delivery.top-filter-bar__active-filter {
-//     padding: 10px 20px;
-//     background-color: white;
-// }
-
-// .top-filter-bar__svg-icon-adjusted {
-//     position: relative;
-//     left: 20px;
-//     top: 0px;
-// }

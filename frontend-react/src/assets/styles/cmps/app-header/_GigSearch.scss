@@ -6,7 +6,6 @@
 
   input {
     width: 100%;
-    // padding-right: 58px;
     font-size: 1.75rem;
     border: 1px solid $clr8;
     padding: 10px 48px 10px 16px;
@@ -49,10 +48,6 @@
       height: 16px;
     }
   }
-
-  .search-bar-dim-background {
-    /* additional styles if needed */
-  }
 }
 
 input::placeholder {
@@ -61,8 +56,6 @@ input::placeholder {
   top: -10px;
   opacity: 1;
 }
-
-
 
 $clr8: #e0e0e0;
 $clr3: #fff;
@@ -77,10 +70,6 @@ $black: #000000;
 $size: 32px;
 $fade-in-background-color: rgba(map-get($grey, 1200), 0.65);
 
-// Functions
-// @function em($px, $base: 16) {
-//   @return #{$px / $base}em;
-// }
 
 // Mixin for Media Queries
 @mixin media-query-grid($size) {
@@ -114,11 +103,11 @@ $grey: (
 .search-bar-package {
   .search-form {
     input {
-      border-color: map-get($grey, 500); // Correctly getting color from map
+      border-color: map-get($grey, 500); 
     }
 
     &:focus {
-      border-color: map-get($grey, 800); // Another example for focus state
+      border-color: map-get($grey, 800); 
     }
   }
 }
@@ -197,7 +186,6 @@ $grey: (
         height: $size;
         width: $size;
         cursor: pointer;
-        // background-image: url('../../assets/clear_button_sprite.svg');
         background-position: 0 0;
 
         &:hover {

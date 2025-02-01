@@ -19,8 +19,6 @@
 }
 
 
-
-
 .main-slider-container {
     justify-content: center;
     align-items: center;
@@ -56,9 +54,7 @@
     display: none;
 }
 
-.slider-card {
-    // height: 245px;
-    // height: 120px !important;
+.slider-card {   
     width: 160px !important;
     margin: 0;
     display: inline-block;
@@ -84,7 +80,6 @@
         }
     }
 
-    // Breakpoints- card//
     @media (min-width:1240px) {
         width: 20%;
 
@@ -114,7 +109,6 @@
         padding: .6em;
         z-index: 4;
         cursor: pointer;
-        // line-height: 130%;
     }
 
     small {
@@ -144,10 +138,6 @@
 .next {
     right: 0;
 }
-
-// .prev {
-//     left: 0;
-// }
 
 .slide-btn:disabled {
     opacity: 0;
@@ -194,7 +184,6 @@ div.card-content {
         font-size: 24px;
         font-weight: 700;
         line-height: 22px;
-        // margin: 0;
         font: 24px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
     }
 }
@@ -202,7 +191,6 @@ div.card-content {
 
 
 .slider-item {
-    // min-height: 331px;
     max-height: 331px;
     min-width: 260px;
     border-radius: 15px;
@@ -228,9 +216,6 @@ div.card-content {
         }
 
         img.img-slide-list {
-            // width: 100%;
-            // height: auto;
-            // display: block;
             border-radius: 15px;
             margin-top: 10px;
             cursor: pointer;
@@ -284,8 +269,6 @@ div.card-content {
             height: 186px !important;
             cursor: pointer;
         }
-
-        // margin-bottom: auto; //!1
     }
 
     div.card-content {
@@ -352,8 +335,6 @@ div.card-content {
         img {
             height: 156px !important;
         }
-
-        // margin-bottom: auto; //!1
     }
 }
 
@@ -368,7 +349,6 @@ div.card-content {
         cursor: pointer;
     }
 
-    // margin-bottom: auto; //!1
 }
 
 

@@ -1,9 +1,4 @@
 .user-profile {
-  // font-size: rem(14px);
-  // border: 1px solid $clr11;
-  // padding: em(30px, 16px);
-  // margin-bottom: 2em;
-
   .img-profile-container {
     position: relative;
 
@@ -43,9 +38,7 @@
 
   .user-profile-info {
     display: flex;
-    // align-items: center;
     justify-content: start;
-    // flex-direction: column;
     padding-bottom: em(24px, 14px);
     margin-bottom: em(24px, 14px);
 
@@ -60,16 +53,6 @@
     h2 {
       margin: 0;
     }
-
-    // .user-stats-desc li {
-    //   @include flex;
-    //   margin-bottom: em(16px, 14px);
-    //   color: $clr5;
-
-    //   div span:first-of-type {
-    //     margin-right: .5em;
-    //   }
-    // }
   }
 
   #imgUpload {

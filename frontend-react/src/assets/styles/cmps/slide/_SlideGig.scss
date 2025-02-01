@@ -1,103 +1,3 @@
-// .gig-preview-img {
-//     position: relative;
-//     max-height: 200px;
-
-//     @media (max-width: 1460px) {
-//         max-height: 158px;
-//     }
-
-//     @media (max-width: 1160px) {
-//         max-height: 200px;
-//     }
-
-//     .image-slides {
-//         border-radius: 10px;
-//     }
-
-//     overflow: hidden;
-
-// &:hover {
-//     .prev,
-//     .next {
-//         opacity: 1;
-//         transform: translateY(-50%) translateX(0);  
-//     }
-
-//     .dot {
-//         background-color: $clr3;  
-//     }
-// }
-
-//     img {
-//         position: relative;
-//         display: block;  
-//     }
-
-//     .prev,
-//     .next {
-//         // opacity: 0;  
-//         position: absolute;
-//         top: 50%;
-//         font-size: 1.25rem;
-//         color: #fff;
-//         cursor: pointer;
-//         z-index: 10;
-//         transform: translateY(-50%) translateX(40px);  
-//         transition: opacity 0.3s ease, transform 0.3s ease;  
-//         width: 30px;
-//         height: 30px;
-//     }
-
-//     .prev {
-//         left: 10px;  
-//         transform: translateY(-50%) translateX(-40px);  
-//         border-top-right-radius: 50%;
-//         border-bottom-right-radius: 50%;
-//     }
-
-//     .next {
-//         right: 10px; 
-//         transform: translateY(-50%) translateX(40px);  
-//         border-top-left-radius: 50%;
-//         border-bottom-left-radius: 50%;
-//     }
-
-
-//     .dot-container {
-//         position: absolute;
-//         bottom: 10px;
-//         left: 50%;  
-//         transform: translateX(-50%);  
-//         display: flex;
-//         list-style-type: none;
-//         padding: 0;
-//         justify-content: center;
-//     }
-
-
-//     .dot {
-//         cursor: pointer;
-//         width: 8px;
-//         height: 8px;
-//         margin: 0 2px;
-//         background-color: rgba(255, 255, 255, 0.5);
-//         border-radius: 50%;
-//         transition: background-color 0.6s ease;
-//     }
-
-
-//     .dot-active {
-//         background-color: #fff;
-//     }
-// }
-
-
-// .prev.disabled, 
-// .next.disabled {
-//     opacity: 0;  
-//     cursor: default;  
-// }
-
 .gig-preview-img {
     position: relative;
     max-height: 200px;
@@ -112,7 +12,6 @@
 
     .image-slides {
         border-radius: 10px;
-        // cursor: pointer;
     }
 
     overflow: hidden;
@@ -125,10 +24,7 @@
             transform: translateY(-50%) translateX(0);
             cursor: pointer;
         }
-        // .icon-next,
-        // .icon-prev {
-        //     opacity: 1;
-        // }
+       
 
         .dot {
             background-color: $clr3;

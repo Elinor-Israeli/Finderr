@@ -1,6 +1,4 @@
-/* Position the image container (needed to position the left and right arrows) */
 .container-slide-detail {
-    // position: relative;
     max-height: 500px;
     object-fit: contain;
     display:grid;
@@ -8,19 +6,15 @@
     
 }
 
-/* Add a pointer when hovering over the thumbnail images */
 .cursor {
     cursor: pointer;
 }
-
 
 .previous,
 .next-slide {
     z-index: 1;
     align-self: center;
     cursor: pointer;
-    // padding: 10px;
-    // position: absolute;
     top: 35%;
     background-color: $clr3;
     color: $clr5;
@@ -88,12 +82,7 @@ img {
     background-color: #f5f5f5;
     border: 1px solid #efeff0;
     position: relative;
-    // background-size: 80px;
     height: 100%;
-    // max-height: 50%;
-    // max-width: 56%;
-    // min-height: 383px;
-    // min-width: 380px;
     -o-object-fit: contain;
     object-fit: contain;
     width: 100%;
@@ -102,28 +91,7 @@ img {
     transition: transform 0.5s ease-in-out;
 
     a.next.fa-solid.chevron-right {
-        //! here (mobile the next & prev moving down)
         position: absolute;
-    }
-
-    img {
-        // position: relative;
-        // transition: transform 0.2s ease-in-out;
-        // background-size: 80px;
-        // height: 100%;
-        // max-height: 100%;
-        // max-width: 100%;
-        // min-height: 40px;
-        // min-width: 40px;
-        // -o-object-fit: contain;
-        // object-fit: contain;
-        // width: 100%;
-        // overflow-clip-margin: content-box;
-        // overflow: clip;
-
-        &:hover {
-            // transform: scale(1.02);
-        }
     }
 }
 
@@ -143,6 +111,3 @@ img {
     }
 }
 
-// span {
-//     background: transparent url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/search_perseus/apps/carousel-arrows.b9dde63.svg) no-repeat;
-// }

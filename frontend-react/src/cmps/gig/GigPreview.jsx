@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { updateGig } from '../../store/actions/gig.actions'
+import { addAndRemoveToWishlist } from '../../store/actions/gig.actions'
 import { SlideGigPreview } from '../slide/SlideGigPreview'
 import { showSuccessMsg } from '../../services/event-bus.service';
 import { userService } from '../../services/user/user.service.remote'; 
@@ -55,14 +55,14 @@ export function GigPreview({ gig }) {
           if (userIndex != -1) {
             updatedGig.wishList.splice(userIndex, 1)
             setHeart(false)
-            showSuccessMsg(`Remove to ${user.fullname}`)
+            showSuccessMsg(`Removed from ${user.fullname}'s wishlist`)
           } else {
             updatedGig.wishList.push(user._id)
             setHeart(true)
-            showSuccessMsg(`Saved to ${user.fullname}`)
+            showSuccessMsg(`Added to ${user.fullname}'s wishlist`)
           }
     
-          await updateGig(updatedGig)
+          await addAndRemoveToWishlist(updatedGig._id)
         } catch (err) {
           console.log("Error updating wishlist:", err)
         }

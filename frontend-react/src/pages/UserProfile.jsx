@@ -31,7 +31,6 @@ export function UserProfile({ watchedUser, userReviews }) {
       {userId && <>
         <div className="user-profile-info" >
           <div className="img-profile-container">
-            {/* {isSameUser && <div className="upload-camera "></div>} */}
             {isSameUser && <img src={loginUser?.imgUrl}></img>}
             {!isSameUser && <img src={watchedUser?.imgUrl}></img>}
             <div className='info-profile-details'>
@@ -58,10 +57,6 @@ export function UserProfile({ watchedUser, userReviews }) {
                     </span></div>
                     <span>Israel</span>
                   </li>
-                  {/* <li>
-            <div><span className="paper-plan"></span><span>Last Delivery</span></div>
-            <span>1 day</span>
-          </li> */}
                 </div>
               </ul>
             </div>

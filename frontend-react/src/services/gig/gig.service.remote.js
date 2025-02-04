@@ -1,24 +1,25 @@
-import { httpService } from '../http.service' 
+import { httpService } from '../http.service'
 
 export const gigService = {
     query,
     getById,
-    save,
+    add,
+    update,
     remove,
     getEmptyGig,
     getDefaultFilter,
     getGigSelling,
     getGigSlides,
-    addGigMsg
-
+    addGigMsg,
+    toggleWishlist
 }
 window.cs = gigService
 
 function getDefaultFilter() {
-    return { categories: [],  daysToMake: '', minPrice: '', maxPrice: '' }
+    return { categories: [], daysToMake: '', minPrice: '', maxPrice: '' }
 }
 
-async function query(filterBy = getDefaultFilter()) {
+async function query(filterBy = getDefaultFilter(), userId) {
     return httpService.get(`gig`, filterBy)
 }
 
@@ -30,22 +31,35 @@ async function remove(gigId) {
     return httpService.delete(`gig/${gigId}`)
 }
 
-async function save(gig) {
-    console.log('gig52', gig)
-    var savedGig
-    if (gig._id) {
-        savedGig = await httpService.put(`gig/${gig._id}`, gig)
-    } else {
-        savedGig = await httpService.post('gig', gig)
-    }
-    console.log('gig62', gig)
-    return savedGig
+async function add(gig) {
+    var addedGig
+    addedGig = await httpService.post('gig', gig)
+    return addedGig
+}
+
+async function update(gig) {
+    var updatedGig
+    updatedGig = await httpService.put(`gig/${gig._id}`, gig)
+    return updatedGig
 }
 
 async function addGigMsg(gigId, txt) {
-    const savedMsg = await httpService.post(`gig/${gigId}/msg`, {txt})
+    const savedMsg = await httpService.post(`gig/${gigId}/msg`, { txt })
     return savedMsg
 }
+
+async function toggleWishlist(gigId) {
+    try {
+        const gig = { gigId }
+        const response = await httpService.put('gig/wishlist', gig)
+
+        return response
+    } catch (error) {
+        console.error('Failed to update wishlist', error)
+        throw new Error('Failed to update wishlist')
+    }
+}
+
 
 function getGigSlides() {
     return [

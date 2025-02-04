@@ -15,18 +15,16 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 export function UserIndex() {
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
-    const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
-    const sortBy = useSelector((storeState) => storeState.gigModule.sortBy)
     const { userId } = useParams()
-    const [time, setTime] = useState('')
+    const [_, setTime] = useState('')
 
     const [user, setUser] = useState(null)
 
     useEffect(() => {
         userId && loadWatchedUser(userId)
         loadUser()
-        loadGigs(filterBy, sortBy, userId)
-    }, [filterBy, userId])
+        loadGigs( {userId})
+    }, [ userId])
 
     useEffect(() => {
         const updateTime = () => {
@@ -74,35 +72,6 @@ export function UserIndex() {
                 {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner_id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
                 {watchedUser && watchedUser.reviews && <ReviewList userReviews={watchedUser.reviews} />}
             </aside>
-            {/* <main className="user-main">
-                <div className="card-user">
-                    <div className="card-header">
-                        <img src={watchedUser?.imgUrl}></img>
-
-                        <div>
-                            <div>
-                                <h3 className="username">{watchedUser?.username}</h3>
-                            </div>
-                            <span className="status"> Offline • {time}</span>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="offer-info">
-                            <span className="offer-label">Offers hourly rates</span>
-                        </div>
-                        <div className="consultation-info">
-                            <button className="consultation-btn"><FaTelegramPlane />
-                                Contact me</button>
-                            <p className="response-time">Average response time: 1 hour</p>
-                        </div>
-                    </div>
-                </div>
-                {loginUser?._id === userId && orders.filter(order => order.seller._id === loginUser._id).length !== 0 && loginUser && <UserSellerTable
-                    orders={orders.filter(order => order.seller._id === loginUser._id)} length={120} />}
-                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner_id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
-                {<UserSellerTable
-                    orders={orders.filter(order => order.seller._id === loginUser._id)} length={120} />}
-            </main> */}
         </section>
     )
 }

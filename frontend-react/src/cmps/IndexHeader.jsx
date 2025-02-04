@@ -1,4 +1,4 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { SET_FILTER } from '../store/reducers/gig.reducer'
 import { useEffect, useRef, useState } from 'react'
 import { userService } from '../services/user/user.service.remote' 
@@ -159,45 +159,27 @@ export function IndexHeader({ onSetFilter, isSticky }) {
     setIsModal(false)
   }
 
-  function onToggleMenu() {
-    setIsOpenMenu(!isOpenMenu)
-  }
-
+  
   function handleOrder() {
     setIsOrder(prev => !prev)
   }
 
-  const handleImageClick = () => {
-    setIsOrder(false)
-    setIsDropdown(false)
-    setIsImageModalOpen(true)
-  }
 
-  const closeImageModal = () => {
-    setIsImageModalOpen(false)
-  }
 
   useEffect(() => {
 
     const handleScroll = () => {
 
         const scrollPosition = window.scrollY
-
-
         const threshold = 400
 
-        // Set visibility based on the scroll position
         if (scrollPosition >= threshold) {
             setIsVisible(true)
         } else {
             setIsVisible(false)
         }
-    };
-
-    // Attach scroll event listener
+    }
     window.addEventListener('scroll', handleScroll);
-
-    // Clean up the event listener on component unmount
     return () => {
         window.removeEventListener('scroll', handleScroll);
     }

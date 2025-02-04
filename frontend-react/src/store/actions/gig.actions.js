@@ -22,11 +22,20 @@ export function getActionUpdateGig(gig) {
     }
 }
 
-export async function loadGigs(filterBy) {
+export async function loadGigs(filterBy = null, userId = null) {
     try {
         store.dispatch({ type: LOADING_START })
-        const gigs = await gigService.query(filterBy)
+        let gigs
        
+        if (filterBy && userId){
+            gigs = await gigService.query(filterBy, userId)
+        } else if (filterBy) {
+            gigs = await gigService.query(filterBy)
+        } else if (userId) {
+            gigs = await gigService.query(null, userId)
+        } else {
+             gigs = await gigService.query(filterBy, userId)
+        }
         store.dispatch({ type: SET_GIGS, gigs })
     } catch (err) {
         throw err
@@ -46,27 +55,39 @@ export async function removeGig(gigId) {
 }
 
 export async function addGig(gig) {
-    console.log('gig32', gig)
     try {
-        const savedGig = await gigService.save(gig)
-        console.log('Added Gig', savedGig)
-        store.dispatch(getActionAddGig(savedGig))
-        return savedGig
+        const addedGig = await gigService.add(gig)
+        console.log('Added Gig', addedGig)
+        store.dispatch(getActionAddGig(addedGig))
+        return addedGig
     } catch (err) {
         console.log('Cannot add gig', err)
-        console.log('gig42', gig)
         throw err
     }
 }
 
 export async function updateGig(gig) {
     try {
-        const savedGig = await gigService.save(gig)
-        console.log('Updated Gig action store:', savedGig)
-        store.dispatch(getActionUpdateGig(savedGig))
-        return savedGig
+        const updatedGig = await gigService.update(gig)
+        console.log('Updated Gig action store:', updatedGig)
+        store.dispatch(getActionUpdateGig(updatedGig))
+        return updatedGig
     } catch (err) {
         console.log('Cannot save gig', err)
+        throw err
+    }
+}
+
+export async function addAndRemoveToWishlist(gigId) {
+    try {
+        const updatedGig = await gigService.toggleWishlist(gigId)  
+
+        console.log('Updated Gig after wishlist toggle:', updatedGig)
+        store.dispatch(getActionUpdateGig(updatedGig))
+
+        return updatedGig
+    } catch (err) {
+        console.log('Cannot toggle wishlist', err)
         throw err
     }
 }

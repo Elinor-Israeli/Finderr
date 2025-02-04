@@ -7,6 +7,8 @@ import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
 
 import { addGig } from '../../store/actions/gig.actions'
+import { updateGig } from '../../store/actions/gig.actions'
+
 import { ImgUploader } from '../ImgUploader' 
 
 import { gigService } from '../../services/gig/gig.service.remote'
@@ -16,7 +18,7 @@ export function GigEdit() {
     const navigate = useNavigate()
     const { gigId } = useParams()
     const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
-    const [setImgToEdit] = useState()
+    const [__,setImgToEdit] = useState()
     const gigForFormik = { ...gigToEdit, tags2: '' }
     const loginUser = userService.getLoggedinUser()
 
@@ -49,7 +51,11 @@ export function GigEdit() {
 
     const onSave = async () => {
         try {
-            await addGig(gigToEdit) 
+            if (gigId){
+                await updateGig(gigToEdit)
+            } else {
+                await addGig(gigToEdit) 
+            }
             navigate(`/user/${loginUser._id}`)
         } catch (err) {
             console.log('Cannot save gig: ', err)

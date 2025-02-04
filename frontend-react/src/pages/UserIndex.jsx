@@ -17,29 +17,26 @@ export function UserIndex() {
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const { userId } = useParams()
     const [_, setTime] = useState('')
-
     const [user, setUser] = useState(null)
 
     useEffect(() => {
         userId && loadWatchedUser(userId)
         loadUser()
-        loadGigs( {userId})
-    }, [ userId])
+        loadGigs({userId})
+    }, [userId])
 
     useEffect(() => {
         const updateTime = () => {
             const currentDate = new Date()
             const hours = currentDate.getHours()
             const minutes = currentDate.getMinutes()
-            const ampm = hours >= 12 ? 'PM' : 'AM'
-            const formattedTime = `${hours % 12 || 12}:${minutes < 10 ? '0' + minutes : minutes} ${ampm} local time`
+            const AmPm = hours >= 12 ? 'PM' : 'AM'
+            const formattedTime = `${hours % 12 || 12}:${minutes < 10 ? '0' + minutes : minutes} ${AmPm} local time`
             setTime(formattedTime)
         }
 
         updateTime()
-
         const intervalId = setInterval(updateTime, 60000)
-
         return () => clearInterval(intervalId)
     }, [])
 
@@ -69,7 +66,7 @@ export function UserIndex() {
             <aside className="user-info">
                 <UserProfile watchedUser={watchedUser} />
                 <div className="user-review-bar">{watchedUser && watchedUser.reviews && <ReviewBar userReviews={watchedUser.reviews} />}</div>
-                {watchedUser && gigs && <UserList gigs={gigs.filter(gig => gig.owner_id === userId)} onRemoveGig={onRemoveGig} user={watchedUser} />}
+                {watchedUser && gigs && <UserList gigs={gigs} onRemoveGig={onRemoveGig} user={watchedUser} />}
                 {watchedUser && watchedUser.reviews && <ReviewList userReviews={watchedUser.reviews} />}
             </aside>
         </section>

@@ -49,11 +49,6 @@ export function GigPayment() {
             showErrorMsg('Unable to load gig details')
             return
         }
-        console.log('gig', gig)
-        console.log('user', user)
-
-
-
 
         const order = {
             buyer: {
@@ -85,7 +80,6 @@ export function GigPayment() {
             showErrorMsg('Something went wrong')
             console.log("cant add order", err)
         }
-        console.log('order', order)
     }
 
     

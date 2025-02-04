@@ -16,10 +16,10 @@ export const gigService = {
 window.cs = gigService
 
 function getDefaultFilter() {
-    return { categories: [], daysToMake: '', minPrice: '', maxPrice: '' }
+    return { categories: [], daysToMake: '', minPrice: '', maxPrice: '' , userId:'' }
 }
 
-async function query(filterBy = getDefaultFilter(), userId) {
+async function query(filterBy = getDefaultFilter()) {
     return httpService.get(`gig`, filterBy)
 }
 

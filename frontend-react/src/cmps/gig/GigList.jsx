@@ -1,8 +1,7 @@
 import { GigPreview } from "./GigPreview"
 
 export function GigList({ gigs }) {
-    return (
-        
+    return ( 
     <div className="gig-list-container main layout full">
         
     <ul className="gig-list  ">

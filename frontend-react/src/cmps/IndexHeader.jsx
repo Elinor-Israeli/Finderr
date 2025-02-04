@@ -10,7 +10,7 @@ import { ModalLogin } from './ModalLogin'
 import { DropdownLogin } from './DropdownLogin'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
-export function IndexHeader({ onSetFilter, isSticky }) {
+export function IndexHeader({ onSetFilter }) {
   const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
   const elInputRef = useRef(null)
   const [_, setIsCategoryMenuVisible] = useState(false)
@@ -25,10 +25,8 @@ export function IndexHeader({ onSetFilter, isSticky }) {
   const [isDropdown, setIsDropdown] = useState(false)
   const [isOrder, setIsOrder] = useState(false)
   const [isSignup, setIsSignup] = useState(false)
-  const [isOpenMenu, setIsOpenMenu] = useState(false)
   const { pathname } = window.location
   const [windowSize, setWindowSize] = useState(null)
-  const [____, setIsImageModalOpen] = useState(false)
 
   useEffect(() => {
     function handleResize() {

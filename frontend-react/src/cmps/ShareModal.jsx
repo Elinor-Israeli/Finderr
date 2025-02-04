@@ -9,7 +9,6 @@ import { BsX } from "react-icons/bs";
 
 function ShareModal({ gigUrl, onClose }) {
   const modalRef = useRef()
-
   const shareMessage = "Check out this gig!"
 
   useEffect(() => {

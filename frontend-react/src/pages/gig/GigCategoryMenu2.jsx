@@ -3,10 +3,10 @@ import { gigService } from '../../services/gig/gig.service.remote'
 
 export function CategoryMenu2({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
-    const CategorysliderRef = useRef()
-    const [lastDirection, setLastDirection] = useState('')
-    const [categoryMenuClassName, setCategoryMenuClassName] = useState('')
-    const [linesSetDisplay, setLinesSetDisplay] = useState('')
+    const CategorySliderRef = useRef()
+    const [_, setLastDirection] = useState('')
+    const [categoryMenuClassName, __] = useState('')
+    const [linesSetDisplay, ___] = useState('')
     const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 900)
     const sliderRef = useRef()
    
@@ -61,10 +61,9 @@ export function CategoryMenu2({ onSetFilter }) {
             <nav className={`${categoryMenuClassName}`}>
                 {isWideScreen && (
                     <button className="category-btn left" onClick={slideLeft}  >
-                        {/* <IoIosArrowBack /> */}
                     </button>
                 )}
-                <ul className="categories2" id="categories2" ref={CategorysliderRef}>
+                <ul className="categories2" id="categories2" ref={CategorySliderRef}>
                     {categories.map((category, index) => (
                         <div key={index} onClick={() => filterByCategory(category.categories)} className="card-container">
                             {isWideScreen ? (
@@ -87,7 +86,6 @@ export function CategoryMenu2({ onSetFilter }) {
                 </ul>
                 {isWideScreen && (
                     <button className="category-btn fa-solid chevron-right right" onClick={slideRight}>
-                        {/* <IoIosArrowForward /> */}
                     </button>
                 )}
             </nav>

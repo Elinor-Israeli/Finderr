@@ -1,18 +1,18 @@
-import { CategoryMenu2 } from "./gig/GigCategoryMenu2";
+import { CategoryMenu2 } from "./gig/GigCategoryMenu2"
 import { useNavigate, useLocation } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { SET_FILTER } from '../store/reducers/gig.reducer'
-import { useEffect, useRef, useState } from 'react'
-import { GigCategoryMenu } from "../cmps/gig/GigCategoryMenu";
-import { SlideList } from "../cmps/slide/SlideList";
-import { Search } from "../cmps/HederSearch";
-import VideoPlayer from "../cmps/VideoPlayer";
+import { useEffect, useState } from 'react'
+import { GigCategoryMenu } from "../cmps/gig/GigCategoryMenu"
+import { SlideList } from "../cmps/slide/SlideList"
+import { Search } from "../cmps/HeaderSearch"
+import VideoPlayer from "../cmps/VideoPlayer"
 
 export function HomePage({ onSetFilter }) {
     const location = useLocation()
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
 
@@ -25,9 +25,9 @@ export function HomePage({ onSetFilter }) {
                 setIsVisible(false)
             }
         }
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll)
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScroll)
         }
     }, [])
 

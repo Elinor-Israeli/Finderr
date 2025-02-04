@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { gigService } from '../../services/gig/gig.service.remote'
 import { showErrorMsg } from '../../services/event-bus.service'
-import { SlideDetails } from '../../cmps/slide/slide-details'
+import { SlideDetails } from '../../cmps/slide/SlideDetails'
 import { GigCard } from '../../cmps/gig/GigCard'
 import { ReviewAll } from '../../cmps/review/ReviewAll'
 import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 import { UserInfo } from '../../cmps/user/UserInfo'
-import { useSelector } from 'react-redux'
 import PricingTable from '../../cmps/PricingTable'
 
 
@@ -15,7 +14,6 @@ export function GigDetails() {
     const { gigId } = useParams()
     const navigate = useNavigate()
     const [gig, setGig] = useState()
-    let gigs = useSelector((storeState) => storeState.gigModule.gigs)
 
     useEffect(() => {
         loadGig()
@@ -36,7 +34,7 @@ export function GigDetails() {
     if (!gig) return <div className="loader-container">
         <div>loading...</div>
     </div>
-    const { imgUrl, fullname, rate, level, country } = gig.owner || {};
+    const { imgUrl, fullname, rate, level, country } = gig.owner || {}
 
     return <section className="gig-details">
         <div className="gig-details-container">

@@ -1,6 +1,6 @@
 import { store } from '../store'
-import { ADD_GIG, REMOVE_GIG, SET_GIGS, UPDATE_GIG  } from '../reducers/gig.reducer'
-import { LOADING_DONE,LOADING_START } from '../reducers/system.reducer'
+import { ADD_GIG, REMOVE_GIG, SET_GIGS, UPDATE_GIG } from '../reducers/gig.reducer'
+import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { gigService } from '../../services/gig/gig.service.remote'
 
 export function getActionRemoveGig(gigId) {
@@ -26,7 +26,7 @@ export async function loadGigs(filterBy) {
     try {
         store.dispatch({ type: LOADING_START })
         const gigs = await gigService.query(filterBy)
-       
+
         store.dispatch({ type: SET_GIGS, gigs })
     } catch (err) {
         throw err
@@ -71,7 +71,7 @@ export async function updateGig(gig) {
 
 export async function addAndRemoveToWishlist(gigId) {
     try {
-        const updatedGig = await gigService.toggleWishlist(gigId)  
+        const updatedGig = await gigService.toggleWishlist(gigId)
 
         console.log('Updated Gig after wishlist toggle:', updatedGig)
         store.dispatch(getActionUpdateGig(updatedGig))

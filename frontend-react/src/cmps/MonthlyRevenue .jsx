@@ -23,19 +23,17 @@ export function MonthlyRevenue({ monthlyRevenue, monthlyRevenueGoal }) {
         setProgress(progressPercentage)
         setRevenue(monthlyRevenue)
 
-        // Check if goal is reached
         if (progressPercentage >= 100) {
             setGoalReached(true)
         }
     }, [monthlyRevenue, monthlyRevenueGoal])
 
-    // Chart data
     const data = {
-        labels: ['Start', 'Mid', 'End'], // Simulate the timeline for the graph
+        labels: ['Start', 'Mid', 'End'], 
         datasets: [
             {
                 label: 'Monthly Revenue Growth',
-                data: [0, revenue / 2, revenue], // Simulate gradual revenue growth
+                data: [0, revenue / 2, revenue], 
                 fill: false,
                 backgroundColor: 'rgba(75, 192, 192, 1)',
                 borderColor: 'rgba(75, 192, 192, 0.2)',
@@ -43,8 +41,7 @@ export function MonthlyRevenue({ monthlyRevenue, monthlyRevenueGoal }) {
             }
         ]
     }
-
-    // Options for the chart
+    
     const options = {
         responsive: true,
         plugins: {

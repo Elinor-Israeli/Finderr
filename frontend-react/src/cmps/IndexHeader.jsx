@@ -1,10 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { SET_FILTER } from '../store/reducers/gig.reducer'
 import { useEffect, useRef, useState } from 'react'
-import { userService } from '../services/user/user.service.remote' 
+import { userService } from '../services/user/user.service.remote'
 import { gigService } from '../services/gig/gig.service.remote'
 import { useDispatch, useSelector } from 'react-redux'
-import { UserBuyGig } from './user/UserBuyGig'
+import { UserBuyGig } from './user/UserBuyerGig'
 import { login, logout, signup } from '../store/user/user.actions'
 import { ModalLogin } from './ModalLogin'
 import { DropdownLogin } from './DropdownLogin'
@@ -159,7 +159,7 @@ export function IndexHeader({ onSetFilter, isSticky }) {
     setIsModal(false)
   }
 
-  
+
   function handleOrder() {
     setIsOrder(prev => !prev)
   }
@@ -170,109 +170,103 @@ export function IndexHeader({ onSetFilter, isSticky }) {
 
     const handleScroll = () => {
 
-        const scrollPosition = window.scrollY
-        const threshold = 400
+      const scrollPosition = window.scrollY
+      const threshold = 400
 
-        if (scrollPosition >= threshold) {
-            setIsVisible(true)
-        } else {
-            setIsVisible(false)
-        }
+      if (scrollPosition >= threshold) {
+        setIsVisible(true)
+      } else {
+        setIsVisible(false)
+      }
     }
     window.addEventListener('scroll', handleScroll);
     return () => {
-        window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     }
-}, [])
+  }, [])
 
   return (
     <section className="index-header full">
-          <div className={`index-header-container main-layout `}>
-<div style={{display: 'flex', alignItems: 'center',justifyContent: 'space-between'}} >
-            <Link to="/">
-              <div className="logo">
-                <span className='logo-text'>finderr</span>
-                <span className='logo-dot'>.</span>
-              </div>
-            </Link>
-
-            <form className={`index-search ${isVisible ? 'block-header' : 'hidden'}`} onSubmit={onSubmitFilter}>
-              <div className="search-index-input">
-                <input
-                  type="text"
-                  className={`gig-search ${pathname !== '/' ? 'long-placeholder' : ''}`}
-                  id="title"
-                  name="title"
-                  placeholder={onPlaceholder()}
-                  value={filterByToEdit.title}
-                  onChange={handleChange}
-                  ref={elInputRef}
-                />
-                <button className='btn-index-search'>
-                  <span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="white">
-                      <path d="m15.89 14.653-3.793-3.794a.37.37 0 0 0-.266-.109h-.412A6.499 6.499 0 0 0 6.5 0C2.91 0 0 2.91 0 6.5a6.499 6.499 0 0 0 10.75 4.919v.412c0 .1.04.194.11.266l3.793 3.794a.375.375 0 0 0 .531 0l.707-.707a.375.375 0 0 0 0-.53ZM6.5 11.5c-2.763 0-5-2.238-5-5 0-2.763 2.237-5 5-5 2.762 0 5 2.237 5 5 0 2.762-2.238 5-5 5Z"></path>
-                    </svg>
-                  </span>
-                </button>
-              </div>
-            </form>
-            <div className="links ">
-              <Link to="/gig">
-                <span className='explore-btn'>Explore</span>
-              </Link>
-              {user &&
-                <>
-                  <Link to="/dashboard" className="dashboard-link">
-                    <span>Dashboard</span>
-                  </Link>
-                  {(windowSize > 900) && <div className="user-orders">
-                    <Link onClick={handleOrder}>Orders</Link>
-                    {isOrder && <UserBuyGig />}
-                  </div>}
-                  <Link to="/wishlist" className="heart" title="save to list">
-                    <img
-                      src="./img/gray_heart.png"
-                      alt="Heart"
-                      className="heart-img"
-                      style={{ aspectRatio: 'unset' }}
-                    />
-                  </Link>
-                  {(windowSize > 900) && <div className="user-header-img">
-                    <img src={user.imgUrl}
-                      alt='user'
-                      style={{
-                        borderRadius: '50%',
-                        width: '2em',
-                        height: '2em',
-                        cursor: 'pointer',
-                      }}
-                      onClick={() => {
-                        setIsOrder(false)
-                        setIsDropdown(!isDropdown)
-                      }} />
-                    {isDropdown && <DropdownLogin loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} user={user} />}
-                  </div>}
-                </>
-              }
-              {!user &&
-                <>
-                  {isModal && <ModalLogin onLogin={onLogin} onSignup={onSignup}
-                    onCloseModal={onCloseModal} setIsSignup={setIsSignup} isSignup={isSignup} />}
-                  {(windowSize > 900) && <Link className='sign-in-link' onClick={() => { onOpenModal(); setIsSignup(false) }}>Sign in</Link>}
-                  {(windowSize > 900) && <button className="join-btn-index-header"
-                    onClick={() => { onOpenModal(); setIsSignup(true) }}>Join</button>}
-                </>
-              }
+      <div className={`index-header-container main-layout `}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
+          <Link to="/">
+            <div className="logo">
+              <span className='logo-text'>finderr</span>
+              <span className='logo-dot'>.</span>
             </div>
-            {/* <div className='full' >
-        <GigCategoryMenu onSetFilter={onSetFilter} />
-      </div> */}
+          </Link>
+
+          <form className={`index-search ${isVisible ? 'block-header' : 'hidden'}`} onSubmit={onSubmitFilter}>
+            <div className="search-index-input">
+              <input
+                type="text"
+                className={`gig-search ${pathname !== '/' ? 'long-placeholder' : ''}`}
+                id="title"
+                name="title"
+                placeholder={onPlaceholder()}
+                value={filterByToEdit.title}
+                onChange={handleChange}
+                ref={elInputRef}
+              />
+              <button className='btn-index-search'>
+                <span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="white">
+                    <path d="m15.89 14.653-3.793-3.794a.37.37 0 0 0-.266-.109h-.412A6.499 6.499 0 0 0 6.5 0C2.91 0 0 2.91 0 6.5a6.499 6.499 0 0 0 10.75 4.919v.412c0 .1.04.194.11.266l3.793 3.794a.375.375 0 0 0 .531 0l.707-.707a.375.375 0 0 0 0-.53ZM6.5 11.5c-2.763 0-5-2.238-5-5 0-2.763 2.237-5 5-5 2.762 0 5 2.237 5 5 0 2.762-2.238 5-5 5Z"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </form>
+          <div className="links ">
+            <Link to="/gig">
+              <span className='explore-btn'>Explore</span>
+            </Link>
+            {user &&
+              <>
+                <Link to="/dashboard" className="dashboard-link">
+                  <span>Dashboard</span>
+                </Link>
+                {(windowSize > 900) && <div className="user-orders">
+                  <Link onClick={handleOrder}>Orders</Link>
+                  {isOrder && <UserBuyGig />}
+                </div>}
+                <Link to="/wishlist" className="heart" title="save to list">
+                  <img
+                    src="./img/gray_heart.png"
+                    alt="Heart"
+                    className="heart-img"
+                    style={{ aspectRatio: 'unset' }}
+                  />
+                </Link>
+                {(windowSize > 900) && <div className="user-header-img">
+                  <img src={user.imgUrl}
+                    alt='user'
+                    style={{
+                      borderRadius: '50%',
+                      width: '2em',
+                      height: '2em',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => {
+                      setIsOrder(false)
+                      setIsDropdown(!isDropdown)
+                    }} />
+                  {isDropdown && <DropdownLogin loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} user={user} />}
+                </div>}
+              </>
+            }
+            {!user &&
+              <>
+                {isModal && <ModalLogin onLogin={onLogin} onSignup={onSignup}
+                  onCloseModal={onCloseModal} setIsSignup={setIsSignup} isSignup={isSignup} />}
+                {(windowSize > 900) && <Link className='sign-in-link' onClick={() => { onOpenModal(); setIsSignup(false) }}>Sign in</Link>}
+                {(windowSize > 900) && <button className="join-btn-index-header"
+                  onClick={() => { onOpenModal(); setIsSignup(true) }}>Join</button>}
+              </>
+            }
           </div>
-          </div>
-      
-      {/* <div className='full' style={{display: 'grid', gridColumn: '1 / -1',gridTemplateColumns: '1fr'}}> */}
-     
+        </div>
+      </div>
     </section>
   )
 }

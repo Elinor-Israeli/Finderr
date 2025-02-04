@@ -1,10 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 function PricingTable({ gig }) {
     const randomDiscount = Math.floor(Math.random() * (25 - 5 + 1)) + 5
-
-   let randomValue = null
-
+    let randomValue = null
     function generateRandom(min = 20, max = 90, reset = false) {
         if (reset || randomValue === null) {
             randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -14,7 +12,7 @@ function PricingTable({ gig }) {
 
     return (
         <div className="pricing-table">
-            <div style={{fontSize:'20px',  scrollBehavior: 'smooth'}} id="Compare packages">Compare packages</div>
+            <div style={{ fontSize: '20px', scrollBehavior: 'smooth' }} id="Compare packages">Compare packages</div>
             <table>
                 <thead>
                     <tr>
@@ -93,6 +91,4 @@ function PricingTable({ gig }) {
     )
 }
 
-
-
-export default PricingTable;
+export default PricingTable

@@ -5,7 +5,6 @@ export function SlideDetails({ gig }) {
     const slides = gig.imgUrl
     const [slideIndex, setSlideIndex] = useState(0)
 
-   
     function plusSlides(n) {
         if (slideIndex === slides.length - 1 && n === 1) {
             setSlideIndex(0)
@@ -16,7 +15,6 @@ export function SlideDetails({ gig }) {
         }
     }
 
-   
     function currentSlide(n) {
         setSlideIndex(n)
     }
@@ -52,5 +50,5 @@ export function SlideDetails({ gig }) {
                 </div>
             </div>
         </div>
-    );
+    )
 }

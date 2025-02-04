@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react'
 
 export function LoginSignup(props) {
@@ -71,14 +70,14 @@ export function LoginSignup(props) {
                         style={{
                             position: 'absolute',
                             padding: '54px 40px',
-                            top: 0, 
+                            top: 0,
                             left: 0,
-                            zIndex: 2, 
+                            zIndex: 2,
                             color: 'white',
                         }}
                     >
                         <h2>Success starts here</h2>
-                        <ul style={{fontSize:'20px'}}>
+                        <ul style={{ fontSize: '20px' }}>
                             <li style={{ lineHeight: '42px' }}>✓ Over 700 categories</li>
                             <li style={{ lineHeight: '42px' }}>✓ Quality work done faster</li>
                             <li style={{ lineHeight: '42px' }}>✓ Access to talent and businesses across the globe</li>
@@ -157,34 +156,6 @@ export function LoginSignup(props) {
                                     <button>Continue</button>
                                 </form>
                             </>}
-
-                             {/* Social Login Buttons */}
-                        {/* <div className="social-login-buttons">
-                            <div className="facebook-login">
-                                <FacebookLogin
-                                    appId="YOUR_FACEBOOK_APP_ID" // Replace with your Facebook App ID
-                                    autoLoad={false}
-                                    fields="name,email,picture"
-                                    callback={responseFacebook}
-                                    textButton="Login with Facebook"
-                                    icon="fa-facebook"
-                                />
-                            </div>
-                            <div className="apple-login">
-                                <button
-                                    className="apple-sign-in-btn"
-                                    onClick={responseApple} // Call Apple Sign-In logic
-                                >
-                                    Login with Apple
-                                </button>
-                            </div>
-                            <div className="email-login">
-                                <button onClick={() => alert('Login with Email')}>
-                                    Login with Email
-                                </button>
-                            </div>
-                        </div> */}
-
                             <button className="btn-link" onClick={toggleSignup}>{props.isSignup ? 'Already a member? Sign In' : 'Not a member yet? Join now'}</button>
                         </div>
                         <div className="modal-footer">

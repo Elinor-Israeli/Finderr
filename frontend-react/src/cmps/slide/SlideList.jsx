@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-
 import { gigService } from '../../services/gig/gig.service.remote'
 
 export function SlideList({ onSetFilter }) {
@@ -7,7 +6,6 @@ export function SlideList({ onSetFilter }) {
     const sliderRef = useRef()
     const [setLastDirection] = useState('')
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
-
     const [isAtStart, setIsAtStart] = useState(true)
     const [isAtEnd, setIsAtEnd] = useState(false)
 
@@ -52,9 +50,7 @@ export function SlideList({ onSetFilter }) {
     useEffect(() => {
         const slider = sliderRef.current
         slider.addEventListener('scroll', checkSliderPosition)
-
         checkSliderPosition()
-
         return () => {
             slider.removeEventListener('scroll', checkSliderPosition)
         }

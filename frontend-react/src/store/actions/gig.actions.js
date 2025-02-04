@@ -22,20 +22,11 @@ export function getActionUpdateGig(gig) {
     }
 }
 
-export async function loadGigs(filterBy = null, userId = null) {
+export async function loadGigs(filterBy) {
     try {
         store.dispatch({ type: LOADING_START })
-        let gigs
+        const gigs = await gigService.query(filterBy)
        
-        if (filterBy && userId){
-            gigs = await gigService.query(filterBy, userId)
-        } else if (filterBy) {
-            gigs = await gigService.query(filterBy)
-        } else if (userId) {
-            gigs = await gigService.query(null, userId)
-        } else {
-             gigs = await gigService.query(filterBy, userId)
-        }
         store.dispatch({ type: SET_GIGS, gigs })
     } catch (err) {
         throw err

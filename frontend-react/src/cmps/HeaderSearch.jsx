@@ -6,7 +6,6 @@ export function Search({ onSetFilter }) {
     const elInputRef = useRef(null)
     const { pathname } = window.location
     const [windowSize, setWindowSize] = useState(null)
-    //~ or import { useLocation } from 'react-router-dom';
 
     useEffect(() => {
         function handleResize() {

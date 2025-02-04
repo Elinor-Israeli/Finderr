@@ -73,16 +73,8 @@ export default function UserSellerTable() {
         </div>
       )
     }
-
     return null
   }
-
-
-  // function updateStatus(status, order) {
-  //   const updatedOrder = { ...order, status }
-  //   updateOrder(updatedOrder)
-  //   setIsModal({ id: '', status: false })
-  // }
 
  function getTxtToShow(txt, length)  {
     return txt.length < length ? txt : `${txt.substring(0, length)}...`

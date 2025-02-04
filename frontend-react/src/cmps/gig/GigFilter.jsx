@@ -3,13 +3,11 @@ import { useState } from "react"
 
 export function GigFilter({ onSetFilter }) {
   const [FilterByEdit, setFilterByEdit] = useState(gigService.getDefaultFilter)
-
   function handleTypeChange(ev) {
     const { value } = ev.target
     setFilterByEdit((prevFilter) => {
       return { ...prevFilter, txt: value }
     })
-    console.log(FilterByEdit)
   }
 
   function onSubmitFilter(ev) {

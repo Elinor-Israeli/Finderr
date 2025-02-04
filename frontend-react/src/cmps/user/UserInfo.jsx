@@ -5,12 +5,9 @@ import { userService } from '../../services/user/user.service.remote'
 
 export function UserInfo({ user_id, compact,owner }) {
     const [user, setUser] = useState(null)
-    console.log(user)
-
     useEffect(() => {
         loadUser()
     }, [])
-
 
     async function loadUser() {
         try {
@@ -25,7 +22,6 @@ export function UserInfo({ user_id, compact,owner }) {
         <div className="loader"></div>
     </div>
 
-
     return compact ? (
         <div className="user">
             <img src={user.imgUrl} alt="user-img" className="profile-picture" />
@@ -33,7 +29,6 @@ export function UserInfo({ user_id, compact,owner }) {
                 <div className="user-name-level">
                     <span className="user-name">{user.fullname}</span>
                     <Link className="gig-preview__owner-name" to={`/user/${owner?._id}`}>{owner?.fullname}</Link>
-
                     <div className="user-level">
                         <div className="level">
                             {user.level === 'level 3' ? 'Top Rated' : `Level ${user.level}`}
@@ -103,15 +98,7 @@ export function UserInfo({ user_id, compact,owner }) {
                     </div>
                 </div>
             </div>
-            <button className="contact-me">Contact me</button>
-            {/* {gig && <button><Link to={`/user/${gig.owner_id}`}>Contact Me</Link></button>} */}
-           
-            {/* <div>
-                <p className='under-Languages'>
-                    {user.description}
-                </p>
-                <LongTxt txt={user.description} length={length} />
-            </div> */}
+            {/* <button className="contact-me">Contact me</button> */}
         </div>
     )
 }

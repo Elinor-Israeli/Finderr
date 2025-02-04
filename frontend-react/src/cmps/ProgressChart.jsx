@@ -40,5 +40,5 @@ export function ProgressChart({ count, total, bgc, label }) {
             </svg>
             <p className="circle-label">{label}</p>
         </section>
-    );
+    )
 }

@@ -1,20 +1,14 @@
 import { useState } from 'react'
-// import { IoIosArrowDropright } from "react-icons/io";
-// import { IoIosArrowDropleft } from "react-icons/io";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io"
 
 export function SlideGigPreview({ gig }) {
     let slides = gig.imgUrl
-    console.log('slides', slides);
-    
     const [slideIndex, setSlideIndex] = useState(0)
     const [isDynamic, setIsDynamic] = useState(0)
 
     function plusSlides(ev, n) {
-        ev.preventDefault();
-        
-        if (ev.target.closest('.disabled')) return;
-
+        ev.preventDefault()
+        if (ev.target.closest('.disabled')) return
         if (slideIndex === slides.length - 1 && n === 1) {
             setSlideIndex(0)
         } else if (slideIndex === 0 && n === -1) {
@@ -30,8 +24,6 @@ export function SlideGigPreview({ gig }) {
         setIsDynamic(slideIndex)
     }
     return (
-        // <div className="next fa-solid chevron-right" onClick={(ev) => plusSlides(ev, 1)}></div>
-
         <div className="gig-preview-img">
             <div className="image-container">
                 <div
@@ -41,7 +33,6 @@ export function SlideGigPreview({ gig }) {
                     <IoIosArrowBack className='icon-prev' style={{  fill: 'black',stroke:'black' }}/>
                 </div>
                 <img src={slides[slideIndex]} alt="Gig Preview" className='image-slides' />
-
                 <div
                     className={`next ${slideIndex === slides.length - 1 ? 'disabled' : ''}`}
                     onClick={(ev) => plusSlides(ev, 1)}
@@ -50,7 +41,7 @@ export function SlideGigPreview({ gig }) {
                 </div>
             </div>
             <ul className="dot-container">
-                {slides.map((slide, slideIndex) => (
+                {slides.map((slideIndex) => (
                     <li
                         key={slideIndex}
                         className={isDynamic === slideIndex ? "dot dot-active" : "dot"}

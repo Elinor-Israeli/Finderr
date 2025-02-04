@@ -11,17 +11,16 @@ export function ReviewAll({ user_id }) {
     const [userReviews, setUserReviews] = useState(null)
     
     useEffect(() => {
-        loadUserReviews()
-    }, [])
-
-    async function loadUserReviews() {
-        try {
-            const userReviews = await userService.getUserReviews(user_id)
-            setUserReviews(userReviews)
-        } catch (err) {
-            console.log('userReviews: err in userReviews', err)
+        async function loadUserReviews() {
+            try {
+                const userReviews = await userService.getUserReviews(user_id)
+                setUserReviews(userReviews)
+            } catch (err) {
+                console.log('userReviews: err in userReviews', err)
+            }
         }
-    }
+        loadUserReviews()
+    }, [user_id])
 
   function calculateAverageRating (reviews) {
         if (!reviews || reviews.length === 0) return 0

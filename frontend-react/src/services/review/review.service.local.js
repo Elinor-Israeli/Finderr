@@ -7,7 +7,7 @@ export const reviewService = {
 	remove,
 }
 
-function query(filterBy) {
+function query() {
 	return storageService.query('review')
 }
 

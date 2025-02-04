@@ -1,4 +1,5 @@
-const gigs = [
+
+const gigs = [ // eslint-disable-line no-unused-vars
     {
         "title": "I will do modern minimalist logo design",
         "title2": "\u200B",
@@ -2460,7 +2461,7 @@ const gigs = [
     }
 ]
 
-const users = [
+const users = [ // eslint-disable-line no-unused-vars
     {
         "fullname": "lofty",
         "username": "lofty",
@@ -2796,7 +2797,7 @@ const users = [
 ]
 
 
-const emptyUser = {
+const emptyUser = { // eslint-disable-line no-unused-vars
     "fullname": "",
     "username": "",
     "password": "",
@@ -2819,7 +2820,7 @@ const emptyUser = {
     ]
 }
 
-const emptyGig = {
+const emptyGig = { // eslint-disable-line no-unused-vars
     "title": "",
     "about": "",
     "price": 61,

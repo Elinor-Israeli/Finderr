@@ -82,7 +82,7 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-function _createUsers() {
+function _createUsers() {  // eslint-disable-line no-unused-vars
     let users = utilService.loadFromStorage(STORAGE_KEY)
     if (!users || !users.length) {
         users = [

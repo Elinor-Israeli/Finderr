@@ -1,15 +1,14 @@
-import { CategoryMenu2 } from "./gig/GigCategoryMenu2"
-import { useNavigate, useLocation } from 'react-router-dom'
+import { GigCategoryMenu } from "./gig/GigCategoryMenu"
+import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { SET_FILTER } from '../store/reducers/gig.reducer'
 import { useEffect, useState } from 'react'
-import { GigCategoryMenu } from "../cmps/gig/GigCategoryMenu"
+import { GigCategoryToolBar } from "../cmps/gig/GigCategoryToolBar"
 import { SlideList } from "../cmps/slide/SlideList"
 import { Search } from "../cmps/HeaderSearch"
 import VideoPlayer from "../cmps/VideoPlayer"
 
-export function HomePage({ onSetFilter }) {
-    const location = useLocation()
+export function HomePage() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [isVisible, setIsVisible] = useState(false)
@@ -51,12 +50,11 @@ export function HomePage({ onSetFilter }) {
             navigate(`/gig${queryStringParams}`)
         }
     }
-    const headerClass = location.pathname === '/' ? 'index-header-fixed' : 'index-header full'
 
     return (
         <section>
-            <div className={`home-category  ${isVisible ? 'block' : 'hidden'}`}  style={{ borderBottom: '1px solid #e4e5e7', overflow: 'auto' }} >
-                <GigCategoryMenu onSetFilter={onSetFilter} />
+            <div className={`home-category  ${isVisible ? 'block' : 'hidden'}`} style={{ borderBottom: '1px solid #e4e5e7', overflow: 'auto' }} >
+                <GigCategoryToolBar onSetFilter={onSetFilter} />
             </div>
             <section className="home-page ">
                 <div className="hero-container ">
@@ -82,7 +80,7 @@ export function HomePage({ onSetFilter }) {
                 </div>
             </section >
             <div>
-                <CategoryMenu2 onSetFilter={onSetFilter} />
+                <GigCategoryMenu onSetFilter={onSetFilter} />
                 <SlideList onSetFilter={onSetFilter} />
             </div>
 

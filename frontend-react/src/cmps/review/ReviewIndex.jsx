@@ -8,23 +8,22 @@ export function ReviewIndex({ gig }) {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 600)
    
     useEffect(() => {
+        async function loadUserReviews() {
+            try {
+                const userReviews = await userService.getUserReviews(gig.owner_id)
+                setUserReviews(userReviews)
+            } catch (err) {
+                console.log('userReviews =>', err)
+            }
+        }
         loadUserReviews()
-
         const handleResize = () => setIsMobile(window.innerWidth <= 600)
         window.addEventListener('resize', handleResize)
 
         return () => window.removeEventListener('resize', handleResize)
-    }, [])
+    }, [gig.owner_id])
 
-    async function loadUserReviews() {
-        try {
-            const userReviews = await userService.getUserReviews(gig.owner_id)
-            setUserReviews(userReviews)
-        } catch (err) {
-            console.log('userReviews =>', err)
-        }
-    }
-
+    
     if (!userReviews) return <div>loading...</div>
    
     return (

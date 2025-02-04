@@ -3,8 +3,6 @@ import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'order'
 
-// _createOrders()
-
 export const orderService = {
     query,
     getById,
@@ -37,8 +35,6 @@ async function save(order) {
     if (order._id) {
         savedOrder = await storageService.put(STORAGE_KEY, order)
     } else {
-        // Later, owner is set by the backend
-        // order.seller = userService.getLoggedinUser()
         savedOrder = await storageService.post(STORAGE_KEY, order)
     }
     return savedOrder
@@ -127,7 +123,7 @@ function getOrderSelling() {
     ]
 }
 
-function _createOrders() {
+function _createOrders() { // eslint-disable-line no-unused-vars
     let orders = utilService.loadFromStorage(STORAGE_KEY)
     if (!orders || !orders.length) {
         orders = [
@@ -618,7 +614,7 @@ function _createOrders() {
     }
 }
 
-function _createOrder(title, price, tags, imgUrl) {
+function _createOrder(title, price, tags, imgUrl) { // eslint-disable-line no-unused-vars
     const order = getEmptyOrder(title, price, tags, imgUrl)
     order._id = utilService.makeId()
     return order

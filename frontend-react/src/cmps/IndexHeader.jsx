@@ -10,14 +10,14 @@ import { ModalLogin } from './ModalLogin'
 import { DropdownLogin } from './DropdownLogin'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
-export function IndexHeader({ onSetFilter }) {
+export function IndexHeader() {
   const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
   const elInputRef = useRef(null)
-  const [_, setIsCategoryMenuVisible] = useState(false)
+  const [, setIsCategoryMenuVisible] = useState(false)
   const [isVisible, setIsVisible] = useState(false);
-  const [__, setShowSearch] = useState(false)
+  const [, setShowSearch] = useState(false)
   const loginUser = userService.getLoggedinUser()
-  const [___, setHeaderClassName] = useState('')
+  const [, setHeaderClassName] = useState('')
   const user = useSelector(storeState => storeState.userModule.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()

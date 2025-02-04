@@ -40,15 +40,9 @@ export function LoginSignup(props) {
         props.setIsSignup(!props.isSignup)
     }
 
-    function handleOverlayClick(ev) {
-        if (ev.target.classList.contains('modal-overlay')) {
-            onClose()
-        }
-    }
-
     const { username, password } = credentials
     return (
-        <div className="modal-overlay" onClick={handleOverlayClick}>
+        <div className="modal-overlay">
             <div className="login-signup-modal" onClick={e => e.stopPropagation()}>
                 <div className="banner" style={{ maxWidth: '437px', position: 'relative', margin: '0 auto' }}>
                     <img

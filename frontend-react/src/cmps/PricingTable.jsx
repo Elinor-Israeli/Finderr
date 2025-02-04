@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 
 function PricingTable({ gig }) {
-    const randomDiscount = Math.floor(Math.random() * (25 - 5 + 1)) + 5
     let randomValue = null
     function generateRandom(min = 20, max = 90, reset = false) {
         if (reset || randomValue === null) {

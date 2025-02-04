@@ -19,7 +19,7 @@ export function UserProfile({ watchedUser, userReviews }) {
     loginUser && loadUser(loginUser._id)
     if (userId === loginUser?._id) setIsSameUser(true)
     else setIsSameUser(false)
-  }, [userId])
+  }, [loginUser, userId])
 
   function onUploaded(data) {
     const newUser = { ...user, imgUrl: data }
@@ -38,11 +38,11 @@ export function UserProfile({ watchedUser, userReviews }) {
             </div>
 
             <div style={{ marginLeft: '20px' }}>
-              <h2 style={{fontSize:'28px',color:'#222325'}}>{watchedUser?.username}</h2>
-              <li style={{ width: '100%', display: 'flex', alignItems: 'center'}}>
+              <h2 style={{ fontSize: '28px', color: '#222325' }}>{watchedUser?.username}</h2>
+              <li style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
                 <p>4.9 </p>
                 <span style={{ margin: '0px 0px 10px 5px' }}>{userReviews} <StarRating style={{ color: 'black', fontWeight: 'bold', marginLeft: 'auto' }} /></span>
-                <p style={{ margin: '0px 0px 10px 5px',textDecoration:'underLine' }}>(1)</p>
+                <p style={{ margin: '0px 0px 10px 5px', textDecoration: 'underLine' }}>(1)</p>
               </li>
               <p>Helping entrepreneurs build scalable digital products</p>
               <ul className="user-stats-desc">
@@ -63,9 +63,10 @@ export function UserProfile({ watchedUser, userReviews }) {
           </div>
         </div>
         <div className='my-info'>
-        <h5 style={{fontSize: '16px', fontFamily:'Macan'}}>About Me</h5>
-        <p style={{fontSize: '16px', fontFamily:'Macan'}}>👋 Hi there! I'm {watchedUser?.username}, a Top-Rated Full Stack web developer with 4+ years of expertise in JavaScript and Python. My services include: 🤖 AI Chatbot Development 💡 JavaScript Deobfuscation & Debugging 🕵️ Web Scraping & Automation 🌐 Custom Browser Extensions When you work with me, you'll get: 🔧 Professional Expertise 🕒 Prompt Communication 🚀 On-time Delivery 👁 Attention to Detail And some fun stuff planned 🤐. I'll be committed to delivering the best. Let's collaborate and turn your ideas into reality. Contact me now, and let's get started on your project!</p>
-        </div>
+          <h5 style={{ fontSize: '16px', fontFamily: 'Macan' }}>About Me</h5>
+          <p style={{ fontSize: '16px', fontFamily: 'Macan' }}>
+            👋 Hi there! I&apos;m {watchedUser?.username}, a Top-Rated Full Stack web developer with 4+ years of expertise in JavaScript and Python. My services include: 🤖 AI Chatbot Development 💡 JavaScript Deobfuscation & Debugging 🕵️ Web Scraping & Automation 🌐 Custom Browser Extensions When you work with me, you&apos;ll get: 🔧 Professional Expertise 🕒 Prompt Communication 🚀 On-time Delivery 👁 Attention to Detail And some fun stuff planned 🤐. I&apos;ll be committed to delivering the best. Let&apos;s collaborate and turn your ideas into reality. Contact me now, and let&apos;s get started on your project!
+          </p>        </div>
       </>}
     </div >
 

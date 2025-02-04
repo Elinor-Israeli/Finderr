@@ -40,17 +40,6 @@ async function query(filterBy = { title: '', tags: [], daysToMake: '' }, userId)
     if (filterBy.maxPrice) {
         gigs = gigs.filter(gig => gig.price <= filterBy.maxPrice)
     }
-
-    // if (sort === 'bestSelling') {
-    //     gigs.sort((gig1, gig2) =>
-    //         (getAvgRating(gig2.reviews) - getAvgRating(gig1.reviews)))
-    // } else if (sort === 'recommended') {
-    //     gigs.sort((gig1, gig2) => 
-    //     (gig2.likedByUsers.length - gig1.likedByUsers.length))
-    // } else if (sort === 'newestArrivals') {
-    //     gigs.sort((gig1, gig2) => new Date(gig2.createdAt) - new Date(gig1.createdAt));
-    // }
-
     return gigs
 }
 
@@ -90,7 +79,7 @@ const languages = [
     "Quechua"
 ]
 
-function makeLanguages() {
+function makeLanguages() { // eslint-disable-line no-unused-vars
     return languages.sort(() => 0.5 - Math.random()).slice(0, 3);
 }
 
@@ -101,7 +90,7 @@ function getGigSlides() {
             url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156477/website-development.png",
             // url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_305,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png',
             desc: 'Development',
-            category: 'Website'
+            category: 'Website' 
         },
         {
             url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156494/logo-design.png",
@@ -183,7 +172,7 @@ function getGigSelling() {
 }
 
 
-function _createGigs() {
+function _createGigs() { // eslint-disable-line no-unused-vars
     let gigs = utilService.loadFromStorage(STORAGE_KEY)
     if (!gigs || !gigs.length) {
         gigs = [

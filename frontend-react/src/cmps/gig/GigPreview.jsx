@@ -14,29 +14,28 @@ export function GigPreview({ gig }) {
     
     useEffect(() => {
         if (user) {
-          if (Array.isArray(gig.wishList) && gig.wishList.includes(user._id)) {
-            setHeart(true)
-          } else {
-            setHeart(false)
-          }
+            if (Array.isArray(gig.wishList) && gig.wishList.includes(user._id)) {
+                setHeart(true)
+            } else {
+                setHeart(false)
+            }
         } else {
-          setHeart(false)
+            setHeart(false)
         }
     
-        loadOwner()
-      }, [user, gig])
-
-    async function loadOwner() {
-        try {
-            const owner = await userService.getById(gig.owner_id)
-            setOwner(owner)
-            if (!Array.isArray(gig.wishList)) {
-                gig.wishList = [] 
-              }
-        } catch (err) {
-            console.log('owner =>', err)
+        async function loadOwner() {
+            try {
+                const owner = await userService.getById(gig.owner_id)
+                setOwner(owner)
+                if (!Array.isArray(gig.wishList)) {
+                    gig.wishList = [] 
+                }
+            } catch (err) {
+                console.log('owner =>', err)
+            }
         }
-    }
+        loadOwner()
+    }, [user, gig]) 
 
 
     const onHandleHeart = async (ev) => {

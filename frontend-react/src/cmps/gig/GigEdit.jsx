@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
@@ -18,19 +18,19 @@ export function GigEdit() {
     const navigate = useNavigate()
     const { gigId } = useParams()
     const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
-    const [__,setImgToEdit] = useState()
+    const [,setImgToEdit] = useState()
     const gigForFormik = { ...gigToEdit, tags2: '' }
     const loginUser = userService.getLoggedinUser()
+
+    const loadGig = useCallback(async () => {
+        const gig = await gigService.getById(gigId);
+        setGigToEdit(gig)
+    }, [gigId])
 
     useEffect(() => {
         if (!gigId) return
         loadGig()
-    }, [])
-
-    const loadGig = async () => {
-        const gig = await gigService.getById(gigId)
-        setGigToEdit(gig)
-    }
+    }, [gigId, loadGig])
 
     const GigSchema = Yup.object().shape({
         title: Yup.string()

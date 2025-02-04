@@ -1,22 +1,23 @@
 import { StarRating } from '../../cmps/review/StarRating'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { userService } from '../../services/user/user.service.remote'
 
 export function UserInfo({ user_id, compact,owner }) {
     const [user, setUser] = useState(null)
-    useEffect(() => {
-        loadUser()
-    }, [])
 
-    async function loadUser() {
+    const loadUser = useCallback(async () => {
         try {
             const user = await userService.getById(user_id)
             setUser(user)
         } catch (err) {
             console.log('user =>', err)
         }
-    }
+    }, [user_id]) 
+    
+    useEffect(() => {
+        loadUser()
+    }, [loadUser])
 
     if (!user) return <div className="loader-container">
         <div className="loader"></div>

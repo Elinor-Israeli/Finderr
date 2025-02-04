@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-const BASE_URL = process.env.NODE_ENV === 'production'
+const BASE_URL = process.env.NODE_ENV === 'production' // eslint-disable-line no-undef
     ? '/api/'
     : '//localhost:3033/api/'
 

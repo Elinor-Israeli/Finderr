@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 export function GigCard({ gig, onSetChat }) {
     const [program, setProgram] = useState(1)
-    const [setShowModal] = useState(false)
 
     function handleProgram(num) {
         if (num === 1) setProgram(1)

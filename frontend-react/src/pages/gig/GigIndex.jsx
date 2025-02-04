@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState,useCallback  } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
-
 import { GigList } from '../../cmps/gig/GigList'
 import { TopFilterBar } from '../../cmps/gig/listfilterBar'
 import { loadGigs } from '../../store/actions/gig.actions'
-import { SET_FILTER, SET_SORT } from '../../store/reducers/gig.reducer'
+import { SET_FILTER } from '../../store/reducers/gig.reducer'
 import loader from '/img/thloader.svg'
 
 export function GigIndex() {
@@ -19,7 +18,7 @@ export function GigIndex() {
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
     const [filterAndSort, setFilterAndSort] = useState('')
-    console.log('gigs', gigs)
+    
     useEffect(() => {
         function handleScroll() {
             if (window.scrollY >= 140) setFilterAndSort('filter-sort full  filter-sort-shadow')
@@ -31,52 +30,40 @@ export function GigIndex() {
     }, [])
 
     useEffect(() => {
+        function renderParams() {
+            if (searchParams.getAll('categories').length != 0) {
+                filterBy.categories = searchParams.getAll('categories')[0].split(',')
+            }
+    
+            if (searchParams.get('minPrice')) {
+                filterBy.minPrice = searchParams.get('minPrice')
+            }
+    
+            if (searchParams.get('maxPrice')) {
+                filterBy.maxPrice = searchParams.get('maxPrice')
+            }
+    
+            if (searchParams.get('daysToMake')) {
+                filterBy.daysToMake = searchParams.get('daysToMake')
+            }
+            onSetFilter(filterBy)
+        }
         renderParams()
-    }, [])
+    }, [filterBy,onSetFilter,searchParams ])
 
     useEffect(() => {
         loadGigs(filterBy)
     }, [filterBy])
 
-    function renderParams() {
-        if (searchParams.getAll('categories').length != 0) {
-            filterBy.categories = searchParams.getAll('categories')[0].split(',')
-        }
-
-        if (searchParams.get('minPrice')) {
-            filterBy.minPrice = searchParams.get('minPrice')
-        }
-
-        if (searchParams.get('maxPrice')) {
-            filterBy.maxPrice = searchParams.get('maxPrice')
-        }
-
-        if (searchParams.get('daysToMake')) {
-            filterBy.daysToMake = searchParams.get('daysToMake')
-        }
-        console.log("onSetFilter")
-        onSetFilter(filterBy)
-    }
-
-    function onSetFilter(filterBy) {
+    const onSetFilter = useCallback((filterBy) => {
         dispatch({ type: SET_FILTER, filterBy })
-
         let queryStringParams = `?categories=${filterBy.categories}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
-
-        console.log(queryStringParams)
-
         navigate(`/gig${queryStringParams}`)
-
-        console.log('after navigation')
-    }
-
-
-
+    }, [dispatch, navigate]) 
 
     function getCategoryName(categories) {
-        console.log('categories' , categories)
         switch (categories) {
-            case ['graphic-design', 'design', 'logo-design','logo']:
+            case ['graphic-design', 'design', 'logo-design', 'logo']:
                 return <h1>Graphic & Design</h1>
             case ['digital-marketing', 'digital']:
                 return <h1>Digital & Marketing</h1>

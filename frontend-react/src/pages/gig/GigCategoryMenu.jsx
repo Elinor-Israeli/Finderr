@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { gigService } from '../../services/gig/gig.service.remote'
 
-export function CategoryMenu2({ onSetFilter }) {
+export function GigCategoryMenu({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const CategorySliderRef = useRef()
-    const [_, setLastDirection] = useState('')
-    const [categoryMenuClassName, __] = useState('')
-    const [linesSetDisplay, ___] = useState('')
+    const [, setLastDirection] = useState('')
+    const [categoryMenuClassName,] = useState('')
+    const [linesSetDisplay,] = useState('')
     const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 900)
     const sliderRef = useRef()
    

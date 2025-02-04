@@ -18,25 +18,25 @@ export function GigPayment() {
 
 
     useEffect(() => {
+        async function loadGig() {
+            try {
+                const gig = await gigService.getById(gigId)
+                setGig(gig)
+            }
+            catch (err) {
+                console.log('had issue in gig details', err)
+                showErrorMsg('cannot load gig')
+                navigate('/gig')
+            }
+        }    
         loadGig()
-    }, [gigId])
+    }, [gigId, navigate])
 
     function toggleCheck() {
         setIsChecked(prev => !prev)
     }
 
-    async function loadGig() {
-        try {
-            const gig = await gigService.getById(gigId)
-            setGig(gig)
-        }
-        catch (err) {
-            console.log('had issue in gig details', err)
-            showErrorMsg('cannot load gig')
-            navigate('/gig')
-        }
-    }
-
+   
     async function onSubmitPayment(ev) {
         ev.preventDefault()
 
@@ -126,7 +126,7 @@ export function GigPayment() {
                         </label>
                     </div>
                     <label htmlFor="firstname" className="card-left-max">
-                        <span >Cardholder's name</span>
+                        <span >Cardholder&apos;s name</span>
                         <input type="text"
                             name="firstname"
                             value='John Joe'

@@ -33,7 +33,7 @@ export function ReviewIndex() {
             socketService.off(SOCKET_EVENT_REVIEW_ADDED)
             socketService.off(SOCKET_EVENT_REVIEW_REMOVED)
         }
-	}, [])
+	}, [ dispatch])
 
 	async function onRemoveReview(reviewId) {
 		try {

@@ -22,18 +22,7 @@ export function RootCmp() {
         
         <div className="main-container main-layout ">
              <IndexHeader />
-             
-      
-      
-            {/* {pathname !== '/' && <IndexHeader />}  */}
-            {/* <GigCategoryMenu/> */}
-          
-           
-            {/* <IndexHeader /> */}
-            {/* <AppHeader /> */}
-            {/* <GigBreadcrumbs /> */}
             <UserMsg />
-           
             <main>
                 <Routes>
                     <Route path="" element={<HomePage/>} />
@@ -45,8 +34,6 @@ export function RootCmp() {
                     <Route path="/payment/:gigId" element={<GigPayment />} />
                     <Route path="/wishlist" element={<UserWishList />} />
                     <Route path="/user/:userId" element={<UserIndex />} />
-                    {/* <Route path="/order" element={<GigOrderIndex isSeller={false} />} />
-                    <Route path="/dashboard" element={<GigOrderIndex isSeller={true} />} /> */}
                 </Routes>
             </main>
             {!isPaymentPage && !isDashboard && <AppFooter />}

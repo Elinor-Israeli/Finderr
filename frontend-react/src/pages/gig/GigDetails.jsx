@@ -16,25 +16,26 @@ export function GigDetails() {
     const [gig, setGig] = useState()
 
     useEffect(() => {
+        async function loadGig() {
+            try {
+                const gig = await gigService.getById(gigId)
+                setGig(gig)
+            }
+            catch (err) {
+                console.log('had issue in gig details', err)
+                showErrorMsg('cannot load gig')
+                navigate('/gig')
+            }
+        }
+    
         loadGig()
-    }, [gigId])
+    }, [gigId, navigate ])
 
-    async function loadGig() {
-        try {
-            const gig = await gigService.getById(gigId)
-            setGig(gig)
-        }
-        catch (err) {
-            console.log('had issue in gig details', err)
-            showErrorMsg('cannot load gig')
-            navigate('/gig')
-        }
-    }
-
+    
     if (!gig) return <div className="loader-container">
         <div>loading...</div>
     </div>
-    const { imgUrl, fullname, rate, level, country } = gig.owner || {}
+    gig.owner || {}
 
     return <section className="gig-details">
         <div className="gig-details-container">

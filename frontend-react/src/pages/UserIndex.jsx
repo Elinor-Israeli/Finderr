@@ -16,14 +16,23 @@ export function UserIndex() {
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const { userId } = useParams()
-    const [_, setTime] = useState('')
+    const [, setTime] = useState('')
     const [user, setUser] = useState(null)
 
     useEffect(() => {
         userId && loadWatchedUser(userId)
+        async function loadUser() {
+            try {
+                const user = await userService.getById(userId)
+                setUser(user)
+            } catch (err) {
+                console.log('user =>', err)
+            }
+        }
         loadUser()
         loadGigs({userId})
-    }, [userId])
+        loadUser()
+    }, [ userId])
 
     useEffect(() => {
         const updateTime = () => {
@@ -40,14 +49,7 @@ export function UserIndex() {
         return () => clearInterval(intervalId)
     }, [])
 
-    async function loadUser() {
-        try {
-            const user = await userService.getById(userId)
-            setUser(user)
-        } catch (err) {
-            console.log('user =>', err)
-        }
-    }
+   
 
     async function onRemoveGig(gigId) {
         try {

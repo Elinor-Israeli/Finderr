@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import moment from 'moment'
 import { updateOrder } from '../../store/actions/order.actions'
 import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'; 
-import { ProgressChart2 } from '../ProgressChart2'
+import { ProgressChart } from '../ProgressChart'
 import { loadOrders } from '../../store/actions/order.actions'
 import { MonthlyRevenue } from '../MonthlyRevenue '
 
@@ -108,24 +108,19 @@ export default function UserSellerTable() {
       <div className="dashboard-item">
         <span>Completed Orders</span>
         <h3>{completedOrdersCount}</h3>
-        <ProgressChart2
-          percent={completedOrderPercent / totalOrders}
+        <ProgressChart
           count={completedOrderPercent}
           total={totalOrders}
-          className="progress-chart-completed"
           bgc="green"
-          label="Completed Orders"
         />
       </div>
       <div className="dashboard-item">
         <span>Pending Orders</span>
         <h3>{pendingOrdersCount}</h3>
-        <ProgressChart2
+        <ProgressChart
           count={pendingOrderPercent}
           total={totalOrders}
           bgc="orange"
-          label="Pending Orders"
-          className="progress-chart-pending"
         />
       </div>
 

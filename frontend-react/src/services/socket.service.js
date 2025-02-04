@@ -9,7 +9,7 @@ export const SOCKET_EMIT_STOP_TYPING = 'chat-stop-typing';
 export const SOCKET_EMIT_USER_WATCH = 'user-watch'
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
 
-export const SOCKET_EMIT_NEW_MSG = 'chat-new-msg'; //new msg
+export const SOCKET_EMIT_NEW_MSG = 'chat-new-msg'
 
 export const SOCKET_EVENT_ORDER_ADDED = 'order-added'
 export const SOCKET_EVENT_ORDER_FROM_YOU = 'order-from-you'
@@ -21,23 +21,17 @@ export const SOCKET_EVENT_ORDER_UPDATED = 'order-updated'
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
-
-
-
-// const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
-// export const socketService = createSocketService()
 export const socketService = createDummySocketService()
 
-// for debugging from console
 window.socketService = socketService
 
 socketService.setup()
 
-function createSocketService() {
+function createSocketService() { // eslint-disable-line no-unused-vars
   var socket = null;
   const socketService = {
     setup() {
-      socket = io(baseUrl)
+      socket = io(baseUrl) // eslint-disable-line no-undef
       setTimeout(() => {
         const user = userService.getLoggedinUser()
         if (user) this.login(user._id)
@@ -68,7 +62,6 @@ function createSocketService() {
   return socketService
 }
 
-// eslint-disable-next-line
 function createDummySocketService() {
   var listenersMap = {}
   const socketService = {

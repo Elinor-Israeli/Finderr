@@ -1,4 +1,4 @@
-import { StarRating } from '../../cmps/review/StarRating'
+import { StarRating } from '../review/StarRating'
 import { useEffect, useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { userService } from '../../services/user/user.service.remote'

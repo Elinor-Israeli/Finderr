@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react'
 import { addAndRemoveToWishlist } from '../../store/actions/gig.actions'
 import { SlideGigPreview } from '../slide/SlideGigPreview'
 import { showSuccessMsg } from '../../services/event-bus.service';
-import { userService } from '../../services/user/user.service.remote'; 
+import { userService } from '../../services/user/user.service.remote';
 
 
 export function GigPreview({ gig }) {
     const user = useSelector((storeState) => storeState.userModule.user)
     const [heart, setHeart] = useState(false)
     const [owner, setOwner] = useState(null)
-    
+
     useEffect(() => {
         if (user) {
             if (Array.isArray(gig.wishList) && gig.wishList.includes(user._id)) {
@@ -22,58 +22,51 @@ export function GigPreview({ gig }) {
         } else {
             setHeart(false)
         }
-    
+
         async function loadOwner() {
             try {
                 const owner = await userService.getById(gig.owner_id)
                 setOwner(owner)
                 if (!Array.isArray(gig.wishList)) {
-                    gig.wishList = [] 
+                    gig.wishList = []
                 }
             } catch (err) {
                 console.log('owner =>', err)
             }
         }
         loadOwner()
-    }, [user, gig]) 
-
+    }, [user, gig])
 
     const onHandleHeart = async (ev) => {
         ev.preventDefault()
         ev.stopPropagation()
-    
+
         try {
-          const updatedGig = { ...gig }
-    
-          if (!Array.isArray(updatedGig.wishList)) {
-            updatedGig.wishList = []  
-          }
-    
-          const userIndex = updatedGig.wishList.indexOf(user._id)
-    
-          if (userIndex != -1) {
-            updatedGig.wishList.splice(userIndex, 1)
-            setHeart(false)
-            showSuccessMsg(`Removed from ${user.fullname}'s wishlist`)
-          } else {
-            updatedGig.wishList.push(user._id)
-            setHeart(true)
-            showSuccessMsg(`Added to ${user.fullname}'s wishlist`)
-          }
-    
-          await addAndRemoveToWishlist(updatedGig._id)
+            const updatedGig = { ...gig }
+            if (!Array.isArray(updatedGig.wishList)) {
+                updatedGig.wishList = []
+            }
+            const userIndex = updatedGig.wishList.indexOf(user._id)
+            if (userIndex != -1) {
+                updatedGig.wishList.splice(userIndex, 1)
+                setHeart(false)
+                showSuccessMsg(`Removed from ${user.fullname}'s wishlist`)
+            } else {
+                updatedGig.wishList.push(user._id)
+                setHeart(true)
+                showSuccessMsg(`Added to ${user.fullname}'s wishlist`)
+            }
+
+            await addAndRemoveToWishlist(updatedGig._id)
         } catch (err) {
-          console.log("Error updating wishlist:", err)
+            console.log("Error updating wishlist:", err)
         }
-      }
-    
-
-
+    }
     const getTxtToShow = (txt, length) => {
         return txt.length < length ? txt : `${txt.substring(0, length)}...`
     }
 
-    function renderLevelStars (levelNumber) {
+    function renderLevelStars(levelNumber) {
         return [...Array(3)].map((_, idx) => (
             <svg // level icons
                 key={idx}
@@ -107,7 +100,6 @@ export function GigPreview({ gig }) {
                     </button>
                 </div>
             </Link>
-
             <div className="gig-preview__content">
                 <div className="gig-preview__owner-info">
                     {owner && owner.imgUrl && <img className="gig-preview__owner-img" src={owner.imgUrl} alt="Owner" />}
@@ -124,7 +116,6 @@ export function GigPreview({ gig }) {
                         </div>}
                     </div>
                 </div>
-
                 <Link className="gig-preview__title" to={`/gig/${gig._id}`}>
                     <div className="gig-preview__long-txt">
                         <span>{getTxtToShow(gig.title, 75)}</span>
@@ -136,12 +127,7 @@ export function GigPreview({ gig }) {
                             <path fillRule="evenodd" clipRule="evenodd" d="M16 5.81285C16 5.98299 15.875 6.14367 15.75 6.26654L12.2596 9.61248L13.0865 14.3384C13.0962 14.4045 13.0962 14.4612 13.0962 14.5274C13.0962 14.7732 12.9808 15 12.7019 15C12.5673 15 12.4327 14.9527 12.3173 14.8866L8 12.656L3.68269 14.8866C3.55769 14.9527 3.43269 15 3.29808 15C3.01923 15 2.89423 14.7732 2.89423 14.5274C2.89423 14.4612 2.90385 14.4045 2.91346 14.3384L3.74038 9.61248L0.240385 6.26654C0.125 6.14367 0 5.98299 0 5.81285C0 5.5293 0.298077 5.41588 0.538462 5.37807L5.36539 4.68809L7.52885 0.387524C7.61539 0.207939 7.77885 0 8 0C8.22115 0 8.38462 0.207939 8.47115 0.387524L10.6346 4.68809L15.4615 5.37807C15.6923 5.41588 16 5.5293 16 5.81285Z" />
                         </svg>
                         <div className="gig-preview__rate-num">{owner.rate}</div>
-                        {/* <div className="gig-preview__ratings-count">({gig.owner?.ratingsCount})</div> */}
-                        {/* <div className="gig-preview__ratings-count">({owner.reviews.length})</div> */}
-                       
-                        {/* <div className='ratings-count'>({gig.owner && gig.owner.ratingsCount})</div> */}
                     </div>
-
                     <Link className="gig-preview__price" to={`/gig/${gig._id}`}>
                         <span className="gig-preview__price-margin">
                             From ${gig.price}

@@ -61,14 +61,12 @@ export function IndexHeader() {
       }
     }
     document.addEventListener("mousedown", checkIfClickedOutside)
-
     return () => {
       document.removeEventListener("mousedown", checkIfClickedOutside)
     }
   }, [isModal, isDropdown, isOrder])
 
   useEffect(() => {
-
     const handleScroll = () => {
       if (pathname === '/' && window.scrollY > 600) {
         setIsCategoryMenuVisible(true)
@@ -120,6 +118,12 @@ export function IndexHeader() {
     }
   }
 
+  function onExploreClick() {
+    const resetFilter = gigService.getDefaultFilter()
+    dispatch({ type: SET_FILTER, filterBy: resetFilter })
+    navigate('/gig')
+  }
+
   async function onLogin(credentials) {
     try {
       const user = await login(credentials)
@@ -157,20 +161,14 @@ export function IndexHeader() {
     setIsModal(false)
   }
 
-
   function handleOrder() {
     setIsOrder(prev => !prev)
   }
 
-
-
   useEffect(() => {
-
     const handleScroll = () => {
-
       const scrollPosition = window.scrollY
       const threshold = 400
-
       if (scrollPosition >= threshold) {
         setIsVisible(true)
       } else {
@@ -216,7 +214,7 @@ export function IndexHeader() {
             </div>
           </form>
           <div className="links ">
-            <Link to="/gig">
+            <Link to="/gig" onClick={onExploreClick}>
               <span className='explore-btn'>Explore</span>
             </Link>
             {user &&

@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
-import { loadOrders } from '../../store/actions/order.actions'
+import { loadOrdersBuyer } from '../../store/actions/order.actions'
 
 export function UserBuyerGig() {
-  let orders = useSelector((storeState) => storeState.orderModule.orders)
+  let orders = useSelector((storeState) => storeState.orderModule.buyerOrders)
 
   useEffect(() => {
-    loadOrders('buyer')
+    loadOrdersBuyer()
   }, [])
 
   return (

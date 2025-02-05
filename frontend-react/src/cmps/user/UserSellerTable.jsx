@@ -5,18 +5,18 @@ import moment from 'moment'
 import { updateOrder } from '../../store/actions/order.actions'
 import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'; 
 import { ProgressChart } from '../ProgressChart'
-import { loadOrders } from '../../store/actions/order.actions'
+import { loadOrdersSeller } from '../../store/actions/order.actions'
 import { MonthlyRevenue } from '../MonthlyRevenue '
 
 export default function UserSellerTable() {
 
-  let orders = useSelector((storeState) => storeState.orderModule.orders)
+  let orders = useSelector((storeState) => storeState.orderModule.sellerOrders)
   const [setIsModal] = useState({ id: '', status: false })
   const [monthlyRevenue, setMonthlyRevenue] = useState(0)
   const navigate = useNavigate()
 
   useEffect(() => {
-    loadOrders('seller')
+    loadOrdersSeller()
   }, [])
 
 
@@ -81,12 +81,12 @@ export default function UserSellerTable() {
   const pendingOrdersCount = orders.filter(order => order.status === 'pending').length
   const completedOrdersCount = orders.filter(order => order.status === 'Completed').length
   const totalOrders = orders.length
-  const completedOrderPercent = orders.length > 0 ? completedOrdersCount / orders.length : 0;
-  const pendingOrderPercent = orders.length > 0 ? pendingOrdersCount / orders.length : 0;
+  const completedOrderPercent = orders.length > 0 ? completedOrdersCount / totalOrders : 0;
+  const pendingOrderPercent = orders.length > 0 ? pendingOrdersCount / totalOrders : 0;
   
   const monthlyRevenueGoal = 600
 
-  if (!orders || orders.length === 0) return <div className="loader-container"><div className="loader"></div></div>
+  if (!orders || orders.length === 0) return <div className="no-orders-message">No orders yet</div>
 
 
   return <section className='dashboard'>

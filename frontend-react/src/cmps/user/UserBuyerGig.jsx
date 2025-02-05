@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import moment from 'moment'
 import { loadOrders } from '../../store/actions/order.actions'
 
-export function UserBuyGig() {
+export function UserBuyerGig() {
   let orders = useSelector((storeState) => storeState.orderModule.orders)
 
   useEffect(() => {

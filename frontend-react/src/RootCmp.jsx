@@ -12,12 +12,10 @@ import UserWishList from './pages/UserWishList'
 import { UserMsg } from './cmps/UserMsg'
 import UserSellerTable from './cmps/user/UserSellerTable'
 
-
 export function RootCmp() {
-    const { pathname } = useLocation();
+    const { pathname } = useLocation()
     const isPaymentPage = pathname.startsWith('/payment')
     const isDashboard = pathname.startsWith('/dashboard')
-    
     return (
         
         <div className="main-container main-layout ">

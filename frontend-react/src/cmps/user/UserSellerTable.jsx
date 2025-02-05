@@ -28,8 +28,6 @@ export default function UserSellerTable() {
     setMonthlyRevenue(completedOrdersTotal)
   }, [orders])
 
-  
-
   function updateStatus(status, order) {
     order.status = status
     updateOrder(order)
@@ -49,7 +47,7 @@ export default function UserSellerTable() {
           <button className='approved'onClick={() => updateStatus('Approved', order)}>Approve</button>
           <button  className="declined" onClick={() => updateStatus('Declined', order)}>Decline</button>
         </div>
-      );
+      )
     }
     if (order.status === 'Approved') {
       return (
@@ -91,7 +89,7 @@ export default function UserSellerTable() {
   if (!orders || orders.length === 0) return <div className="loader-container"><div className="loader"></div></div>
 
 
-  return <section className=' dashboard '>
+  return <section className='dashboard'>
 
     <div className="income-order-dashboard">
       <div className="dashboard-item">
@@ -126,9 +124,7 @@ export default function UserSellerTable() {
 
     </div>
     <h2 className='table-dec' > Manage Orders</h2>
-
     <ul className="orders-dashboard">
-
       {orders.map(order =>
         <li key={order._id}>
           <div className="img-container"><img src={order.seller.imgUrl} alt="" onClick={() => navigate(`/gig/${order.gig._id}`)} /></div>

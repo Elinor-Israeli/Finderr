@@ -6,7 +6,7 @@ export const orderService = {
 }
 
 async function query(role) {
-    return httpService.get('order', {  role })
+    return httpService.get('order', { role })
 }
 
 async function save(order) {

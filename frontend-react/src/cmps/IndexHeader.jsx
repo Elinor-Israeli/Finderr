@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 import { userService } from '../services/user/user.service.remote'
 import { gigService } from '../services/gig/gig.service.remote'
 import { useDispatch, useSelector } from 'react-redux'
-import { UserBuyGig } from './user/UserBuyerGig'
+import { UserBuyerGig } from './user/UserBuyerGig'
+import {UserSellerGig} from './user/UserSellerTable'
 import { login, logout, signup } from '../store/user/user.actions'
 import { ModalLogin } from './ModalLogin'
 import { DropdownLogin } from './DropdownLogin'
@@ -226,7 +227,7 @@ export function IndexHeader() {
                 </Link>
                 {(windowSize > 900) && <div className="user-orders">
                   <Link onClick={handleOrder}>Orders</Link>
-                  {isOrder && <UserBuyGig />}
+                  {isOrder && <UserBuyerGig />}
                 </div>}
                 <Link to="/wishlist" className="heart" title="save to list">
                   <img

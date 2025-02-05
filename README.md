@@ -1,6 +1,6 @@
 # Finderr - A open source marketplace platform
-<div style="background-color: pink; padding: 20px;">
-![Logo](./frontend-react/public/img/screenshot.jpg.jpg)
+![Logo](./frontend-react/public/img/screenshot.jpg)
+<span style="color: green"> Some green text </span>
 
 ## Description:
 The Gig Management project provides a platform for users to create and manage gigs, as well as add them to their wishlist. 

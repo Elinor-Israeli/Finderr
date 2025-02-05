@@ -6,7 +6,7 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
 	plugins: [react(), svgr()],
 	build: {
-		outDir: '../../backend-finderr/public',
+		outDir: '../Backend-Finderr/public',
 		emptyOutDir: true,
 	},
 })

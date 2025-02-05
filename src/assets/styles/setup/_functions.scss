@@ -1,0 +1,8 @@
+@function rem($size, $base: 16px) {
+    // Returns the calculation directly without extra variables
+    @return calc(#{$size} / #{$base} * 1rem);
+}
+// EM Functions
+@function em($pixels, $context: 16px) {
+    @return calc(($pixels/$context) * 1em);
+}

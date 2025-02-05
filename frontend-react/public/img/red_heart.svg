@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="34px" height="32px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g><path style="opacity:0.034" fill="#030202" d="M 7.5,-0.5 C 13.5,-0.5 19.5,-0.5 25.5,-0.5C 29.1413,1.14121 31.8079,3.80788 33.5,7.5C 33.5,10.1667 33.5,12.8333 33.5,15.5C 22.1667,35.5 10.8333,35.5 -0.5,15.5C -0.5,12.8333 -0.5,10.1667 -0.5,7.5C 1.19208,3.80788 3.85875,1.14121 7.5,-0.5 Z"/></g>
-<g><path style="opacity:0.992" fill="#f6d9d9" d="M 7.5,3.5 C 13.4957,4.65675 19.4957,4.82342 25.5,4C 28.3939,6.90871 29.2272,10.4087 28,14.5C 24.3447,18.3213 20.5113,21.988 16.5,25.5C 12.4622,21.9603 8.62884,18.2936 5,14.5C 3.81179,10.2586 4.64512,6.59189 7.5,3.5 Z"/></g>
-<g><path style="opacity:1" fill="#f25f5e" d="M 8.5,5.5 C 11.4822,5.10445 14.1489,5.77111 16.5,7.5C 24.2894,3.45146 27.4561,5.78479 26,14.5C 23.8333,16.6667 21.6667,18.8333 19.5,21C 18.2411,21.9819 16.9078,22.3152 15.5,22C 12,19.8333 9.16667,17 7,13.5C 6.10929,10.5024 6.60929,7.83574 8.5,5.5 Z"/></g>
-</svg>

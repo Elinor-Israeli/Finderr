@@ -3,7 +3,7 @@
 A open source marketplace platform inspired by fiverr.com,[Here is my project link](https://finderr-xxln.onrender.com "finderr link").
 You can scroll down and see for yourselves!
 
-![Main board image]
+![Homepage image](./public/img/readme/HomePage.png "HomePage") 
 
 ___
 

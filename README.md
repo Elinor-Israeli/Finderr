@@ -3,7 +3,7 @@
 A open source marketplace platform inspired by fiverr.com,[Here is my project link](https://finderr-xxln.onrender.com "finderr link").
 You can scroll down and see for yourselves!
 
-![Homepage image](./readme/HomePage.png "HomePage") 
+![Homepage image](./screenshots/HomePage.png "HomePage") 
 
 ___
 
@@ -44,7 +44,7 @@ npm i
 npm start
 ```
 
-You shuold get a console ouput that the server is up and running at port 3030.
+You should get a console output that the server is up and running at port 3030.
 Enter the frontend folder and repeat the same process.
 
 ```
@@ -55,8 +55,8 @@ npm start
 ## Showcase
 
 ### Homepage
-The landing page in which the user can sign up / login, or start browsing the app for diffrent gigs.
-![Homepage image](./readme/HomePage.png "HomePage") 
+The landing page in which the user can sign up / login, or start browsing the app for different gigs.
+![Homepage image](./screenshots/HomePage.png "HomePage") 
 
 ### The Explore page 
 The Explore page offers users an organized view of all available gigs within the same category. Users can easily browse through a wide range of options and filter them based on delivery time and price to find the best fit for their needs.
@@ -67,7 +67,7 @@ Key features:
 - User-Friendly Layout: The page is designed for effortless navigation, making it easy for users to explore and compare gigs at their convenience.
 Whether you’re searching for a quick turnaround or a budget-friendly option, the Explore page ensures you can find and save the perfect gig with just a few clicks.
 
-![Explorepage image](./readme/Explorepage.png "Explorepage")
+![Explorepage image](./screenshots/Explorepage.png "Explorepage")
 
 
 ### The Gig Detail Page
@@ -80,7 +80,7 @@ Key features:
 - Reviews & Ratings: Check customer feedback to gauge the quality of the gig and seller performance.
 The Gig Detail Page is designed to give you all the necessary information to confidently purchase or save your selected gig.
 
-![GigDetailpage image](./readme/GigDetails.png "GigDetailpage ")
+![GigDetailpage image](./screenshots/GigDetails.png "GigDetailpage ")
 
 ### The Payment   
 The Payment Page is where users can securely complete their purchases after selecting a gig. This page provides a simple and transparent process for making payments, ensuring a smooth transaction experience.
@@ -119,7 +119,7 @@ The Seller Dashboard provides sellers with a powerful and intuitive interface to
 - Completion Notifications: Inform customers when their orders are complete and ready for delivery, ensuring clear communication and timely service.
 The Seller Dashboard is designed to streamline your workflow, making it easier than ever to manage gigs, track revenue, and stay on top of your orders.
 
-![SellerDashboard image](./screenshots/)
+![SellerDashboard image](./screenshots/Seller%20dashhboard.png "SellerDashboard")
 
 ### Sign-up
 The Sign-up process is simple and secure, allowing new users to create an account quickly. With options for Google login or traditional authentication, users can sign up effortlessly while keeping their information safe. Once signed up, users can start browsing gigs, saving favorites, and making purchases seamlessly.

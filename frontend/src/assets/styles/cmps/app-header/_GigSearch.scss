@@ -1,0 +1,245 @@
+.gig-search {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+    font-size: 1.75rem;
+    border: 1px solid $clr8;
+    padding: 10px 48px 10px 16px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  ::placeholder {
+    font-family: 'Macan';
+    font-size: 16px;
+    
+  }
+
+
+  .btn-gig-search {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #003912;
+      width: 45px;
+      height: 45px;
+      border-radius: 10px;
+    }
+
+    svg {
+      fill: white;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+input::placeholder {
+  font-size: 22px;
+  color: #888;
+  top: -10px;
+  opacity: 1;
+}
+
+$clr8: #e0e0e0;
+$clr3: #fff;
+$grey: (
+  500: #b3b3b3,
+  600: #8c8c8c,
+  800: #4d4d4d,
+  1000: #333333,
+  1200: #1a1a1a
+);
+$black: #000000;
+$size: 32px;
+$fade-in-background-color: rgba(map-get($grey, 1200), 0.65);
+
+
+// Mixin for Media Queries
+@mixin media-query-grid($size) {
+  @if $size ==sm {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @else if $size ==md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @else if $size ==lg {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+}
+
+$grey: (
+  500: #b3b3b3,
+  600: #8c8c8c,
+  800: #4d4d4d,
+  1000: #333333,
+  1200: #1a1a1a
+);
+
+.search-bar-package {
+  .search-form {
+    input {
+      border-color: map-get($grey, 500); 
+    }
+
+    &:focus {
+      border-color: map-get($grey, 800); 
+    }
+  }
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.search-bar-dim-background {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: $black;
+  z-index: 99;
+  transition: all .1s ease-in-out;
+}
+
+.search-bar-package {
+  .search-form {
+    display: flex;
+    position: relative;
+    height: 42px;
+
+    &.button-inside input {
+      border-right-width: 1px;
+
+      &.pro {
+        border-right-width: 1px;
+      }
+    }
+
+    input {
+      font-size: 16px;
+      flex: 1 1 auto;
+      padding: 10px 2px 10px 16px;
+      border-radius: 4px;
+      border-color: map-get($grey, 500);
+      box-shadow: none;
+      z-index: 3;
+
+      &.long-placeholder {
+        display: none;
+      }
+
+      &.pro {
+        border-right-width: 0;
+        border-radius: 4px 0 0 4px;
+      }
+
+      @include media-query-grid(md) {
+        border-right-width: 0;
+        border-radius: 4px 0 0 4px;
+
+        &.short-placeholder {
+          display: none;
+        }
+
+        &.long-placeholder {
+          display: block;
+        }
+      }
+
+      &::placeholder {
+        color: map-get($grey, 800);
+      }
+
+      &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        $size: 32px;
+        height: $size;
+        width: $size;
+        cursor: pointer;
+        background-position: 0 0;
+
+        &:hover {
+          background-position: $size 0;
+        }
+      }
+    }
+
+    button {
+      display: none;
+      flex-shrink: 0;
+      z-index: 3;
+      padding: 8px 16px;
+
+      &.pro {
+        border-radius: 0 4px 4px 0;
+      }
+
+      @include media-query-grid(md) {
+        display: block;
+        font-size: 14px;
+        text-shadow: none;
+        border-radius: 0 4px 4px 0;
+      }
+    }
+
+    .search-bar-icon {
+      position: absolute;
+      z-index: 5;
+      top: 13px;
+      left: 13px;
+    }
+
+    &.search-icon-shown {
+      input {
+        padding-left: 40px;
+      }
+    }
+
+    &.button-inside {
+      height: 52px;
+
+      input {
+        border-radius: 12px;
+        padding-right: 48px;
+      }
+
+      @include media-query-grid(lg) {
+        height: 60px;
+
+        input {
+          padding-right: 58px;
+        }
+      }
+    }
+  }
+}

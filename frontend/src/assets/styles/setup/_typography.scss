@@ -1,0 +1,85 @@
+// Colors
+$clr1: #1dbf73; //main clr
+$clr2: #404145; // headlines
+$clr3: #fff; // bgc
+$clr4: #ffb33e; // star review
+
+$clr5: #62646a; // font clr
+$clr6: #b5b6ba; // btn & heart
+$clr7: #e4e5e7; // border
+$clr8: #c5c6c9; // border search
+$clr9: #fafafa;
+$clr10: #f7f8fa; // border
+$clr11: #dadbdd; // review border
+$clr12: #e4e5e7; // divider
+$clr13: #74767e;  //link color
+$clr14: black;
+$clr15: white;
+
+// $grey: #b0b0b0; // Example base grey
+// $grey-500: #9e9e9e; // Example grey 500
+// $grey-700: #616161; // Example grey 700
+// $grey-1200: #424242; // Example grey 1200
+// $green: #4caf50; // Example green
+// $green-700: #388e3c; // Example green 700
+// $white: #ffffff; // White color
+
+$grey-500: #b3b3b3; // Border color of input in search form
+$grey-600: #8c8c8c; // Border color of dark mode input
+$grey-800: #4d4d4d; // Placeholder color
+$grey-1000: #333333; // Text color in dark mode input
+$grey-1200: #1a1a1a; // Stronger color for dark mode focus border and background fade
+$black: #000000; // Background color of `.search-bar-dim-background`
+
+$fade-in-background-color: rgba($grey-1200, 0.65); // Dim background overlay color
+
+
+// Border Radius
+$menu_border_radius: 8px;
+
+// Margin for non-sticky filters
+$non_sticky_filter_margin_top: 20px;
+
+// LAYOUT
+$layoutPadding: 32px;
+
+$white: #ffffff;
+$grey: #888888;  // This could be a variable for a grey scale
+$grey-light: #dcdcdc;
+$grey-dark: #444444;
+
+// Size helpers (you can adjust these as per your design system)
+$checkmark_box_size_square: 24px;  // size of the box (adjust as needed)
+
+
+// Animation helpers (for smooth transitions)
+$animation_duration_fast_01: 0.2s;
+$animation_timing_function_standard: ease-in-out;
+
+
+// Breakpoints
+$mobile-breakpoint: 600px;
+$narrow-breakpoint: 900px;
+$normal-breakpoint: 1160px;
+$width-breakpoint: 1400px;
+
+$padded-break-narrow: $narrow-breakpoint + $layoutPadding * 2;
+$padded-break-normal: $normal-breakpoint + $layoutPadding * 2;
+$padded-break-wide: $width-breakpoint + $layoutPadding * 2;
+
+
+  @font-face {
+    font-family: 'Macan';
+    src: url('../../fonts/macan/macan-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Domaine';
+    src: url('../../fonts/DomainDisplay-Regular/DomaineDispNar-SemiboldItalic.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  

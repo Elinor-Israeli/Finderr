@@ -1,0 +1,29 @@
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+.thloader {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin-top: 25%;
+    animation: bounce 1s infinite ease-in-out, circle 2s infinite linear;
+}

@@ -1,0 +1,77 @@
+.user-gig-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  
+    li {
+      position: relative;
+    }
+  
+    .user-preview-btns {
+      position: absolute;
+  
+      &>* {
+        background-color: transparent;
+        color: $clr6;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+      }
+    }
+  
+    .gig-edit-btn-left {
+      border-bottom-right-radius: 50%;
+    }
+  
+    .gig-edit-btn-right {
+      border-bottom-left-radius: 50%;
+    }
+  
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr;
+    }
+  
+    @media (min-width: $padded-break-narrow) {
+      flex-direction: row;
+  
+      
+    }
+  
+    
+  
+    @media (min-width: $padded-break-wide) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .gig-add-btn {
+    display: flex;
+    background-color: #1dbf73;
+    color: black;
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size:1em;
+    font-family:'Macan';
+    justify-content: center;
+    margin-bottom: 10px;
+
+
+    width: 200px;
+    &:hover{
+        font-size:1.2em;
+        transition: font-size 0.5s ease-in-out;
+    }
+    
+  
+    span:first-of-type {
+      font-size: rem(32px);
+    }
+  }
+  
+  .user-preview-btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }

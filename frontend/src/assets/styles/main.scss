@@ -1,0 +1,73 @@
+// Setup
+@import "setup/functions";
+@import "setup/mixins";
+@import "setup/typography";
+
+// Basics
+@import "basics/helpers";
+@import "basics/layout";
+@import "basics/helpers";
+@import "basics/base";
+@import "basics/forms";
+
+
+// pages
+
+@import "pages/GigDetails";
+@import "pages/GigPayment";
+@import "pages/GigEdit";
+@import "pages/HomePage";
+
+
+// slide
+@import "cmps/slide/SlideGig";
+@import "cmps/slide/SlideList";
+@import "cmps/slide/DetailsCarousel";
+@import "cmps/slide/SlideDetails";
+
+
+// Review
+@import "cmps/review/ReviewList";
+@import "cmps/review/ReviewIndex";
+@import "cmps/review/ReviewBar";
+@import "cmps/review/ReviewAll";
+
+
+// USER 
+@import "cmps/user/UserIndex";
+@import "cmps/user/UserWishlist";
+@import "cmps/user/UserProfile";
+
+// Components
+@import "cmps/list";
+@import "cmps/GigPreview";
+@import "cmps/GigCard";
+@import "cmps/LongTxt";
+@import "cmps/AppFooter";
+@import "cmps/GigSort";
+@import "cmps/GigMenu";
+@import "cmps/ListFilteBar";
+@import "cmps/GigCategoryToolBar";
+@import "cmps/GigCategoryMenu";
+@import "cmps/GigBreadcrumbs";
+@import "cmps/IndexHeader";
+@import "cmps/LoginSignup";
+@import "cmps/UserBuyerGig";
+@import "cmps/UserList";
+@import "cmps/GigSort";
+@import "cmps/ThLoader";
+@import "cmps/MonthlyRevenue";
+@import "cmps/PricingTable";
+@import "cmps/ShareModal";
+@import "cmps/UserSellerTable";
+
+
+
+@import "cmps/app-header/AppHeader";
+@import "cmps/app-header/GigSearch";
+@import "cmps/UserMsg";
+
+
+@import "cmps/GigList";
+@import "cmps/GigIndex";
+

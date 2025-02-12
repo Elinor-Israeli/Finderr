@@ -1,0 +1,24 @@
+.list {
+    --min-column-size: 220px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-column-size), 1fr));
+    gap: .5em;
+
+    li {
+        display: grid;
+        grid-template-columns: max-content auto;
+        padding: .5em;
+        background-color: $clr2;
+
+        color: $clr6;
+
+        .actions {
+            justify-self: end;
+
+            button {
+                padding: .3em .5em;
+            }
+        }
+    }
+}

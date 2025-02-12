@@ -3,7 +3,7 @@
 A open source marketplace platform inspired by fiverr.com,[Here is my project link](https://finderr-xxln.onrender.com "finderr link").
 You can scroll down and see for yourselves!
 
-![Homepage image](./public/img/readme/HomePage.png "HomePage") 
+![Homepage image](./readme/HomePage.png "HomePage") 
 
 ___
 
@@ -56,7 +56,7 @@ npm start
 
 ### Homepage
 The landing page in which the user can sign up / login, or start browsing the app for diffrent gigs.
-![Homepage image](./public/img/readme/HomePage.png "HomePage") 
+![Homepage image](./readme/HomePage.png "HomePage") 
 
 ### The Explore page 
 The Explore page offers users an organized view of all available gigs within the same category. Users can easily browse through a wide range of options and filter them based on delivery time and price to find the best fit for their needs.
@@ -67,7 +67,7 @@ Key features:
 - User-Friendly Layout: The page is designed for effortless navigation, making it easy for users to explore and compare gigs at their convenience.
 Whether you’re searching for a quick turnaround or a budget-friendly option, the Explore page ensures you can find and save the perfect gig with just a few clicks.
 
-![Explorepage image](./public/img/readme/Explorepage.png "Explorepage")
+![Explorepage image](./readme/Explorepage.png "Explorepage")
 
 
 ### The Gig Detail Page
@@ -80,7 +80,7 @@ Key features:
 - Reviews & Ratings: Check customer feedback to gauge the quality of the gig and seller performance.
 The Gig Detail Page is designed to give you all the necessary information to confidently purchase or save your selected gig.
 
-![GigDetailpage image](./public/img/readme/GigDetails.png "GigDetailpage ")
+![GigDetailpage image](./readme/GigDetails.png "GigDetailpage ")
 
 ### The Payment   
 The Payment Page is where users can securely complete their purchases after selecting a gig. This page provides a simple and transparent process for making payments, ensuring a smooth transaction experience.
@@ -93,7 +93,7 @@ Key features:
 - Easy Checkout: A fast and user-friendly checkout process designed to minimize any friction and complete your order quickly.
 The Payment Page is built for ease of use and security, ensuring your gig purchase is completed efficiently and safely.
 
-![Paymentpage image](./public/img/readme/Paymentpage.png "Paymentpage")
+![Paymentpage image](./screenshots/Paymentpage.png "Paymentpage")
 
 ### The Order Dropdown
 The Order Dropdown offers buyers a quick and convenient way to track the status of their orders. It’s designed for seamless access, allowing users to stay updated on their purchase without leaving the page.
@@ -104,12 +104,12 @@ Key features:
 - Organized Tracking: Stay informed on all your orders in one place, ensuring a smooth and transparent tracking experience.
 The Order Dropdown helps buyers keep everything organized and stay on top of their orders with ease.
 
-![OrderDropdown image](./public/img/readme/OrdersDropdown.png "OrderDropdown")
+![OrderDropdown image](./screenshots/OrdersDropdown.png "OrderDropdown")
 
 ### Wishlist
 The Wishlist allows users to save their favorite gigs for easy access later. Simply click the heart icon on any gig to add it to your wishlist, ensuring you can quickly find and revisit gigs that meet your needs when you're ready to make a purchase. This feature helps buyers keep track of preferred options and stay organized.
 
-![Wishlist image](./public/img/readme/Wishlist.png "Wishlist")
+![Wishlist image](./screenshots/Wishlist.png "Wishlist")
 
 
 ### The Seller Dashboard
@@ -119,12 +119,12 @@ The Seller Dashboard provides sellers with a powerful and intuitive interface to
 - Completion Notifications: Inform customers when their orders are complete and ready for delivery, ensuring clear communication and timely service.
 The Seller Dashboard is designed to streamline your workflow, making it easier than ever to manage gigs, track revenue, and stay on top of your orders.
 
-![SellerDashboard image](./public/img/readme/)
+![SellerDashboard image](./screenshots/)
 
 ### Sign-up
 The Sign-up process is simple and secure, allowing new users to create an account quickly. With options for Google login or traditional authentication, users can sign up effortlessly while keeping their information safe. Once signed up, users can start browsing gigs, saving favorites, and making purchases seamlessly.
 
-![Sign-up image](./public/img/readme/sign-up.png "Sign-up")
+![Sign-up image](./screenshots/sign-up.png "Sign-up")
 
 ### The Profile
 Anyone can become a seller by creating a profile and adding gigs based on the category that best fits their skills and services. Sellers can:
@@ -133,7 +133,7 @@ Anyone can become a seller by creating a profile and adding gigs based on the ca
 - Add Pictures: Upload images to enhance the visual appeal of gigs, providing potential buyers with a clear idea of the service quality and value.
 With this flexible and easy-to-use profile, sellers can quickly get started and manage their gigs with full control over their offerings.
 
-![Profile image](./public/img/readme/Profilepage.png "Profile")
+![Profile image](./screenshots/Profilepage.png "Profile")
 
 ### Authors
  - [Elinor Israeli](https://github.com/Elinor-coder999)

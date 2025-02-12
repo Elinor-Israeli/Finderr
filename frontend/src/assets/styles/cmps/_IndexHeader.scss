@@ -1,0 +1,146 @@
+.index-header {
+    
+    font-family: "Macan";
+    border-bottom: 1px solid #e4e5e7;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: white;
+    .index-header-container {
+        padding: 20px 0px;
+        transition: all 0.3s ease; 
+        
+        .logo {
+            justify-content: flex-start;
+            font-size: 45px;
+            font-weight: 900;
+            letter-spacing: -3px;
+            color:#020202;
+            padding: 10px;
+
+            .logo-dot {
+                color: #1dbf73;
+                font-size: 60px;
+
+            }
+        }
+
+
+        .index-search {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 5px;
+            width: 70%; 
+            max-width: 600px; 
+            font-size: 14px;
+            padding: 0 10px; 
+
+            .search-index-input {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                border-color: #c5c6c9;
+                color: #62646a;
+                border-radius: 5px;
+                
+
+                input {
+                    width: 100%; 
+                    height: 45px; 
+                    outline: none;
+                    padding: 0 10px; 
+                    border: 0.3px solid #c5c6c9;
+                    border-right: white;
+                }
+
+                input::placeholder{
+                    font-family: 'Macan';
+                    font-size: 16px;
+
+                }
+            }
+
+            .btn-index-search {
+                width: 50px;
+                height: 45px; 
+                background-color: #222325;
+                border-color: #c5c6c9;
+                color: white;
+                cursor: pointer;
+                border-radius: 0 4px 4px 0;
+
+                svg {
+                    color: white;
+                }
+                &:hover {
+                    cursor: pointer;
+                    color: #17A55A;
+                }
+            }
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-weight: bold;
+            font-size:20px;
+            color:#62646a;
+            justify-self: end;
+            .sign-in-link
+            {
+                transition: color 0.3s ease;
+                &:hover {
+                    color: #17A55A; 
+                    cursor: pointer;
+                }
+            }
+
+            .explore-btn{
+                transition: color 0.3s ease;
+                padding: 8px 16px;
+                border-radius: 8px;
+                &:hover {
+                    background-color: #fafafa; 
+                    cursor: pointer;
+                }
+            }
+            
+           
+            .join-btn-index-header {
+                border-color: #1DBF73;
+                border: 1px solid;
+                color: #1DBF73;
+                padding: 12px 24px;
+                font-weight: 700;
+                font-size: 1rem;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: color .5s ease, border .5s ease;
+                line-height: 14px;
+
+                &:hover {
+                    background-color: #17A55A;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .index-header-container.fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    }
+
+}
+
+

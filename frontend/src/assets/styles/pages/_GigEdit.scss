@@ -1,0 +1,114 @@
+.gig-edit-form-wrapper {
+    width: 835px;
+    margin: 30px auto 0;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #dadbdd;
+    padding: 28px;
+    margin-bottom: 20px;
+}
+
+.gig-edit-form button {
+    width: 178px;
+    height: 48px;
+    margin-bottom: 90px;
+    background-color: $clr1;
+
+    &:hover {
+        background-color: $clr1;
+    }
+}
+
+.gig-edit-btn-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.gig-form-title,
+.gig-form-description {
+    display: flex;
+    width: 100%;
+    padding-bottom: 32px;
+
+    input {
+        width: 500px;
+        height: 64px;
+        font-size: 18px;
+        border-radius: 4px;
+        border: 1px solid #b5b6ba;
+    }
+
+    label {
+        width: 230px;
+        display: flex;
+        align-self: center;
+    }
+}
+
+.gig-form-description textarea {
+    height: 150px;
+    width: 500px;
+    resize: none;
+    border-radius: 4px;
+    border: 1px solid #b5b6ba;
+}
+
+.gig-form-category {
+    display: flex;
+    width: 100%;
+    padding-bottom: 32px;
+
+    label {
+        width: 230px;
+        display: flex;
+        align-self: center;
+    }
+}
+
+.gig-form-category2,
+.gig-form-category1,
+.gig-form-days,
+.gig-form-price {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.gig-form-category1,
+.gig-form-price {
+    margin-inline-end: 10px;
+}
+
+.gig-form-inputs {
+    margin-left: 230px;
+    width: 100%;
+    display: flex;
+}
+
+.gig-form-price {
+    input {
+        height: 56px;
+        font-size: 18px;
+        border-radius: 4px;
+        border: 1px solid #b5b6ba;
+    }
+}
+
+.upload-img-list {
+    display: flex;
+    width: 90%;
+    height: 100px;
+}
+
+.upload-img-gig {
+    margin-right: 15px;
+
+    img {
+        height: 100px;
+        width: 100%;
+        background-repeat: no-repeat;
+    }
+}
+
+.upload-preview {
+    margin-top: 20px;
+}

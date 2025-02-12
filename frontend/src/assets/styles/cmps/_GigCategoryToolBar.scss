@@ -1,0 +1,184 @@
+$white_opaque: rgba($white, 1);
+$white_transparent: rgba($white, 0);
+$agencies_banner_height_regular: 110px;
+$menu_panel_agencies_banner_padding_bottom_regular: 120px;
+$agencies_banner_height_wide: 92px;
+$menu_panel_agencies_banner_padding_bottom_wide: 102px;
+
+$white: #ffffff;
+$grey: #b0b0b0;
+$green: #32a852;
+
+@mixin media-query-grid($size) {
+    @if $size ==sm {
+        @media (max-width: 576px) {
+            @content;
+        }
+    }
+
+    @else if $size ==lg {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+}
+
+@mixin media-query-grid-reverse($size) {
+    @if $size ==lg {
+        @media (max-width: 991px) {
+            @content;
+        }
+    }
+}
+
+.categories-menu-package {
+    
+    position: relative;
+    border-bottom: 1px solid #e4e5e7;
+    opacity: 1;
+    padding: 10px;
+    position: fixed;
+    background-color: #fff;
+    z-index: 1111;
+
+    &:hover {
+        transition: transform 0.2s;
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
+
+ 
+
+    .menu-title{
+        font-family: "Macan";
+        font-size: 20px;
+        cursor: pointer;
+        padding: 12px 0px;
+
+        &:hover {
+            border-bottom: 4px solid #32a852;
+            transition: transform 0.2s;
+        }
+    }
+
+    .categories {
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+       
+
+        .top-level {
+            .sub-menu-item {
+                width: 248px;
+
+                a {
+                    padding: 6px 0;
+                }
+            }
+        }
+
+        >li {
+            display: inline-block;
+            flex-shrink: 0;
+            padding: 0 10px;
+
+            &:hover {
+
+                >a:after,
+                >p:after {
+                    content: '';
+                    position: absolute;
+                    z-index: 1;
+                    height: 3px;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    background: color($green, 700);
+                }
+            }
+
+            &:first-child {
+                @include media-query-grid(sm) {
+                    padding-left: 30px;
+                }
+
+                @include media-query-grid(lg) {
+                    padding-left: 0;
+
+                    >a {
+                        padding-left: 0;
+                    }
+                }
+            }
+
+            &:last-child {
+                @include media-query-grid(sm) {
+                    padding-right: 30px;
+                }
+
+                @include media-query-grid(lg) {
+                    padding-right: 0;
+                }
+            }
+
+            >a:hover {
+                text-decoration: none;
+            }
+
+            >ul {
+                display: none;
+            }
+        }
+
+        >li.open {
+            >ul {
+                display: block;
+                column-count: 2;
+                column-gap: 72px;
+                position: absolute;
+                z-index: 100;
+                padding: 20px 32px;
+                background: $white;
+                border: 1px color($grey, 400) solid;
+                box-shadow: 0 1px 3px color($grey, 500);
+
+                &.three-columns-menu {
+                    column-count: 3;
+                }
+
+                &.four-columns-menu {
+                    column-count: 4;
+                }
+
+                &.has-agencies-banner {
+                    padding-bottom: $menu_panel_agencies_banner_padding_bottom_regular;
+
+                    & li:last-child.agencies-banner-item {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: $agencies_banner_height_regular;
+                    }
+
+                    &.three-columns-menu,
+                    &.four-columns-menu {
+                        padding-bottom: $menu_panel_agencies_banner_padding_bottom_wide;
+
+                        & li:last-child.agencies-banner-item {
+                            height: $agencies_banner_height_wide;
+                        }
+                    }
+                }
+
+                @include media-query-grid-reverse(lg) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+    

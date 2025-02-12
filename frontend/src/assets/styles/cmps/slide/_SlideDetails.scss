@@ -1,0 +1,113 @@
+.container-slide-detail {
+    max-height: 500px;
+    object-fit: contain;
+    display:grid;
+    transition: transform 0.5s ease-in-out;
+    
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.previous,
+.next-slide {
+    z-index: 1;
+    align-self: center;
+    cursor: pointer;
+    top: 35%;
+    background-color: $clr3;
+    color: $clr5;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+
+    &:hover {
+        color: $clr5;
+    }
+}
+
+.next-slide {
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: end;
+}
+
+.previous {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+img {
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.thumbs-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    margin-right: em(5px, 16px);
+}
+
+.demo {
+    opacity: 0.25;
+    max-width: 100px;
+}
+
+.demo-active {
+    opacity: 0.9;
+    max-width: 100px;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
+.container-slide-detail{
+    width:100x
+}
+
+.my-slides {
+    grid-area: 1 / 1 / 2 / 2;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    border: 1px solid #efeff0;
+    position: relative;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    width: 100%;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    transition: transform 0.5s ease-in-out;
+
+    a.next.fa-solid.chevron-right {
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .prev,
+    .next {
+        top: 35%;
+    }
+}
+
+@media screen and (max-width: 568px) {
+
+    .prev,
+    .next {
+        top: 22%;
+    }
+}
+

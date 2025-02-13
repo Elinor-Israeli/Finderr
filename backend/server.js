@@ -9,27 +9,28 @@ const app = express()
 const server = require('http').createServer(app)
 
 // Express App Config
-app.use(express.static('public'))
 app.use(cookieParser())
 app.use(express.json())
 app.use(requireAuth)
-// Enable CORS for all routes
-app.use(cors())
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.resolve(__dirname, 'public')))
+    const corsOptions = {
+        origin: [process.env.WEBSITE_URL],
+        credentials: true
+    }
+    app.use(cors(corsOptions))
 } else {
-    // const corsOptions = {
-    //     origin: [
-    //         'http://127.0.0.1:8080',
-    //         'http://localhost:8080',
-    //         'http://127.0.0.1:5173',
-    //         'http://localhost:5173',
-    //         'http://127.0.0.1:5174',
-    //         'http://localhost:5174'],
-    //     credentials: true
-    // }
-    // app.use(cors(corsOptions))
+    const corsOptions = {
+        origin: [
+            'http://127.0.0.1:8080',
+            'http://localhost:8080',
+            'http://127.0.0.1:5173',
+            'http://localhost:5173',
+            'http://127.0.0.1:5174',
+            'http://localhost:5174'],
+        credentials: true
+    }
+    app.use(cors(corsOptions))
 }
 
 
@@ -50,10 +51,6 @@ app.use('/api/gig', gigRoutes)
 app.use('/api/order', orderRoutes)
 
 setupSocketAPI(server)
-
-app.get('/**', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
 
 const logger = require('./services/logger.service')
 const PORT = process.env.PORT || 3033

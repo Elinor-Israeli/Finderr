@@ -19,10 +19,11 @@ ___
 The Gig Management platform provides a seamless space for sellers to easily create, manage, and showcase their gigs, while buyers can browse through a variety of services, purchase with ease, and track their favorite gigs. Sellers can update their offerings, set prices, and monitor performance, while buyers can save their preferred gigs to a wishlist :heartpulse:	 and manage their purchased gigs for future use. This platform streamlines the process for both buyers and sellers, ensuring a smooth and efficient experience.
 
 ## Gig Features
-Custom Gig Creation & Management: Create and manage your gig listings with ease. You can update titles, descriptions, pricing, and add relevant details to ensure your services stand out.
-Advanced Task Management: Edit and update your gig's tasks with options like labels, due dates, member assignments, checklists, and more. Keep everything organized and on track.
-Personalized Experience: Customize your gig’s look and feel with image uploads and background options. Use labels and filters to streamline the process and keep everything organized.
-Easy Authentication: Sign in using Google login or regular authentication, ensuring your account is secure and easy to access.
+Custom Gig Creation & Management: 
+- Create and manage your gig listings with ease. You can update titles, descriptions, pricing, and add relevant details to ensure your services stand out.
+- Advanced Task Management: Edit and update your gig's tasks with options like labels, due dates, member assignments, checklists, and more. Keep everything organized and on track.
+- Personalized Experience: Customize your gig’s look and feel with image uploads and background options. Use labels and filters to streamline the process and keep everything organized.
+- Easy Authentication: Sign in using Google login or regular authentication, ensuring your account is secure and easy to access.
 
 ## Technologies Used
 This gig is built using a modern stack that includes MERN (MongoDB, Express, React, Node.js), offering a smooth, real-time experience. I leverage the latest web technologies like REST APIs for backend communication, and robust authentication methods for secure logins.

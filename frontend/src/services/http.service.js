@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const BASE_URL = process.env.NODE_ENV === 'production' // eslint-disable-line no-undef
-    ? '/api/'
+    ? import.meta.env.VITE_API_URL
     : '//localhost:3033/api/'
 
 var axios = Axios.create({

@@ -132,7 +132,7 @@ export default function UserSellerTable() {
           <div>{order.buyer.fullname}</div>
           <div>${order.gig.price}</div>
           <div className="date-created-time">
-          {moment(order.createdAt).format('MMM Do YY')} 
+          {moment(order.createdAt).format('MMM Do YYYY')} 
           </div>
           <div className="status-container">
              {renderStatusButtons(order)}

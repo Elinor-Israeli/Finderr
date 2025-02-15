@@ -17,7 +17,7 @@ export function UserBuyerGig() {
         <div className="buy-order-info">
           <div>{order.gig.title}</div>
           <div className="buy-order-date" style={{ color: 'blue', fontStyle: 'italic' }}>
-         {moment(order.createdAt).format('MMMM Do YYYY')}
+         {moment(order.createdAt).format('MMM Do YYYY')}
           </div>
           <div className="buy-order-seller-status">
             <div className="buy-order-seller-name">{order.seller.fullname}</div>

@@ -66,8 +66,10 @@ export function GigPayment() {
                 price: gig.price,
                 imgUrl: gig.imgUrl
             },
-            status: "pending"
+            status: "pending",
+            createdAt: Date.now(),
         }
+
         try {
             await addOrder(order)
             showSuccessMsg('Your order has been sent')

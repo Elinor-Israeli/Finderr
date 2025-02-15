@@ -32,4 +32,4 @@ jobs:
       - name: Run ESLint
         run: |
           cd frontend && npm run lint  # Runs ESLint on the whole project directory
-        continue-on-error: true  # Continue the workflow even if ESLint fails
+        continue-on-error: false  # Continue the workflow even if ESLint fails

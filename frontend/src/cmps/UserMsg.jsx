@@ -8,7 +8,7 @@ export function UserMsg() {
   const timeoutIdRef = useRef()
 
   useEffect(() => {
-    eventBus.on('show-msg', (msg) => {
+    const unsubscribe = eventBus.on('show-msg', (msg) => {
       setMsg(msg)
       window.scrollTo({ top: 0, behavior: 'smooth' })
       if (timeoutIdRef.current) {

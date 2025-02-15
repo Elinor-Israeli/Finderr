@@ -5,7 +5,7 @@ import { loadOrdersBuyer } from '../../store/actions/order.actions'
 
 export function UserBuyerGig() {
   let orders = useSelector((storeState) => storeState.orderModule.buyerOrders)
-
+ 
   useEffect(() => {
     loadOrdersBuyer()
   }, [])
@@ -20,7 +20,7 @@ export function UserBuyerGig() {
          {moment(order.createdAt).format('MMMM Do YYYY')}
           </div>
           <div className="buy-order-seller-status">
-            <div className="buy-order-sellername">{order.seller.fullname}</div>
+            <div className="buy-order-seller-name">{order.seller.fullname}</div>
             <div className={order.status}>{order.status}</div>
           </div>
         </div>

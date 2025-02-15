@@ -20,9 +20,6 @@ async function getOrders(req, res) {
     }
 }
 
-
-
-
 async function addOrder(req, res) {
     if (!req.loggedinUser) {
         return res.status(401).send({ err: 'User not found' })

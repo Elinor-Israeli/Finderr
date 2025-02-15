@@ -1,6 +1,6 @@
 import { store } from '../store' 
 import { ADD_ORDER, SET_ORDERS_BUYER, SET_ORDERS_SELLER, UPDATE_ORDER  } from '../reducers/order.reducer'
-import { orderService } from '../../services/order.service'
+import { orderService } from '../../services/order/order.service.remote'
 
 export function getActionAddOrder(buyerOrder) {
     return {

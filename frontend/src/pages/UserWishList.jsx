@@ -22,8 +22,6 @@ function UserWishList() {
     ? gigs.filter((gig) => gig.wishList && gig.wishList.includes(user._id)) 
     : []
 
- 
-
   return (
     <div className="wish-list">
       <h1 style={{marginTop:'23px'}}>My list</h1>

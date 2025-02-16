@@ -27,6 +27,8 @@ export function IndexHeader() {
   const [isSignup, setIsSignup] = useState(false)
   const { pathname } = window.location
   const [windowSize, setWindowSize] = useState(null)
+  const gigs = useSelector(storeState => storeState.gigModule.gigs)
+  const wishListGigs = gigs.filter(gig => gig.wishList && gig.wishList.includes(user?._id))
 
   useEffect(() => {
     function handleResize() {
@@ -228,7 +230,7 @@ export function IndexHeader() {
                 </div>}
                 <Link to="/wishlist" className="heart" title="save to list">
                   <img
-                    src="./img/gray_heart.png"
+                    src={wishListGigs.length > 0 ? "./img/red_heart.png" : "./img/gray_heart.png"} // Red heart if there are wishlisted gigs
                     alt="Heart"
                     className="heart-img"
                     style={{ aspectRatio: 'unset' }}

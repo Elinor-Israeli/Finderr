@@ -42,8 +42,8 @@ export function Search({ onSetFilter }) {
             <input
                 type="text"
                 className={`gig-search ${pathname !== '/' ? 'long-placeholder' : ''}`}
-                id="title"
-                name="title"
+                id="categories"
+                name="categories"
                 placeholder={onPlaceholder()}
                 value={filterByToEdit.categories}
                 onChange={handleChange}

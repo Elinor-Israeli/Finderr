@@ -197,10 +197,10 @@ export function IndexHeader() {
               <input
                 type="text"
                 className={`gig-search ${pathname !== '/' ? 'long-placeholder' : ''}`}
-                id="title"
-                name="title"
+                id="categories"
+                name="categories"
                 placeholder={onPlaceholder()}
-                value={filterByToEdit.title}
+                value={filterByToEdit.categories}
                 onChange={handleChange}
                 ref={elInputRef}
               />

@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { addAndRemoveToWishlist } from '../../store/actions/gig.actions'
 import { SlideGigPreview } from '../slide/SlideGigPreview'
-import { showSuccessMsg } from '../../services/event-bus.service';
-import { userService } from '../../services/user/user.service.remote';
-
+import { showSuccessMsg } from '../../services/event-bus.service'
+import { userService } from '../../services/user/user.service.remote'
+import { eventBus } from '../../services/event-bus.service'
 
 export function GigPreview({ gig }) {
     const user = useSelector((storeState) => storeState.userModule.user)
@@ -40,6 +40,11 @@ export function GigPreview({ gig }) {
     const onHandleHeart = async (ev) => {
         ev.preventDefault()
         ev.stopPropagation()
+
+        if(!user){
+            eventBus.emit ('show-msg', {txt: 'Sign in or Join to add to wishlist'})
+            return
+        } 
 
         try {
             const updatedGig = { ...gig }

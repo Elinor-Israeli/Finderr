@@ -86,7 +86,7 @@ export default function UserSellerTable() {
   
   const monthlyRevenueGoal = 600
 
-  if (!orders || orders.length === 0) return <div className="no-orders-message">No orders yet</div>
+  if (!orders || orders.length === 0) return <div className="no-orders-message" style={{ color: 'black',fontSize:'20px', padding:'20px' }}>No orders yet</div>
 
 
   return <section className='dashboard'>

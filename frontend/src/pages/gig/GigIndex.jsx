@@ -1,4 +1,4 @@
-import { useEffect, useState,useCallback  } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -18,7 +18,7 @@ export function GigIndex() {
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
     const [filterAndSort, setFilterAndSort] = useState('')
-    
+
     useEffect(() => {
         function handleScroll() {
             if (window.scrollY >= 140) setFilterAndSort('filter-sort full  filter-sort-shadow')
@@ -33,29 +33,29 @@ export function GigIndex() {
         dispatch({ type: SET_FILTER, filterBy })
         let queryStringParams = `?categories=${filterBy.categories}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
         navigate(`/gig${queryStringParams}`)
-    }, [dispatch, navigate]) 
+    }, [dispatch, navigate])
 
     useEffect(() => {
         function renderParams() {
             if (searchParams.getAll('categories').length != 0) {
                 filterBy.categories = searchParams.getAll('categories')[0].split(',')
             }
-    
+
             if (searchParams.get('minPrice')) {
                 filterBy.minPrice = searchParams.get('minPrice')
             }
-    
+
             if (searchParams.get('maxPrice')) {
                 filterBy.maxPrice = searchParams.get('maxPrice')
             }
-    
+
             if (searchParams.get('daysToMake')) {
                 filterBy.daysToMake = searchParams.get('daysToMake')
             }
             onSetFilter(filterBy)
         }
         renderParams()
-    }, [filterBy,onSetFilter,searchParams ])
+    }, [filterBy, onSetFilter, searchParams])
 
     useEffect(() => {
         loadGigs(filterBy)
@@ -110,13 +110,15 @@ export function GigIndex() {
 
             {gigs.length > 0 ? (
                 <p>{gigs.length}+ results</p>
+            ) : gigs.length === 0 ? (
+                <p>No results found</p>
             ) : (
                 <div className="loader-container">
-                    <img src={loader} className="thloader" />
+                    <img src={loader} className="theloader" />
                 </div>
             )}
 
-            {gigs && <GigList gigs={gigs} />}
+            {gigs && gigs.length > 0 && <GigList gigs={gigs} />}
         </section>
     )
 }

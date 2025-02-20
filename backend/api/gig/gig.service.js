@@ -18,7 +18,6 @@ function _buildCriteria(filterBy) {
     let criteria = {}
     if (filterBy.categories) {
         criteria.tags = { $in: filterBy.categories }
-
     }
 
     if (filterBy.minPrice != 0 || filterBy.maxPrice != Infinity) {

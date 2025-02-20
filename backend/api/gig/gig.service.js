@@ -16,7 +16,7 @@ async function query(filterBy) {
 
 function _buildCriteria(filterBy) {
     let criteria = {}
-    if (filterBy.categories && filterBy.categories.length > 0) {
+    if (filterBy.categories) {
         criteria.tags = { $in: filterBy.categories }
     }
 

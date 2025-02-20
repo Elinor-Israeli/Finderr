@@ -54,8 +54,8 @@ export function TopFilterBar({ onSetFilter }) {
 
     const onClear = () => {
         setFilterByToEdit(gigService.getDefaultFilter())
-        setIsDeliveryShow(false);
-        setIsPriceFilterShown(false);
+        setIsDeliveryShow(false)
+        setIsPriceFilterShown(false)
 
         const queryParams = new URLSearchParams(location.search)
         queryParams.set('categories', filterByToEdit.categories.join(','))

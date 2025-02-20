@@ -81,8 +81,8 @@ export default function UserSellerTable() {
   const pendingOrdersCount = orders.filter(order => order.status === 'pending').length
   const completedOrdersCount = orders.filter(order => order.status === 'Completed').length
   const totalOrders = orders.length
-  const completedOrderPercent = orders.length > 0 ? completedOrdersCount / totalOrders : 0;
-  const pendingOrderPercent = orders.length > 0 ? pendingOrdersCount / totalOrders : 0;
+  const completedOrderPercent = orders.length > 0 ? completedOrdersCount / totalOrders : 0
+  const pendingOrderPercent = orders.length > 0 ? pendingOrdersCount / totalOrders : 0
   
   const monthlyRevenueGoal = 600
 

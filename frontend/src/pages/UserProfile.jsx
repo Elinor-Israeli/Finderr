@@ -1,74 +1,158 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { IoLocationOutline } from "react-icons/io5";
-import { FiMessageCircle } from "react-icons/fi";
+import { IoLocationOutline } from "react-icons/io5"
 import { loadUser, updateUser } from '../store/user/user.actions'
-import { ImgUploader } from '../cmps/ImgUploader'
-import { userService } from '../services/user/user.service.remote';
-import { StarRating } from '../cmps/review/StarRating';
+import { userService } from '../services/user/user.service.remote'
 
-export function UserProfile({ watchedUser, userReviews }) {
+export function UserProfile({ watchedUser }) {
   const user = useSelector(storeState => storeState.userModule.user)
-
   const loginUser = userService.getLoggedinUser()
   const [isSameUser, setIsSameUser] = useState(false)
+  const [aboutMe, setAboutMe] = useState('')
+  const [isEditingProfile, setIsEditingProfile] = useState(false)
+  const [isEditingImage, setIsEditingImage] = useState(false)
+  const [profileImage, setProfileImage] = useState(watchedUser?.imgUrl || '')
+  const [fileName, ] = useState('')
   const { userId } = useParams()
 
   useEffect(() => {
-    loginUser && loadUser(loginUser._id)
+    if (loginUser && !watchedUser) {
+      loadUser(loginUser._id)
+    }
     if (userId === loginUser?._id) setIsSameUser(true)
     else setIsSameUser(false)
-  }, [loginUser, userId])
+  }, [loginUser, userId, watchedUser])
 
-  function onUploaded(data) {
-    const newUser = { ...user, imgUrl: data }
-    updateUser(newUser)
+  function onAboutMeChange(event) {
+    setAboutMe(event.target.value)
+  }
+
+  async function onAboutMeSubmit() {
+    const updatedAboutMe = aboutMe.trim()
+    const updatedUser = {
+      ...user,
+      aboutMe: updatedAboutMe,
+    }
+
+    try {
+      await updateUser(updatedUser)
+      setIsEditingProfile(false)
+      watchedUser.aboutMe = updatedAboutMe
+    } catch (err) {
+      console.error("Error updating user:", err)
+    }
+  }
+
+  function toggleEditProfile() {
+    setIsEditingProfile(!isEditingProfile)
+  }
+
+  function toggleEditImage() {
+    setIsEditingImage(!isEditingImage)
+  }
+
+  function onImageChange(event) {
+    const file = event.target.files[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setProfileImage(reader.result)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+
+  async function onImageSubmit() {
+    const updatedUser = {
+      ...user,
+      imgUrl: profileImage,
+    }
+
+    try {
+      await updateUser(updatedUser)
+      setIsEditingImage(false)
+      watchedUser.imgUrl = profileImage 
+    } catch (err) {
+      console.error("Error updating user image:", err)
+    }
   }
 
   return (
     <div className="user-profile">
-      {userId && <>
-        <div className="user-profile-info" >
-          <div className="img-profile-container">
-            {isSameUser && <img src={loginUser?.imgUrl}></img>}
-            {!isSameUser && <img src={watchedUser?.imgUrl}></img>}
-            <div className='info-profile-details'>
-              {isSameUser && <ImgUploader onUploaded={onUploaded} />}
+      {userId && (
+        <>
+          <div className="user-profile-info">
+            <div className="img-profile-container">
+              {isSameUser && (
+                <>
+                  <img src={profileImage || "default-image-url"} alt="profile" />
+                  <button className='camera-btn'
+                    onClick={toggleEditImage}
+                  > <img className='profile-img'
+                    src="https://icons.veryicon.com/png/o/miscellaneous/very-thin-linear-icon/camera-310.png"
+                    alt="Camera Icon"
+                    />
+                  </button>
+                </>
+              )}
+              {!isSameUser && <img src={watchedUser?.imgUrl} alt="profile" />}
             </div>
-
-            <div style={{ marginLeft: '20px' }}>
-              <h2 style={{ fontSize: '28px', color: '#222325' }}>{watchedUser?.username}</h2>
-              <li style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-                <p>4.9 </p>
-                <span style={{ margin: '0px 0px 10px 5px' }}>{userReviews} <StarRating style={{ color: 'black', fontWeight: 'bold', marginLeft: 'auto' }} /></span>
-                <p style={{ margin: '0px 0px 10px 5px', textDecoration: 'underLine' }}>(1)</p>
-              </li>
-              <p>Helping entrepreneurs build scalable digital products</p>
-              <ul className="user-stats-desc">
-                <div style={{ display: 'flex' }}>
-                  <li>
-                    <div><span className=" location-dot"></span><span><IoLocationOutline />
-                    </span></div>
-                    <span>America</span>
-                  </li>
-                  <li>
-                    <div><span className="clock"></span><span><FiMessageCircle />
-                    </span></div>
-                    <span>Israel</span>
-                  </li>
-                </div>
-              </ul>
+            <div style={{ marginLeft: '20px' , fontFamily:'Macan'}}>
+              <h2 style={{ fontSize: '30px', color: '#222325'}}>{watchedUser?.username}</h2>
+              <div style={{ marginTop: '1rem' , fontSize: '20px' }}>Level {watchedUser.level} </div>
+              <div  style={{ marginTop: '1rem' , fontSize: '20px'}}>{watchedUser.aboutMe}</div>
+             
+                  <div className=" location-dot" style={{ display: 'flex', marginTop: '1rem' }}>
+                    <span><IoLocationOutline /></span>
+                    <span style={{ marginRight: '20px' }}>America</span>
+                  
+              </div>
+            </div>
+            <div className='info-profile-details'>
+              {isSameUser && <button className='edit-profile-btn' onClick={toggleEditProfile}>Edit Profile</button>}
             </div>
           </div>
-        </div>
-        <div className='my-info'>
-          <h5 style={{ fontSize: '16px', fontFamily: 'Macan' }}>About Me</h5>
-          <p style={{ fontSize: '16px', fontFamily: 'Macan' }}>
-            👋 Hi there! I&apos;m {watchedUser?.username}, a Top-Rated Full Stack web developer with 4+ years of expertise in JavaScript and Python. My services include: 🤖 AI Chatbot Development 💡 JavaScript Deobfuscation & Debugging 🕵️ Web Scraping & Automation 🌐 Custom Browser Extensions When you work with me, you&apos;ll get: 🔧 Professional Expertise 🕒 Prompt Communication 🚀 On-time Delivery 👁 Attention to Detail And some fun stuff planned 🤐. I&apos;ll be committed to delivering the best. Let&apos;s collaborate and turn your ideas into reality. Contact me now, and let&apos;s get started on your project!
-          </p>        </div>
-      </>}
-    </div >
 
+          {isEditingProfile && (
+            <div className="edit-profile-modal">
+              <div className="modal-content">
+                <h3 >Edit Profile</h3>
+                <div>
+                  <textarea
+                    value={aboutMe}
+                    onChange={onAboutMeChange}
+                    style={{ fontSize: '16px', fontFamily: 'Macan', width: '100%', height: '100px', padding: '10px' }}
+                  />
+                </div>
+                <button onClick={onAboutMeSubmit} style={{ marginTop: '10px' }}>Save Changes</button>
+                <button onClick={toggleEditProfile} style={{ marginTop: '10px', marginLeft: '10px' }}>Cancel</button>
+              </div>
+            </div>
+          )}
+
+          {isEditingImage && (
+            <div className="edit-image-modal">
+              <div className="modal-content">
+                <h3 style={{ cursor: 'pointer' }}>Change Profile Image</h3>
+                <div className='file-upload'>
+                  <label style={{ marginTop: '10px' }} htmlFor="file-upload"  >
+                    {fileName ? fileName : 'Choose a file'}
+                  </label>
+                  <input
+                    id="file-upload"
+                    type="file"
+                    onChange={onImageChange}
+                    style={{ display: 'none' }}
+                  />
+                </div>
+                <button onClick={onImageSubmit} >Save Changes</button>
+                <button onClick={toggleEditImage} >Cancel</button>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+    </div>
   )
 }

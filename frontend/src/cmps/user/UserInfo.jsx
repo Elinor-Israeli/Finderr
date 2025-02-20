@@ -5,7 +5,7 @@ import { userService } from '../../services/user/user.service.remote'
 
 export function UserInfo({ user_id, compact,owner }) {
     const [user, setUser] = useState(null)
-
+    
     const loadUser = useCallback(async () => {
         try {
             const user = await userService.getById(user_id)

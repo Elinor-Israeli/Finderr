@@ -1,6 +1,6 @@
-
 import { useEffect, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { gigService } from '../../services/gig/gig.service.remote'
 
 export function TopFilterBar({ onSetFilter }) {
@@ -11,78 +11,64 @@ export function TopFilterBar({ onSetFilter }) {
     const ref = useRef()
     const deliveryRef = useRef()
     const checkedDelivery = filterByFromStore.daysToMake
+    const navigate = useNavigate()
+    const location = useLocation()
 
     useEffect(() => {
-        const checkIfClickedOutside = (ev) => {
-            const { className } = ev.target
+        const queryParams = new URLSearchParams(location.search)
+        const categories = queryParams.get('categories')?.split(',') || []
+        const minPrice = queryParams.get('minPrice') || ''
+        const maxPrice = queryParams.get('maxPrice') || ''
+        const daysToMake = queryParams.get('daysToMake') || ''
 
-            if (isPriceFilterShown && ref.current && !ref.current.contains(ev.target)) {
-                setIsPriceFilterShown(false)
-            }
-            if (isDeliveryShow && deliveryRef.current && !deliveryRef.current.contains(ev.target)) {
-                setIsDeliveryShow(false)
-            }
+        setFilterByToEdit({ categories, minPrice, maxPrice, daysToMake })
+    }, [location.search])
 
-            if (ev.target.closest('.top-filter-bar__apply-time') || ev.target.closest('.top-filter-bar__clear-all')) {
-                return 
-            }
-
-            switch (className) {
-                case "top-filter-bar__filter-menu top-filter-bar__filter-price ":
-                case "top-filter-bar__filter-menu top-filter-bar__filter-price top-filter-bar__active-filter":
-                    ev.preventDefault()
-                    setIsPriceFilterShown(!isPriceFilterShown)
-                    break
-
-                case "top-filter-bar__filter-menu top-filter-bar__filter-delivery ":
-                case "top-filter-bar__filter-menu top-filter-bar__filter-delivery top-filter-bar__active-filter":
-                    ev.preventDefault()
-                    setIsDeliveryShow(!isDeliveryShow)
-                    break
-                default:
-                    break
-            }
-        }
-
-        document.addEventListener("mousedown", checkIfClickedOutside)
-
-        return () => {
-            document.removeEventListener("mousedown", checkIfClickedOutside)
-        }
-    }, [isPriceFilterShown, isDeliveryShow])
-
-    function handleChange(ev) {
-        const { target } = ev
+    const handleChange = (ev) => {
+        const { target } = ev;
         let { value, name: field, type } = target
         value = type === 'number' ? +value : value
         let newFilterBy = { ...filterByToEdit, [field]: value }
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
 
-        if (field === "daysToMake") {
-            setIsDeliveryShow(false) 
+        if (field === 'daysToMake') {
+            setIsDeliveryShow(false)
             onSetFilter(newFilterBy)
         }
-    }
+    };
 
-    function onSubmit() {
+    const onSubmit = () => {
         onSetFilter(filterByToEdit)
         setIsPriceFilterShown(false)
         setIsDeliveryShow(false)
+
+        const queryParams = new URLSearchParams(location.search)
+        queryParams.set('minPrice', filterByToEdit.minPrice || '')
+        queryParams.set('maxPrice', filterByToEdit.maxPrice || '')
+        queryParams.set('daysToMake', filterByToEdit.daysToMake || '')
+        
+        queryParams.set('categories', filterByToEdit.categories.join(','))
+
+        navigate({ search: queryParams.toString() })
     }
 
-    function onClear() {
+    const onClear = () => {
         setFilterByToEdit(gigService.getDefaultFilter())
-        setIsDeliveryShow(false)
-        setIsPriceFilterShown(false)
-    }
+        setIsDeliveryShow(false);
+        setIsPriceFilterShown(false);
 
-    function handleClickDelivery() {
+        const queryParams = new URLSearchParams(location.search)
+        queryParams.set('categories', filterByToEdit.categories.join(','))
+        navigate({ search: queryParams.toString() })
+    };
+
+    const handleClickDelivery = () => {
         setIsDeliveryShow(!isDeliveryShow)
-    }
+    };
 
-    function handleClickPrice() {
+    const handleClickPrice = () => {
         setIsPriceFilterShown(!isPriceFilterShown)
-    }
+    };
 
     return (
         <div className="top-filter-bar">
@@ -172,7 +158,6 @@ export function TopFilterBar({ onSetFilter }) {
                             </label>
                         </div>
 
-                        {/* Buttons inside the modal */}
                         <div className="top-filter-bar__filter-price-btns">
                             <div className="top-filter-bar__clear-all" onClick={onClear}>
                                 Clear All
@@ -231,7 +216,6 @@ export function TopFilterBar({ onSetFilter }) {
                             </div>
                         </div>
 
-                        {/* Buttons inside the modal */}
                         <div className="top-filter-bar__filter-price-btns">
                             <div className="top-filter-bar__clear-all" onClick={onClear}>
                                 Clear All

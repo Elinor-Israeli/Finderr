@@ -16,9 +16,8 @@ async function query(filterBy) {
 
 function _buildCriteria(filterBy) {
     let criteria = {}
-    if (filterBy.categories) {
+    if (filterBy.categories && filterBy.categories.length > 0) {
         criteria.tags = { $in: filterBy.categories }
-
     }
 
     if (filterBy.minPrice != 0 || filterBy.maxPrice != Infinity) {

@@ -13,7 +13,7 @@ export function UserProfile({ watchedUser }) {
   const [isEditingProfile, setIsEditingProfile] = useState(false)
   const [isEditingImage, setIsEditingImage] = useState(false)
   const [profileImage, setProfileImage] = useState(watchedUser?.imgUrl || '')
-  const [fileName, ] = useState('')
+  const [fileName, __] = useState('')
   const { userId } = useParams()
 
   useEffect(() => {

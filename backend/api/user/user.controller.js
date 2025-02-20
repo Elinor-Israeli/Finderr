@@ -23,6 +23,7 @@ async function updateUser(req, res) {
         }
         const savedUser = await userService.update(user)
         loggedinUser.imgUrl = savedUser.imgUrl
+        loggedinUser.aboutMe = savedUser.aboutMe
         res.send(savedUser)
     } catch (err) {
         logger.error('Failed to update user', err)

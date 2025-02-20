@@ -54,6 +54,7 @@ async function update(user) {
         const userToSave = {
             _id: ObjectId(user._id),
             imgUrl: user.imgUrl,
+            aboutMe: user.aboutMe
         }
         const collection = await dbService.getCollection('user')
         await collection.updateOne({ _id: userToSave._id }, { $set: userToSave })
@@ -70,8 +71,8 @@ async function add(user) {
             username: user.username,
             password: user.password,
             fullname: user.fullname,
+            aboutMe:'Helping entrepreneurs build scalable digital products',
             imgUrl: user.imgUrl,
-            score: 100,
             level: '2'
         }
         const collection = await dbService.getCollection('user')

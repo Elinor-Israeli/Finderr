@@ -23,7 +23,7 @@ export function GigEdit() {
     const loginUser = userService.getLoggedinUser()
 
     const loadGig = useCallback(async () => {
-        const gig = await gigService.getById(gigId);
+        const gig = await gigService.getById(gigId)
         setGigToEdit(gig)
     }, [gigId])
 

@@ -61,43 +61,44 @@ export function GigIndex() {
         loadGigs(filterBy)
     }, [filterBy])
 
+
     function getCategoryName(categories) {
-        switch (categories) {
-            case ['graphic-design', 'design', 'logo-design', 'logo']:
-                return <h1>Graphic & Design</h1>
-            case ['digital-marketing', 'digital']:
-                return <h1>Digital & Marketing</h1>
-            case ['writing-translation', 'translation']:
-                return <h1>Writing & Translation</h1>
-            case ['video-animation', 'animation']:
-                return <h1>Video & Animation</h1>
-            case ['music-audio', 'audio']:
-                return <h1>Music & Audio</h1>
-            case ['programming-tech', 'tech']:
-                return <h1>Programming & Tech</h1>
-            case ['business']:
-                return <h1>Business</h1>
-            case ['lifestyle']:
-                return <h1>Lifestyle</h1>
-            case ['trending']:
-                return <h1>Trending</h1>
-            default: return
+        const categoryList = categories.split(',')
+        switch (true) {
+            case categoryList.includes('graphic-design') || categoryList.includes('design') || categoryList.includes('logo-design') || categoryList.includes('logo'):
+                return 'Graphic & Design'
+            case categoryList.includes('digital-marketing') || categoryList.includes('digital'):
+                return 'Digital & Marketing'
+            case categoryList.includes('writing-translation') || categoryList.includes('translation'):
+                return 'Writing & Translation'
+            case categoryList.includes('video-animation') || categoryList.includes('animation'):
+                return 'Video & Animation'
+            case categoryList.includes('music-audio') || categoryList.includes('audio'):
+                return 'Music & Audio'
+            case categoryList.includes('programming-tech') || categoryList.includes('tech'):
+                return 'Programming & Tech'
+            case categoryList.includes('business'):
+                return 'Business'
+            case categoryList.includes('lifestyle'):
+                return 'Lifestyle'
+            case categoryList.includes('trending'):
+                return 'Trending'
+            default:
+                return 'Unknown Category'
         }
     }
 
-    if (!gigs.length && isLoading) return <div> loading...</div>
 
+    if (!gigs.length && isLoading) return <div> loading...</div>
 
     return (
         <section className="gig-index full ">
             <GigBreadcrumbs />
             <h1 className='headline-name'>
                 {
-                    searchParams.get('categories') && searchParams.get('categories') !== ''
-                        ? `Results for "${searchParams.get('categories')}"`
-                        : searchParams.get('categories')
-                            ? getCategoryName(searchParams.get('categories'))
-                            : 'Brand Style Guides'
+                    searchParams.get('categories')
+                        ? `Results for ${getCategoryName(searchParams.get('categories'))}`
+                        : 'Brand Style Guides'
                 }
             </h1>
             <p className="topic-explain">Let us help you give your brand the best minimalist logo design by hiring an expert minimalist logo designer.

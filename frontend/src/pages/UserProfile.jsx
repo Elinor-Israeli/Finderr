@@ -2,10 +2,8 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { IoLocationOutline } from "react-icons/io5"
-import { FiMessageCircle } from "react-icons/fi"
 import { loadUser, updateUser } from '../store/user/user.actions'
 import { userService } from '../services/user/user.service.remote'
-import { IoCameraOutline } from 'react-icons/io5'
 
 export function UserProfile({ watchedUser }) {
   const user = useSelector(storeState => storeState.userModule.user)
@@ -15,7 +13,7 @@ export function UserProfile({ watchedUser }) {
   const [isEditingProfile, setIsEditingProfile] = useState(false)
   const [isEditingImage, setIsEditingImage] = useState(false)
   const [profileImage, setProfileImage] = useState(watchedUser?.imgUrl || '')
-  const [fileName, setFileName] = useState('')
+  const [fileName, ] = useState('')
   const { userId } = useParams()
 
   useEffect(() => {
@@ -26,14 +24,6 @@ export function UserProfile({ watchedUser }) {
     else setIsSameUser(false)
   }, [loginUser, userId, watchedUser])
 
-  function FileUpload() {
-    const onImageChange = (event) => {
-      const file = event.target.files[0];
-      if (file) {
-        setFileName(file.name)
-      }
-    }
-  }
   function onAboutMeChange(event) {
     setAboutMe(event.target.value)
   }
@@ -82,7 +72,7 @@ export function UserProfile({ watchedUser }) {
     try {
       await updateUser(updatedUser)
       setIsEditingImage(false)
-      watchedUser.imgUrl = profileImage // Update the watchedUser with the new profile image
+      watchedUser.imgUrl = profileImage 
     } catch (err) {
       console.error("Error updating user image:", err)
     }

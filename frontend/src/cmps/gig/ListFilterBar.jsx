@@ -25,7 +25,7 @@ export function TopFilterBar({ onSetFilter }) {
     }, [location.search])
 
     const handleChange = (ev) => {
-        const { target } = ev;
+        const { target } = ev
         let { value, name: field, type } = target
         value = type === 'number' ? +value : value
         let newFilterBy = { ...filterByToEdit, [field]: value }
@@ -35,7 +35,7 @@ export function TopFilterBar({ onSetFilter }) {
             setIsDeliveryShow(false)
             onSetFilter(newFilterBy)
         }
-    };
+    }
 
     const onSubmit = () => {
         onSetFilter(filterByToEdit)
@@ -60,15 +60,15 @@ export function TopFilterBar({ onSetFilter }) {
         const queryParams = new URLSearchParams(location.search)
         queryParams.set('categories', filterByToEdit.categories.join(','))
         navigate({ search: queryParams.toString() })
-    };
+    }
 
     const handleClickDelivery = () => {
         setIsDeliveryShow(!isDeliveryShow)
-    };
+    }
 
     const handleClickPrice = () => {
         setIsPriceFilterShown(!isPriceFilterShown)
-    };
+    }
 
     return (
         <div className="top-filter-bar">

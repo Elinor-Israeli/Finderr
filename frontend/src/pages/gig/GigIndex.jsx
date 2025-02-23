@@ -34,7 +34,7 @@ export function GigIndex() {
     const onSetFilter = useCallback((filterBy) => {
         dispatch({ type: SET_FILTER, filterBy })
         const queryParams = new URLSearchParams()
-            if (filterBy.categories && filterBy.categories.length > 0) {
+            if (filterBy.categories && filterBy.categories.length > 0)  {
             queryParams.append('categories', filterBy.categories.join(','))
         }
         if (filterBy.minPrice) {
@@ -42,11 +42,13 @@ export function GigIndex() {
         }
         if (filterBy.maxPrice) {
             queryParams.append('maxPrice', filterBy.maxPrice)
+            
         }
         if (filterBy.daysToMake) {
             queryParams.append('daysToMake', filterBy.daysToMake)
         }
             navigate(`/gig?${queryParams.toString()}`)    
+            
     }, [dispatch, navigate])
     
 

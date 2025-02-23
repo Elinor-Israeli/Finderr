@@ -38,8 +38,6 @@ function _buildCriteria(filterBy) {
     if (filterBy.userId) {
         criteria.owner_id = filterBy.userId
     }
-    console.log('Generated Filter Criteria:', criteria) // Debugging
-
     return criteria
 }
 

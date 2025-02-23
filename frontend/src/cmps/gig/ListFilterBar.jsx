@@ -44,14 +44,37 @@ export function TopFilterBar({ onSetFilter }) {
         onSetFilter(filterByToEdit)
         setIsPriceFilterShown(false)
         setIsDeliveryShow(false)
-
+    
         const queryParams = new URLSearchParams(location.search)
-        queryParams.set('minPrice', filterByToEdit.minPrice || '')
-        queryParams.set('maxPrice', filterByToEdit.maxPrice || '')
-        queryParams.set('daysToMake', filterByToEdit.daysToMake || '')
-        queryParams.set('categories', filterByToEdit.categories.join(','))
+    
+        if (filterByToEdit.minPrice) {
+            queryParams.set('minPrice', filterByToEdit.minPrice)
+        } else {
+            queryParams.delete('minPrice')
+        }
+    
+        if (filterByToEdit.maxPrice) {
+            queryParams.set('maxPrice', filterByToEdit.maxPrice)
+        } else {
+            queryParams.delete('maxPrice')
+        }
+    
+        if (filterByToEdit.daysToMake) {
+            queryParams.set('daysToMake', filterByToEdit.daysToMake)
+        } else {
+            queryParams.delete('daysToMake')
+        }
+
+        const validCategories = filterByToEdit.categories.filter(cat => cat.trim() !== '')
+        if (validCategories.length > 0) {
+            queryParams.set('categories', validCategories.join(','))
+        } else {
+            queryParams.delete('categories')
+        }
+    
         navigate({ search: queryParams.toString() })
     }
+    
 
     const onClear = () => {
         setFilterByToEdit(gigService.getDefaultFilter())

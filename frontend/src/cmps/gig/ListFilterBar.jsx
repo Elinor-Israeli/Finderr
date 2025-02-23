@@ -3,22 +3,24 @@ import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { gigService } from '../../services/gig/gig.service.remote'
 
-export function TopFilterBar({ onSetFilter }) {
+export function TopFilterBar({ onSetFilter ,filterBy}) {
     const filterByFromStore = useSelector((storeState) => storeState.gigModule.filterBy)
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const [isPriceFilterShown, setIsPriceFilterShown] = useState(false)
-    const [isDeliveryShow, setIsDeliveryShow] = useState(false)
+    const [isDeliveryShown, setIsDeliveryShown] = useState(false)
+    const [selectedDelivery, setSelectedDelivery] = useState(filterBy?.daysToMake || null)  
+
     const ref = useRef()
     const deliveryRef = useRef()
     const checkedDelivery = filterByFromStore.daysToMake
     const navigate = useNavigate()
-    const location = useLocation()
+    const location = useLocation()    
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search)
         const categories = queryParams.get('categories')
-        ? queryParams.get('categories').split(',').filter(cat => cat.trim() !== '')
-        : []      
+            ? queryParams.get('categories').split(',').filter(cat => cat.trim() !== '')
+            : []      
         const minPrice = queryParams.get('minPrice') || ''
         const maxPrice = queryParams.get('maxPrice') || ''
         const daysToMake = queryParams.get('daysToMake') || ''
@@ -26,73 +28,70 @@ export function TopFilterBar({ onSetFilter }) {
         setFilterByToEdit({ categories, minPrice, maxPrice, daysToMake })        
     }, [location.search])
 
-    const handleChange = (ev) => {
+    const handleChangePrice = (ev) => {
         const { target } = ev
         let { value, name: field, type } = target
         value = type === 'number' ? +value : value
-        let newFilterBy = { ...filterByToEdit, [field]: value }
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
-
-        if (field === 'daysToMake') {
-            setIsDeliveryShow(false)
-            onSetFilter(newFilterBy)
-        }
-
     }
 
-    const onSubmit = () => {
+    const handleChangeDelivery = (ev) => {
+        const { name, value } = ev.target
+        setSelectedDelivery(value) 
+    }
+
+    const handleApplyDelivery = () => {
+        setFilterByToEdit((prev) => {
+            const updatedFilter = { ...prev, daysToMake: selectedDelivery }
+            onSetFilter(updatedFilter) 
+            setIsDeliveryShown(false)
+            return updatedFilter
+        })
+    }
+
+    const handleApplyPrice  = () => {
         onSetFilter(filterByToEdit)
         setIsPriceFilterShown(false)
-        setIsDeliveryShow(false)
     
         const queryParams = new URLSearchParams(location.search)
-    
-        if (filterByToEdit.minPrice) {
-            queryParams.set('minPrice', filterByToEdit.minPrice)
-        } else {
-            queryParams.delete('minPrice')
-        }
-    
-        if (filterByToEdit.maxPrice) {
-            queryParams.set('maxPrice', filterByToEdit.maxPrice)
-        } else {
-            queryParams.delete('maxPrice')
-        }
-    
-        if (filterByToEdit.daysToMake) {
-            queryParams.set('daysToMake', filterByToEdit.daysToMake)
-        } else {
-            queryParams.delete('daysToMake')
-        }
+            filterByToEdit.daysToMake ? queryParams.set('daysToMake', filterByToEdit.daysToMake) : queryParams.delete('daysToMake')
 
         const validCategories = filterByToEdit.categories.filter(cat => cat.trim() !== '')
-        if (validCategories.length > 0) {
-            queryParams.set('categories', validCategories.join(','))
-        } else {
-            queryParams.delete('categories')
-        }
+        validCategories.length > 0 ? queryParams.set('categories', validCategories.join(',')) : queryParams.delete('categories')
     
         navigate({ search: queryParams.toString() })
     }
     
-
-    const onClear = () => {
-        setFilterByToEdit(gigService.getDefaultFilter())
-        setIsDeliveryShow(false)
-        setIsPriceFilterShown(false)
-
+    const onClearDelivery = () => {
+       const newFilterByToEdit = {
+            ...filterByToEdit,
+            daysToMake: ''
+        }
+        setFilterByToEdit(newFilterByToEdit)
+        onSetFilter(newFilterByToEdit)
+        
+        setIsDeliveryShown(false)
         const queryParams = new URLSearchParams(location.search)
-        queryParams.set('categories', filterByToEdit.categories.join(','))
-        navigate({ search: queryParams.toString() })        
+        queryParams.delete('daysToMake')
     }
 
-    const handleClickDelivery = () => {
-        setIsDeliveryShow(!isDeliveryShow)
+     const onClearBudget = () => {
+        const newFilterByToEdit ={
+            ...filterByToEdit,
+            minPrice: '',
+            maxPrice: ''
+        }
+        setFilterByToEdit(newFilterByToEdit)
+        onSetFilter(newFilterByToEdit)
+        setIsPriceFilterShown(false)
+        const queryParams = new URLSearchParams(location.search)
+    
+        queryParams.delete('minPrice')
+        queryParams.delete('maxPrice')
     }
-
-    const handleClickPrice = () => {
-        setIsPriceFilterShown(!isPriceFilterShown)
-    }
+    
+    const toggleDelivery = () => setIsDeliveryShown(prev => !prev)
+    const togglePrice = () => setIsPriceFilterShown(prev => !prev)
 
     return (
         <div className="top-filter-bar">
@@ -101,7 +100,7 @@ export function TopFilterBar({ onSetFilter }) {
                 className={`top-filter-bar__filter-menu top-filter-bar__filter-delivery ${checkedDelivery !== '' ? 'top-filter-bar__active-filter' : ''}`}
                 ref={deliveryRef}
             >
-                <span onClick={handleClickDelivery}>Delivery Time</span>
+                <span onClick={toggleDelivery}>Delivery Time</span>
                 <svg
                     className="top-filter-bar__svg-icon-adjusted"
                     width="13"
@@ -109,13 +108,13 @@ export function TopFilterBar({ onSetFilter }) {
                     viewBox="0 0 11 7"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
-                    onClick={handleClickDelivery}
+                    onClick={toggleDelivery}
                 >
                     <path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path>
                 </svg>
                 <span className="fa-solid angle-down"></span>
 
-                {isDeliveryShow && (
+                {isDeliveryShown && (
                     <div className="top-filter-bar__delivery-filter-options">
                         <div className="top-filter-bar__delivery-option">
                             <input
@@ -123,8 +122,8 @@ export function TopFilterBar({ onSetFilter }) {
                                 id="daysToMake1"
                                 name="daysToMake"
                                 value="1"
-                                onChange={handleChange}
-                                checked={checkedDelivery === '1'}
+                                onChange={handleChangeDelivery}
+                                checked={selectedDelivery === '1'}
                             />
                             <label htmlFor="daysToMake1">
                                 <span>
@@ -139,8 +138,8 @@ export function TopFilterBar({ onSetFilter }) {
                                 id="daysToMake3"
                                 name="daysToMake"
                                 value="3"
-                                onChange={handleChange}
-                                checked={checkedDelivery === '3'}
+                                onChange={handleChangeDelivery}
+                                checked={selectedDelivery === '3'}
                             />
                             <label htmlFor="daysToMake3">
                                 <span>
@@ -155,8 +154,8 @@ export function TopFilterBar({ onSetFilter }) {
                                 id="daysToMake7"
                                 name="daysToMake"
                                 value="7"
-                                onChange={handleChange}
-                                checked={checkedDelivery === '7'}
+                                onChange={handleChangeDelivery}
+                                checked={selectedDelivery === '7'}
                             />
                             <label htmlFor="daysToMake7">
                                 <span>
@@ -171,8 +170,8 @@ export function TopFilterBar({ onSetFilter }) {
                                 id="daysToMake"
                                 name="daysToMake"
                                 value=""
-                                onChange={handleChange}
-                                checked={checkedDelivery === ''}
+                                onChange={handleChangeDelivery}
+                                checked={selectedDelivery === ''}
                             />
                             <label htmlFor="daysToMake">
                                 <span>
@@ -182,10 +181,10 @@ export function TopFilterBar({ onSetFilter }) {
                             </label>
                         </div>
                         <div className="top-filter-bar__filter-price-btns">
-                            <div className="top-filter-bar__clear-all" onClick={onClear}>
+                            <div className="top-filter-bar__clear-all" onClick={onClearDelivery}>
                                 Clear All
                             </div>
-                            <button type="button" onClick={onSubmit}>
+                            <button type="button" onClick={handleApplyDelivery}>
                                 Apply
                             </button>
                         </div>
@@ -198,7 +197,7 @@ export function TopFilterBar({ onSetFilter }) {
                 className={`top-filter-bar__filter-menu top-filter-bar__filter-price ${filterByFromStore.minPrice !== '' || filterByFromStore.maxPrice !== '' ? 'top-filter-bar__active-filter' : ''}`}
                 ref={ref}
             >
-                <span onClick={handleClickPrice}>Budget</span>
+                <span onClick={togglePrice}>Budget</span>
                 <svg
                     className="top-filter-bar__svg-icon-adjusted"
                     width="13"
@@ -206,7 +205,7 @@ export function TopFilterBar({ onSetFilter }) {
                     viewBox="0 0 11 7"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
-                    onClick={handleClickPrice}
+                    onClick={togglePrice}
                 >
                     <path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z"></path>
                 </svg>
@@ -218,7 +217,7 @@ export function TopFilterBar({ onSetFilter }) {
                             <div>
                                 <label htmlFor="minPrice">MIN</label>
                                 <input
-                                    onChange={handleChange}
+                                    onChange={handleChangePrice}
                                     value={filterByToEdit.minPrice}
                                     type="number"
                                     className="top-filter-bar__min-price"
@@ -229,7 +228,7 @@ export function TopFilterBar({ onSetFilter }) {
                             <div>
                                 <label htmlFor="maxPrice">MAX</label>
                                 <input
-                                    onChange={handleChange}
+                                    onChange={handleChangePrice}
                                     value={filterByToEdit.maxPrice}
                                     type="number"
                                     className="top-filter-bar__max-price"
@@ -240,10 +239,10 @@ export function TopFilterBar({ onSetFilter }) {
                         </div>
 
                         <div className="top-filter-bar__filter-price-btns">
-                            <div className="top-filter-bar__clear-all" onClick={onClear}>
+                            <div className="top-filter-bar__clear-all" onClick={onClearBudget}>
                                 Clear All
                             </div>
-                            <button type="button" onClick={onSubmit}>
+                            <button type="button" onClick={handleApplyPrice}>
                                 Apply
                             </button>
                         </div>

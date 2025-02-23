@@ -395,7 +395,7 @@ $padding_max_double: 64px;
 
         &:hover,
         &:active {
-            background-color: color(green, 1000);
+            background-color: lighten(green, 100);
         }
     }
 

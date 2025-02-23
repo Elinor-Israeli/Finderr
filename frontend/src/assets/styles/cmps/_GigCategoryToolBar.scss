@@ -94,7 +94,7 @@ $green: #32a852;
                     left: 0;
                     bottom: 0;
                     width: 100%;
-                    background: color($green, 700);
+                    background: lighten($green, 70);
                 }
             }
 
@@ -140,8 +140,8 @@ $green: #32a852;
                 z-index: 100;
                 padding: 20px 32px;
                 background: $white;
-                border: 1px color($grey, 400) solid;
-                box-shadow: 0 1px 3px color($grey, 500);
+                border: 1px lighten($grey, 40) solid;
+                box-shadow: 0 1px 3px lighten($grey, 50);
 
                 &.three-columns-menu {
                     column-count: 3;

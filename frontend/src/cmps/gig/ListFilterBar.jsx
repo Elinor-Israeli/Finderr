@@ -16,12 +16,14 @@ export function TopFilterBar({ onSetFilter }) {
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search)
-        const categories = queryParams.get('categories')?.split(',') || []
+        const categories = queryParams.get('categories')
+        ? queryParams.get('categories').split(',').filter(cat => cat.trim() !== '')
+        : []      
         const minPrice = queryParams.get('minPrice') || ''
         const maxPrice = queryParams.get('maxPrice') || ''
         const daysToMake = queryParams.get('daysToMake') || ''
 
-        setFilterByToEdit({ categories, minPrice, maxPrice, daysToMake })
+        setFilterByToEdit({ categories, minPrice, maxPrice, daysToMake })        
     }, [location.search])
 
     const handleChange = (ev) => {
@@ -35,6 +37,7 @@ export function TopFilterBar({ onSetFilter }) {
             setIsDeliveryShow(false)
             onSetFilter(newFilterBy)
         }
+
     }
 
     const onSubmit = () => {
@@ -46,9 +49,7 @@ export function TopFilterBar({ onSetFilter }) {
         queryParams.set('minPrice', filterByToEdit.minPrice || '')
         queryParams.set('maxPrice', filterByToEdit.maxPrice || '')
         queryParams.set('daysToMake', filterByToEdit.daysToMake || '')
-        
         queryParams.set('categories', filterByToEdit.categories.join(','))
-
         navigate({ search: queryParams.toString() })
     }
 
@@ -59,7 +60,7 @@ export function TopFilterBar({ onSetFilter }) {
 
         const queryParams = new URLSearchParams(location.search)
         queryParams.set('categories', filterByToEdit.categories.join(','))
-        navigate({ search: queryParams.toString() })
+        navigate({ search: queryParams.toString() })        
     }
 
     const handleClickDelivery = () => {
@@ -157,7 +158,6 @@ export function TopFilterBar({ onSetFilter }) {
                                 Anytime
                             </label>
                         </div>
-
                         <div className="top-filter-bar__filter-price-btns">
                             <div className="top-filter-bar__clear-all" onClick={onClear}>
                                 Clear All

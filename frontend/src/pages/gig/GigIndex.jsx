@@ -29,11 +29,28 @@ export function GigIndex() {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
+   
+
     const onSetFilter = useCallback((filterBy) => {
         dispatch({ type: SET_FILTER, filterBy })
-        let queryStringParams = `?categories=${filterBy.categories}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
-        navigate(`/gig${queryStringParams}`)
+        const queryParams = new URLSearchParams()
+            if (filterBy.categories && filterBy.categories.length > 0)  {
+            queryParams.append('categories', filterBy.categories.join(','))
+        }
+        if (filterBy.minPrice) {
+            queryParams.append('minPrice', filterBy.minPrice)
+        }
+        if (filterBy.maxPrice) {
+            queryParams.append('maxPrice', filterBy.maxPrice)
+            
+        }
+        if (filterBy.daysToMake) {
+            queryParams.append('daysToMake', filterBy.daysToMake)
+        }
+            navigate(`/gig?${queryParams.toString()}`)    
+            
     }, [dispatch, navigate])
+    
 
     useEffect(() => {
         function renderParams() {

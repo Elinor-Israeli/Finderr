@@ -16,7 +16,8 @@ async function query(filterBy) {
 
 function _buildCriteria(filterBy) {
     let criteria = {}
-    if (filterBy.categories) {
+   
+    if (filterBy.categories && filterBy.categories.length > 0) {
         criteria.tags = { $in: filterBy.categories }
     }
 
@@ -37,9 +38,7 @@ function _buildCriteria(filterBy) {
     if (filterBy.userId) {
         criteria.owner_id = filterBy.userId
     }
-
     return criteria
-
 }
 
 async function getById(gigId) {

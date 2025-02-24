@@ -36,19 +36,19 @@ export function TopFilterBar({ onSetFilter ,filterBy}) {
     }
 
     const handleChangeDelivery = (ev) => {
-        const { name, value } = ev.target
+        const { value } = ev.target
         setSelectedDelivery(value) 
     }
 
     const handleApplyDelivery = () => {
         setFilterByToEdit((prev) => {
             const updatedFilter = { ...prev, daysToMake: selectedDelivery }
-            onSetFilter(updatedFilter) 
+            onSetFilter(updatedFilter)
             setIsDeliveryShown(false)
             return updatedFilter
         })
     }
-
+    
     const handleApplyPrice  = () => {
         onSetFilter(filterByToEdit)
         setIsPriceFilterShown(false)
@@ -97,7 +97,11 @@ export function TopFilterBar({ onSetFilter ,filterBy}) {
         <div className="top-filter-bar">
             {/* Delivery Time Filter */}
             <div
-                className={`top-filter-bar__filter-menu top-filter-bar__filter-delivery ${checkedDelivery !== '' ? 'top-filter-bar__active-filter' : ''}`}
+                // className={`top-filter-bar__filter-menu top-filter-bar__filter-delivery ${checkedDelivery !== '' ? 'top-filter-bar__active-filter' : ''}`}
+                className={`top-filter-bar__filter-menu top-filter-bar__filter-delivery ${
+                    checkedDelivery !== '' ? 'top-filter-bar__active-filter' : ''
+                  }`}
+                  
                 ref={deliveryRef}
             >
                 <span onClick={toggleDelivery}>Delivery Time</span>

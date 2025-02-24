@@ -81,11 +81,11 @@ Users can easily browse through a wide range of options and filter them based on
 
 Key features:
 - Gig Filters: Sort gigs by delivery time and budget to streamline the selection process and find exactly what you're looking for.
-- 
+  
 - Wishlist Functionality: Logged-in users can save their favorite gigs by clicking the heart button, adding them to their personalized wishlist for easy access later.
-- 
+  
 - User-Friendly Layout: The page is designed for effortless navigation, making it easy for users to explore and compare gigs at their convenience.
-- 
+  
 Whether you’re searching for a quick turnaround or a budget-friendly option, the Explore page ensures you can find and save the perfect gig with just a few clicks.
 
 ![Explorepage image](./screenshots/Explorepage.png "Explorepage")

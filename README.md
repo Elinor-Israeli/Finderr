@@ -3,21 +3,27 @@
 An open source marketplace platform inspired by [Fiverr.com](https://www.fiverr.com/?utm_source=google&utm_medium=cpc-brand&utm_campaign=G_US_Brand_BrandingDeskTop_Exact&utm_term=one-fiverr_(exact)&utm_content=AdID^549600552450^Keyword^fiverr^Placement^^Device^c&caid=731898203&agid=43879774452&ad_id=549600552450&kw=fiverr&lpcat=br_general&show_join=true&gad_source=1&gclid=CjwKCAiAzvC9BhADEiwAEhtlN4X4ZBjOm9Et3XFOPa7j3PocVw3WNAyUOtJ7vtr1IjLigaUUn5P18RoCEUkQAvD_BwE).
 
 You can access the deployed version of my project [**here**](https://finderr-demo.onrender.com "finderr link") and see for yourselves!
-
-![Homepage image](./screenshots/HomePage.png "HomePage") 
-
 ___
 
 ### Table of Contents
-- [finderr Description](##finderr-description)
-- [Application Features](##Gig-Features)
-- [Technologies](#Technologies-Used)
-- [Getting started](#Getting-started)
+- [Finderr Description](#finderr-description)
+- [Application Features](#gig-features)
+- [Technologies](#technologies-used)
+- [Getting started](#getting-started)
 - [Showcase](#showcase)
-- [Deploy on Render](#deploy-on-render)
+  - [Homepage](#homepage)
+  - [The Explore page](#the-explore-page)
+  - [The Gig Detail page](#the-gig-detail-page)
+  - [The Payment](#the-payment)
+  - [The Order Dropdown](#the-order-dropdown)
+  - [Wishlist](#wishlist)
+  - [The Seller Dashboard](#the-seller-dashboard)
+  - [Sign-up](#sign-up)
+  - [The Profile](#the-profile)
+- [Deploy on Render](#-deploy-on-render)
 
   
-## Findder Description
+## Finderr Description
 The Gig Management platform provides a seamless space for sellers to easily create, manage, and showcase their gigs, while buyers can browse through a variety of services, purchase with ease, and track their favorite gigs. 
 
 Sellers can update their offerings, set prices, and monitor performance, while buyers can save their preferred gigs to a wishlist :heartpulse: and manage their purchased gigs for future use. 

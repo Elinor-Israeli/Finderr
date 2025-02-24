@@ -1,6 +1,7 @@
-# findder - pixel perfect, E2E clone of fiverr (React + Node.js).
+# 🔍 Finderr – The Ultimate Freelance Marketplace 
+pixel perfect, E2E clone of fiverr (React + Node.js).
 
-An open source marketplace platform inspired by [Fiverr.com](https://www.fiverr.com/?utm_source=google&utm_medium=cpc-brand&utm_campaign=G_US_Brand_BrandingDeskTop_Exact&utm_term=one-fiverr_(exact)&utm_content=AdID^549600552450^Keyword^fiverr^Placement^^Device^c&caid=731898203&agid=43879774452&ad_id=549600552450&kw=fiverr&lpcat=br_general&show_join=true&gad_source=1&gclid=CjwKCAiAzvC9BhADEiwAEhtlN4X4ZBjOm9Et3XFOPa7j3PocVw3WNAyUOtJ7vtr1IjLigaUUn5P18RoCEUkQAvD_BwE).
+🛒 An open source marketplace platform inspired by [Fiverr.com](https://www.fiverr.com/?utm_source=google&utm_medium=cpc-brand&utm_campaign=G_US_Brand_BrandingDeskTop_Exact&utm_term=one-fiverr_(exact)&utm_content=AdID^549600552450^Keyword^fiverr^Placement^^Device^c&caid=731898203&agid=43879774452&ad_id=549600552450&kw=fiverr&lpcat=br_general&show_join=true&gad_source=1&gclid=CjwKCAiAzvC9BhADEiwAEhtlN4X4ZBjOm9Et3XFOPa7j3PocVw3WNAyUOtJ7vtr1IjLigaUUn5P18RoCEUkQAvD_BwE).
 
 You can access the deployed version of my project [**here**](https://finderr-demo.onrender.com "finderr link").
 
@@ -20,7 +21,9 @@ ___
   
 ## findder Description
 The Gig Management platform provides a seamless space for sellers to easily create, manage, and showcase their gigs, while buyers can browse through a variety of services, purchase with ease, and track their favorite gigs. 
+
 Sellers can update their offerings, set prices, and monitor performance, while buyers can save their preferred gigs to a wishlist :heartpulse: and manage their purchased gigs for future use. 
+
 This platform streamlines the process for both buyers and sellers, ensuring a smooth and efficient experience.
 
 ## Gig Features
@@ -30,8 +33,11 @@ Custom Gig Creation & Management:
 
 ## Technologies Used
 This open-source marketplace platform is built using the MERN stack **(MongoDB, Express, React, Node.js)**, offering a smooth, real-time experience. 
+
 It leverages the latest web technologies, including ** REST APIs** for backend communication and **WebSockets** for real-time updates, ensuring seamless interaction between users.
+
 The platform features robust authentication methods for secure logins, and images are efficiently stored and retrieved using **Cloudinary** for optimal performance.
+
 The user interface is crafted with pixel-perfect precision using **Sass**, providing a visually appealing and intuitive experience.
 
 ## Getting started
@@ -42,6 +48,7 @@ git clone https://github.com/Elinor-coder999/Finderr
 ```
 
 Enter the backend folder and make sure you have node_modules installed. 
+
 After that we will initiate the server with 'npm start':
 
 ```
@@ -51,6 +58,7 @@ npm start
 ```
 
 You should get a console output that the server is up and running at port 3030.
+
 Enter the frontend folder and repeat the same process.
 
 ```
@@ -66,12 +74,16 @@ The landing page in which the user can sign up / login, or start browsing the ap
 
 ### The Explore page 
 The Explore page offers users an organized view of all available gigs within the same category. 
+
 Users can easily browse through a wide range of options and filter them based on delivery time and budget to find the best fit for their needs.
 
 Key features:
 - Gig Filters: Sort gigs by delivery time and budget to streamline the selection process and find exactly what you're looking for.
+- 
 - Wishlist Functionality: Logged-in users can save their favorite gigs by clicking the heart button, adding them to their personalized wishlist for easy access later.
+- 
 - User-Friendly Layout: The page is designed for effortless navigation, making it easy for users to explore and compare gigs at their convenience.
+- 
 Whether you’re searching for a quick turnaround or a budget-friendly option, the Explore page ensures you can find and save the perfect gig with just a few clicks.
 
 ![Explorepage image](./screenshots/Explorepage.png "Explorepage")
@@ -91,6 +103,7 @@ The Gig Detail Page is designed to give you all the necessary information to con
 
 ### The Payment   
 The Payment Page is where users can securely complete their purchases after selecting a gig. 
+
 This page provides a simple and transparent process for making payments, ensuring a smooth transaction experience.
 
 Key features:
@@ -99,12 +112,14 @@ Key features:
 - Secure Payment Options: Choose from a variety of payment methods, including credit/debit cards, PayPal, or other trusted payment gateways, ensuring your transaction is safe and secure.
 - Order Summary: Review the details of the gig, delivery time, and seller information before finalizing your purchase.
 - Easy Checkout: A fast and user-friendly checkout process designed to minimize any friction and complete your order quickly.
+  
 The Payment Page is built for ease of use and security, ensuring your gig purchase is completed efficiently and safely.
 
 ![Paymentpage image](./screenshots/Paymentpage.png "Paymentpage")
 
 ### The Order Dropdown
 The Order Dropdown offers buyers a quick and convenient way to track the status of their orders. 
+
 It’s designed for seamless access, allowing users to stay updated on their purchase without leaving the page.
 
 Key features:
@@ -117,7 +132,9 @@ The Order Dropdown helps buyers keep everything organized and stay on top of the
 
 ### Wishlist
 The Wishlist allows users to save their favorite gigs for easy access later. 
+
 Simply click the heart icon on any gig to add it to your wishlist, ensuring you can quickly find and revisit gigs that meet your needs when you're ready to make a purchase. 
+
 This feature helps buyers keep track of preferred options and stay organized.
 
 ![Wishlist image](./screenshots/Wishlist.png "Wishlist")
@@ -125,6 +142,7 @@ This feature helps buyers keep track of preferred options and stay organized.
 
 ### The Seller Dashboard
 The Seller Dashboard provides sellers with a powerful and intuitive interface to manage their gigs and track performance.
+
 Key features include:
 - Revenue Tracking: View monthly and yearly revenue reports to easily monitor your earnings and track business growth.
 - Order Management: Approve or deny incoming gigs with a single click, giving you control over which projects to take on.
@@ -135,13 +153,16 @@ The Seller Dashboard is designed to streamline your workflow, making it easier t
 
 ### Sign-up
 The Sign-up process is simple and secure, allowing new users to create an account quickly. 
+
 With options for Google login or traditional authentication, users can sign up effortlessly while keeping their information safe. 
+
 Once signed up, users can start browsing gigs, saving favorites, and making purchases seamlessly.
 
 ![Sign-up image](./screenshots/sign-up.png "Sign-up")
 
 ### The Profile
 Anyone can become a seller by creating a profile and adding gigs based on the category that best fits their skills and services. 
+
 Sellers can:
 - Add Gigs: Easily create new gigs, specifying the category, description, pricing, and more to showcase their services.
 - Update Existing Gigs: Modify gig details such as pricing, descriptions, and images to keep their offerings fresh and competitive.
@@ -150,21 +171,81 @@ With this flexible and easy-to-use profile, sellers can quickly get started and 
 
 ![Profile image](./screenshots/Profilepage.png "Profile")
 
-### Deploy on Render
-Render is a platform that simplifies deploying and managing applications in the cloud. 
-It's a fully managed service designed to handle web apps, APIs, static sites, databases, and background jobs, providing an easy-to-use interface for developers.
+### 🚀 Deploy on Render
+**Render** is a cloud platform that simplifies deploying and managing applications. 
 
-Below is a guide on how you can deploy the open source platform into render
+It supports web services, static sites, databases, and more, making it an excellent choice for hosting this **MERN** marketplace platform.
 
-Step 1: set up mongo database
+#### Step 1: Set Up MongoDB
+To store application data, we need a MongoDB instance.
 
-Step 2: web service
-Web service is the backend that serves the apis by accessing mongo db 
-How to set up web service (mention the environment variables and the configuration you use)
+1. Create a MongoDB Instance:
 
-Step 3: Static 
-Static site is where we deploy our SPA bundle.  It leverage global CDN which ensures fast loading times for user
-How to set up static site (mention the environment variables and the configuration you use)
+Go to Render Databases and select "New Database".
+
+Choose MongoDB, select a region, and create your database.
+
+Copy the connection string (e.g., mongodb+srv://username:password@cluster.mongodb.net/dbname).
+
+2. Set Environment Variables for the Backend:
+   
+In your Render Web Service, add:
+
+```
+MONGO_URI=mongodb+srv://your_user:your_password@your_cluster.mongodb.net/your_db
+```
+
+#### Step 2: Deploy Backend (Web Service)
+
+The web service handles API requests and communicates with MongoDB.
+
+1. Create a Web Service:
+
+- Go to Render and click "New Web Service".
+- Connect your GitHub repository containing the backend code.
+- Choose Node.js as the environment.
+- Set the build and start commands:
+
+```
+Build Command: npm install
+Start Command: npm start
+
+```
+2. Add Environment Variables:
+
+   In the Render dashboard, add the following variables:
+```
+MONGO_URI=mongodb+srv://your_user:your_password@your_cluster.mongodb.net/your_db
+PORT=5000
+CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+JWT_SECRET=your_jwt_secret
+
+```
+3. Save and Deploy the web service.
+
+#### Step 3: Deploy Frontend (Static Site)
+The frontend is a React Single Page Application (SPA) that will be deployed as a static site.
+
+1. Create a Static Site:
+
+Go to Render, click "New Static Site".
+Connect your GitHub repository containing the frontend code.
+Set the build and publish commands:
+
+```
+Build Command: npm install && npm run build
+Publish Directory: dist (or build, depending on your setup)
+
+```
+2. Add Environment Variables:
+In the Render dashboard, add:
+
+```
+VITE_API_URL=https://your-backend-service.onrender.com
+```
+Save and Deploy the static site.
 
 
 ### Authors

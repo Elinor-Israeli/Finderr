@@ -179,21 +179,11 @@ It supports web services, static sites, databases, and more, making it an excell
 #### Step 1: Set Up MongoDB
 To store application data, we need a MongoDB instance.
 
-1. Create a MongoDB Instance:
-
 Go to Render Databases and select "New Database".
 
 Choose MongoDB, select a region, and create your database.
 
-Copy the connection string (e.g., mongodb+srv://username:password@cluster.mongodb.net/dbname).
-
-2. Set Environment Variables for the Backend:
-   
-In your Render Web Service, add:
-
-```
-MONGO_URI=mongodb+srv://your_user:your_password@your_cluster.mongodb.net/your_db
-```
+Copy the connection string (e.g., mongodb+srv://username:password@cluster.mongodb.net/dbname) for environment variable later in the guide.
 
 #### Step 2: Deploy Backend (Web Service)
 

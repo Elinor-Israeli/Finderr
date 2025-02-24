@@ -1,7 +1,7 @@
-# 🔍 Finderr – The Ultimate Freelance Marketplace 
+#  Finderr – The Ultimate Freelance Marketplace 
 pixel perfect, E2E clone of fiverr (React + Node.js).
 
-🛒 An open source marketplace platform inspired by [Fiverr.com](https://www.fiverr.com/?utm_source=google&utm_medium=cpc-brand&utm_campaign=G_US_Brand_BrandingDeskTop_Exact&utm_term=one-fiverr_(exact)&utm_content=AdID^549600552450^Keyword^fiverr^Placement^^Device^c&caid=731898203&agid=43879774452&ad_id=549600552450&kw=fiverr&lpcat=br_general&show_join=true&gad_source=1&gclid=CjwKCAiAzvC9BhADEiwAEhtlN4X4ZBjOm9Et3XFOPa7j3PocVw3WNAyUOtJ7vtr1IjLigaUUn5P18RoCEUkQAvD_BwE).
+An open source marketplace platform inspired by [Fiverr.com](https://www.fiverr.com/?utm_source=google&utm_medium=cpc-brand&utm_campaign=G_US_Brand_BrandingDeskTop_Exact&utm_term=one-fiverr_(exact)&utm_content=AdID^549600552450^Keyword^fiverr^Placement^^Device^c&caid=731898203&agid=43879774452&ad_id=549600552450&kw=fiverr&lpcat=br_general&show_join=true&gad_source=1&gclid=CjwKCAiAzvC9BhADEiwAEhtlN4X4ZBjOm9Et3XFOPa7j3PocVw3WNAyUOtJ7vtr1IjLigaUUn5P18RoCEUkQAvD_BwE).
 
 You can access the deployed version of my project [**here**](https://finderr-demo.onrender.com "finderr link").
 
@@ -17,9 +17,10 @@ ___
 - [Technologies](#Technologies-Used)
 - [Getting started](#Getting-started)
 - [Showcase](#showcase)
+- [Deploy on Render](#deploy-on-render)
 
   
-## findder Description
+## Findder Description
 The Gig Management platform provides a seamless space for sellers to easily create, manage, and showcase their gigs, while buyers can browse through a variety of services, purchase with ease, and track their favorite gigs. 
 
 Sellers can update their offerings, set prices, and monitor performance, while buyers can save their preferred gigs to a wishlist :heartpulse: and manage their purchased gigs for future use. 
@@ -32,9 +33,9 @@ Custom Gig Creation & Management:
 - Easy Authentication: Sign in using and login, ensuring your account is secure and easy to access.
 
 ## Technologies Used
-This open-source marketplace platform is built using the MERN stack **(MongoDB, Express, React, Node.js)**, offering a smooth, real-time experience. 
+This open-source marketplace platform is built using the MERN stack **(MongoDB, Express, React, Node.js)** along with **Vite** for blazing-fast frontend development and optimized bundling.
 
-It leverages the latest web technologies, including ** REST APIs** for backend communication and **WebSockets** for real-time updates, ensuring seamless interaction between users.
+It leverages the latest web technologies, including ** REST APIs** for backend communication, ensuring seamless interaction between users.
 
 The platform features robust authentication methods for secure logins, and images are efficiently stored and retrieved using **Cloudinary** for optimal performance.
 
@@ -66,6 +67,7 @@ cd frontend
 npm i 
 npm start
 ```
+You can access your finderr website in http://localhost:5137
 ## Showcase
 
 ### Homepage
@@ -179,64 +181,49 @@ It supports web services, static sites, databases, and more, making it an excell
 #### Step 1: Set Up MongoDB
 To store application data, we need a MongoDB instance.
 
-Go to Render Databases and select "New Database".
+Go to Render, press "Add New", and choose "Web Service".
 
-Choose MongoDB, select a region, and create your database.
+Choose the GitHub repository you want to deploy, select a region, and define the following environment variables:
 
-Copy the connection string (e.g., mongodb+srv://username:password@cluster.mongodb.net/dbname) for environment variable later in the guide.
+DB_NAME → The name of your MongoDB database.
+DB_URL → Your MongoDB connection string (mongodb+srv://username:password@cluster.mongodb.net/dbname).
+WEBSITE_URL → https://yourWebsiteName.onrender.com.
 
 #### Step 2: Deploy Backend (Web Service)
-
 The web service handles API requests and communicates with MongoDB.
 
-1. Create a Web Service:
+Create a Web Service:
 
-- Go to Render and click "New Web Service".
-- Connect your GitHub repository containing the backend code.
-- Choose Node.js as the environment.
-- Set the build and start commands:
-
-```
+Go to Render and click "New Web Service".
+Connect your GitHub repository containing the backend code.
+Select Node.js as the environment.
+Set the following build and start commands:
 Build Command: npm install
 Start Command: npm start
+Add Environment Variables:
+In the Render dashboard, go to the Environment tab and add:
 
-```
-2. Add Environment Variables:
+DB_NAME → Your MongoDB database name.
+DB_URL → Your MongoDB connection string.
 
-   In the Render dashboard, add the following variables:
-```
-MONGO_URI=mongodb+srv://your_user:your_password@your_cluster.mongodb.net/your_db
-PORT=5000
-CLOUDINARY_CLOUD_NAME=your_cloudinary_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-JWT_SECRET=your_jwt_secret
-
-```
-3. Save and Deploy the web service.
+Save and Deploy the Web Service.
 
 #### Step 3: Deploy Frontend (Static Site)
 The frontend is a React Single Page Application (SPA) that will be deployed as a static site.
 
-1. Create a Static Site:
+Create a Static Site:
 
-Go to Render, click "New Static Site".
+Go to Render and click "New Static Site".
 Connect your GitHub repository containing the frontend code.
-Set the build and publish commands:
+Set the build command:
+npm install && npm run build
+Set the publish directory to:
+dist (for Vite)
+Add the following environment variable:
+VITE_API_URL → https://your-backend.onrender.com/api/
+Save and Deploy the Static Site.
 
-```
-Build Command: npm install && npm run build
-Publish Directory: dist (or build, depending on your setup)
-
-```
-2. Add Environment Variables:
-In the Render dashboard, add:
-
-```
-VITE_API_URL=https://your-backend-service.onrender.com
-```
-Save and Deploy the static site.
-
+After deployment, your application should be fully functional! 🎉 🚀
 
 ### Authors
  - [Elinor Israeli](https://github.com/Elinor-coder999)

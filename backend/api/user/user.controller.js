@@ -4,6 +4,7 @@ const logger = require('../../services/logger.service')
 async function getUser(req, res) {
     try {
         const user = await userService.getById(req.params.id)
+        logger.info(`Got user `)
         res.send(user)
     } catch (err) {
         logger.error('Failed to get user', err)
@@ -24,6 +25,7 @@ async function updateUser(req, res) {
         const savedUser = await userService.update(user)
         loggedinUser.imgUrl = savedUser.imgUrl
         loggedinUser.aboutMe = savedUser.aboutMe
+        logger.info(`Updated user ${userId} information`)
         res.send(savedUser)
     } catch (err) {
         logger.error('Failed to update user', err)

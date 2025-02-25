@@ -13,6 +13,7 @@ async function getOrders(req, res) {
            return res.status(400).send({ err: 'Role is not valid' })
         }
         const orders = await orderService.query(role,userId)
+        logger.info(`Got orders of ${userId}`)
         return res.send(orders)
     } catch (err) {
         logger.error('Cannot get orders', err)
@@ -30,6 +31,7 @@ async function addOrder(req, res) {
             return res.status(403).send({ err: 'You are not authorized to add this order' }) 
         }
         order = await orderService.add(order)
+        logger.info('Got orders')
         res.send(order)
     } catch (err) {
         logger.error('Failed to add order', err)
@@ -49,6 +51,7 @@ async function updateOrder(req, res) {
             return res.status(403).send({ err: 'You are not authorized to update this order' })
         }
         const updatedOrder = await orderService.update(order)
+        logger.info(`Update order ${order._id} of ${userId}`)
         res.json(updatedOrder)
     } catch (err) {
         logger.error('Failed to update order', err)

@@ -11,8 +11,10 @@ async function getGigs(req, res) {
       userId: req.query.userId || null
     }    
     const gigs = await gigService.query(filterBy)
-    
+
+    logger.info(`Gigs fetched successfully: by user ${req.loggedinUser._id}`)
     res.json(gigs)
+
   } catch (err) {
     logger.error('Failed to get gigs', err)
     res.status(400).send({ err: 'Failed to get gigs' })
@@ -23,7 +25,10 @@ async function getGigById(req, res) {
   try {
     const gigId = req.params.id
     const gig = await gigService.getById(gigId)
+
+    logger.info(`Gig fetched successfully: ${gig._id} by user ${req.loggedinUser._id}`)
     res.json(gig)
+
   } catch (err) {
     logger.error('Failed to get gig', err)
     res.status(500).send({ err: 'Failed to get gig' })
@@ -42,10 +47,13 @@ async function addGig(req, res) {
     gig.owner_id = userId
     
     const addedGig = await gigService.add(gig)
+
+    logger.info(`Gig added successfully: ${gig._id} by user ${req.loggedinUser._id}`)
     res.json(addedGig)
+
   } catch (err) {
     logger.error('Failed to add gig', err)
-    res.status(500).send({ err: 'Failed to add gig' })
+    res.status(500).send(`Failed to add gig ${req.body._id}: ${err.message}`)
   }
 }
 
@@ -62,9 +70,12 @@ async function updateGig(req, res) {
       return res.status(403).send({ err: 'You are not authorized to update this gig' })
     }
     const updatedGig = await gigService.update(gig)
+
+    logger.info(`Gig updated successfully: ${gig._id} by user ${req.loggedinUser._id}`)
     res.json(updatedGig)
+
   } catch (err) {
-    logger.error('Failed to update gig', err)
+    logger.error(`Failed to update gig ${req.body._id}: ${err.message}`)
     res.status(500).send({ err: 'Failed to update gig' })
   }
 }
@@ -89,13 +100,18 @@ async function AddAndRemoveToWishlist(req, res) {
     if (gigDb.wishList.includes(req.loggedinUser._id)) {
       gigDb.wishList = gigDb.wishList.filter(id => id !== req.loggedinUser._id)
       const gigRemoved = await gigService.update(gigDb)
+
+      logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser._id}`)
       return res.json(gigRemoved)
+
     }
 
     gigDb.wishList.push(req.loggedinUser._id)
     const gigAdded = await gigService.update(gigDb)
 
+    logger.info(`Gig added successfully: ${gig._id} by user ${req.loggedinUser._id}`)
     res.json(gigAdded)
+
   } catch (err) {
     logger.error('Failed to update gig', err)
     res.status(500).send({ err: 'Failed to update gig' })
@@ -116,7 +132,10 @@ async function removeGig(req, res) {
       return res.status(403).send({ err: 'You are not authorized to update this gig' })
     }
     const removedId = await gigService.remove(gigId)
+    
+    logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser._id}`)
     res.send(removedId)
+
   } catch (err) {
     logger.error('Failed to remove gig', err)
     res.status(500).send({ err: 'Failed to remove gig' })

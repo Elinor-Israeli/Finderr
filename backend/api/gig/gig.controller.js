@@ -12,7 +12,13 @@ async function getGigs(req, res) {
     }    
     const gigs = await gigService.query(filterBy)
 
-    logger.info(`Gigs fetched successfully: by user ${req.loggedinUser._id}`)
+    if (req.loggedinUser) {
+      logger.info(`Gigs fetched successfully: by ${req.loggedinUser.fullname}`)      
+    } else{
+      logger.info('Gigs fetched successfully')
+    } 
+
+ 
     res.json(gigs)
 
   } catch (err) {
@@ -26,7 +32,12 @@ async function getGigById(req, res) {
     const gigId = req.params.id
     const gig = await gigService.getById(gigId)
 
-    logger.info(`Gig fetched successfully: ${gig._id} by user ${req.loggedinUser._id}`)
+    if (req.loggedinUser){
+    logger.info(`Gig fetched successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
+    } else {
+      logger.info(`Gigs fetched successfully: ${gig._id}`)
+    }
+
     res.json(gig)
 
   } catch (err) {
@@ -48,8 +59,12 @@ async function addGig(req, res) {
     
     const addedGig = await gigService.add(gig)
 
-    logger.info(`Gig added successfully: ${gig._id} by user ${req.loggedinUser._id}`)
-    res.json(addedGig)
+    if (req.loggedinUser){
+      logger.info(`Gig added successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
+      } else {
+        logger.info(`Gigs added successfully: ${gig._id}`)
+      }
+      res.json(addedGig)
 
   } catch (err) {
     logger.error('Failed to add gig', err)
@@ -70,8 +85,7 @@ async function updateGig(req, res) {
       return res.status(403).send({ err: 'You are not authorized to update this gig' })
     }
     const updatedGig = await gigService.update(gig)
-
-    logger.info(`Gig updated successfully: ${gig._id} by user ${req.loggedinUser._id}`)
+    logger.info(`Gig updated successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
     res.json(updatedGig)
 
   } catch (err) {
@@ -101,7 +115,7 @@ async function AddAndRemoveToWishlist(req, res) {
       gigDb.wishList = gigDb.wishList.filter(id => id !== req.loggedinUser._id)
       const gigRemoved = await gigService.update(gigDb)
 
-      logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser._id}`)
+      logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
       return res.json(gigRemoved)
 
     }
@@ -109,7 +123,7 @@ async function AddAndRemoveToWishlist(req, res) {
     gigDb.wishList.push(req.loggedinUser._id)
     const gigAdded = await gigService.update(gigDb)
 
-    logger.info(`Gig added successfully: ${gig._id} by user ${req.loggedinUser._id}`)
+    logger.info(`Gig added successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
     res.json(gigAdded)
 
   } catch (err) {
@@ -133,7 +147,7 @@ async function removeGig(req, res) {
     }
     const removedId = await gigService.remove(gigId)
     
-    logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser._id}`)
+    logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser.fullname3}`)
     res.send(removedId)
 
   } catch (err) {

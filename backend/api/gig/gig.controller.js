@@ -9,16 +9,11 @@ async function getGigs(req, res) {
       maxPrice: +req.query.maxPrice || Infinity,
       daysToMake: +req.query.daysToMake,
       userId: req.query.userId || null
-    }    
+    }
+
     const gigs = await gigService.query(filterBy)
-
-    if (req.loggedinUser) {
-      logger.info(`Gigs fetched successfully: by ${req.loggedinUser.fullname}`)      
-    } else{
-      logger.info('Gigs fetched successfully')
-    } 
-
- 
+    const userInfo = req.loggedinUser ? `by ${req.loggedinUser.fullname}` : ''
+    logger.info(`Gigs fetched successfully ${userInfo}`)
     res.json(gigs)
 
   } catch (err) {
@@ -32,12 +27,8 @@ async function getGigById(req, res) {
     const gigId = req.params.id
     const gig = await gigService.getById(gigId)
 
-    if (req.loggedinUser){
-    logger.info(`Gig fetched successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
-    } else {
-      logger.info(`Gigs fetched successfully: ${gig._id}`)
-    }
-
+    const userInfo = req.loggedinUser ? ` by user ${req.loggedinUser.fullname}` : '';
+    logger.info(`Gig fetched successfully: ${gig._id}${userInfo}`)
     res.json(gig)
 
   } catch (err) {
@@ -56,15 +47,10 @@ async function addGig(req, res) {
   try {
     const gig = req.body
     gig.owner_id = userId
-    
     const addedGig = await gigService.add(gig)
-
-    if (req.loggedinUser){
-      logger.info(`Gig added successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
-      } else {
-        logger.info(`Gigs added successfully: ${gig._id}`)
-      }
-      res.json(addedGig)
+    const userInfo = req.loggedinUser ? ` by user ${req.loggedinUser.fullname}` : ''
+    logger.info(`Gig added successfully: ${gig._id}${userInfo}`)
+    res.json(addedGig)
 
   } catch (err) {
     logger.error('Failed to add gig', err)
@@ -80,7 +66,7 @@ async function updateGig(req, res) {
   try {
     const gig = req.body
     const gigDb = await gigService.getById(gig._id)
-  
+
     if (req.loggedinUser._id !== gigDb.owner_id.toString()) {
       return res.status(403).send({ err: 'You are not authorized to update this gig' })
     }
@@ -141,12 +127,12 @@ async function removeGig(req, res) {
   try {
     const gigId = req.params.id
     const gigDb = await gigService.getById(gigId)
-  
+
     if (req.loggedinUser._id !== gigDb.owner_id) {
       return res.status(403).send({ err: 'You are not authorized to update this gig' })
     }
     const removedId = await gigService.remove(gigId)
-    
+
     logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser.fullname3}`)
     res.send(removedId)
 

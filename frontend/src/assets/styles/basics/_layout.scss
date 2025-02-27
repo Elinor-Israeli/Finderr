@@ -1,8 +1,6 @@
 .main-layout {
     display: grid;
     grid-template-columns: minmax(20px, 1fr) minmax(auto, 1400px) minmax(20px, 1fr);
-    gap: 16px; // Adds spacing between grid items
-    padding: 0 16px; // Ensures some padding on smaller screens
 
     > * {
         grid-column: 2;
@@ -21,13 +19,12 @@
         grid-column: 3 / -1;
     }
 
-    // Responsive Adjustments
     @media (max-width: 1024px) {
         grid-template-columns: minmax(10px, 1fr) minmax(auto, 90%) minmax(10px, 1fr);
     }
 
     @media (max-width: 768px) {
-        grid-template-columns: 1fr; // Single-column layout on smaller screens
+        grid-template-columns: 1fr; 
 
         > * {
             grid-column: 1;

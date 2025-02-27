@@ -140,10 +140,7 @@ export function GigIndex() {
                     secondHeadline: 'Stay ahead of the curve with the latest trending services.'
                 }
             default:
-                return   {
-                    headline: 'Brand Style Guides',
-                    secondHeadline: 'Explore our gigs.'
-                }
+               
         }
     }
 
@@ -157,9 +154,16 @@ export function GigIndex() {
                 {
                     searchParams.get('categories')
                         ? `Results for ${getCategoryName(searchParams.get('categories')).headline}`
-                        : 'Brand Style Guides'
+                        : 'Browse, Hire, and Get Things Done'
                 }
             </h1>
+            <p className="topic-explain">
+                {
+                    searchParams.get('categories')
+                        ? ` ${getCategoryName(searchParams.get('categories')).secondHeadline}`
+                        : 'Hire experts in design, writing, marketing, tech, and more - all in one place!'
+                }
+            </p>
             <div className={`${filterAndSort}`}>
                 <div className="filter-sort-container">
                     <TopFilterBar onSetFilter={onSetFilter} />

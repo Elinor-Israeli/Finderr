@@ -53,12 +53,12 @@ export function HomePage() {
 
     return (
         <section>
-            <div className={`home-category  ${isVisible ? 'block' : 'hidden'}`} style={{ borderBottom: '1px solid #e4e5e7', overflow: 'auto' }} >
+            <div className={`home-category  ${isVisible ? 'block' : 'hidden'} `} style={{ borderBottom: '1px solid #e4e5e7' }} >
                 <GigCategoryToolBar onSetFilter={onSetFilter} />
             </div>
             <section className="home-page ">
                 <div className="hero-container ">
-                    <h1 className="hero-msg " style={{ fontWeight:'100 ' }}>
+                    <h1 className="hero-msg ">
                         Scale your professional work force with freelance
                     </h1>
                     <div className="search-bar ">
@@ -88,7 +88,10 @@ export function HomePage() {
 
                 <div className="selling-text">
                     <div className="header-container-header-img">
-                        <h2 className="fiverr-pro">The <span className="premium-green">premium</span> freelance solution for businesses</h2>
+                        <h2 className="fiverr-pro">
+                            The <span className="premium-green">premium</span> freelance <br /> solution for businesses
+                        </h2>
+
                     </div>
 
                     <div className="selling-grid">

@@ -1,5 +1,4 @@
-.index-header {
-    
+.index-header { 
     font-family: "Macan";
     border-bottom: 1px solid #e4e5e7;
     position: sticky;
@@ -143,4 +142,68 @@
 
 }
 
+@media (max-width: 1024px) {
+    .index-header-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 
+    .index-search {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .index-header {
+        padding: 10px;
+
+        .index-header-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .index-search {
+            width: 100%;
+        }
+
+        .links {
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .join-btn-index-header {
+            padding: 8px 16px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .index-header {
+        padding: 5px;
+
+        .logo {
+            font-size: 28px;
+
+            .logo-dot {
+                font-size: 40px;
+            }
+        }
+
+        .index-search {
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+
+            .btn-index-search {
+                width: 100%;
+            }
+        }
+
+        .links {
+            flex-direction: column;
+            gap: 8px;
+            font-size: 14px;
+        }
+    }
+}

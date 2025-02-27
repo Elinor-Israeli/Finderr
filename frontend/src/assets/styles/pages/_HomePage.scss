@@ -43,7 +43,6 @@ $breakpoints: (
     border-radius: 16px;
     background-size: cover;
     background-position: center;
-    margin-top: em(50px);
     background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3a163e1090b4d0f0b8dc46abb36972ef-1739466831505/new-hero-lg-x1.png');
     height: 500px;
 
@@ -325,10 +324,12 @@ $padding_max_double: 64px;
             color: $clr3;
             font-size: 2rem;
             font-weight: 700;
-            font: 60px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-family: 'Macan';
             line-height: 1.2;
             text-align: center;
             max-width: 100%;
+            font-size: 60px;
+            font-weight: 100;
         }
     }
 
@@ -812,7 +813,11 @@ $grey: (
 
     .fiverr-pro {
         margin: 0px 0px 40px;
-        letter-spacing: -.04em;
+        letter-spacing: -1.92px;
+        font-weight: 400;
+        font-size: 56px;
+        line-height: 56px;
+        font-family: 'Macan';
     }
 }
 
@@ -853,7 +858,7 @@ $grey: (
     }
 
     span.premium-green {
-        font-size: 50px;
+        font-size: 56px;
         color: #1dbf73;
         font-family: playfair-semi;
     }

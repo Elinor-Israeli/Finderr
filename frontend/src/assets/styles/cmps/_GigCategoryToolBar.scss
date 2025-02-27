@@ -36,8 +36,9 @@ $green: #32a852;
     position: relative;
     border-bottom: 1px solid #e4e5e7;
     opacity: 1;
-    padding: 10px;
-    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
     background-color: #fff;
     z-index: 1111;
 
@@ -62,11 +63,9 @@ $green: #32a852;
     }
 
     .categories {
-        padding: 0;
-        margin: 0 auto;
         display: flex;
         justify-content: space-between;
-       
+       padding:10px;
 
         .top-level {
             .sub-menu-item {
@@ -179,6 +178,41 @@ $green: #32a852;
         }
     }
 }
+.category-btn{
+    padding: 0;
+    z-index: 3;
+    background: white;
+    border: none;
+    cursor: pointer;
+}
 
+.categories-menu-package__categories {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.categories-menu-package::before,
+.categories-menu-package::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50px; 
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.categories-menu-package::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.categories-menu-package::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
 
     

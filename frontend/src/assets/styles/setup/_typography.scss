@@ -75,11 +75,6 @@ $padded-break-wide: $width-breakpoint + $layoutPadding * 2;
     font-style: normal;
   }
 
-  @font-face {
-    font-family: 'Domaine';
-    src: url('../../fonts/DomainDisplay-Regular/DomaineDispNar-SemiboldItalic.otf') format('otf');
-    font-weight: normal;
-    font-style: normal;
-  }
+ 
 
   

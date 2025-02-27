@@ -29,40 +29,40 @@ export function GigIndex() {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
-   
+
 
     const onSetFilter = useCallback((filterBy) => {
         dispatch({ type: SET_FILTER, filterBy })
-        
+
         const queryParams = new URLSearchParams()
-    
+
         if (filterBy.categories && filterBy.categories.length > 0) {
             queryParams.set('categories', filterBy.categories.join(','))
         } else {
             queryParams.delete('categories')
         }
-    
+
         if (filterBy.minPrice) {
             queryParams.set('minPrice', filterBy.minPrice)
         } else {
             queryParams.delete('minPrice')
         }
-    
+
         if (filterBy.maxPrice) {
             queryParams.set('maxPrice', filterBy.maxPrice)
         } else {
             queryParams.delete('maxPrice')
         }
-    
+
         if (filterBy.daysToMake) {
             queryParams.set('daysToMake', filterBy.daysToMake)
         } else {
             queryParams.delete('daysToMake')
         }
-    
-        navigate(`/gig?${queryParams.toString()}`)    
+
+        navigate(`/gig?${queryParams.toString()}`)
     }, [dispatch, navigate])
-    
+
 
     useEffect(() => {
         function renderParams() {
@@ -95,23 +95,50 @@ export function GigIndex() {
         const categoryList = categories.split(',')
         switch (true) {
             case categoryList.includes('graphic-design') || categoryList.includes('design') || categoryList.includes('logo-design') || categoryList.includes('logo'):
-                return 'Graphic & Design'
+                return {
+                    headline: 'Graphic & Design',
+                    secondHeadline: 'Let us help you create stunning visuals for your brand with expert graphic design.'
+                }
             case categoryList.includes('digital-marketing') || categoryList.includes('digital'):
-                return 'Digital & Marketing'
+                return {
+                    headline: 'Digital & Marketing',
+                    secondHeadline: 'Maximize your online presence and grow your business with digital marketing experts.'
+                }
             case categoryList.includes('writing-translation') || categoryList.includes('translation'):
-                return 'Writing & Translation'
+                return {
+                    headline: 'Writing & Translation',
+                    secondHeadline: 'Communicate clearly with professional writing and translation services.'
+                }
             case categoryList.includes('video-animation') || categoryList.includes('animation'):
-                return 'Video & Animation'
+                return {
+                    headline: 'Video & Animation',
+                    secondHeadline: 'Bring your ideas to life with high-quality video production and animation services.'
+                }
             case categoryList.includes('music-audio') || categoryList.includes('audio'):
-                return 'Music & Audio'
+                return {
+                    headline: 'Music & Audio',
+                    secondHeadline: 'Enhance your project with top-quality music and audio production.'
+                }
             case categoryList.includes('programming-tech') || categoryList.includes('tech'):
-                return 'Programming & Tech'
+                return {
+                    headline: 'Programming & Tech',
+                    secondHeadline: 'Get the best tech solutions and custom programming to power your business.'
+                }
             case categoryList.includes('business'):
-                return 'Business'
+                return {
+                    headline: 'Business',
+                    secondHeadline: 'Grow your business with expert strategies and solutions.'
+                }
             case categoryList.includes('lifestyle'):
-                return 'Lifestyle'
+                return {
+                    headline: 'Lifestyle',
+                    secondHeadline: 'Enhance your lifestyle with expert services and personal growth solutions.'
+                }
             case categoryList.includes('trending'):
-                return 'Trending'
+                return {
+                    headline: 'Trending',
+                    secondHeadline: 'Stay ahead of the curve with the latest trending services.'
+                }
             default:
                 return 'Unknown Category'
         }
@@ -126,12 +153,11 @@ export function GigIndex() {
             <h1 className='headline-name'>
                 {
                     searchParams.get('categories')
-                        ? `Results for ${getCategoryName(searchParams.get('categories'))}`
+                        ? `Results for ${getCategoryName(searchParams.get('categories')).headline}`
                         : 'Brand Style Guides'
                 }
             </h1>
-            <p className="topic-explain">Let us help you give your brand the best minimalist logo design by hiring an expert minimalist logo designer.
-            </p>
+            <p className="topic-explain">{getCategoryName(searchParams.get('categories')). secondHeadline}</p>
             <div className={`${filterAndSort}`}>
                 <div className="filter-sort-container">
                     <TopFilterBar onSetFilter={onSetFilter} />

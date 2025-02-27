@@ -27,7 +27,7 @@ async function getGigById(req, res) {
     const gigId = req.params.id
     const gig = await gigService.getById(gigId)
 
-    const userInfo = req.loggedinUser ? ` by user ${req.loggedinUser.fullname}` : '';
+    const userInfo = req.loggedinUser ? ` by user ${req.loggedinUser.fullname}` : ''
     logger.info(`Gig fetched successfully: ${gig._id}${userInfo}`)
     res.json(gig)
 

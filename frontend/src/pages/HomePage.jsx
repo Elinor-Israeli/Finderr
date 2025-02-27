@@ -58,8 +58,8 @@ export function HomePage() {
             </div>
             <section className="home-page ">
                 <div className="hero-container ">
-                    <h1 className="hero-msg ">
-                        Scale your professional work force with<i className="special-font"> freelance</i>
+                    <h1 className="hero-msg " style={{ fontWeight:'100 ' }}>
+                        Scale your professional work force with freelance
                     </h1>
                     <div className="search-bar ">
                         <Search onSetFilter={onSetFilter} />

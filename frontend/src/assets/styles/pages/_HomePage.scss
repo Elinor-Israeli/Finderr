@@ -8,7 +8,7 @@ $breakpoints: (
     sm: 576px,
     md: 768px,
     lg: 992px,
-    xl: 1200px,
+    xl: 1160px,
     xxl: 1400px
 );
 
@@ -44,56 +44,69 @@ $breakpoints: (
     background-size: cover;
     background-position: center;
     margin-top: em(50px);
+    background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3a163e1090b4d0f0b8dc46abb36972ef-1739466831505/new-hero-lg-x1.png');
+    height: 500px;
+
   
 
  
 
-    @include media-query-grid(sm) {
-        background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
-        background-image: none;
+    // @include media-query-grid(sm) {
+    //     background: linear-gradient(180deg, #003912 36.72%, #19aa64 141.43%);
+    //     background-image: none;
+    // }
+
+    // @include media-query-grid(md) {
+    //     padding: 0;
+    //     background-size: cover;
+    //     background-repeat: no-repeat;
+    //     border-radius: 16px;
+    //     // height: 370px;
+    //     background-size: cover;
+    //     background-position: center;
+    //     background-color: red;
+    //     background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3a163e1090b4d0f0b8dc46abb36972ef-1739466831486/new-hero-md-x1.png');
+    // }
+
+    @include custom-media-query($max_width: 900px) {
+        background-color: pink;
+        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3a163e1090b4d0f0b8dc46abb36972ef-1739466831486/new-hero-md-x1.png');
+        // background-size: cover;
+        // background-position: center;
     }
 
-    @include media-query-grid(md) {
-        padding: 0;
-        background-size: cover;
-        background-repeat: no-repeat;
-        border-radius: 16px;
-        height: 370px;
-        background-size: cover;
-        background-position: center;
-        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449beda884aa8f9f72023e2d8b3fd-1705308514875/hero-md-x1.png');
-    }
-
-    @include media-query-grid(lg) {
-        height: 500px;
-        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/84c449beda884aa8f9f72023e2d8b3fd-1705308514872/hero-lg-x1.png');
-        background-size: cover;
-        background-position: center;
+    @include custom-media-query($max_width: 1160px) {
+        background-color: #000000;
+        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3a163e1090b4d0f0b8dc46abb36972ef-1739466831505/new-hero-lg-x1.png');
+        // background-size: cover;
+        // background-position: center;
     }
 
     @include custom-media-query($max_width: 1400px) {
-        height: 500px;
-        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/678686c47c024e18e773c75e90aaab1c-1705999902381/hero-xl-x1.png');
-        background-size: cover;
-        background-position: center;
+        background-color: #000000;
+        background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3a163e1090b4d0f0b8dc46abb36972ef-1739466831500/new-hero-xl-x1.png');
+        // background-size: cover;
+        // background-position: center;
     }
 
     @media screen and (min-resolution: 192dpi) {
+        background-color: yellow;
         @include media-query-grid(md) {
-            background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/d0455bf6c66913ebcaff9878b79bfcf0-1705308316571/hero-md.png');
+            background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3a163e1090b4d0f0b8dc46abb36972ef-1739466831486/new-hero-md-x1.png');
             background-size: cover;
             background-position: center;
         }
 
         @include media-query-grid(lg) {
-            background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/d0455bf6c66913ebcaff9878b79bfcf0-1705308316566/hero-lg.png');
+            background-color: purple;
+            background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3a163e1090b4d0f0b8dc46abb36972ef-1739466831505/new-hero-lg-x1.png');
             background-size: cover;
             background-position: center;
         }
 
         @include custom-media-query($max_width: 1400px) {
-            height: 600px;
-            background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/678686c47c024e18e773c75e90aaab1c-1705999902357/hero-xl.png');
+            background-color: orange;
+            background-image: url('https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/3a163e1090b4d0f0b8dc46abb36972ef-1739466831500/new-hero-xl-x1.png');
             background-size: cover;
             background-position: center;
         }
@@ -119,12 +132,6 @@ $breakpoints: (
         font-family: 'Macan', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     }
 
-    .special-font {
-        font-family: 'Domaine';
-        font-family: playfair-semi;
-        font-weight: 400;
-        font-size: 40px !important;
-    }
 }
 
 
@@ -271,10 +278,10 @@ $padding_max_double: 64px;
 
 
 .hero-msg {
-    font: 32px Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 32px;
+    font: 32px 'Macan', Helvetica Neue, Helvetica, Arial, sans-serif;
     line-height: 35.2px;
     mIN-width: 628px;
+    font-weight: 300;
     letter-spacing: -.04em;
     text-align: center;
     margin: 0 auto;
@@ -325,11 +332,6 @@ $padding_max_double: 64px;
         }
     }
 
-    .special-font {
-        font-family: 'Domaine';
-        font-weight: 400;
-        font-size: 80px !important;
-    }
 }
 
 
@@ -473,16 +475,8 @@ $padding_max_double: 64px;
     }
 }
 
-.special-font {
-    // font-family: "TestDomaineDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    font-size: 32px;
-}
-
 .trusted-by {
-  
     gap: 32px;
-
     ul {
         display: flex;
         justify-content: center;

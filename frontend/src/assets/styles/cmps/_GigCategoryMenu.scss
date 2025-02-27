@@ -101,11 +101,6 @@ ul#categories2.categories2 {
                 outline: none;
             }
 
-            &.link-blue,
-            &.link-blue:hover {
-               
-            }
-
             &[disabled] {
                 text-decoration: none;
                 color: $grey;
@@ -125,7 +120,6 @@ ul#categories2.categories2 {
         margin: 0px 0px 32px;
         justify-content: center;
         align-content: center;
-        background-color: pink;
     }
 
     ul#categories2.categories2 {
@@ -136,7 +130,8 @@ ul#categories2.categories2 {
         gap: 15px;
         padding: 20px;
         margin: 0px 0px 32px;
-        background-color: gray;
+        align-content: center;
+
     }
 
    

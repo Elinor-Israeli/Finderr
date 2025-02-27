@@ -13,32 +13,34 @@ export function GigCategoryToolBar({ onSetFilter }) {
         function updateScrollButtons() {
             if (CategorySliderRef.current) {
                 const { scrollLeft, scrollWidth, clientWidth } = CategorySliderRef.current
-                setIsLeftDisabled(scrollLeft <= 0)
+                setIsLeftDisabled(scrollLeft <= 0);
                 setIsRightDisabled(scrollLeft + clientWidth >= scrollWidth)
             }
         }
-
+    
         function handleScroll() {
-            const scrollPosition = window.scrollY
+            const scrollPosition = window.scrollY;
             setIsVisible(scrollPosition >= 800 && pathname === "/")
-
+    
             updateScrollButtons()
         }
-
+    
+        const sliderElement = CategorySliderRef.current
+    
         window.addEventListener("scroll", handleScroll)
-        if (CategorySliderRef.current) {
-            CategorySliderRef.current.addEventListener("scroll", updateScrollButtons)
+        if (sliderElement) {
+            sliderElement.addEventListener("scroll", updateScrollButtons)
         }
         handleScroll()
-
+    
         return () => {
             window.removeEventListener("scroll", handleScroll)
-            if (CategorySliderRef.current) {
-                CategorySliderRef.current.removeEventListener("scroll", updateScrollButtons)
+            if (sliderElement) {
+                sliderElement.removeEventListener("scroll", updateScrollButtons)
             }
         }
     }, [pathname])
-
+    
     function filterByCategory(categories) {
         setFilterByToEdit((prevFilter) => {
             const updatedFilter = { ...prevFilter, categories }

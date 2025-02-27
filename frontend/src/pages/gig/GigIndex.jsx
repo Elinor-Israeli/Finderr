@@ -140,7 +140,10 @@ export function GigIndex() {
                     secondHeadline: 'Stay ahead of the curve with the latest trending services.'
                 }
             default:
-                return 'Unknown Category'
+                return   {
+                    headline: 'Brand Style Guides',
+                    secondHeadline: 'Explore our gigs.'
+                }
         }
     }
 
@@ -157,7 +160,6 @@ export function GigIndex() {
                         : 'Brand Style Guides'
                 }
             </h1>
-            <p className="topic-explain">{getCategoryName(searchParams.get('categories')). secondHeadline}</p>
             <div className={`${filterAndSort}`}>
                 <div className="filter-sort-container">
                     <TopFilterBar onSetFilter={onSetFilter} />

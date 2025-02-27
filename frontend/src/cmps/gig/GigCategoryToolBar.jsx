@@ -19,7 +19,7 @@ export function GigCategoryToolBar({ onSetFilter }) {
         }
     
         function handleScroll() {
-            const scrollPosition = window.scrollY;
+            const scrollPosition = window.scrollY
             setIsVisible(scrollPosition >= 800 && pathname === "/")
     
             updateScrollButtons()

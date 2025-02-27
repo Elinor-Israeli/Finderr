@@ -1,7 +1,7 @@
 export function AppFooter() {
     return ([
         <section className="footer-container full">
-        <div className="footer ">
+        <div className="footer main-layout ">
             <div className="container">
                 <div className="top main-layout">
                     <div className="item">

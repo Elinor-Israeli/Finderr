@@ -9,6 +9,7 @@ import { login, logout, signup } from '../store/user/user.actions'
 import { ModalLogin } from './ModalLogin'
 import { DropdownLogin } from './DropdownLogin'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { loadGigs } from '../store/actions/gig.actions'
 
 export function IndexHeader() {
   const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
@@ -182,6 +183,14 @@ export function IndexHeader() {
       window.removeEventListener('scroll', handleScroll);
     }
   }, [])
+
+  useEffect(() => {
+    // we load gigs here for determining wether the wishlist heart icon should be red or grey 
+    // so we only load gigs when there is a signed in user
+    if (user) {
+      loadGigs()
+    } 
+  }, [user]) 
 
   return (
     <section className="index-header full">

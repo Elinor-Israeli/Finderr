@@ -127,7 +127,7 @@ export default function UserSellerTable() {
     <ul className="orders-dashboard">
       {orders.map(order =>
         <li key={order._id}>
-          <div className="img-container"><img src={order.seller.imgUrl} alt="" onClick={() => navigate(`/gig/${order.gig._id}`)} /></div>
+          <div className="img-container"><img src={order.gig.imgUrl} alt="" onClick={() => navigate(`/gig/${order.gig._id}`)} /></div>
           <div className="gig-title">{getTxtToShow(order.gig.title, 55)}</div>
           <div>{order.buyer.fullname}</div>
           <div>${order.gig.price}</div>

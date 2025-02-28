@@ -98,7 +98,7 @@ export function GigPreview({ gig }) {
                 <div className="gig-preview__btn-container-heart">
                     <button onClick={onHandleHeart}>
                         <img
-                            src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
+                            src={heart ? "/img/red_heart.png" : "/img/gray_heart.png"}
                             alt="Heart"
                             className="heart-img"
                         />

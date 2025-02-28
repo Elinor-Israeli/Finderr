@@ -230,7 +230,7 @@ export function IndexHeader() {
                 </div>}
                 <Link to="/wishlist" className="heart" title="save to list">
                   <img
-                    src={wishListGigs.length > 0 ? "./img/red_heart.png" : "./img/gray_heart.png"} 
+                    src={wishListGigs.length > 0 ? "/img/red_heart.png" : "/img/gray_heart.png"} 
                     alt="Heart"
                     className="heart-img"
                     style={{ aspectRatio: 'unset' }}

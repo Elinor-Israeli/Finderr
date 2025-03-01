@@ -7,10 +7,13 @@ import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket
 import { ProgressChart } from '../ProgressChart'
 import { loadOrdersSeller } from '../../store/actions/order.actions'
 import { MonthlyRevenue } from '../MonthlyRevenue '
+import { Loader } from '../Loader'
 
 export default function UserSellerTable() {
 
   let orders = useSelector((storeState) => storeState.orderModule.sellerOrders)
+  const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
+
   const [setIsModal] = useState({ id: '', status: false })
   const [monthlyRevenue, setMonthlyRevenue] = useState(0)
   const navigate = useNavigate()
@@ -79,15 +82,18 @@ export default function UserSellerTable() {
 }
 
   const pendingOrdersCount = orders.filter(order => order.status === 'pending').length
-  const completedOrdersCount = orders.filter(order => order.status === 'Completed').length
-  const totalOrders = orders.length
-  const completedOrderPercent = orders.length > 0 ? completedOrdersCount / totalOrders : 0
-  const pendingOrderPercent = orders.length > 0 ? pendingOrdersCount / totalOrders : 0
+  const completedOrdersCount = orders.filter(order => order.status === 'Completed').length  
+  const totalOrders = orders.length  
   
-  const monthlyRevenueGoal = 600
-
-  if (!orders || orders.length === 0) return <div className="no-orders-message" style={{ color: 'black',fontSize:'20px', padding:'20px' }}>No orders yet</div>
-
+if (isLoading) {
+    return  <div className="orders-dashboard" >
+      <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Thumbnail not available" />
+      </div>
+  } else if (isLoading && orders.length === 0) {
+    return <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Thumbnail not available" />
+  } else if (orders.length === 0 && !isLoading){
+    return <h3 className="orders-dashboard" style={{ padding: "20px", fontSize: "18px", color: "gray" }}>No Orders Yet</h3>
+  }
 
   return <section className='dashboard'>
 
@@ -107,7 +113,7 @@ export default function UserSellerTable() {
         <span>Completed Orders</span>
         <h3>{completedOrdersCount}</h3>
         <ProgressChart
-          count={completedOrderPercent}
+          count={completedOrdersCount}
           total={totalOrders}
           bgc="green"
         />
@@ -116,7 +122,7 @@ export default function UserSellerTable() {
         <span>Pending Orders</span>
         <h3>{pendingOrdersCount}</h3>
         <ProgressChart
-          count={pendingOrderPercent}
+          count={pendingOrdersCount}
           total={totalOrders}
           bgc="orange"
         />
@@ -147,9 +153,6 @@ export default function UserSellerTable() {
         <div className='status-col'>Status</div>
       </li>
     </ul>
-    <div>
-    <MonthlyRevenue monthlyRevenue={monthlyRevenue} monthlyRevenueGoal={monthlyRevenueGoal} />
-    </div>
   </section>
 }
 

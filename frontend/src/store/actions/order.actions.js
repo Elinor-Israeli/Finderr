@@ -1,5 +1,6 @@
 import { store } from '../store' 
 import { ADD_ORDER, SET_ORDERS_BUYER, SET_ORDERS_SELLER, UPDATE_ORDER  } from '../reducers/order.reducer'
+import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { orderService } from '../../services/order/order.service.remote'
 
 export function getActionAddOrder(buyerOrder) {
@@ -16,6 +17,7 @@ export function getActionUpdateOrder(sellerOrder) {
 }
 
 export async function loadOrdersBuyer() {
+    store.dispatch({type: LOADING_START})
      try {
         const buyerOrders = await orderService.query('buyer')
         store.dispatch({ type: SET_ORDERS_BUYER, buyerOrders })
@@ -23,10 +25,13 @@ export async function loadOrdersBuyer() {
     } catch (err) {
         console.log('Cannot load buyerOrders', err)
         throw err
+    } finally {
+        store.dispatch({ type: LOADING_DONE })
     }
 }
 
 export async function loadOrdersSeller() {
+    store.dispatch({type: LOADING_START})
     try {
        const sellerOrders = await orderService.query('seller')
        store.dispatch({ type: SET_ORDERS_SELLER, sellerOrders })
@@ -34,7 +39,9 @@ export async function loadOrdersSeller() {
    } catch (err) {
        console.log('Cannot load sellerOrders', err)
        throw err
-   }
+   } finally {
+    store.dispatch({ type: LOADING_DONE })
+}
 }
 
 export async function addOrder(order) {

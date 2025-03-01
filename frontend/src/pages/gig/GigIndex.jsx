@@ -7,8 +7,7 @@ import { GigList } from '../../cmps/gig/GigList'
 import { TopFilterBar } from '../../cmps/gig/ListFilterBar'
 import { loadGigs } from '../../store/actions/gig.actions'
 import { SET_FILTER } from '../../store/reducers/gig.reducer'
-import loader from '/img/thloader.svg'
-
+import { Loader } from '../../cmps/Loader'
 export function GigIndex() {
     const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
     let gigs = useSelector(storeState => storeState.gigModule.gigs)
@@ -140,12 +139,9 @@ export function GigIndex() {
                     secondHeadline: 'Stay ahead of the curve with the latest trending services.'
                 }
             default:
-               
+
         }
     }
-
-
-    if (!gigs.length && isLoading) return <div> loading...</div>
 
     return (
         <section className="gig-index full ">
@@ -170,17 +166,16 @@ export function GigIndex() {
                 </div>
             </div>
 
-            {gigs.length > 0 ? (
+            {isLoading ? (
+               <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Thumbnail not available" />
+            ) : gigs.length > 0 ? (
                 <p>{gigs.length}+ results</p>
-            ) : gigs.length === 0 ? (
-                <p>No results found</p>
             ) : (
-                <div className="loader-container">
-                    <img src={loader} className="theloader" />
-                </div>
+                <p>No results found</p>
             )}
 
-            {gigs && gigs.length > 0 && <GigList gigs={gigs} />}
+            {!isLoading && gigs.length > 0 && <GigList gigs={gigs} />}
+
         </section>
     )
 }

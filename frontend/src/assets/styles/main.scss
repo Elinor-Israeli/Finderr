@@ -4,15 +4,12 @@
 @import "setup/typography";
 
 // Basics
-@import "basics/helpers";
 @import "basics/layout";
-@import "basics/helpers";
 @import "basics/base";
 @import "basics/forms";
 
 
 // pages
-
 @import "pages/GigDetails";
 @import "pages/GigPayment";
 @import "pages/GigEdit";
@@ -55,7 +52,7 @@
 @import "cmps/UserBuyerGig";
 @import "cmps/UserList";
 @import "cmps/GigSort";
-@import "cmps/ThLoader";
+@import "cmps/Loader";
 @import "cmps/MonthlyRevenue";
 @import "cmps/PricingTable";
 @import "cmps/ShareModal";

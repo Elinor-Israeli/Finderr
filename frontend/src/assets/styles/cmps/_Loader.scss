@@ -1,0 +1,12 @@
+.loader>img {
+    background: transparent url(https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg) no-repeat 50%;
+    height:65%;
+    max-height: 65%;
+    max-width:65%;
+    min-height: 140px;
+    min-width: 140px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    width: 100%;
+    align-self: center;
+} 

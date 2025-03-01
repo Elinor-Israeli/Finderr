@@ -6,7 +6,6 @@ import { updateOrder } from '../../store/actions/order.actions'
 import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'; 
 import { ProgressChart } from '../ProgressChart'
 import { loadOrdersSeller } from '../../store/actions/order.actions'
-import { MonthlyRevenue } from '../MonthlyRevenue '
 import { Loader } from '../Loader'
 
 export default function UserSellerTable() {
@@ -85,15 +84,21 @@ export default function UserSellerTable() {
   const completedOrdersCount = orders.filter(order => order.status === 'Completed').length  
   const totalOrders = orders.length  
   
-if (isLoading) {
-    return  <div className="orders-dashboard" >
-      <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Thumbnail not available" />
-      </div>
-  } else if (isLoading && orders.length === 0) {
-    return <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Thumbnail not available" />
-  } else if (orders.length === 0 && !isLoading){
-    return <h3 className="orders-dashboard" style={{ padding: "20px", fontSize: "18px", color: "gray" }}>No Orders Yet</h3>
-  }
+  if (isLoading) {
+    return (
+        <div className="orders-dashboard">
+            <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Loading..." />
+        </div>
+    )
+}
+
+if (!isLoading && orders.length === 0) {
+    return (
+        <h3 className="orders-dashboard" style={{ padding: "20px", fontSize: "18px", color: "gray" }}>
+            No Orders Yet
+        </h3>
+    )
+}
 
   return <section className='dashboard'>
 

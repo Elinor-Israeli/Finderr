@@ -13,14 +13,21 @@ export function UserBuyerGig() {
   }, [])
 
   if (isLoading) {
-    return  <div className="buy-order-list" >
-      <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Thumbnail not available" />
-      </div>
-  } else if (isLoading && orders.length === 0) {
-    return <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Thumbnail not available" />
-  } else if (orders.length === 0 && !isLoading){
-    return <h3 className="msg-order" style={{ padding: "20px", fontSize: "18px", color: "gray" }}>No Orders Yet</h3>
-  }
+    return (
+        <div className="buy-order-list">
+            <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Loading..." />
+        </div>
+    )
+}
+
+if (!isLoading && orders.length === 0) {
+    return (
+        <h3 className="msg-order" style={{ padding: "20px", fontSize: "18px", color: "gray" }}>
+            No Orders Yet
+        </h3>
+    )
+}
+
 
   
 

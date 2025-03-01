@@ -8,12 +8,15 @@ import { ReviewAll } from '../../cmps/review/ReviewAll'
 import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 import { UserInfo } from '../../cmps/user/UserInfo'
 import PricingTable from '../../cmps/PricingTable'
+import { Loader } from '../../cmps/Loader'
 
 
 export function GigDetails() {
     const { gigId } = useParams()
     const navigate = useNavigate()
     const [gig, setGig] = useState()
+
+    
 
     useEffect(() => {
         async function loadGig() {
@@ -32,8 +35,8 @@ export function GigDetails() {
     }, [gigId, navigate ])
 
     
-    if (!gig) return <div className="loader-container">
-        <div>loading...</div>
+    if (!gig) return <div className="gig-details">
+         <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Loading..." />
     </div>
     gig.owner || {}
 

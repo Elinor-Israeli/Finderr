@@ -2,37 +2,43 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { loadGigs, removeGig } from '../store/actions/gig.actions'
+import { loadUserGigs, removeGig } from '../store/actions/gig.actions'
 import { UserList } from '../cmps/user/UserList'
 import { UserProfile } from './UserProfile'
 import { loadWatchedUser } from '../store/user/user.actions'
 import { ReviewList } from '../cmps/review/ReviewList'
 import { ReviewBar } from '../cmps/review/ReviewBar'
 
-import { userService } from '../services/user/user.service.remote'; 
+import { userService } from '../services/user/user.service.remote'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
 export function UserIndex() {
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
-    const gigs = useSelector(storeState => storeState.gigModule.gigs)
+    const gigs = useSelector(storeState => storeState.gigModule.userGigs)
+    
     const { userId } = useParams()
     const [, setTime] = useState('')
     const [user, setUser] = useState(null)
 
     useEffect(() => {
-        userId && loadWatchedUser(userId)
+        if (!userId) return
+
         async function loadUser() {
+
             try {
                 const user = await userService.getById(userId)
                 setUser(user)
             } catch (err) {
-                console.log('user =>', err)
+                console.log('Error loading user:', err)
             }
         }
+    
+        loadWatchedUser(userId)
         loadUser()
-        loadGigs({userId})
-        loadUser()
-    }, [ userId])
+        loadUserGigs(userId)
+    
+    }, [userId])
+    
 
     useEffect(() => {
         const updateTime = () => {

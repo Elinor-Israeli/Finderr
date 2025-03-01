@@ -203,13 +203,13 @@ export function GigCard({ gig, onSetChat }) {
                 </a>
             </div>
 
-            <div
+            {/* <div
                 to={`/user/${gig.owner_id}`}
                 className="contact-seller"
                 onClick={() => onSetChat()}
             >
                 <button className="contact-seller-btn">Contact me</button>
-            </div>
+            </div> */}
             
         </div>
     )

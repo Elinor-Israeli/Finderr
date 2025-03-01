@@ -1,5 +1,5 @@
 import { store } from '../store'
-import { ADD_GIG, REMOVE_GIG, SET_GIGS, UPDATE_GIG } from '../reducers/gig.reducer'
+import { ADD_GIG, REMOVE_GIG, SET_GIGS,SET_USER_GIGS, UPDATE_GIG } from '../reducers/gig.reducer'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { gigService } from '../../services/gig/gig.service.remote'
 
@@ -41,6 +41,24 @@ export async function removeGig(gigId) {
         throw err
     }
 }
+
+export async function loadUserGigs(userId) {
+
+    store.dispatch({ type: LOADING_START })
+
+    try {
+        
+        let userGigs = await gigService.query({ userId })
+        
+        store.dispatch({ type: SET_USER_GIGS, userGigs })
+
+    } catch (err) {
+        console.log('Error loading user gigs:', err)
+    } finally {
+        store.dispatch({ type: LOADING_DONE })
+    }
+}
+
 
 export async function addGig(gig) {
     try {

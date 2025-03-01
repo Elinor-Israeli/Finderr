@@ -77,7 +77,7 @@ export function GigDetails() {
                             <li><strong><span>Languages</span></strong><span>{gig.Languages}</span></li>
                         </ul>
                         <p>
-                           ${gig.title} Order now!
+                           {gig.title} Order now!
                         </p>
                     </div>
                     <div>

@@ -1,6 +1,8 @@
 import { gigService } from "../../services/gig/gig.service.remote"
 
 export const SET_GIGS = 'SET_GIGS'
+export const SET_USER_GIGS = 'SET_USER_GIGS'
+
 export const REMOVE_GIG = 'REMOVE_GIG'
 export const ADD_GIG = 'ADD_GIG'
 export const UPDATE_GIG = 'UPDATE_GIG'
@@ -9,6 +11,7 @@ export const SET_SORT = 'SET_SORT'
 
 const initialState = {
     gigs: [],
+    userGigs: [],
     lastRemovedGig: null,
     filterBy: gigService.getDefaultFilter(),
 
@@ -19,6 +22,9 @@ export function gigReducer(state = initialState, action) {
     switch (action.type) {
         case SET_GIGS:
             newState = { ...state, gigs: action.gigs }
+            break
+        case SET_USER_GIGS:
+            newState = { ...state, userGigs: action.userGigs }
             break
         case REMOVE_GIG: {
             const lastRemovedGig = state.gigs.find(gig => gig._id === action.gigId)

@@ -16,8 +16,6 @@ export function GigDetails() {
     const navigate = useNavigate()
     const [gig, setGig] = useState()
 
-    
-
     useEffect(() => {
         async function loadGig() {
             try {
@@ -79,7 +77,7 @@ export function GigDetails() {
                             <li><strong><span>Languages</span></strong><span>{gig.Languages}</span></li>
                         </ul>
                         <p>
-                            I have years of experience in creating 2d animated explainer videos. I would like to boost your business with my knowledge so that the orders with my 2D-Animation videos increase and your sales increase. You will see that you will only profit. Order now!
+                           ${gig.title} Order now!
                         </p>
                     </div>
                     <div>

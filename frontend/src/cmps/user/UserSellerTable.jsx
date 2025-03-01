@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 import { updateOrder } from '../../store/actions/order.actions'
-import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service'; 
+import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service';
 import { ProgressChart } from '../ProgressChart'
 import { loadOrdersSeller } from '../../store/actions/order.actions'
 import { Loader } from '../Loader'
@@ -39,15 +39,15 @@ export default function UserSellerTable() {
         status: order.status,
         buyerId: order.buyer._id
       })
-      setIsModal({ id: '', status: false })
-    }
+    setIsModal({ id: '', status: false })
+  }
 
   function renderStatusButtons(order) {
     if (order.status === 'pending') {
       return (
         <div className="status-buttons">
-          <button className='approved'onClick={() => updateStatus('Approved', order)}>Approve</button>
-          <button  className="declined" onClick={() => updateStatus('Declined', order)}>Decline</button>
+          <button className='approved' onClick={() => updateStatus('Approved', order)}>Approve</button>
+          <button className="declined" onClick={() => updateStatus('Declined', order)}>Decline</button>
         </div>
       )
     }
@@ -76,29 +76,29 @@ export default function UserSellerTable() {
     return null
   }
 
- function getTxtToShow(txt, length)  {
+  function getTxtToShow(txt, length) {
     return txt.length < length ? txt : `${txt.substring(0, length)}...`
-}
+  }
 
   const pendingOrdersCount = orders.filter(order => order.status === 'pending').length
-  const completedOrdersCount = orders.filter(order => order.status === 'Completed').length  
-  const totalOrders = orders.length  
-  
+  const completedOrdersCount = orders.filter(order => order.status === 'Completed').length
+  const totalOrders = orders.length
+
   if (isLoading) {
     return (
-        <div className="orders-dashboard">
-            <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Loading..." />
-        </div>
+      <div className="orders-dashboard">
+        <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Loading..." />
+      </div>
     )
-}
+  }
 
-if (!isLoading && orders.length === 0) {
+  if (!isLoading && orders.length === 0) {
     return (
-        <h3 className="orders-dashboard" style={{ padding: "20px", fontSize: "18px", color: "gray" }}>
-            No Orders Yet
-        </h3>
+      <h3 className="orders-dashboard" style={{ padding: "20px", fontSize: "18px", color: "gray" }}>
+        No Orders Yet
+      </h3>
     )
-}
+  }
 
   return <section className='dashboard'>
 
@@ -106,13 +106,13 @@ if (!isLoading && orders.length === 0) {
       <div className="dashboard-item">
         <span>Annual Revenue</span>
         <h3>${monthlyRevenue}</h3>
-        
+
       </div>
       <div className="dashboard-item">
         <span>Monthly Revenue</span>
         <h3>${monthlyRevenue}</h3>
-        
-       
+
+
       </div>
       <div className="dashboard-item">
         <span>Completed Orders</span>
@@ -143,10 +143,10 @@ if (!isLoading && orders.length === 0) {
           <div>{order.buyer.fullname}</div>
           <div>${order.gig.price}</div>
           <div className="date-created-time">
-          {moment(order.createdAt).format('MMM Do YYYY')} 
+            {moment(order.createdAt).format('MMM Do YYYY')}
           </div>
           <div className="status-container">
-             {renderStatusButtons(order)}
+            {renderStatusButtons(order)}
           </div>
         </li>)}
       <li className='table-header'>

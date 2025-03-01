@@ -59,7 +59,8 @@ export function GigIndex() {
             queryParams.delete('daysToMake')
         }
 
-        navigate(`/gig?${queryParams.toString()}`)
+        navigate(`/gig?${queryParams.toString()}`, { replace: true }) //This prevents the filter updates from cluttering the browser history, making the back button behave as expected.
+        
     }, [dispatch, navigate])
 
 

@@ -11,11 +11,12 @@ import { ReviewBar } from '../cmps/review/ReviewBar'
 
 import { userService } from '../services/user/user.service.remote'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
+import { Loader } from '../cmps/Loader'
 
 export function UserIndex() {
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
     const gigs = useSelector(storeState => storeState.gigModule.userGigs)
-    
+
     const { userId } = useParams()
     const [, setTime] = useState('')
     const [user, setUser] = useState(null)
@@ -32,13 +33,13 @@ export function UserIndex() {
                 console.log('Error loading user:', err)
             }
         }
-    
+
         loadWatchedUser(userId)
         loadUser()
         loadUserGigs(userId)
-    
+
     }, [userId])
-    
+
 
     useEffect(() => {
         const updateTime = () => {
@@ -55,7 +56,7 @@ export function UserIndex() {
         return () => clearInterval(intervalId)
     }, [])
 
-   
+
 
     async function onRemoveGig(gigId) {
         try {
@@ -67,7 +68,7 @@ export function UserIndex() {
     }
 
     if (!user) return <div className="loader-container">
-        <div className="loader"></div>
+        <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Thumbnail not available" />
     </div>
     return (
         <section className="user-index">

@@ -133,7 +133,7 @@ async function removeGig(req, res) {
     }
     const removedId = await gigService.remove(gigId)
 
-    logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser.fullname3}`)
+    logger.info(`Gig removed successfully:  by user ${req.loggedinUser.fullname}`)
     res.send(removedId)
 
   } catch (err) {

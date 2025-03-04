@@ -16,16 +16,13 @@ import { Loader } from '../cmps/Loader'
 export function UserIndex() {
     const watchedUser = useSelector(storeState => storeState.userModule.watchedUser)
     const gigs = useSelector(storeState => storeState.gigModule.userGigs)
-
     const { userId } = useParams()
     const [, setTime] = useState('')
     const [user, setUser] = useState(null)
 
     useEffect(() => {
         if (!userId) return
-
         async function loadUser() {
-
             try {
                 const user = await userService.getById(userId)
                 setUser(user)
@@ -33,13 +30,10 @@ export function UserIndex() {
                 console.log('Error loading user:', err)
             }
         }
-
         loadWatchedUser(userId)
         loadUser()
         loadUserGigs(userId)
-
     }, [userId])
-
 
     useEffect(() => {
         const updateTime = () => {
@@ -56,13 +50,14 @@ export function UserIndex() {
         return () => clearInterval(intervalId)
     }, [])
 
-
-
     async function onRemoveGig(gigId) {
         try {
             await removeGig(gigId)
             showSuccessMsg('Gig removed')
+            loadUserGigs(userId)
+
         } catch (err) {
+            console.error('Failed to remove gig:', err)
             showErrorMsg('Cannot remove gig')
         }
     }

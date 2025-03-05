@@ -1,19 +1,33 @@
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import moment from 'moment'
+import { updateOrderBuyer,getActionAddOrderBuyer } from '../../store/actions/order.actions'
 import { loadOrdersBuyer } from '../../store/actions/order.actions'
 import { Loader } from '../Loader'
+import { socketService , SOCKET_EVENT_ORDER_UPDATED} from '../../services/socket.service'
+
 
 export function OrderDropdown() {
   let orders = useSelector((storeState) => storeState.orderModule.buyerOrders)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     loadOrdersBuyer()
   }, [])
+
+  useEffect(() => {
+    socketService.on(SOCKET_EVENT_ORDER_UPDATED, (order) =>  {
+      dispatch(getActionAddOrderBuyer(order))
+    })
+
+    return () => {
+      socketService.off(SOCKET_EVENT_ORDER_UPDATED)
+    }
+  }, [dispatch])
 
   if (isLoading) {
     return (

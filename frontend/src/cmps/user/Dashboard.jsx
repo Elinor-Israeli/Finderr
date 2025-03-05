@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch  } from 'react-redux'
 import moment from 'moment'
-import { updateOrder,getActionAddOrderSeller } from '../../store/actions/order.actions'
+import { updateOrderSeller,getActionAddOrderSeller } from '../../store/actions/order.actions'
 import { ProgressChart } from '../ProgressChart'
 import { loadOrdersSeller } from '../../store/actions/order.actions'
 import { Loader } from '../Loader'
@@ -40,7 +40,7 @@ export default function Dashboard() {
 
   function updateStatus(status, order) {
     order.status = status
-    updateOrder(order)
+    updateOrderSeller(order)
   }
 
   function renderStatusButtons(order) {

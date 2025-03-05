@@ -4,10 +4,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
 import { gigService } from '../../services/gig/gig.service.remote'
 import { userService } from '../../services/user/user.service.remote'
-import { addOrder } from '../../store/actions/order.actions'
+import { addOrderBuyer } from '../../store/actions/order.actions'
 import credit from '/img/credit.svg'
 import paypal from '/img/paypal.svg'
-import { socketService, SOCKET_EMIT_SET_TOPIC } from '../../services/socket.service'
 
 export function GigPayment() {
     const [isChecked, setIsChecked] = useState(false)
@@ -71,17 +70,16 @@ export function GigPayment() {
         }
 
         try {
-            await addOrder(order)
+            
+           await addOrderBuyer(order)
             showSuccessMsg('Your order has been sent')
-            socketService.emit(SOCKET_EMIT_SET_TOPIC, order._id)
             console.log('Your order has been sent')
-
             navigate('/')
         }
         catch (err) {
             showErrorMsg('Something went wrong')
             console.log("cant add order", err)
-        }
+        }  
     }
 
     

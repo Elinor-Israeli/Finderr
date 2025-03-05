@@ -4,7 +4,6 @@ import { gigService } from '../../services/gig/gig.service.remote'
 import { showErrorMsg } from '../../services/event-bus.service'
 import { SlideDetails } from '../../cmps/slide/SlideDetails'
 import { GigCard } from '../../cmps/gig/GigCard'
-import { ReviewAll } from '../../cmps/review/ReviewAll'
 import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 import { UserInfo } from '../../cmps/user/UserInfo'
 import PricingTable from '../../cmps/PricingTable'
@@ -84,7 +83,6 @@ export function GigDetails() {
                         <PricingTable gig={gig} />
                     </div>
                 </div>
-                <ReviewAll user_id={gig.owner_id} />
             </div>
             <div className="right">
                 <GigCard gig={gig} />

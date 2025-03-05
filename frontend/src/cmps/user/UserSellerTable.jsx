@@ -1,26 +1,24 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch  } from 'react-redux'
 import moment from 'moment'
-import { updateOrder } from '../../store/actions/order.actions'
-import { socketService, SOCKET_EVENT_ORDER_UPDATED } from '../../services/socket.service';
+import { updateOrder,getActionAddOrderSeller } from '../../store/actions/order.actions'
 import { ProgressChart } from '../ProgressChart'
 import { loadOrdersSeller } from '../../store/actions/order.actions'
 import { Loader } from '../Loader'
+import { socketService , SOCKET_EVENT_ORDER_ADDED} from '../../services/socket.service'
 
 export default function UserSellerTable() {
 
   let orders = useSelector((storeState) => storeState.orderModule.sellerOrders)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
-
-  const [setIsModal] = useState({ id: '', status: false })
   const [monthlyRevenue, setMonthlyRevenue] = useState(0)
   const navigate = useNavigate()
-
+  const dispatch = useDispatch()
+  
   useEffect(() => {
     loadOrdersSeller()
   }, [])
-
 
   useEffect(() => {
     if (!orders) return
@@ -30,16 +28,20 @@ export default function UserSellerTable() {
     setMonthlyRevenue(completedOrdersTotal)
   }, [orders])
 
+  useEffect(() => {
+    socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
+      console.log("New order received:", order)
+      dispatch(getActionAddOrderSeller(order))
+    })
+
+    return () => {
+      socketService.off(SOCKET_EVENT_ORDER_ADDED)
+    }
+  }, [dispatch])  
+
   function updateStatus(status, order) {
     order.status = status
     updateOrder(order)
-    socketService.emit(SOCKET_EVENT_ORDER_UPDATED,
-      {
-        sellerName: order.seller.fullname,
-        status: order.status,
-        buyerId: order.buyer._id
-      })
-    setIsModal({ id: '', status: false })
   }
 
   function renderStatusButtons(order) {
@@ -138,7 +140,7 @@ export default function UserSellerTable() {
     <ul className="orders-dashboard">
       {orders.map(order =>
         <li key={order._id}>
-          <div className="img-container"><img src={order.gig.imgUrl} alt="" onClick={() => navigate(`/gig/${order.gig._id}`)} /></div>
+          <div className="img-container"><img src={order.gig.imgUrl[0]} alt="" onClick={() => navigate(`/gig/${order.gig._id}`)} /></div>
           <div className="gig-title">{getTxtToShow(order.gig.title, 55)}</div>
           <div>{order.buyer.fullname}</div>
           <div>${order.gig.price}</div>

@@ -21,9 +21,12 @@ export const SOCKET_EVENT_ORDER_UPDATED = 'order-updated'
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
-export const socketService = createDummySocketService()
+const BASE_URL = process.env.NODE_ENV === 'production' // eslint-disable-line no-undef
+    ? import.meta.env.VITE_API_URL
+    : '//localhost:3033/'
 
-window.socketService = socketService
+
+export const socketService = createSocketService()
 
 socketService.setup()
 
@@ -31,7 +34,7 @@ function createSocketService() { // eslint-disable-line no-unused-vars
   var socket = null;
   const socketService = {
     setup() {
-      socket = io(baseUrl) // eslint-disable-line no-undef
+      socket = io(BASE_URL) // eslint-disable-line no-undef
       setTimeout(() => {
         const user = userService.getLoggedinUser()
         if (user) this.login(user._id)

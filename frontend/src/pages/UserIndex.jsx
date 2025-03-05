@@ -6,8 +6,6 @@ import { loadUserGigs, removeGig } from '../store/actions/gig.actions'
 import { UserList } from '../cmps/user/UserList'
 import { UserProfile } from './UserProfile'
 import { loadWatchedUser } from '../store/user/user.actions'
-import { ReviewList } from '../cmps/review/ReviewList'
-import { ReviewBar } from '../cmps/review/ReviewBar'
 
 import { userService } from '../services/user/user.service.remote'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
@@ -69,9 +67,7 @@ export function UserIndex() {
         <section className="user-index">
             <aside className="user-info">
                 <UserProfile watchedUser={watchedUser} />
-                <div className="user-review-bar">{watchedUser && watchedUser.reviews && <ReviewBar userReviews={watchedUser.reviews} />}</div>
                 {watchedUser && gigs && <UserList gigs={gigs} onRemoveGig={onRemoveGig} user={watchedUser} />}
-                {watchedUser && watchedUser.reviews && <ReviewList userReviews={watchedUser.reviews} />}
             </aside>
         </section>
     )

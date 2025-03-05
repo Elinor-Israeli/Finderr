@@ -1,12 +1,18 @@
 import { store } from '../store' 
-import { ADD_ORDER, SET_ORDERS_BUYER, SET_ORDERS_SELLER, UPDATE_ORDER  } from '../reducers/order.reducer'
+import { ADD_ORDER_BUYER,ADD_ORDER_SELLER, SET_ORDERS_BUYER, SET_ORDERS_SELLER, UPDATE_ORDER  } from '../reducers/order.reducer'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { orderService } from '../../services/order/order.service.remote'
 
-export function getActionAddOrder(buyerOrder) {
+export function getActionAddOrderBuyer(buyerOrder) {
     return {
-        type: ADD_ORDER,
+        type: ADD_ORDER_BUYER,
         buyerOrder
+    }
+}
+export function getActionAddOrderSeller(sellerOrder) {
+    return {
+        type: ADD_ORDER_SELLER,
+        sellerOrder
     }
 }
 export function getActionUpdateOrder(sellerOrder) {
@@ -44,10 +50,22 @@ export async function loadOrdersSeller() {
 }
 }
 
-export async function addOrder(order) {
+export async function addOrderBuyer(order) {
     try {
         const savedOrder = await orderService.save(order)
-        store.dispatch(getActionAddOrder(savedOrder))
+        store.dispatch(getActionAddOrderBuyer(savedOrder))
+        console.log('Saved order:', savedOrder)
+        return savedOrder
+    } catch (err) {
+        console.log('Cannot add order', err)
+        throw err
+    }
+}
+export async function addOrderSeller(order) {
+    try {
+        const savedOrder = await orderService.save(order)
+        store.dispatch(getActionAddOrderSeller(savedOrder))
+        console.log('Saved order:', savedOrder)
         return savedOrder
     } catch (err) {
         console.log('Cannot add order', err)

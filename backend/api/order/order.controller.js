@@ -1,5 +1,7 @@
 const logger = require('../../services/logger.service')
 const orderService = require('./order.service')
+const socketService = require('../../services/socket.service.js') 
+
 
 async function getOrders(req, res) {
     if (!req.loggedinUser) {
@@ -32,6 +34,8 @@ async function addOrder(req, res) {
         }
         order = await orderService.add(order)
         logger.info(`${req.loggedinUser.fullname} added order  ${order._id} successfully`)
+        logger.info(`userId to send emitToUser to ${order.seller._id}`)
+        socketService.emitToUser({ type: 'order-added', data: order, userId: order.seller._id })
         res.send(order)
     } catch (err) {
         logger.error('Failed to add order', err)

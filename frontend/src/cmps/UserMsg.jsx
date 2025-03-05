@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import { socketService, SOCKET_EMIT_ORDER_WATCH,SOCKET_EVENT_ORDER_FROM_YOU  } from '../services/socket.service'
 import { HiMiniXMark } from "react-icons/hi2"
 import { eventBus,  showSuccessMsg } from '../services/event-bus.service'
 
@@ -16,14 +15,6 @@ export function UserMsg() {
         clearTimeout(timeoutIdRef.current)
       }
       timeoutIdRef.current = setTimeout(closeMsg, 3000)
-    })
-
-    socketService.on(SOCKET_EVENT_ORDER_FROM_YOU, (userName) => {
-      showSuccessMsg(`New order from ${userName}`)
-    })
-
-    socketService.on(SOCKET_EMIT_ORDER_WATCH, ({ sellerName, status }) => {
-      showSuccessMsg(`Your order from ${sellerName} was ${status}`)
     })
 
   }, [])

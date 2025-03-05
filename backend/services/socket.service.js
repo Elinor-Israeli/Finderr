@@ -1,43 +1,19 @@
 const logger = require('./logger.service')
 const gigService = require("../api/gig/gig.service")
-
+const { Server } = require('socket.io');
 
 var gIo = null
 
 function setupSocketAPI(http) {
-    gIo = require('socket.io')(http, {
+    gIo = new Server(http, {
         cors: {
             origin: '*',
         }
-    })
+    });
     gIo.on('connection', socket => {
         logger.info(`New connected socket [id: ${socket.id}]`)
         socket.on('disconnect', socket => {
             logger.info(`Socket disconnected [id: ${socket.id}]`)
-        })
-        // Join room
-        socket.on('chat-set-topic', topic => {
-            if (socket.myTopic === topic) return
-            if (socket.myTopic) {
-                socket.leave(socket.myTopic)
-                logger.info(`Socket is leaving topic ${socket.myTopic} [id: ${socket.id}]`)
-            }
-            socket.join(topic)
-            console.log("topic - gig Id", topic)
-            socket.myTopic = topic
-        })
-        socket.on('chat-send-msg', msg => {
-            logger.info(`New chat msg from socket [id: ${socket.id}], emitting to topic ${socket.myTopic}`)
-            // emits to all sockets:
-            // gIo.emit('chat addMsg', msg)
-            // emits only to sockets in the same room
-            gigService.addMsgToChat(msg, socket.myTopic)
-
-            gIo.to(socket.myTopic).emit('chat-add-msg', msg)
-        })
-        socket.on('user-watch', userId => {
-            logger.info(`user-watch from socket [id: ${socket.id}], on user ${userId}`)
-            socket.join('watching:' + userId)
         })
         socket.on('set-user-socket', userId => {
             logger.info(`Setting socket.userId = ${userId} for socket [id: ${socket.id}]`)
@@ -47,35 +23,7 @@ function setupSocketAPI(http) {
             logger.info(`Removing socket.userId for socket [id: ${socket.id}]`)
             delete socket.userId
         })
-        socket.on('order-added', data => {
-            const { buyerName, sellerId } = data
-            emitToUser({ type: 'order-from-you', data: buyerName, userId: sellerId })
-        })
-        socket.on('order-updated', data => {
-            const { sellerName, status, buyerId } = data
-            emitToUser({ type: 'order-watch', data: { sellerName, status }, userId: buyerId })
-        })
-
-        socket.on('chat-user-typing', user => {
-            logger.info(`User is typing from socket [id: ${socket.id}], emitting to topic ${socket.myTopic}`)
-            socket.broadcast.to(socket.myTopic).emit('chat-add-typing', user)
-            // broadcast({ type: 'chat typing', data: user, room: socket.toyId, userId: socket.userId })
-        })
-
-        socket.on('chat-stop-typing', user => {
-            logger.info(`User has stopped typing from socket [id: ${socket.id}], emitting to topic ${socket.myTopic}`)
-            socket.broadcast.to(socket.myTopic).emit('chat-remove-typing', user)
-            // broadcast({ type: 'chat stop-typing', data: user, room: socket.toyId, userId: socket.userId })
-        })
-
-
-
     })
-}
-
-function emitTo({ type, data, label }) {
-    if (label) gIo.to('watching:' + label.toString()).emit(type, data)
-    else gIo.emit(type, data)
 }
 
 async function emitToUser({ type, data, userId }) {
@@ -137,8 +85,6 @@ function _printSocket(socket) {
 module.exports = {
     // set up the sockets service and define the API
     setupSocketAPI,
-    // emit to everyone / everyone in a specific room (label)
-    emitTo,
     // emit to a specific user (if currently active in system)
     emitToUser,
     // Send to all sockets BUT not the current socket - if found

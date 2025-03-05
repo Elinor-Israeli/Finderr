@@ -7,7 +7,7 @@ ___
 
 ### Table of Contents
 - [Finderr Description](#finderr-description)
-- [Application Features](#gig-features)
+- [Application Features](#application-features)
 - [Technologies](#technologies-used)
 - [Getting started](#getting-started)
 - [Showcase](#showcase)
@@ -30,9 +30,11 @@ Sellers can update their offerings, set prices, and monitor performance, while b
 
 This platform streamlines the process for both buyers and sellers, ensuring a smooth and efficient experience.
 
-## Gig Features
+## Application Features
 Custom Gig Creation & Management: 
 - Create and manage your gig listings with ease. You can update titles, descriptions, pricing, and add relevant details to ensure your services stand out.
+- Order Management: Order and pay for gigs and track the order by both the buyer and sellers.
+- Search gigs: Allow ability to search gigs by different parameters.
 - Easy Authentication: Sign in using and login, ensuring your account is secure and easy to access.
 
 ## Technologies Used

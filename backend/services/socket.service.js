@@ -1,6 +1,6 @@
 const logger = require('./logger.service')
 const gigService = require("../api/gig/gig.service")
-const { Server } = require('socket.io');
+const { Server } = require('socket.io')
 
 var gIo = null
 

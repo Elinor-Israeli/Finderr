@@ -21,6 +21,7 @@ export const SOCKET_EVENT_ORDER_UPDATED = 'order-updated'
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
+/* eslint-disable no-undef */
 const BASE_URL = process.env.NODE_ENV === 'production'  
     ? import.meta.env.VITE_API_URL
     : '//localhost:3033/'

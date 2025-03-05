@@ -12,6 +12,8 @@ export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
 export const SOCKET_EMIT_NEW_MSG = 'chat-new-msg'
 
 export const SOCKET_EVENT_ORDER_ADDED = 'order-added'
+export const SOCKET_EVENT_ORDER_ADDED_TO_DASHBOARD = 'order-added-to-dashboard'
+export const SOCKET_EVENT_ORDER_UPDATE_STATUS = 'order-update-status'
 export const SOCKET_EVENT_ORDER_FROM_YOU = 'order-from-you'
 export const SOCKET_EVENT_TYPING = 'chat-add-typing';
 export const SOCKET_EVENT_STOP_TYPING = 'chat-remove-typing';

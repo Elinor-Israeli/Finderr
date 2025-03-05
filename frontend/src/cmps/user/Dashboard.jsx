@@ -8,7 +8,7 @@ import { loadOrdersSeller } from '../../store/actions/order.actions'
 import { Loader } from '../Loader'
 import { socketService , SOCKET_EVENT_ORDER_ADDED} from '../../services/socket.service'
 
-export default function UserSellerTable() {
+export default function Dashboard() {
 
   let orders = useSelector((storeState) => storeState.orderModule.sellerOrders)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
@@ -30,7 +30,6 @@ export default function UserSellerTable() {
 
   useEffect(() => {
     socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
-      console.log("New order received:", order)
       dispatch(getActionAddOrderSeller(order))
     })
 

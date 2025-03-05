@@ -10,7 +10,7 @@ import { GigPayment } from './pages/gig/GigPayment'
 import { UserIndex } from './pages/UserIndex'
 import UserWishList from './pages/UserWishList'
 import { UserMsg } from './cmps/UserMsg'
-import UserSellerTable from './cmps/user/UserSellerTable'
+import Dashboard from './cmps/user/Dashboard'
 
 export function RootCmp() {
     const { pathname } = useLocation()
@@ -24,7 +24,7 @@ export function RootCmp() {
             <main>
                 <Routes>
                     <Route path="" element={<HomePage/>} />
-                    <Route path="/dashboard" element={<UserSellerTable />}/>
+                    <Route path="/dashboard" element={<Dashboard />}/>
                     <Route path="/gig" element={<GigIndex />} />
                     <Route path="/gig/:gigId" element={<GigDetails />} />
                     <Route path="/gig/edit/:gigId" element={<GigEdit />} />

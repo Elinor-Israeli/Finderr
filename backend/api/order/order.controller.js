@@ -36,6 +36,7 @@ async function addOrder(req, res) {
         logger.info(`${req.loggedinUser.fullname} added order  ${order._id} successfully`)
         logger.info(`userId to send emitToUser to ${order.seller._id}`)
         socketService.emitToUser({ type: 'order-added', data: order, userId: order.seller._id })
+        socketService.emitToUser({ type: 'order-added-to-dashboard', data: order, userId: order.seller._id })
         res.send(order)
     } catch (err) {
         logger.error('Failed to add order', err)
@@ -58,6 +59,8 @@ async function updateOrder(req, res) {
         logger.info(`Update order ${order._id} of ${req.loggedinUser.fullname}`)
         socketService.emitToUser({ type: 'order-updated', data: order, userId: order.seller._id })
         socketService.emitToUser({ type: 'order-updated', data: order, userId: order.buyer._id })
+        socketService.emitToUser({ type: 'order-update-status', data: order, userId: order.buyer._id })
+
 
 
         res.json(updatedOrder)

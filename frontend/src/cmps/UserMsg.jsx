@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import { HiMiniXMark } from "react-icons/hi2"
-import { eventBus,  showSuccessMsg } from '../services/event-bus.service' //eslint-disable-line no-unused-vars
+import { eventBus,  showSuccessMsg } from '../services/event-bus.service' 
+import { socketService, SOCKET_EVENT_ORDER_ADDED_TO_DASHBOARD, SOCKET_EVENT_ORDER_UPDATE_STATUS } from '../services/socket.service' 
 
 export function UserMsg() {
   const [msg, setMsg] = useState(null)
   const timeoutIdRef = useRef()
 
   useEffect(() => {
-    eventBus.on('show-msg', (msg) => {
+    const unsubscribe = eventBus.on('show-msg', (msg) => {
       setMsg(msg)
       window.scrollTo({ top: 0, behavior: 'smooth' })
       if (timeoutIdRef.current) {
@@ -16,6 +17,21 @@ export function UserMsg() {
       }
       timeoutIdRef.current = setTimeout(closeMsg, 3000)
     })
+
+    socketService.on(SOCKET_EVENT_ORDER_ADDED_TO_DASHBOARD, order => {
+      console.log("New order received:", order) 
+			showSuccessMsg(`You have a new order from ${order.buyer.fullname}`)
+		})
+    socketService.on(SOCKET_EVENT_ORDER_UPDATE_STATUS, (updatedOrder) => {
+      console.log("Order status updated:", updatedOrder) 
+      showSuccessMsg(`The status of your order has been updated to: ${updatedOrder.status}`)
+    })
+
+    return () => {
+			unsubscribe()
+			socketService.off(SOCKET_EVENT_ORDER_ADDED_TO_DASHBOARD)
+      socketService.off(SOCKET_EVENT_ORDER_UPDATE_STATUS)
+		}
 
   }, [])
 

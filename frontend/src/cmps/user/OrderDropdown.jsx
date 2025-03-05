@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import moment from 'moment'
-import { updateOrderBuyer,getActionAddOrderBuyer } from '../../store/actions/order.actions'
+import { getActionAddOrderBuyer } from '../../store/actions/order.actions'
 import { loadOrdersBuyer } from '../../store/actions/order.actions'
 import { Loader } from '../Loader'
 import { socketService , SOCKET_EVENT_ORDER_UPDATED} from '../../services/socket.service'

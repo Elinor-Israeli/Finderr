@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export function GigCard({ gig, onSetChat }) {
+export function GigCard({ gig }) {
     const [program, setProgram] = useState(1)
 
     function handleProgram(num) {

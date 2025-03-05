@@ -15,7 +15,7 @@ export function UserDetails() {
     loadUser(params.id)
   }, [params.id])
 
-  function onUserUpdate(user) {
+  function onUserUpdate(user) { // eslint-disable-line no-unused-vars
     showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
     store.dispatch({ type: 'SET_WATCHED_USER', user })
   }

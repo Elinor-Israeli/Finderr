@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { HiMiniXMark } from "react-icons/hi2"
-import { eventBus,  showSuccessMsg } from '../services/event-bus.service'
+import { eventBus,  showSuccessMsg } from '../services/event-bus.service' //eslint-disable-line no-unused-vars
 
 export function UserMsg() {
   const [msg, setMsg] = useState(null)

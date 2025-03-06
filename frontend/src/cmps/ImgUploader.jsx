@@ -8,6 +8,7 @@ export function ImgUploader({ onUploaded = null }) {
     width: 500,
   })
   const [, setIsUploading] = useState(false)
+  
 
   async function uploadImg(ev) {
     setIsUploading(true)
@@ -16,5 +17,5 @@ export function ImgUploader({ onUploaded = null }) {
     setIsUploading(false)
     onUploaded && onUploaded(secure_url)
   }
-  return <input type="file" onChange={uploadImg} accept="img/*" id="imgUpload" />
+  return <input style={{ fontFamily :'Macan', fontSize:'12px'}} type="file" onChange={uploadImg} accept="img/*" id="imgUpload" />
 }

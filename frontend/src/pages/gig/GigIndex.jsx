@@ -92,11 +92,7 @@ export function GigIndex() {
 
 
     function getCategoryName(categories) {
-        console.log('categories', categories)
-        // const categoryList = categories.split(',').map(cat => cat.trim().toLowerCase())
         const categoryList = categories.split(',')
-        console.log('categoryList', categoryList)
-
 
         switch (true) {
             case categoryList.includes('graphic-design') || categoryList.includes('design') || categoryList.includes('logo-design') || categoryList.includes('logo'):
@@ -214,7 +210,6 @@ export function GigIndex() {
 
         }
     }
-    console.log('headline', getCategoryName(searchParams.get('categories')))
     return (
         <section className="gig-index full ">
             <GigBreadcrumbs />

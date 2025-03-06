@@ -95,7 +95,7 @@ export function GigEdit() {
                         <div className='gig-edit-form-wrapper'>
                             <div className="gig-form-title">
                                 <label htmlFor="title">Gig title</label>
-                                <Field type="text" id="title" name="title" placeholder="I will..." onChange={(e) => {
+                                <Field type="text" id="title" style={{ fontFamily :'Macan', fontSize:'16px' }} name="title" placeholder="I will..." onChange={(e) => {
                                     gigToEdit.title = e.target.value
                                     setFieldValue("title", e.target.value)
                                 }} ></Field>
@@ -104,7 +104,7 @@ export function GigEdit() {
 
                             <div className="gig-form-description">
                                 <label htmlFor="description">Gig description</label>
-                                <Field as="textarea" type="text" id="description" name="description" onChange={(e) => {
+                                <Field as="textarea" type="text" id="description" name="description" style={{ fontFamily :'Macan', fontSize:'16px'}}  onChange={(e) => {
                                     gigToEdit.description = e.target.value
                                     setFieldValue("description", e.target.value)
                                 }} ></Field>
@@ -114,12 +114,12 @@ export function GigEdit() {
                             <div className="gig-form-category">
                                 <label htmlFor="tags">Category</label>
                                 <div className="gig-form-category1">
-                                    <Field as={Select} name='tags' value={gigToEdit.tags[0] || ''} onChange={(e) => {
+                                    <Field as={Select} name='tags' style={{ fontFamily :'Macan', fontSize:'16px'}}  value={gigToEdit.tags[0] || ''} onChange={(e) => {
                                         updateTags(e)
                                         setFieldValue("tags", e.target.value)
                                     }} >
                                         {tags.map((tag) => (
-                                            <MenuItem key={tag.key} value={tag.value}>
+                                            <MenuItem key={tag.key} value={tag.value} style={{ fontFamily :'Macan', fontSize:'16px'}} >
                                                 {tag.name}
                                             </MenuItem>))}
                                     </Field>
@@ -127,12 +127,12 @@ export function GigEdit() {
                                 </div>
 
                                 <div className="gig-form-category2">
-                                    <Field as={Select} name='tags2' value={gigToEdit.tags[1] || ''} onChange={(e) => {
+                                    <Field as={Select} name='tags2' style={{ fontFamily :'Macan', fontSize:'16px'}} value={gigToEdit.tags[1] || ''} onChange={(e) => {
                                         updateTags(e)
                                         setFieldValue("tags", e.target.value)
                                     }} >
                                         {tags.map((tag) => (
-                                            <MenuItem key={tag.key + '1'} value={tag.value}>
+                                            <MenuItem key={tag.key + '1'} value={tag.value} style={{ fontFamily :'Macan', fontSize:'16px'}} >
                                                 {tag.name}
                                             </MenuItem>))}
                                     </Field>
@@ -143,7 +143,7 @@ export function GigEdit() {
                             <div className="gig-form-inputs">
                                 <div className="gig-form-price">
                                     <label htmlFor="price">Price</label>
-                                    <Field name="price" id="price" label="price" onChange={(e) => {
+                                    <Field name="price" id="price" label="price" style={{ fontFamily :'Macan', fontSize:'16px'}} onChange={(e) => {
                                         gigToEdit.price = +e.target.value
                                         setFieldValue("price", +e.target.value)
                                     }} ></Field>
@@ -152,13 +152,13 @@ export function GigEdit() {
 
                                 <div className="gig-form-days">
                                     <label htmlFor="daysToMake">Days to make</label>
-                                    <Field as={Select} name='daysToMake' onChange={(e) => {
+                                    <Field as={Select} name='daysToMake' style={{ fontFamily :'Macan', fontSize:'16px'}}  onChange={(e) => {
                                         gigToEdit.daysToMake = +e.target.value
                                         setFieldValue("daysToMake", +e.target.value)
                                     }}>
-                                        <MenuItem value='1'>Express</MenuItem>
-                                        <MenuItem value='3'>Up to 3 days</MenuItem>
-                                        <MenuItem value='7'>Up to 7 days</MenuItem>
+                                        <MenuItem value='1' style={{ fontFamily :'Macan', fontSize:'16px'}} >Express</MenuItem>
+                                        <MenuItem value='3'style={{ fontFamily :'Macan', fontSize:'16px'}} >Up to 3 days</MenuItem>
+                                        <MenuItem value='7' style={{ fontFamily :'Macan', fontSize:'16px'}} >Up to 7 days</MenuItem>
                                     </Field>
                                     {errors.daysToMake && touched.daysToMake ? <div>Please select an option</div> : null}
                                 </div>
@@ -167,7 +167,7 @@ export function GigEdit() {
                             {gigToEdit.imgUrl && <ul className="upload-img-list">{gigToEdit.imgUrl.map((img, index) => <li key={index} className="upload-img-gig"><img src={img} /></li>)}</ul>}
                         </div >
                         <div className="gig-edit-btn-wrapper">
-                            <Button variant='contained' type='submit'>Submit</Button>
+                            <Button variant='contained' style={{ fontFamily :'Macan', fontSize:'16px'}}  type='submit'>Submit</Button>
                         </div>
                     </Form >
                 )

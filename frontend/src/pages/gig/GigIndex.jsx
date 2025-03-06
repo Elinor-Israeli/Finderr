@@ -60,7 +60,7 @@ export function GigIndex() {
         }
 
         navigate(`/gig?${queryParams.toString()}`, { replace: true }) //This prevents the filter updates from cluttering the browser history, making the back button behave as expected.
-        
+
     }, [dispatch, navigate])
 
 
@@ -92,7 +92,12 @@ export function GigIndex() {
 
 
     function getCategoryName(categories) {
+        console.log('categories', categories)
+        // const categoryList = categories.split(',').map(cat => cat.trim().toLowerCase())
         const categoryList = categories.split(',')
+        console.log('categoryList', categoryList)
+
+
         switch (true) {
             case categoryList.includes('graphic-design') || categoryList.includes('design') || categoryList.includes('logo-design') || categoryList.includes('logo'):
                 return {
@@ -139,11 +144,77 @@ export function GigIndex() {
                     headline: 'Trending',
                     secondHeadline: 'Stay ahead of the curve with the latest trending services.'
                 }
+            case categoryList.includes('website'):
+                return {
+                    headline: 'Website',
+                    secondHeadline: 'Create stunning, high-performing websites that captivate and convert.'
+                }
+            case categoryList.includes('logo-design'):
+                return {
+                    headline: 'Logo Design',
+                    secondHeadline: 'Create a lasting impression with a unique and professional logo design.'
+                }
+            case categoryList.includes('seo'):
+                return {
+                    headline: 'SEO',
+                    secondHeadline: 'Boost your search rankings and drive organic traffic with expert SEO strategies.'
+                }
+            case categoryList.includes('architecture-'):
+                return {
+                    headline: 'Architecture & Interior Design',
+                    secondHeadline: 'Transform spaces with innovative architectural and interior design solutions.'
+                }
+            case categoryList.includes('ml'):
+                return {
+                    headline: 'Data Science & ML',
+                    secondHeadline: 'Harness AI-powered solutions to drive innovation and efficiency.'
+
+                }
+            case categoryList.includes('product'):
+                return {
+                    headline: 'Product & Photography',
+                    secondHeadline: 'Capture stunning visuals that tell your story with professional photography.'
+                }
+
+            case categoryList.includes('e-commerce'):
+                return {
+                    headline: 'Marketing & E-Commerce',
+                    secondHeadline: 'Engage your audience and grow your brand with strategic marketing solutions.'
+                }
+            case categoryList.includes('voice-over'):
+                return {
+                    headline: 'Voice Over',
+                    secondHeadline: 'Bring your scripts to life with professional and captivating voice overs.'
+                }
+            case categoryList.includes('video-editing'):
+                return {
+                    headline: 'Video Editing',
+                    secondHeadline: 'Turn raw footage into compelling stories with expert video editing.'
+                }
+            case categoryList.includes('social-media'):
+                return {
+                    headline: 'Social Media',
+                    secondHeadline: 'Amplify your brand’s voice and connect with your audience through social media.'
+                }
+            case categoryList.includes('ugc-videos'):
+                return {
+                    headline: 'UGC Videos',
+                    secondHeadline: 'Engage your audience with authentic and high-quality user-generated content videos.'
+                }
+            case categoryList.includes('software'):
+                return {
+                    headline: 'Software Development',
+                    secondHeadline: 'Build cutting-edge software solutions tailored to your needs.'
+                }
             default:
+            return { 
+                headline: 'Explore Our Services', 
+                secondHeadline: 'Find the perfect service tailored to your needs.' 
+            }
 
         }
     }
-
+    console.log('headline', getCategoryName(searchParams.get('categories')))
     return (
         <section className="gig-index full ">
             <GigBreadcrumbs />
@@ -168,7 +239,7 @@ export function GigIndex() {
             </div>
 
             {isLoading ? (
-               <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Thumbnail not available" />
+                <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Thumbnail not available" />
             ) : gigs.length > 0 ? (
                 <p>{gigs.length}+ results</p>
             ) : (

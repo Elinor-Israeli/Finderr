@@ -15,7 +15,7 @@ export function IndexHeader() {
   const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
   const elInputRef = useRef(null)
   const [, setIsCategoryMenuVisible] = useState(false)
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false)
   const [, setShowSearch] = useState(false)
   const loginUser = userService.getLoggedinUser()
   const [, setHeaderClassName] = useState('')

@@ -1,5 +1,5 @@
 import { store } from '../store'
-import {  SET_USER, SET_WATCHED_USER, UPDATE_USER } from './user.reducer'
+import {  SET_USER, UPDATE_USER } from './user.reducer'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { userService } from '../../services/user/user.service.remote'
 import { showErrorMsg } from '../../services/event-bus.service' 
@@ -58,22 +58,6 @@ export async function logout() {
     } catch (err) {
         console.log('Cannot logout', err)
         throw err
-    }
-}
-
-export async function loadWatchedUser(userId) {
-    store.dispatch({type: LOADING_START})
-    console.log('loadWatchedUser', userId)
-    
-
-    try {
-        const watchedUser = await userService.getById(userId)
-        store.dispatch({ type: SET_WATCHED_USER, watchedUser })
-    } catch (err) {
-        showErrorMsg('Cannot load user')
-        console.log('Cannot load user', err)
-    }finally {
-        store.dispatch({ type: LOADING_DONE })
     }
 }
 

@@ -24,8 +24,6 @@ async function updateUser(req, res) {
             return res.status(403).send({ err: 'You are not authorized to update this order' })
         }
         const savedUser = await userService.update(user)
-        loggedinUser.imgUrl = savedUser.imgUrl
-        loggedinUser.aboutMe = savedUser.aboutMe
         logger.info(`Updated user ${req.loggedinUser.fullname} information`)
         res.send(savedUser)
     } catch (err) {

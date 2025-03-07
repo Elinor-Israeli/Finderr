@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { GigPreview } from '../gig/GigPreview'
 import { userService } from '../../services/user/user.service.remote'
 
-export function UserList({ gigs, onRemoveGig, user }) {
+export function UserGigList({ gigs, onRemoveGig, user }) {
   const loginUser = userService.getLoggedinUser()
   const isLoggedInUser = loginUser && loginUser._id === user?._id
 

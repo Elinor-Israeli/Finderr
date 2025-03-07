@@ -40,7 +40,7 @@ Custom Gig Creation & Management:
 ## Technologies Used
 This open-source marketplace platform is built using the MERN stack **(MongoDB, Express, React, Node.js)** along with **Vite** for blazing-fast frontend development and optimized bundling.
 
-It leverages the latest web technologies, including ** REST APIs** for backend communication, ensuring seamless interaction between users.
+It leverages the latest web technologies, including **REST APIs** and **WebSockets** (Socket.IO) for backend communication, ensuring seamless interaction between users.
 
 The platform features robust authentication methods for secure logins, and images are efficiently stored and retrieved using **Cloudinary** for optimal performance.
 

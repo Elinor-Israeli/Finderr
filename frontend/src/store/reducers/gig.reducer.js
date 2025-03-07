@@ -7,7 +7,6 @@ export const REMOVE_GIG = 'REMOVE_GIG'
 export const ADD_GIG = 'ADD_GIG'
 export const UPDATE_GIG = 'UPDATE_GIG'
 export const SET_FILTER = 'SET_FILTER'
-export const SET_SORT = 'SET_SORT'
 
 const initialState = {
     gigs: [],
@@ -42,9 +41,6 @@ export function gigReducer(state = initialState, action) {
         }
         case SET_FILTER:
             newState = { ...state, filterBy: action.filterBy }
-            break
-        case SET_SORT:
-            newState = { ...state, sortBy: action.sortBy }
             break
         default:
     }

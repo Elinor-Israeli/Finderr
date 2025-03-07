@@ -12,7 +12,6 @@ export const gigService = {
     getEmptyGig,
     getDefaultFilter,
     getGigSlides,
-    getGigSelling,
 }
 
 window.cs = gigService
@@ -149,28 +148,6 @@ function getGigSlides() {
         }
     ]
 }
-
-function getGigSelling() {
-    return [
-        {
-            title: 'Dedicated hiring experts',
-            desc: 'Count on an account manager to find you the right talent and see to your project’s every need.'
-        },
-        {
-            title: 'Satisfaction guarantee',
-            desc: 'Order confidently, with guaranteed refunds for less-than-satisfactory deliveries.'
-        },
-        {
-            title: 'Advanced management tools',
-            desc: 'Seamlessly integrate freelancers into your team and projects.'
-        },
-        {
-            title: 'Flexible payment models',
-            desc: 'Pay per project or opt for hourly rates to facilitate longer-term collaboration.'
-        }
-    ]
-}
-
 
 function _createGigs() { // eslint-disable-line no-unused-vars
     let gigs = utilService.loadFromStorage(STORAGE_KEY)

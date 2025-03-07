@@ -1,6 +1,6 @@
 import { legacy_createStore as createStore, combineReducers } from 'redux'
 import { gigReducer } from './reducers/gig.reducer' 
-import { userReducer } from './user/user.reducer' 
+import { userReducer } from './reducers/user.reducer' 
 import { systemReducer } from './reducers/system.reducer'
 import { orderReducer } from './reducers/order.reducer'
 

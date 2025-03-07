@@ -8,9 +8,7 @@ export const gigService = {
     remove,
     getEmptyGig,
     getDefaultFilter,
-    getGigSelling,
     getGigSlides,
-    addGigMsg,
     toggleWishlist
 }
 window.cs = gigService
@@ -43,11 +41,6 @@ async function update(gig) {
     return updatedGig
 }
 
-async function addGigMsg(gigId, txt) {
-    const savedMsg = await httpService.post(`gig/${gigId}/msg`, { txt })
-    return savedMsg
-}
-
 async function toggleWishlist(gigId) {
     try {
         const gig = { gigId }
@@ -59,7 +52,6 @@ async function toggleWishlist(gigId) {
         throw new Error('Failed to update wishlist')
     }
 }
-
 
 function getGigSlides() {
     return [
@@ -123,27 +115,6 @@ function getGigSlides() {
             url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156494/video-editing.png",
             desc: "\u200B",
             category: 'Video Editing'
-        }
-    ]
-}
-
-function getGigSelling() {
-    return [
-        {
-            title: 'Dedicated hiring experts',
-            desc: 'Count on an account manager to find you the right talent and see to your project’s every need.'
-        },
-        {
-            title: 'Satisfaction guarantee',
-            desc: 'Order confidently, with guaranteed refunds for less-than-satisfactory deliveries.'
-        },
-        {
-            title: 'Advanced management tools',
-            desc: 'Seamlessly integrate freelancers into your team and projects.'
-        },
-        {
-            title: 'Flexible payment models',
-            desc: 'Pay per project or opt for hourly rates to facilitate longer-term collaboration.'
         }
     ]
 }

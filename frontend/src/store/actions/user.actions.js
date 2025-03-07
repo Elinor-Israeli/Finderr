@@ -1,5 +1,5 @@
 import { store } from '../store'
-import {  SET_USER, UPDATE_USER } from './user.reducer'
+import {  SET_USER, UPDATE_USER } from '../reducers/user.reducer'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { userService } from '../../services/user/user.service.remote'
 import { showErrorMsg } from '../../services/event-bus.service' 

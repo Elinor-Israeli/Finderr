@@ -204,8 +204,8 @@ export function GigIndex() {
                 }
             default:
             return { 
-                headline: 'Explore Our Services', 
-                secondHeadline: 'Find the perfect service tailored to your needs.' 
+                headline: 'Browse, Hire, and Get Things Done', 
+                secondHeadline: 'Hire experts in design, writing, marketing, tech, and more - all in one place!'
             }
 
         }
@@ -217,14 +217,14 @@ export function GigIndex() {
                 {
                     searchParams.get('categories')
                         ? `Results for ${getCategoryName(searchParams.get('categories')).headline}`
-                        : 'Browse, Hire, and Get Things Done'
+                        : getCategoryName('')?.headline
                 }
             </h1>
             <p className="topic-explain">
                 {
                     searchParams.get('categories')
                         ? ` ${getCategoryName(searchParams.get('categories')).secondHeadline}`
-                        : 'Hire experts in design, writing, marketing, tech, and more - all in one place!'
+                        : getCategoryName('')?.secondHeadline
                 }
             </p>
             <div className={`${filterAndSort}`}>

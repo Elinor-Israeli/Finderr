@@ -97,7 +97,7 @@ export function GigCard({ gig }) {
 
                 {program === 2 && (
                     <div className="gig-program-info">
-                        <h2 className="gig-program-price">${gig.price + generateRandom(10, 50, true)}</h2>
+                        <h2 className="gig-program-price">${gig.price*2}</h2>
                         <p className='dec-gig'>
                             <span className="gig-program-basic">Standard2 </span>
                             {gig.title}
@@ -145,7 +145,7 @@ export function GigCard({ gig }) {
 
                 {program === 3 && (
                     <div className="gig-program-info">
-                        <h2 className="gig-program-price">${gig.price + Math.floor(Math.random() * (75 - 25 + 1)) + 25}</h2>
+                        <h2 className="gig-program-price">${gig.price*3}</h2>
                         <p className='dec-gig'>
                             <span className="gig-program-basic">Premium 3 </span>
                             {gig.title}

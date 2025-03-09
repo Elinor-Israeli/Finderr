@@ -19,8 +19,8 @@ function PricingTable({ gig }) {
                             <p style={{ marginTop: '-1.25em' }}>Package</p>
                         </th>
                         <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${gig.price}</p> Basic </th>
-                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${gig.price + generateRandom(10, 50, true)}</p> Standard</th>
-                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${gig.price + generateRandom(60, 90, true)}</p> Premium</th>
+                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${gig.price * 2}</p> Standard</th>
+                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${gig.price * 3}</p> Premium</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -80,9 +80,10 @@ function PricingTable({ gig }) {
                     </tr>
                     <tr style={{ backgroundColor: 'white' }}>
                         <td style={{ textAlign: 'center' }}></td>
-                        <td style={{ textAlign: 'center' }}><button><Link to={`/payment/${gig._id}`}>Select</Link></button></td>
-                        <td style={{ textAlign: 'center' }}><button>Select</button></td>
-                        <td style={{ textAlign: 'center' }}><button>Select</button></td>
+                        <td style={{ textAlign: 'center' }}><button><Link to={`/payment/${gig._id}?price=${gig.price}`}>Select</Link></button></td>
+                        <td style={{ textAlign: 'center' }}><button> <Link to={`/payment/${gig._id}?price=${gig.price * 2}`}>Select</Link></button></td>
+                        <td style={{ textAlign: 'center' }}><button><Link to={`/payment/${gig._id}?price=${gig.price * 3}`}>Select</Link>
+                        </button></td>
                     </tr>
                 </tbody>
             </table>

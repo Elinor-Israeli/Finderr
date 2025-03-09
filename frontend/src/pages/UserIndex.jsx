@@ -19,7 +19,7 @@ export function UserIndex() {
     const [user, setUser] = useState()
 
     useEffect(() => {
-        if (loggedinUser._id === userId) {
+        if (loggedinUser?._id === userId) {
             loadUser(userId)
             loadUserGigs(userId)
         }
@@ -30,15 +30,17 @@ export function UserIndex() {
             const userInfo = await userService.getById(userId)
             setUser(userInfo)
         }
-        if (loggedinUser._id !== userId) {
+        if (loggedinUser?._id !== userId) {
             fetchData()
         }
     }, [userId, loggedinUser])
 
-    const displayedUser = loggedinUser._id === userId ?  loggedinUser : user
-    console.log('displayedUser', displayedUser)
-    console.log('loggedinUser', loggedinUser);
-    console.log('user', user);
+    console.log('user', user)
+    console.log('loggedinUser', loggedinUser)
+
+    // const displayedUser = loggedinUser._id === userId ? loggedinUser : user
+    const displayedUser = loggedinUser?._id === userId ? loggedinUser : user
+
 
     useEffect(() => {
         const updateTime = () => {
@@ -75,7 +77,7 @@ export function UserIndex() {
         <section className="user-index">
             <aside className="user-info">
                 <UserProfile user={displayedUser} />
-                {loggedinUser._id === userId && gigs && <UserGigList gigs={gigs} onRemoveGig={onRemoveGig} user={displayedUser} />}
+                {loggedinUser?._id === userId && gigs && <UserGigList gigs={gigs} onRemoveGig={onRemoveGig} user={displayedUser} />}
             </aside>
         </section>
     )

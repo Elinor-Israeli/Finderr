@@ -1,6 +1,6 @@
 const express = require('express')
 const { requireAuth, requireAdmin } = require('../../middlewares/requireAuth.middleware')
-const { log } = require('../../middlewares/logger.middleware')
+const { log } = require('../../middlewares/logger.middleware.js')
 const { getGigs, getGigById, addGig, updateGig, removeGig, AddAndRemoveToWishlist} = require('./gig.controller')
 const router = express.Router()
 

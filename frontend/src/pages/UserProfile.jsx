@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { IoLocationOutline } from "react-icons/io5"
 import { updateUser } from '../store/actions/user.actions'
 import { userService } from '../services/user/user.service.remote'
 import { uploadService } from '../services/upload.service'
 
 export function UserProfile({ user }) {
+  console.log('UPuser', user);
+
   const loginUser = userService.getLoggedinUser()
   const [aboutMe, setAboutMe] = useState('')
   const [isEditingProfile, setIsEditingProfile] = useState(false)
@@ -13,6 +15,10 @@ export function UserProfile({ user }) {
   const [fileName,] = useState('')
 
   const isSameUser = user._id === loginUser?._id
+
+  useEffect(() => {
+    setProfileImage(user?.imgUrl || '')
+  }, [user])
 
   function onAboutMeChange(event) {
     setAboutMe(event.target.value)
@@ -55,7 +61,6 @@ export function UserProfile({ user }) {
     }
   }
 
-
   async function onImageSubmit() {
     const updatedUser = {
       ...user,
@@ -86,7 +91,11 @@ export function UserProfile({ user }) {
                 </button>
               </>
             )}
-            {!isSameUser && <img src={user?.imgUrl} alt="profile" />}
+            {!isSameUser && (
+              <>
+                <img src={user?.imgUrl} alt="profile" />
+              </>
+            )}
           </div>
           <div style={{ marginLeft: '20px', fontFamily: 'Macan' }}>
             <h2 style={{ fontSize: '30px', color: '#222325' }}>{user?.username}</h2>
@@ -99,9 +108,12 @@ export function UserProfile({ user }) {
 
             </div>
           </div>
-          <div className='info-profile-details'>
-            {isSameUser && <button className='edit-profile-btn' onClick={toggleEditProfile}>Edit Profile</button>}
-          </div>
+          {isSameUser && (
+            <div className='info-profile-details'>
+              <button className='edit-profile-btn' onClick={toggleEditProfile}>Edit Profile</button>
+            </div>
+          )
+          }
         </div>
 
         {isEditingProfile && (

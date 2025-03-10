@@ -18,6 +18,8 @@ export function GigPayment() {
     const queryParams = new URLSearchParams(location.search)
     const price = parseFloat(queryParams.get('price')) || 0
     const selectedPackage  = queryParams.get('selectedPackage')  || ''
+    console.log('queryParams', queryParams);
+    
    
     useEffect(() => {
         async function loadGig() {

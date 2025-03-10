@@ -35,12 +35,7 @@ export function UserIndex() {
         }
     }, [userId, loggedinUser])
 
-    console.log('user', user)
-    console.log('loggedinUser', loggedinUser)
-
-    // const displayedUser = loggedinUser._id === userId ? loggedinUser : user
     const displayedUser = loggedinUser?._id === userId ? loggedinUser : user
-
 
     useEffect(() => {
         const updateTime = () => {

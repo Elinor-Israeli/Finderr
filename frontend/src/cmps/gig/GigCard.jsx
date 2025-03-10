@@ -80,8 +80,7 @@ export function GigCard({ gig }) {
                                 <span>Vector file</span>
                             </li>
                         </ul>
-                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}?price=${program === 1 ? gig.price : program === 2 ? gig.price * 2 : gig.price * 3}&package=${program === 1 ? 'Basic' : program === 2 ? 'Standard' : 'Premium'}`}
-                        >
+                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}?price=${gig.price}&selectedPackage=Basic`}>
                             Continue
                         </Link>
                     </div>
@@ -129,7 +128,7 @@ export function GigCard({ gig }) {
                                 <span>Vector file</span>
                             </li>
                         </ul>
-                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
+                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}?price=${gig.price*2}&selectedPackage=Standard`}>
                             Continue
                         </Link>
                     </div>
@@ -182,7 +181,7 @@ export function GigCard({ gig }) {
                                 <span>Vector file</span>
                             </li>
                         </ul>
-                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
+                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}?price=${gig.price*3}&selectedPackage=Premium`}>
                             Continue
                         </Link>
                     </div>

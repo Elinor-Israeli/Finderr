@@ -65,7 +65,7 @@ export function GigPayment() {
             gig: {
                 _id: gig._id,
                 title: gig.title,
-                price,
+                priFce,
                 imgUrl: gig.imgUrl
             },
             status: "pending",
@@ -119,7 +119,7 @@ export function GigPayment() {
                         </div>
                         <label htmlFor="firstname" className="card-left-max">
                             <span>Cardholder's name</span>
-                            <input type="text" name="firstname" value={user.fullname} />
+                            <input type="text" name="firstname" value={user?.fullname} />
                             <p>As written on card</p>
                         </label>
                         <div className="checkmark-container">

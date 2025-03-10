@@ -10,15 +10,6 @@ export function GigCard({ gig }) {
         if (num === 3) setProgram(3)
     }
 
-   let randomValue = null
-
-    function generateRandom(min = 10, max = 60, reset = false) {
-        if (reset || randomValue === null) {
-            randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        return randomValue;
-    }
-
     const randomDiscount = Math.floor(Math.random() * (25 - 5 + 1)) + 5
 
     return (
@@ -89,7 +80,8 @@ export function GigCard({ gig }) {
                                 <span>Vector file</span>
                             </li>
                         </ul>
-                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}`}>
+                        <Link className="gig-program-link-continue" to={`/payment/${gig._id}?price=${program === 1 ? gig.price : program === 2 ? gig.price * 2 : gig.price * 3}&package=${program === 1 ? 'Basic' : program === 2 ? 'Standard' : 'Premium'}`}
+                        >
                             Continue
                         </Link>
                     </div>

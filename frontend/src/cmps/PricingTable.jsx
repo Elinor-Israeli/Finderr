@@ -1,14 +1,10 @@
 import { Link } from 'react-router-dom'
 
-function PricingTable({ gig }) {
-    let randomValue = null
-    function generateRandom(min = 20, max = 90, reset = false) {
-        if (reset || randomValue === null) {
-            randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        return randomValue
-    }
-
+export function PricingTable({ gig }) {
+    
+   const basicPrice = {price: gig.price, selectedPackage :'Basic'}
+   const standardPrice = {price:gig.price*2, selectedPackage :'Standard'}
+   const premiumPrice = {price:gig.price*3, selectedPackage :'Premium'}
     return (
         <div className="pricing-table">
             <div style={{ fontSize: '20px', scrollBehavior: 'smooth' }} id="Compare packages">Compare packages</div>
@@ -18,9 +14,9 @@ function PricingTable({ gig }) {
                         <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start' }}>
                             <p style={{ marginTop: '-1.25em' }}>Package</p>
                         </th>
-                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${gig.price}</p> Basic </th>
-                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${gig.price * 2}</p> Standard</th>
-                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${gig.price * 3}</p> Premium</th>
+                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${basicPrice.price}</p> Basic </th>
+                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${standardPrice.price}</p> Standard</th>
+                        <th style={{ border: 'none', backgroundColor: 'white', textAlign: 'start', fontSize: '1.25rem', fontWeight: 'bold' }}> <p style={{ textAlign: 'start', fontSize: '1.25rem' }}>${premiumPrice.price}</p> Premium</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,10 +34,10 @@ function PricingTable({ gig }) {
                             <span>1 graphic Social</span><br />
                             <span> media post</span><br />
                             <span>ads, basic</span><br />
-                            <span> flyer, brochur</span>
+                            <span> flyer, brochure</span>
                         </td>
                         <td style={{ border: 'none', backgroundColor: 'white' }}>
-                            <p>FULL</p> <span>1-2 Pro designs</span><br />
+                            <p>FULL</p><span>1-2 Pro designs</span><br />
                             <span>with files </span><br />
                             <span>of all formats</span><br />
                             <span> illustration,</span><br />
@@ -68,22 +64,21 @@ function PricingTable({ gig }) {
                     </tr>
                     <tr style={{ backgroundColor: 'white' }}>
                         <td>Revisions</td>
-                        <td style={{ textAlign: 'center' }}>Unlimited</td>
-                        <td style={{ textAlign: 'center' }}>Unlimited</td>
+                        <td style={{ textAlign: 'center' }}>2 times </td>
+                        <td style={{ textAlign: 'center' }}>3 times</td>
                         <td style={{ textAlign: 'center' }}>Unlimited</td>
                     </tr>
                     <tr>
                         <td>Delivery Time</td>
-                        <td style={{ textAlign: 'center' }}>3 days</td>
-                        <td style={{ textAlign: 'center' }}>1 day</td>
-                        <td style={{ textAlign: 'center' }}>7 days</td>
+                        <td style={{ textAlign: 'center' }}>{gig.daysToMake} days</td>
+                        <td style={{ textAlign: 'center' }}>{gig.daysToMake} days</td>
+                        <td style={{ textAlign: 'center' }}>{gig.daysToMake - 1} days</td>
                     </tr>
                     <tr style={{ backgroundColor: 'white' }}>
                         <td style={{ textAlign: 'center' }}></td>
-                        <td style={{ textAlign: 'center' }}><button><Link to={`/payment/${gig._id}?price=${gig.price}`}>Select</Link></button></td>
-                        <td style={{ textAlign: 'center' }}><button> <Link to={`/payment/${gig._id}?price=${gig.price * 2}`}>Select</Link></button></td>
-                        <td style={{ textAlign: 'center' }}><button><Link to={`/payment/${gig._id}?price=${gig.price * 3}`}>Select</Link>
-                        </button></td>
+                        <td style={{ textAlign: 'center' }}><button><Link to={`/payment/${gig._id}?price=${basicPrice.price}&selectedPackage=${basicPrice.selectedPackage }`}>Select</Link></button></td>
+                        <td style={{ textAlign: 'center' }}><button><Link to={`/payment/${gig._id}?price=${standardPrice.price}&selectedPackage=${standardPrice.selectedPackage }`}>Select</Link></button></td>
+                        <td style={{ textAlign: 'center' }}><button><Link to={`/payment/${gig._id}?price=${premiumPrice.price}&selectedPackage=${premiumPrice.selectedPackage}`}>Select</Link></button></td>
                     </tr>
                 </tbody>
             </table>
@@ -91,4 +86,3 @@ function PricingTable({ gig }) {
     )
 }
 
-export default PricingTable

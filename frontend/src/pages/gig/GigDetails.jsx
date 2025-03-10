@@ -6,7 +6,7 @@ import { SlideDetails } from '../../cmps/slide/SlideDetails'
 import { GigCard } from '../../cmps/gig/GigCard'
 import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
 import { UserInfo } from '../../cmps/user/UserInfo'
-import PricingTable from '../../cmps/PricingTable'
+import {PricingTable }from '../../cmps/PricingTable'
 import { Loader } from '../../cmps/Loader'
 
 

@@ -65,7 +65,7 @@ export function GigPayment() {
             gig: {
                 _id: gig._id,
                 title: gig.title,
-                priFce,
+                price,
                 imgUrl: gig.imgUrl
             },
             status: "pending",

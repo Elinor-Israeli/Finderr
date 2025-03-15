@@ -1,0 +1,8 @@
+{
+    "watch": ["api", "config", "middlewares", "services"],
+    "ext": "js,ts",
+    "execMap": {
+      "ts": "ts-node -r tsconfig-paths/register",
+      "js": "node"
+    }
+  }

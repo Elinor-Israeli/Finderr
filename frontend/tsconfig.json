@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "jsx": "react-jsx"
+    },
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "strict": true,
+    "esModuleInterop": true,
+    "include": ["src/**/*.tsx"],
+    "exclude": ["node_modules", "build"]
+}

@@ -1,7 +1,17 @@
 import { useState, useEffect } from 'react'
+import type {Credentials} from '../types/User'
 
-export function LoginSignup(props) {
-    const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
+interface LoginSignupProps {
+    onCloseModal: () => void
+    isSignup: boolean
+    setIsSignup: React.Dispatch<React.SetStateAction<boolean>>
+    onSignup: (credentials: Credentials) => void
+    onLogin: (credentials: Credentials) => void
+}
+  
+
+export function LoginSignup(props: LoginSignupProps) {
+    const [credentials, setCredentials] = useState<Credentials>({ username: '', password: '', fullname: '' })
     useEffect(() => {
         document.body.classList.add('modal-open')
         return () => {
@@ -10,26 +20,26 @@ export function LoginSignup(props) {
     }, [])
 
     function clearState() {
-        setCredentials({ username: '', password: '', fullname: '', imgUrl: '' })
+        setCredentials({ username: '', password: '', fullname: '' })
         props.setIsSignup(false)
     }
 
-    function handleChange(ev) {
+    function handleChange(ev: React.ChangeEvent<HTMLInputElement>) {
         const field = ev.target.name
         const value = ev.target.value
         setCredentials({ ...credentials, [field]: value })
     }
 
-    function onLogin(ev = null) {
-        if (ev) ev.preventDefault()
+    function onLogin(ev: React.FormEvent<HTMLFormElement>) {
+        ev.preventDefault()
         if (!credentials.username) return
         props.onLogin(credentials)
         props.onCloseModal()
         clearState()
     }
 
-    function onSignup(ev = null) {
-        if (ev) ev.preventDefault()
+    function onSignup(ev: React.FormEvent<HTMLFormElement>) {
+        ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullname) return
         props.onSignup(credentials)
         props.onCloseModal()

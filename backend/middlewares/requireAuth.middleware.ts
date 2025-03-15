@@ -3,7 +3,9 @@ const logger = require('../services/logger.service')
 const config = require('../config')
 const asyncLocalStorage = require('../services/als.service')
 
-function requireAuth(req, res, next) {
+import { Request, Response, NextFunction } from 'express';
+
+function requireAuth(req: Request, res: Response, next: NextFunction) {
   // const { loggedinUser } = asyncLocalStorage.getStore()
   const loggedinUser = authService.validateToken(req.cookies.loginToken)
   console.log('now loggedinUser', loggedinUser)

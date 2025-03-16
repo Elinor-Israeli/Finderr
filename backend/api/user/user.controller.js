@@ -1,10 +1,7 @@
 const userService = require('./user.service')
 const logger = require('../../services/logger.service')
 
-import { Request, Response } from 'express';
-
-
-async function getUser(req: Request, res: Response) {
+async function getUser(req, res) {
     try {
         const user = await userService.getById(req.params.id)
         const userInfo = req.loggedinUser ? ` by user ${req.loggedinUser.fullname}` : ''

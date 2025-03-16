@@ -4,6 +4,7 @@ const userService = require('../user/user.service')
 const logger = require('../../services/logger.service')
 const cryptr = new Cryptr(process.env.SECRET1 || 'Secret-Puk-1234')
 
+
 module.exports = {
     signup,
     login,

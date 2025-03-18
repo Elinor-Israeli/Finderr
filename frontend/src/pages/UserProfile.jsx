@@ -5,8 +5,7 @@ import { userService } from '../services/user/user.service.remote'
 import { uploadService } from '../services/upload.service'
 
 export function UserProfile({ user }) {
-  console.log('UPuser', user);
-
+  
   const loginUser = userService.getLoggedinUser()
   const [aboutMe, setAboutMe] = useState('')
   const [isEditingProfile, setIsEditingProfile] = useState(false)

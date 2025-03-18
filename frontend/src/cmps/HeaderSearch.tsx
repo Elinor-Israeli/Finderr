@@ -1,11 +1,19 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, ChangeEvent, FormEvent } from 'react'
 import { gigService } from '../services/gig/gig.service.remote'
 
-export function Search({ onSetFilter }) {
-    const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
-    const elInputRef = useRef(null)
+interface Filter {
+    categories: string
+}
+
+interface HeaderSearchProps {
+    onSetFilter: (filter: Filter) => void
+}
+
+export function HeaderSearch({ onSetFilter }: HeaderSearchProps) {
+    const [filterByToEdit, setFilterByToEdit] = useState<Filter>(gigService.getDefaultFilter())
+    const elInputRef = useRef<HTMLInputElement>(null)
     const { pathname } = window.location
-    const [windowSize, setWindowSize] = useState(null)
+    const [windowSize, setWindowSize] = useState<number | null>(null)
 
     useEffect(() => {
         function handleResize() {
@@ -16,25 +24,24 @@ export function Search({ onSetFilter }) {
         return () => window.removeEventListener("resize", handleResize)
     }, [])
 
-    function handleChange({ target }) {
-        let { value, name: field, type } = target
-        value = (type === 'number') ? +value : value
-        setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+    function handleChange(event: ChangeEvent<HTMLInputElement>) {
+        const { value, name, type } = event.target
+        const updatedValue = type === 'number' ? +value : value
+        setFilterByToEdit(prevFilter => ({ ...prevFilter, [name]: updatedValue }))
     }
 
-    function onSubmitFilter(ev) {
-        ev.preventDefault()
+    function onSubmitFilter(event: FormEvent) {
+        event.preventDefault()
         onSetFilter(filterByToEdit)
     }
 
-    function onPlaceholder() {
-        let placeholder = 'Search for any service...'
+    function onPlaceholder(): string {
         if (pathname === '/') {
-            placeholder = 'Search for any service...'
-        } else if (pathname !== '/' && windowSize < 900) {
-            placeholder = 'Search for any service...'
+            return 'Search for any service...'
+        } else if (pathname !== '/' && (windowSize || 0) < 900) {
+            return 'Search for any service...'
         }
-        return placeholder
+        return 'Search for any service...'
     }
 
     return (
@@ -45,7 +52,7 @@ export function Search({ onSetFilter }) {
                 id="categories"
                 name="categories"
                 placeholder={onPlaceholder()}
-                value={filterByToEdit.categories}
+                value={filterByToEdit.categories || ''}
                 onChange={handleChange}
                 ref={elInputRef}
             />

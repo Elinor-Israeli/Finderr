@@ -1,12 +1,13 @@
 
 import { Link, useLocation, useParams } from 'react-router-dom'
+import type {Params} from '../types/User'
 
 export function GigBreadcrumbs() {
     const location = useLocation()
-    const { id, title } = useParams()
+    const { id, title } = useParams<Params>()
     const pathSegments = location.pathname.split('/').filter(Boolean)
 
-    const generateLink = (path, label) => (
+    const generateLink = (path:string , label: React.ReactNode) => (
         <Link key={path} to={`/${path}`} className="breadcrumb-link">
             {label}
         </Link>

@@ -9,7 +9,6 @@ export function ImgUploader({ onUploaded = null }) {
   })
   const [, setIsUploading] = useState(false)
 
-
   async function uploadImg(ev) {
     setIsUploading(true)
     const { secure_url, height, width } = await uploadService.uploadImg(ev)

@@ -5,7 +5,7 @@ import { SET_FILTER } from '../store/reducers/gig.reducer'
 import { useEffect, useState } from 'react'
 import { GigCategoryToolBar } from "../cmps/gig/GigCategoryToolBar"
 import { SlideList } from "../cmps/slide/SlideList"
-import { Search } from "../cmps/HeaderSearch"
+import { HeaderSearch } from "../cmps/HeaderSearch"
 import VideoPlayer from "../cmps/VideoPlayer"
 
 export function HomePage() {
@@ -62,7 +62,7 @@ export function HomePage() {
                         Scale your professional work force with freelance
                     </h1>
                     <div className="search-bar ">
-                        <Search onSetFilter={onSetFilter} />
+                        <HeaderSearch onSetFilter={onSetFilter} />
                     </div>
                     <section className="trusted-by">
                         <span>Trusted </span>

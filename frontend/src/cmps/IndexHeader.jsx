@@ -10,6 +10,7 @@ import { ModalLogin } from './ModalLogin'
 import { DropdownLogin } from './DropdownLogin'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { loadGigs } from '../store/actions/gig.actions'
+import useOnSetFilter from '../utils/hooks'
 
 export function IndexHeader() {
   const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
@@ -30,6 +31,7 @@ export function IndexHeader() {
   const [windowSize, setWindowSize] = useState(null)
   const gigs = useSelector(storeState => storeState.gigModule.gigs)
   const wishListGigs = gigs.filter(gig => gig.wishList && gig.wishList.includes(user?._id))
+  const onSetFilter = useOnSetFilter()
 
   useEffect(() => {
     function handleResize() {
@@ -103,22 +105,6 @@ export function IndexHeader() {
       placeholder = 'What service are you looking for today?'
     }
     return placeholder
-  }
-
-  function onSetFilter(filterBy) {
-    dispatch({ type: SET_FILTER, filterBy })
-
-    let categoryParams
-    let queryStringParams
-
-    if (filterBy.categories !== '') {
-      queryStringParams = `?categories=${filterBy.categories}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
-      navigate(`/gig${queryStringParams}`)
-    } else {
-      categoryParams = filterBy.tags[0] || ''
-      queryStringParams = `?categories=${categoryParams}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
-      navigate(`/gig${queryStringParams}`)
-    }
   }
 
   function onExploreClick() {
@@ -258,7 +244,7 @@ export function IndexHeader() {
                       setIsOrder(false)
                       setIsDropdown(!isDropdown)
                     }} />
-                  {isDropdown && <DropdownLogin loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} user={user} />}
+                  {isDropdown && <DropdownLogin loginUser={loginUser} onLogout={onLogout} setIsDropdown={setIsDropdown} />}
                 </div>}
               </>
             }

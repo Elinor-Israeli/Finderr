@@ -614,12 +614,6 @@ function _createOrders() { // eslint-disable-line no-unused-vars
     }
 }
 
-function _createOrder(title, price, tags, imgUrl) { // eslint-disable-line no-unused-vars
-    const order = getEmptyOrder(title, price, tags, imgUrl)
-    order._id = utilService.makeId()
-    return order
-}
-
 function getEmptyOrder(title = '', description = '', price = 0, tags = [], daysToMake = '', imgUrl = []) {
     return {
         _id: '',

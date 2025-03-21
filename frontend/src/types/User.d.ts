@@ -3,3 +3,9 @@ export type Credentials = {
     password: string
     fullname: string
 }
+
+export type LoginUser  = {
+    _id: string
+    username?: string
+
+}

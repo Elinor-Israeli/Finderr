@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { gigService } from '../../services/gig/gig.service.remote'
+import useOnSetFilter from '../../utils/hooks'
 
-export function SlideList({ onSetFilter }) {
+export function SlideList() {
     const slides = gigService.getGigSlides()
     const sliderRef = useRef()
     const [setLastDirection] = useState('')
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const [isAtStart, setIsAtStart] = useState(true)
     const [isAtEnd, setIsAtEnd] = useState(false)
+    const onSetFilter = useOnSetFilter()
 
     function filterByCategory( categories) {
         const updatedFilter = { ...filterByToEdit,  categories }

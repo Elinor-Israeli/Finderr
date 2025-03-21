@@ -1,16 +1,12 @@
 import { GigCategoryMenu } from "./gig/GigCategoryMenu"
-import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { SET_FILTER } from '../store/reducers/gig.reducer'
 import { useEffect, useState } from 'react'
 import { GigCategoryToolBar } from "../cmps/gig/GigCategoryToolBar"
 import { SlideList } from "../cmps/slide/SlideList"
-import { Search } from "../cmps/HeaderSearch"
+import { HeaderSearch } from "../cmps/HeaderSearch"
 import VideoPlayer from "../cmps/VideoPlayer"
+import onSetFilter from "../utils/hooks"
 
 export function HomePage() {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
     const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
@@ -30,27 +26,6 @@ export function HomePage() {
         }
     }, [])
 
-
-
-    function onSetFilter(filterBy) {
-        dispatch({ type: SET_FILTER, filterBy })
-
-        let categoryParams
-        let queryStringParams
-
-        if (filterBy.title !== '') {
-            queryStringParams = `?categories=${filterBy.categories}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
-            navigate(`/gig${queryStringParams}`)
-        }
-
-        else {
-            if (filterBy.tags[0] !== undefined) categoryParams = filterBy.tags[0]
-            else { categoryParams = '' }
-            queryStringParams = `?categories=${categoryParams}&minPrice=${filterBy.minPrice}&maxPrice=${filterBy.maxPrice}&daysToMake=${filterBy.daysToMake}`
-            navigate(`/gig${queryStringParams}`)
-        }
-    }
-
     return (
         <section>
             <div className={`home-category  ${isVisible ? 'block' : 'hidden'} `} style={{ borderBottom: '1px solid #e4e5e7' }} >
@@ -62,7 +37,7 @@ export function HomePage() {
                         Scale your professional work force with freelance
                     </h1>
                     <div className="search-bar ">
-                        <Search onSetFilter={onSetFilter} />
+                        <HeaderSearch onSetFilter={onSetFilter} />
                     </div>
                     <section className="trusted-by">
                         <span>Trusted </span>

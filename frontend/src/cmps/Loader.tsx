@@ -7,7 +7,7 @@ interface LoaderProps {
 
 export function Loader(props: LoaderProps) {
 
-    const [imgError, setImgError] = useState(false)
+    const [imgError, setImgError] = useState<boolean>(false)
 
     return (
         <div className="loader">

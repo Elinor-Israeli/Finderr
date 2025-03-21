@@ -91,17 +91,6 @@ async function update(gig) {
         logger.error(`cannot update gig ${gig._id}`, err)
         throw err
     }
-
-}
-async function addMsgToChat(msg, gigId) {
-    try {
-        console.log('gigId', gigId);
-        const collection = await dbService.getCollection('gig_db')
-        await collection.updateOne({ '_id': ObjectId(gigId) }, { $push: { chat: msg } })
-    } catch (err) {
-        console.log(`ERROR: cannot add message to gig`)
-        throw err;
-    }
 }
 
 module.exports = {

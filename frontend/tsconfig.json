@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
-      "jsx": "react-jsx"
+      "jsx": "react-jsx",
+      "skipLibCheck": true,
     },
     "target": "esnext",
     "lib": ["esnext", "dom"],
     "strict": true,
     "esModuleInterop": true,
-    "include": ["src/**/*.tsx", "src/cmps/DropdownLogin.tsx", "src/cmps/ImgUploader.jsx", "src/cmps/ImgUploader.jsx"],
-    "exclude": ["node_modules", "build"]
+    "include": ["src"],
+    "exclude": ["node_modules"]
 }

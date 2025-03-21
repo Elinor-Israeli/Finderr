@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { gigService } from '../../services/gig/gig.service.remote'
 
-export function TopFilterBar({ onSetFilter ,filterBy}) {
+export function TopFilterBar({ onSetFilter }) {
     const filterByFromStore = useSelector((storeState) => storeState.gigModule.filterBy)
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const [isPriceFilterShown, setIsPriceFilterShown] = useState(false)
     const [isDeliveryShown, setIsDeliveryShown] = useState(false)
-    const [selectedDelivery, setSelectedDelivery] = useState(filterBy?.daysToMake || null)  
+    const [selectedDelivery, setSelectedDelivery] = useState(null)  
 
     const ref = useRef()
     const deliveryRef = useRef()

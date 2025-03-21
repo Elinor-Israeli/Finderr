@@ -9,8 +9,3 @@ export type LoginUser  = {
     username?: string
 
 }
-
-export type Params = {
-    id?: string;
-    title?: string;
-  }

@@ -1,19 +1,17 @@
 import { useEffect, useRef, useState, ChangeEvent, FormEvent } from 'react'
 import { gigService } from '../services/gig/gig.service.remote'
+import useOnSetFilter from '../utils/hooks'
 
 interface Filter {
     categories: string
 }
 
-interface HeaderSearchProps {
-    onSetFilter: (filter: Filter) => void
-}
-
-export function HeaderSearch({ onSetFilter }: HeaderSearchProps) {
+export function HeaderSearch() {
     const [filterByToEdit, setFilterByToEdit] = useState<Filter>(gigService.getDefaultFilter())
     const elInputRef = useRef<HTMLInputElement>(null)
     const { pathname } = window.location
     const [windowSize, setWindowSize] = useState<number | null>(null)
+    const onSetFilter = useOnSetFilter()
 
     useEffect(() => {
         function handleResize() {

@@ -40,7 +40,7 @@ export function GigDetails() {
     return <section className="gig-details">
         <div className="gig-details-container">
             <div className="left">
-                <GigBreadcrumbs />
+                <GigBreadcrumbs categories={gig.tags} />
                 <h1 className='gig-details-title'>{gig.title}</h1>
                 <UserInfo user_id={gig.owner_id} compact={true} />
                 <div className="thumbnail">

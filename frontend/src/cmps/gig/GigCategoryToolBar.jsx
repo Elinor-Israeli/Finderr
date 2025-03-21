@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react"
 import { gigService } from "../../services/gig/gig.service.remote"
+import useOnSetFilter from '../../utils/hooks'
 
-export function GigCategoryToolBar({ onSetFilter }) {
+export function GigCategoryToolBar() {
     const [, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const CategorySliderRef = useRef(null)
     const [, setIsVisible] = useState(false)
     const [isLeftDisabled, setIsLeftDisabled] = useState(true)
     const [isRightDisabled, setIsRightDisabled] = useState(true)
     const { pathname } = window.location
+    const onSetFilter = useOnSetFilter()
 
     useEffect(() => {
         function updateScrollButtons() {

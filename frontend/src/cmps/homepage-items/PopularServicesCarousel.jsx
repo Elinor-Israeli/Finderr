@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { gigService } from '../../services/gig/gig.service.remote'
 import useOnSetFilter from '../../utils/hooks'
 
-export function SlideList() {
-    const slides = gigService.getGigSlides()
+export function PopularServicesCarousel() {
+    const slides = gigService.getPopularServices()
     const sliderRef = useRef()
     const [setLastDirection] = useState('')
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())

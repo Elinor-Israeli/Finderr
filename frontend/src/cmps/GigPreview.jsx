@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { addAndRemoveToWishlist } from '../../store/actions/gig.actions'
-import { SlideGigPreview } from '../slide/SlideGigPreview'
-import { showSuccessMsg } from '../../services/event-bus.service'
-import { userService } from '../../services/user/user.service.remote'
-import { eventBus } from '../../services/event-bus.service'
+import { addAndRemoveToWishlist } from '../store/actions/gig.actions'
+import { SlideGigPreview } from './SlideGigPreview'
+import { showSuccessMsg } from '../services/event-bus.service'
+import { userService } from '../services/user/user.service.remote'
+import { eventBus } from '../services/event-bus.service'
 
 export function GigPreview({ gig }) {
     const user = useSelector((storeState) => storeState.userModule.user)

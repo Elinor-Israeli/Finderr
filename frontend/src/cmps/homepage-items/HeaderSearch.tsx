@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, ChangeEvent, FormEvent } from 'react'
-import { gigService } from '../services/gig/gig.service.remote'
-import useOnSetFilter from '../utils/hooks'
+import { gigService } from '../../services/gig/gig.service.remote'
+import useOnSetFilter from '../../utils/hooks'
 
 interface Filter {
     categories: string

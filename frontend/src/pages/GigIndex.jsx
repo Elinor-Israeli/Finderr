@@ -2,13 +2,13 @@ import { useEffect, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
-import { GigList } from '../../cmps/gig/GigList'
-import { TopFilterBar } from '../../cmps/gig/ListFilterBar'
-import { loadGigs } from '../../store/actions/gig.actions'
-import { SET_FILTER } from '../../store/reducers/gig.reducer'
-import { Loader } from '../../cmps/Loader'
-import { getCategoryName } from '../../utils/ui'
+import { GigBreadcrumbs } from '../cmps/GigBreadcrumbs'
+import { GigList } from '../cmps/gig-index-items/GigList'
+import { SortBudgetAndDelivery } from '../cmps/gig-index-items/SortBudgetAndDelivery'
+import { loadGigs } from '../store/actions/gig.actions'
+import { SET_FILTER } from '../store/reducers/gig.reducer'
+import { Loader } from '../cmps/Loader'
+import { getCategoryName } from '../utils/ui'
 
 export function GigIndex() {
     const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
@@ -113,7 +113,7 @@ export function GigIndex() {
             </p>
             <div className={`${filterAndSort}`}>
                 <div className="filter-sort-container">
-                    <TopFilterBar onSetFilter={onSetFilter} />
+                    <SortBudgetAndDelivery onSetFilter={onSetFilter} />
                 </div>
             </div>
 

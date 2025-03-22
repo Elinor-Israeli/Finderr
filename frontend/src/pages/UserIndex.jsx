@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
 import { loadUserGigs, removeGig } from '../store/actions/gig.actions'
-import { UserGigList } from '../cmps/user/UserGigList'
-import { UserProfile } from './UserProfile'
+import { UserGigList } from '../cmps/user-index-items/UserGigList'
+import { UserProfile } from '../cmps/user-index-items/UserProfile'
 import { loadUser } from '../store/actions/user.actions'
 import { userService } from '../services/user/user.service.remote'
 

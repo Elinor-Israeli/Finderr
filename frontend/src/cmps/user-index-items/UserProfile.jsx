@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { IoLocationOutline } from "react-icons/io5"
-import { updateUser } from '../store/actions/user.actions'
-import { userService } from '../services/user/user.service.remote'
-import { uploadService } from '../services/upload.service'
+import { updateUser } from '../../store/actions/user.actions'
+import { userService } from '../../services/user/user.service.remote'
+import { uploadService } from '../../services/upload.service'
 
 export function UserProfile({ user }) {
   

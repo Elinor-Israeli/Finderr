@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { gigService } from '../../services/gig/gig.service.remote'
-import { showErrorMsg } from '../../services/event-bus.service'
-import { SlideDetails } from '../../cmps/slide/SlideDetails'
-import { GigCard } from '../../cmps/gig/GigCard'
-import { GigBreadcrumbs } from '../../cmps/GigBreadcrumbs'
-import { UserInfo } from '../../cmps/user/UserInfo'
-import {PricingTable }from '../../cmps/PricingTable'
-import { Loader } from '../../cmps/Loader'
-
+import { gigService } from '../services/gig/gig.service.remote'
+import { showErrorMsg } from '../services/event-bus.service'
+import { SlidesDetails } from '../cmps/gig-details-items/SlidesDetails'
+import { GigPaymentOptions } from '../cmps/gig-details-items/GigPaymentOptions'
+import { GigBreadcrumbs } from '../cmps/GigBreadcrumbs'
+import { UserInfo } from '../cmps/gig-details-items/UserInfo'
+import {PricingTable }from '../cmps/gig-details-items/PricingTable'
+import { Loader } from '../cmps/Loader'
 
 export function GigDetails() {
     const { gigId } = useParams()
@@ -44,7 +43,7 @@ export function GigDetails() {
                 <h1 className='gig-details-title'>{gig.title}</h1>
                 <UserInfo user_id={gig.owner_id} compact={true} />
                 <div className="thumbnail">
-                    <SlideDetails gig={gig} />
+                    <SlidesDetails gig={gig} />
                 </div>
 
                 <div className="gig-about">
@@ -85,7 +84,7 @@ export function GigDetails() {
                 </div>
             </div>
             <div className="right">
-                <GigCard gig={gig} />
+                <GigPaymentOptions gig={gig} />
             </div>
         </div>
     </section>

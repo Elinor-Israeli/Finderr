@@ -1,5 +1,5 @@
 import { LoginSignup } from "./LoginSignUp" 
-import type {Credentials} from '../types/User'
+import type {Credentials} from '../../types/User'
 
 interface ModalLoginProps {
     onSignup: (credentials: Credentials) => void

@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch  } from 'react-redux'
 import moment from 'moment'
-import { updateOrderSeller,getActionAddOrderSeller } from '../../store/actions/order.actions'
-import { ProgressChart } from '../ProgressChart'
-import { loadOrdersSeller } from '../../store/actions/order.actions'
-import { Loader } from '../Loader'
-import { socketService , SOCKET_EVENT_ORDER_ADDED} from '../../services/socket.service'
+import { updateOrderSeller,getActionAddOrderSeller } from '../store/actions/order.actions'
+import { ProgressChart} from '../cmps/dashboard-items/ProgressChart'
+import { loadOrdersSeller } from '../store/actions/order.actions'
+import { Loader } from '../cmps/Loader'
+import { socketService , SOCKET_EVENT_ORDER_ADDED} from '../services/socket.service'
 
 export default function Dashboard() {
 

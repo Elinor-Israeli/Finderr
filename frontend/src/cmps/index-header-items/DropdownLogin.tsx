@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import type {LoginUser} from '../types/User'
+import type {LoginUser} from '../../types/User'
 
 interface DropdownLoginProps {
     setIsDropdown: React.Dispatch<React.SetStateAction<boolean>>

@@ -1,4 +1,4 @@
-import { GigPreview } from "./GigPreview"
+import { GigPreview } from "../GigPreview"
 
 export function GigList({ gigs }) {
     return ( 

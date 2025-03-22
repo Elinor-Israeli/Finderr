@@ -1,9 +1,9 @@
-import { GigCategoryMenu } from "./gig/GigCategoryMenu"
+import { GigCategoryMenu } from '../cmps/homepage-items/GigCategoryMenu'
 import { useEffect, useState } from 'react'
-import { GigCategoryToolBar } from "../cmps/gig/GigCategoryToolBar"
-import { SlideList } from "../cmps/slide/SlideList"
-import { HeaderSearch } from "../cmps/HeaderSearch"
-import VideoPlayer from "../cmps/VideoPlayer"
+import { GigCategoryToolBar} from '../cmps/GigCategoryToolBar'
+import { PopularServicesCarousel } from "../cmps/homepage-items/PopularServicesCarousel"
+import { HeaderSearch } from "../cmps/homepage-items/HeaderSearch"
+import VideoPlayer from "../cmps/homepage-items/VideoPlayer"
 import onSetFilter from "../utils/hooks"
 
 export function HomePage() {
@@ -56,7 +56,7 @@ export function HomePage() {
             </section >
             <div>
                 <GigCategoryMenu onSetFilter={onSetFilter} />
-                <SlideList onSetFilter={onSetFilter} />
+                <PopularServicesCarousel onSetFilter={onSetFilter} />
             </div>
 
             <div className="selling-proposition full main-layout">

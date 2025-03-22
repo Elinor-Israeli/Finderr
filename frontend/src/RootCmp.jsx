@@ -1,16 +1,16 @@
 import { Routes, Route, useLocation } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
-import { GigIndex } from './pages/gig/GigIndex'
-import { GigDetails } from './pages/gig/GigDetails'
+import { GigIndex } from './pages/GigIndex'
+import { GigDetails } from './pages/GigDetails'
 import { AppFooter } from './cmps/AppFooter'
 import { IndexHeader} from './cmps/IndexHeader'
-import { GigEdit } from './cmps/gig/GigEdit'
-import { GigPayment } from './pages/gig/GigPayment'
+import { GigEdit } from './pages/GigEdit'
+import { GigPayment } from './pages/GigPayment'
 import { UserIndex } from './pages/UserIndex'
 import UserWishList from './pages/UserWishList'
 import { UserMsg } from './cmps/UserMsg'
-import Dashboard from './cmps/user/Dashboard'
+import Dashboard from './pages/Dashboard'
 
 export function RootCmp() {
     const { pathname } = useLocation()

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams, useLocation } from 'react-router-dom'
 
-import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
-import { gigService } from '../../services/gig/gig.service.remote'
-import { userService } from '../../services/user/user.service.remote'
-import { addOrderBuyer } from '../../store/actions/order.actions'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { gigService } from '../services/gig/gig.service.remote'
+import { userService } from '../services/user/user.service.remote'
+import { addOrderBuyer } from '../store/actions/order.actions'
 import credit from '/img/credit.svg'
 import paypal from '/img/paypal.svg'
 

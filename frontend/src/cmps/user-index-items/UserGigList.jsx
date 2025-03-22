@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { GigPreview } from '../gig/GigPreview'
+import { GigPreview } from '../GigPreview'
 import { userService } from '../../services/user/user.service.remote'
 
 export function UserGigList({ gigs, onRemoveGig, user }) {

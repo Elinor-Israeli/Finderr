@@ -2,7 +2,7 @@ import  { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import { GigPreview } from '../cmps/gig/GigPreview'
+import { GigPreview } from '../cmps/GigPreview'
 import { loadGigs } from '../store/actions/gig.actions'
 
 function UserWishList() {

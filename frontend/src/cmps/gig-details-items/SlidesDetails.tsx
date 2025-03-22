@@ -1,11 +1,16 @@
-import { useState } from 'react';
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { useState } from 'react'
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io"
+import { Gig } from '../../types/Gig'
 
-export function SlideDetails({ gig }) {
-    const slides = gig.imgUrl
-    const [slideIndex, setSlideIndex] = useState(0)
+interface SlidesDetails {
+    gig: Gig
+}
 
-    function plusSlides(n) {
+export function SlidesDetails(props: SlidesDetails) {
+    const slides = props.gig.imgUrl
+    const [slideIndex, setSlideIndex] = useState<number>(0)
+
+    function plusSlides(n: number) {
         if (slideIndex === slides.length - 1 && n === 1) {
             setSlideIndex(0)
         } else if (slideIndex === 0 && n === -1) {
@@ -15,7 +20,7 @@ export function SlideDetails({ gig }) {
         }
     }
 
-    function currentSlide(n) {
+    function currentSlide(n: number) {
         setSlideIndex(n)
     }
 

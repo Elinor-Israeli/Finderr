@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import { gigService } from "../../services/gig/gig.service.remote"
-import useOnSetFilter from '../../utils/hooks'
+import { gigService } from "../services/gig/gig.service.remote"
+import useOnSetFilter from '../utils/hooks'
 
 export function GigCategoryToolBar() {
     const [, setFilterByToEdit] = useState(gigService.getDefaultFilter())

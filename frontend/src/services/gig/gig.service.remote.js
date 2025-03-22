@@ -8,7 +8,7 @@ export const gigService = {
     remove,
     getEmptyGig,
     getDefaultFilter,
-    getGigSlides,
+    getPopularServices,
     toggleWishlist
 }
 window.cs = gigService
@@ -53,7 +53,7 @@ async function toggleWishlist(gigId) {
     }
 }
 
-function getGigSlides() {
+function getPopularServices() {
     return [
         {
             url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156477/website-development.png",

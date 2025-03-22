@@ -16,30 +16,6 @@
   flex-direction: column;
   margin-left: em(157px, 16px);
 
-
-
-  @media (max-width: 1850px) {
-    // min-width: 450px;
-  }
-
-  @media (min-width: 1650px) {
-    // min-width: 50px;
-  }
-
-  @media (min-width: 1450px) {
-    // min-width: 40px;
-  }
-
-  @media (max-width: 1350px) {
-    // min-width: 300px;
-  }
-
-  @media (min-width: 1850px) {
-    // min-width: 50px;
-  }
-
-
-
   @media (min-width: $narrow-breakpoint) {
     margin-left: rem(127px);
   }
@@ -252,10 +228,6 @@ span.svg-payment {
   text-decoration: none;
 }
 
-@media screen and (max-width: 900px) {
-  .compare-packages-button {
-  }
-}
 
 
 

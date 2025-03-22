@@ -6,13 +6,13 @@ import Button from '@mui/material/Button'
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
 
-import { addGig } from '../../store/actions/gig.actions'
-import { updateGig } from '../../store/actions/gig.actions'
+import { addGig } from '../store/actions/gig.actions'
+import { updateGig } from '../store/actions/gig.actions'
 
-import { ImgUploader } from '../ImgUploader' 
+import { ImgUploader } from '../cmps/ImgUploader' 
 
-import { gigService } from '../../services/gig/gig.service.remote'
-import { userService } from '../../services/user/user.service.remote'  
+import { gigService } from '../services/gig/gig.service.remote'
+import { userService } from '../services/user/user.service.remote'  
 
 export function GigEdit() {
     const navigate = useNavigate()

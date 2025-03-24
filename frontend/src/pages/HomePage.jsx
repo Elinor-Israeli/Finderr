@@ -5,32 +5,37 @@ import { PopularServicesCarousel } from "../cmps/homepage-items/PopularServicesC
 import { HeaderSearch } from "../cmps/homepage-items/HeaderSearch"
 import VideoPlayer from "../cmps/homepage-items/VideoPlayer"
 import onSetFilter from "../utils/hooks"
+import { useLocation } from 'react-router'
 
 export function HomePage() {
     const [isVisible, setIsVisible] = useState(false)
+    const { pathname } = useLocation()
 
     useEffect(() => {
 
-        const handleScroll = () => {
+        const handleScroll = () => {            
             const scrollPosition = window.scrollY
             const threshold = 700
-            if (scrollPosition >= threshold) {
+            if (pathname === "/" && scrollPosition >= threshold) {
                 setIsVisible(true)
             } else {
                 setIsVisible(false)
             }
-        }
+        };
+
         window.addEventListener('scroll', handleScroll)
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
-    }, [])
+    }, [pathname])
 
     return (
         <section>
-            <div className={`home-category  ${isVisible ? 'block' : 'hidden'} `} style={{ borderBottom: '1px solid #e4e5e7' }} >
-                <GigCategoryToolBar onSetFilter={onSetFilter} />
-            </div>
+            {pathname === "/" && (
+                <div className={`home-category ${isVisible ? 'block' : 'hidden'}`} style={{ borderBottom: '1px solid #e4e5e7' }}>
+                    <GigCategoryToolBar onSetFilter={onSetFilter} />
+                </div>
+            )}
             <section className="home-page ">
                 <div className="hero-container ">
                     <h1 className="hero-msg ">

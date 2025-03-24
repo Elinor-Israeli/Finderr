@@ -13,7 +13,6 @@ import { getCategoryName } from '../utils/ui'
 export function GigIndex() {
     const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
     let gigs = useSelector(storeState => storeState.gigModule.gigs)
-
     const filterBy = useSelector((storeState) => storeState.gigModule.filterBy)
     const dispatch = useDispatch()
     const [searchParams] = useSearchParams()
@@ -29,8 +28,6 @@ export function GigIndex() {
         handleScroll()
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
-
-
 
     const onSetFilter = useCallback((filterBy) => {
         dispatch({ type: SET_FILTER, filterBy })
@@ -92,6 +89,7 @@ export function GigIndex() {
         loadGigs(filterBy)
     }, [filterBy])
 
+    
     const categories = searchParams.get('categories').split(',')
 
     return (

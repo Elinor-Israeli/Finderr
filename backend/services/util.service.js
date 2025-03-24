@@ -114,5 +114,7 @@ module.exports = {
   generateRandomName,
   timeAgo,
   generateRandomImg,
-  randomPastTime
+  randomPastTime,
+  
 }
+

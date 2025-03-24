@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { gigService } from '../../services/gig/gig.service.remote'
 import useOnSetFilter from '../../utils/hooks'
+import { getPopularServices, categoryColors} from '../../utils/ui'
 
 export function PopularServicesCarousel() {
-    const slides = gigService.getPopularServices()
+    const slides = getPopularServices()
     const sliderRef = useRef()
-    const [setLastDirection] = useState('')
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const [isAtStart, setIsAtStart] = useState(true)
     const [isAtEnd, setIsAtEnd] = useState(false)
@@ -21,21 +21,15 @@ export function PopularServicesCarousel() {
         const slider = sliderRef.current
         if (slider.scrollLeft > 0) {
             slider.scrollLeft -= 500
-            setLastDirection('left')
-        } else {
-            setLastDirection('left')
         }
     }
-
+    
     function slideRight() {
         const slider = sliderRef.current
         const maxScrollLeft = slider.scrollWidth - slider.clientWidth
-
+    
         if (slider.scrollLeft < maxScrollLeft) {
             slider.scrollLeft += 500
-            setLastDirection('right')
-        } else {
-            setLastDirection('right')
         }
     }
 
@@ -57,22 +51,7 @@ export function PopularServicesCarousel() {
             slider.removeEventListener('scroll', checkSliderPosition)
         }
     }, [slides])
-
-    const categoryColors = {
-        'Website': '#00732e',
-        'Logo Design': '#ff7640',
-        'SEO': '#003912',
-        'Architecture &': '#4d1727',
-        'Social Media': '#687200',
-        'Voice Over': '#421300',
-        'UGC Videos': '#be5272',
-        'Software': '#254200',
-        'ML': '#8f2900',
-        'Product': '#687200',
-        'Video Editing': '#be5272',
-        'E-Commerce': '#00732e',
-    }
-
+     
     return (
         <section className='contain-all-slider'>
             <div className='popular-services'>

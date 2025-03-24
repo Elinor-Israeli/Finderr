@@ -15,7 +15,6 @@ import useOnSetFilter from '../utils/hooks'
 export function IndexHeader() {
   const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
   const elInputRef = useRef(null)
-  const [, setIsCategoryMenuVisible] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [, setShowSearch] = useState(false)
   const loginUser = userService.getLoggedinUser()
@@ -74,10 +73,8 @@ export function IndexHeader() {
   useEffect(() => {
     const handleScroll = () => {
       if (pathname === '/' && window.scrollY > 600) {
-        setIsCategoryMenuVisible(true)
         setShowSearch(true)
       } else {
-        setIsCategoryMenuVisible(false)
         setShowSearch(false)
       }
     }
@@ -171,8 +168,6 @@ export function IndexHeader() {
   }, [])
 
   useEffect(() => {
-    // we load gigs here for determining wether the wishlist heart icon should be red or grey 
-    // so we only load gigs when there is a signed in user
     if (user) {
       loadGigs()
     } 

@@ -5,7 +5,7 @@ import { userService } from '../../services/user/user.service.remote'
 import { uploadService } from '../../services/upload.service'
 
 export function UserProfile({ user }) {
-  
+
   const loginUser = userService.getLoggedinUser()
   const [aboutMe, setAboutMe] = useState('')
   const [isEditingProfile, setIsEditingProfile] = useState(false)
@@ -68,6 +68,8 @@ export function UserProfile({ user }) {
     try {
       await updateUser(updatedUser)
       setIsEditingImage(false)
+      console.log('close');
+
     } catch (err) {
       console.error("Error updating user image:", err)
     }
@@ -117,42 +119,46 @@ export function UserProfile({ user }) {
 
         {isEditingProfile && (
           <div className="edit-profile-modal">
-            <div className="modal-content">
-              <h3 >Edit Profile</h3>
-              <div>
-                <textarea
-                  value={aboutMe}
-                  onChange={onAboutMeChange}
-                  style={{ fontSize: '16px', fontFamily: 'Macan', width: '100%', height: '100px', padding: '10px' }}
-                />
+            <div className='modal-overlay-profile'>
+              <div className="modal-content-profile">
+                <h3 >Edit Profile</h3>
+                <div>
+                  <textarea
+                    value={aboutMe}
+                    onChange={onAboutMeChange}
+                    style={{ fontSize: '16px', fontFamily: 'Macan', width: '100%', height: '100px', padding: '10px' }}
+                  />
+                </div>
+                <button onClick={onAboutMeSubmit} style={{ marginTop: '10px' }}>Save Changes</button>
+                <button onClick={toggleEditProfile} style={{ marginTop: '10px', marginLeft: '10px' }}>Cancel</button>
               </div>
-              <button onClick={onAboutMeSubmit} style={{ marginTop: '10px' }}>Save Changes</button>
-              <button onClick={toggleEditProfile} style={{ marginTop: '10px', marginLeft: '10px' }}>Cancel</button>
             </div>
           </div>
         )}
 
         {isEditingImage && (
           <div className="edit-image-modal">
-            <div className="modal-content">
-              <h3 style={{ cursor: 'pointer' }}>Change Profile Image</h3>
-              <div className='file-upload'>
-                <label style={{ marginTop: '10px' }} htmlFor="file-upload"  >
-                  {fileName ? fileName : 'Choose a file'}
-                </label>
-                <input
-                  id="file-upload"
-                  type="file"
-                  onChange={onImageChange}
-                  style={{ display: 'none' }}
-                />
+            <div className='modal-overlay-profile'>
+              <div className="modal-content-profile">
+                <h3 style={{ cursor: 'pointer' }}>Change Profile Image</h3>
+                <div className='file-upload'>
+                  <label style={{ marginTop: '10px' }} htmlFor="file-upload"  >
+                    {fileName ? fileName : 'Choose a file'}
+                  </label>
+                  <input
+                    id="file-upload"
+                    type="file"
+                    onChange={onImageChange}
+                    style={{ display: 'none' }}
+                  />
+                </div>
+                <button onClick={onImageSubmit} >Save Changes</button>
+                <button onClick={toggleEditImage} >Cancel</button>
               </div>
-              <button onClick={onImageSubmit} >Save Changes</button>
-              <button onClick={toggleEditImage} >Cancel</button>
+              </div>
             </div>
-          </div>
         )}
-      </>
+          </>
     </div>
-  )
+      )
 }

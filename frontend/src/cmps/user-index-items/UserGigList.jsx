@@ -17,7 +17,7 @@ export function UserGigList({ gigs, onRemoveGig, user }) {
         </div>
       )}
 
-      <div className="user-gig-list-container">
+      <div className="user-gig-list-container" style={{ position: 'relative' ,  zIndex: '1'}}>
         {gigs.map(gig => (
           <div className="gig-preview" key={gig._id}>
             <GigPreview gig={gig} />

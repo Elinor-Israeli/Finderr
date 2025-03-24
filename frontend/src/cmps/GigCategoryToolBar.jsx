@@ -1,55 +1,32 @@
 import { useEffect, useRef, useState } from "react"
-import { gigService } from "../services/gig/gig.service.remote"
 import useOnSetFilter from '../utils/hooks'
+import { categoriesToolBar } from "../utils/ui"
 
 export function GigCategoryToolBar() {
-    const [, setFilterByToEdit] = useState(gigService.getDefaultFilter())
     const CategorySliderRef = useRef(null)
-    const [, setIsVisible] = useState(false)
     const [isLeftDisabled, setIsLeftDisabled] = useState(true)
     const [isRightDisabled, setIsRightDisabled] = useState(true)
-    const { pathname } = window.location
     const onSetFilter = useOnSetFilter()
 
     useEffect(() => {
         function updateScrollButtons() {
             if (CategorySliderRef.current) {
                 const { scrollLeft, scrollWidth, clientWidth } = CategorySliderRef.current
-                setIsLeftDisabled(scrollLeft <= 0);
+                setIsLeftDisabled(scrollLeft <= 0)
                 setIsRightDisabled(scrollLeft + clientWidth >= scrollWidth)
             }
         }
-    
-        function handleScroll() {
-            const scrollPosition = window.scrollY
-            setIsVisible(scrollPosition >= 800 && pathname === "/")
-    
-            updateScrollButtons()
-        }
-    
         const sliderElement = CategorySliderRef.current
-    
-        window.addEventListener("scroll", handleScroll)
         if (sliderElement) {
             sliderElement.addEventListener("scroll", updateScrollButtons)
+            updateScrollButtons()
         }
-        handleScroll()
-    
         return () => {
-            window.removeEventListener("scroll", handleScroll)
             if (sliderElement) {
                 sliderElement.removeEventListener("scroll", updateScrollButtons)
             }
         }
-    }, [pathname])
-    
-    function filterByCategory(categories) {
-        setFilterByToEdit((prevFilter) => {
-            const updatedFilter = { ...prevFilter, categories }
-            onSetFilter(updatedFilter)
-            return updatedFilter
-        })
-    }
+    }, [])
 
     function slideLeft() {
         if (CategorySliderRef.current) {
@@ -73,39 +50,11 @@ export function GigCategoryToolBar() {
                 </button>
 
                 <ul className="categories categories-menu-package__categories nav-links" ref={CategorySliderRef}>
-                    <li onClick={() => filterByCategory(["graphic-design", "design", "logo-design", "logo"])}>
-                        <a className="menu-title">Graphic & Design</a>
-                    </li>
-                    <li onClick={() => filterByCategory(["digital-marketing", "digital"])}>
-                        <a className="menu-title">Digital Marketing</a>
-                    </li>
-                    <li onClick={() => filterByCategory(["writing-translation", "translation"])}>
-                        <a className="menu-title">Writing & Translation</a>
-                    </li>
-                    <li onClick={() => filterByCategory(["video-animation", "animation"])}>
-                        <a className="menu-title">Video & Animation</a>
-                    </li>
-                    <li onClick={() => filterByCategory(["music-audio", "audio"])}>
-                        <a className="menu-title">Music & Audio</a>
-                    </li>
-                    <li onClick={() => filterByCategory(["programming-tech", "tech"])}>
-                        <a className="menu-title">Personal Growth</a>
-                    </li>
-                    <li onClick={() => filterByCategory(["programming-tech", "tech"])}>
-                        <a className="menu-title">Programming & Tech</a>
-                    </li>
-                    <li onClick={() => filterByCategory(["business"])}>
-                        <a className="menu-title">Business</a>
-                    </li>
-                    <li onClick={() => filterByCategory(["lifestyle"])}>
-                        <a className="menu-title">Lifestyle</a>
-                    </li>
-                    <li onClick={() => filterByCategory(["trending"])}>
-                        <a className="menu-title">Trending</a>
-                    </li>
-                    <li onClick={() => filterByCategory(["finance"])}>
-                        <a className="menu-title">Finance</a>
-                    </li>
+                    {categoriesToolBar.map(({ name, filters }) => (
+                        <li onClick={() => onSetFilter({ categories: filters })}>
+                            <a className="menu-title">{name}</a>
+                        </li>
+                    ))}
                 </ul>
 
                 <button onClick={slideRight} disabled={isRightDisabled} className="category-btn side-end">

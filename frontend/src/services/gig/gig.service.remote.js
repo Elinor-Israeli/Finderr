@@ -8,7 +8,6 @@ export const gigService = {
     remove,
     getEmptyGig,
     getDefaultFilter,
-    getPopularServices,
     toggleWishlist
 }
 window.cs = gigService
@@ -53,71 +52,6 @@ async function toggleWishlist(gigId) {
     }
 }
 
-function getPopularServices() {
-    return [
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156477/website-development.png",
-            // url: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_305,dpr_2.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png',
-            desc: 'Development',
-            category: 'Website'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156494/logo-design.png",
-            desc: "\u200B",
-            category: 'Logo Design'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156488/seo.png",
-            desc: "\u200B",
-            category: 'SEO'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156473/architecture-design.png",
-            desc: 'Interior Design',
-            category: 'Architecture &'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156476/social-media-marketing.png",
-            desc: 'Marketing',
-            category: 'Social Media'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156479/voice-over.png",
-            desc: "\u200B",
-            category: 'Voice Over'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/ece24f7f595e2dd44b26567705d1c600-1728279781879/UGC%20Video%20img.png",
-            desc: "\u200B",
-            category: 'UGC Videos'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156476/software-development.png",
-            desc: 'Development',
-            category: 'Software'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156495/data-science.png",
-            desc: 'Data Science &',
-            category: 'ML'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156481/product-photography.png",
-            desc: 'Photography',
-            category: 'Product'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156474/e-commerce.png",
-            desc: 'Marketing',
-            category: 'E-Commerce'
-        },
-        {
-            url: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_188,dpr_1.0/v1/attachments/generic_asset/asset/798403f5b92b1b5af997acc704a3d21c-1702465156494/video-editing.png",
-            desc: "\u200B",
-            category: 'Video Editing'
-        }
-    ]
-}
 
 function getEmptyGig(
     title = '',

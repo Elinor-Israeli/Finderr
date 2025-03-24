@@ -161,17 +161,17 @@ export function IndexHeader() {
         setIsVisible(false)
       }
     }
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
   useEffect(() => {
     if (user) {
       loadGigs()
-    } 
-  }, [user]) 
+    }
+  }, [user])
 
   return (
     <section className="index-header full">
@@ -184,7 +184,10 @@ export function IndexHeader() {
             </div>
           </Link>
 
-          <form className={`index-search ${isVisible ? 'block-header' : 'hidden'}`} onSubmit={onSubmitFilter}>
+          <form
+            className={`index-search ${pathname !== '/' ? 'always-visible' : isVisible ? 'block-header' : 'hidden'}`}
+            onSubmit={onSubmitFilter}
+          >
             <div className="search-index-input">
               <input
                 type="text"
@@ -196,7 +199,7 @@ export function IndexHeader() {
                 onChange={handleChange}
                 ref={elInputRef}
               />
-              <button className='btn-index-search'>
+              <button className="btn-index-search">
                 <span>
                   <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="white">
                     <path d="m15.89 14.653-3.793-3.794a.37.37 0 0 0-.266-.109h-.412A6.499 6.499 0 0 0 6.5 0C2.91 0 0 2.91 0 6.5a6.499 6.499 0 0 0 10.75 4.919v.412c0 .1.04.194.11.266l3.793 3.794a.375.375 0 0 0 .531 0l.707-.707a.375.375 0 0 0 0-.53ZM6.5 11.5c-2.763 0-5-2.238-5-5 0-2.763 2.237-5 5-5 2.762 0 5 2.237 5 5 0 2.762-2.238 5-5 5Z"></path>
@@ -220,7 +223,7 @@ export function IndexHeader() {
                 </div>}
                 <Link to="/wishlist" className="heart" title="save to list">
                   <img
-                    src={wishListGigs.length > 0 ? "/img/red_heart.png" : "/img/gray_heart.png"} 
+                    src={wishListGigs.length > 0 ? "/img/red_heart.png" : "/img/gray_heart.png"}
                     alt="Heart"
                     className="heart-img"
                     style={{ aspectRatio: 'unset' }}

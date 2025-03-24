@@ -207,3 +207,8 @@
         }
     }
 }
+
+.always-visible {
+    display: block !important;  /* Force it to always be shown */
+  }
+  

@@ -2,7 +2,13 @@ import { useEffect, useState } from 'react'
 import { categories } from '../../utils/ui'
 import useOnSetFilter from '../../utils/hooks'
 
-export function GigCategoryMenu() {
+interface GigCategoryMenuProps {
+    title: string
+    imgSrc: string
+    categories: string[]
+}
+
+export function GigCategoryMenu( props:GigCategoryMenuProps ) {
     const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 900)
     const onSetFilter = useOnSetFilter()
    

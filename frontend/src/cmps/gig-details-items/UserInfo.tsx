@@ -1,19 +1,26 @@
-import { StarRating } from '../../cmps/StarRating'
+import { StarRating } from '../StarRating'
 import { useEffect, useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { userService } from '../../services/user/user.service.remote'
+import { User , Owner} from '../../types/User'
 
-export function UserInfo({ user_id, compact,owner }) {
-    const [user, setUser] = useState(null)
+interface UserInfoProps {
+    user_id: string
+    compact: boolean
+    owner?: Owner
+}
+
+export function UserInfo(props: UserInfoProps) {
+    const [user, setUser] =  useState<User | null>(null)
     
     const loadUser = useCallback(async () => {
         try {
-            const user = await userService.getById(user_id)
+            const user = await userService.getById(props.user_id)
             setUser(user)
         } catch (err) {
             console.log('user =>', err)
         }
-    }, [user_id]) 
+    }, [props.user_id]) 
     
     useEffect(() => {
         loadUser()
@@ -23,16 +30,16 @@ export function UserInfo({ user_id, compact,owner }) {
         <div className="loader"></div>
     </div>
 
-    return compact ? (
+    return props.compact ? (
         <div className="user">
             <img src={user.imgUrl} alt="user-img" className="profile-picture" />
             <div className="user-info">
                 <div className="user-name-level">
                     <span className="user-name">{user.fullname}</span>
-                    <Link className="gig-preview__owner-name" to={`/user/${owner?._id}`}>{owner?.fullname}</Link>
+                    <Link className="gig-preview__owner-name" to={`/user/${props.owner?._id}`}>{props.owner?.fullname}</Link>
                     <div className="user-level">
                         <div className="level">
-                            {user.level === 'level 3' ? 'Top Rated' : `Level ${user.level}`}
+                            {user.level === 3 ? 'Top Rated' : `Level ${user.level}`}
                         </div>
                         <div className="level-icons" >
                             <div className={`level-icons ${user.level === 3 ? 'top-rated' : ''}`}></div>
@@ -71,7 +78,7 @@ export function UserInfo({ user_id, compact,owner }) {
                         <span className="contact-info-user-name">{user.fullname}</span>
                         <div className="contact-info-user-level">
                             <div className="contact-info-level">
-                                {user.level === 'level 3' ? 'Top Rated' : `Level ${user.level}`}
+                                {user.level === 3 ? 'Top Rated' : `Level ${user.level}`}
                             </div>
                             <div className="level-icons">
                                 {[...Array(3)].map((_, idx) => (

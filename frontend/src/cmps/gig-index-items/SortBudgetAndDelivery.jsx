@@ -54,7 +54,7 @@ export function SortBudgetAndDelivery({ onSetFilter }) {
         setIsPriceFilterShown(false)
     
         const queryParams = new URLSearchParams(location.search)
-            filterByToEdit.daysToMake ? queryParams.set('daysToMake', filterByToEdit.daysToMake) : queryParams.delete('daysToMake')
+        filterByToEdit.daysToMake ? queryParams.set('daysToMake', filterByToEdit.daysToMake) : queryParams.delete('daysToMake')
 
         const validCategories = filterByToEdit.categories.filter(cat => cat.trim() !== '')
         validCategories.length > 0 ? queryParams.set('categories', validCategories.join(',')) : queryParams.delete('categories')
@@ -97,11 +97,7 @@ export function SortBudgetAndDelivery({ onSetFilter }) {
         <div className="top-filter-bar">
             {/* Delivery Time Filter */}
             <div
-                // className={`top-filter-bar__filter-menu top-filter-bar__filter-delivery ${checkedDelivery !== '' ? 'top-filter-bar__active-filter' : ''}`}
-                className={`top-filter-bar__filter-menu top-filter-bar__filter-delivery ${
-                    checkedDelivery !== '' ? 'top-filter-bar__active-filter' : ''
-                  }`}
-                  
+                className={`top-filter-bar__filter-menu top-filter-bar__filter-delivery ${checkedDelivery !== '' ? 'top-filter-bar__active-filter' : ''}`}
                 ref={deliveryRef}
             >
                 <span onClick={toggleDelivery}>Delivery Time</span>
@@ -120,70 +116,27 @@ export function SortBudgetAndDelivery({ onSetFilter }) {
 
                 {isDeliveryShown && (
                     <div className="top-filter-bar__delivery-filter-options">
-                        <div className="top-filter-bar__delivery-option">
-                            <input
-                                type="radio"
-                                id="daysToMake1"
-                                name="daysToMake"
-                                value="1"
-                                onChange={handleChangeDelivery}
-                                checked={selectedDelivery === '1'}
-                            />
-                            <label htmlFor="daysToMake1">
-                                <span>
-                                    <div className="top-filter-bar__checked-input"></div>
-                                </span>
-                                Express 24H
-                            </label>
-                        </div>
-                        <div className="top-filter-bar__delivery-option">
-                            <input
-                                type="radio"
-                                id="daysToMake3"
-                                name="daysToMake"
-                                value="3"
-                                onChange={handleChangeDelivery}
-                                checked={selectedDelivery === '3'}
-                            />
-                            <label htmlFor="daysToMake3">
-                                <span>
-                                    <div className="top-filter-bar__checked-input"></div>
-                                </span>
-                                Up to 3 days
-                            </label>
-                        </div>
-                        <div className="top-filter-bar__delivery-option">
-                            <input
-                                type="radio"
-                                id="daysToMake7"
-                                name="daysToMake"
-                                value="7"
-                                onChange={handleChangeDelivery}
-                                checked={selectedDelivery === '7'}
-                            />
-                            <label htmlFor="daysToMake7">
-                                <span>
-                                    <div className="top-filter-bar__checked-input"></div>
-                                </span>
-                                Up to 7 days
-                            </label>
-                        </div>
-                        <div className="top-filter-bar__delivery-option">
-                            <input
-                                type="radio"
-                                id="daysToMake"
-                                name="daysToMake"
-                                value=""
-                                onChange={handleChangeDelivery}
-                                checked={selectedDelivery === ''}
-                            />
-                            <label htmlFor="daysToMake">
-                                <span>
-                                    <div className="top-filter-bar__checked-input"></div>
-                                </span>
-                                Anytime
-                            </label>
-                        </div>
+                        {['1', '3', '7', ''].map((value, index) => (
+                            <div key={index} className="top-filter-bar__delivery-option">
+                                <input
+                                    type="radio"
+                                    id={`daysToMake${value}`}
+                                    name="daysToMake"
+                                    value={value}
+                                    onChange={handleChangeDelivery}
+                                    checked={selectedDelivery === value}
+                                />
+                                <label htmlFor={`daysToMake${value}`}>
+                                    <span>
+                                        <div className="top-filter-bar__checked-input"></div>
+                                    </span>
+                                    {value === '1' && 'Express 24H'}
+                                    {value === '3' && 'Up to 3 days'}
+                                    {value === '7' && 'Up to 7 days'}
+                                    {value === '' && 'Anytime'}
+                                </label>
+                            </div>
+                        ))}
                         <div className="top-filter-bar__filter-price-btns">
                             <div className="top-filter-bar__clear-all" onClick={onClearDelivery}>
                                 Clear All

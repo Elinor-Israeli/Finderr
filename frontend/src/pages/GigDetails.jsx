@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { gigService } from '../services/gig/gig.service.remote'
 import { showErrorMsg } from '../services/event-bus.service'
+
+import { GigBreadcrumbs } from '../cmps/GigBreadcrumbs'
+import { GigCategoryToolBar } from '../cmps/GigCategoryToolBar'
 import { SlidesDetails } from '../cmps/gig-details-items/SlidesDetails'
 import { GigPaymentOptions } from '../cmps/gig-details-items/GigPaymentOptions'
-import { GigBreadcrumbs } from '../cmps/GigBreadcrumbs'
 import { UserInfo } from '../cmps/gig-details-items/UserInfo'
 import {PricingTable }from '../cmps/gig-details-items/PricingTable'
 import { Loader } from '../cmps/Loader'
-import { GigCategoryToolBar } from '../cmps/GigCategoryToolBar'
+
 import useOnSetFilter from '../utils/hooks'
 
 export function GigDetails() {
@@ -34,10 +36,11 @@ export function GigDetails() {
     }, [gigId, navigate ])
 
     
-    if (!gig) return <div className="gig-details">
+    if (!gig) return (
+     <div className="gig-details">
          <Loader src="https://fiverr-res.cloudinary.com/app_assets/fiverr_logo_loader.svg" alt="Loading..." />
     </div>
-    gig.owner || {}
+    )
 
     return <section className="gig-details">
         <div className="gig-details-container">
@@ -55,7 +58,6 @@ export function GigDetails() {
                 <div className="gig-about">
                     <h3 className='about-gig-header'>About This Gig</h3>
                     <p>{gig.description}</p>
-                    
                 </div>
                 <div className="gig-about-filter">
                     <ul>

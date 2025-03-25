@@ -1,7 +1,13 @@
-export function ProgressChart({ count, total, bgc }) {
-    const percent = total > 0 ? count / total : 0
+interface ProgressChartProps {
+    count: number;
+    total: number;
+    bgc: string;
+}
+
+export function ProgressChart(props: ProgressChartProps) {
+    const percent = props.total > 0 ? props.count / props.total : 0
     const strokePercent = 283 - (283 * percent)
-    const gradientId = `progressGradient-${bgc}`
+    const gradientId = `progressGradient-${props.bgc}`
 
     return (
         <section className="progress-chart">
@@ -19,8 +25,8 @@ export function ProgressChart({ count, total, bgc }) {
                 {/* Single-Color Progress */}
                 <defs>
                     <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style={{ stopColor: bgc, stopOpacity: 1 }} />
-                        <stop offset="100%" style={{ stopColor: bgc, stopOpacity: 1 }} />
+                        <stop offset="0%" style={{ stopColor: props.bgc, stopOpacity: 1 }} />
+                        <stop offset="100%" style={{ stopColor: props.bgc, stopOpacity: 1 }} />
                     </linearGradient>
                 </defs>
                 <circle
@@ -48,5 +54,5 @@ export function ProgressChart({ count, total, bgc }) {
                 </text>
             </svg>
         </section>
-    );
+    )
 }

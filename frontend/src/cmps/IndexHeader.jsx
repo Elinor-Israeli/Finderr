@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { SET_FILTER } from '../store/reducers/gig.reducer'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState, useMemo, useCallback } from 'react'
 import { userService } from '../services/user/user.service.remote'
 import { gigService } from '../services/gig/gig.service.remote'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,15 +10,11 @@ import { ModalLogin } from './index-header-items/ModalLogin'
 import { DropdownLogin } from './index-header-items/DropdownLogin'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { loadGigs } from '../store/actions/gig.actions'
-import useOnSetFilter from '../utils/hooks'
+import { Logo } from './Logo'
+import { IndexHeaderSearchBar } from '../../src/cmps/index-header-items/IndexHeaderSearchBar'
 
 export function IndexHeader() {
-  const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
-  const elInputRef = useRef(null)
-  const [isVisible, setIsVisible] = useState(false)
-  const [, setShowSearch] = useState(false)
   const loginUser = userService.getLoggedinUser()
-  const [, setHeaderClassName] = useState('')
   const user = useSelector(storeState => storeState.userModule.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -29,28 +25,21 @@ export function IndexHeader() {
   const { pathname } = window.location
   const [windowSize, setWindowSize] = useState(null)
   const gigs = useSelector(storeState => storeState.gigModule.gigs)
-  const wishListGigs = gigs.filter(gig => gig.wishList && gig.wishList.includes(user?._id))
-  const onSetFilter = useOnSetFilter()
+  const wishListGigs = useMemo(() => {
+    return gigs.filter(gig => gig.wishList?.includes(user?._id))
+  }, [gigs, user])
 
   useEffect(() => {
+  
     function handleResize() {
       setWindowSize(window.innerWidth)
     }
-    window.addEventListener("resize", handleResize)
+    window.addEventListener('resize', handleResize)
     handleResize()
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  useEffect(() => {
-    function handleScroll() {
-      if (window.scrollY >= 150 && pathname === '/') setHeaderClassName('app-header header-home-page main-layout sticky full')
-      else if (window.scrollY < 150 && pathname === '/') setHeaderClassName('app-header header-home-page main-layout')
-      else setHeaderClassName('main-layout grid-full')
+    return () => {
+      window.removeEventListener('resize', handleResize)
     }
-    window.addEventListener("scroll", handleScroll)
-    handleScroll()
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [pathname, setWindowSize])
+  }, [pathname])
 
   useEffect(() => {
     const checkIfClickedOutside = e => {
@@ -71,45 +60,17 @@ export function IndexHeader() {
   }, [isModal, isDropdown, isOrder])
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (pathname === '/' && window.scrollY > 600) {
-        setShowSearch(true)
-      } else {
-        setShowSearch(false)
-      }
+    if (user) {
+      loadGigs()
     }
+  }, [user])
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [pathname])
-
-  function handleChange({ target }) {
-    let { value, name: field, type } = target
-    value = (type === 'number') ? +value : value
-    setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
-  }
-
-  function onSubmitFilter(ev) {
-    ev.preventDefault()
-    onSetFilter(filterByToEdit)
-  }
-
-  function onPlaceholder() {
-    let placeholder = 'What service are you looking for today?'
-    if (pathname === '/') {
-      placeholder = 'What service are you looking for today?'
-    } else if (pathname !== '/' && windowSize < 900) {
-      placeholder = 'What service are you looking for today?'
-    }
-    return placeholder
-  }
-
-  function onExploreClick() {
+  const onExploreClick = useCallback(() => {
     const resetFilter = gigService.getDefaultFilter()
     dispatch({ type: SET_FILTER, filterBy: resetFilter })
     navigate('/gig')
-  }
-
+  }, [dispatch, navigate])
+  
   async function onLogin(credentials) {
     try {
       const user = await login(credentials)
@@ -139,6 +100,10 @@ export function IndexHeader() {
     }
   }
 
+  const handleOrder = useCallback(() => {
+    setIsOrder(prev => !prev)
+  }, [])
+
   function onOpenModal() {
     setIsModal(true)
   }
@@ -147,67 +112,12 @@ export function IndexHeader() {
     setIsModal(false)
   }
 
-  function handleOrder() {
-    setIsOrder(prev => !prev)
-  }
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      const threshold = 400
-      if (scrollPosition >= threshold) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (user) {
-      loadGigs()
-    }
-  }, [user])
-
   return (
     <section className="index-header full">
       <div className={`index-header-container main-layout `}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
-          <Link to="/">
-            <div className="logo">
-              <span className='logo-text'>finderr</span>
-              <span className='logo-dot'>.</span>
-            </div>
-          </Link>
-
-          <form
-            className={`index-search ${pathname !== '/' ? 'always-visible' : isVisible ? 'block-header' : 'hidden'}`}
-            onSubmit={onSubmitFilter}
-          >
-            <div className="search-index-input">
-              <input
-                type="text"
-                className={`gig-search ${pathname !== '/' ? 'long-placeholder' : ''}`}
-                id="categories"
-                name="categories"
-                placeholder={onPlaceholder()}
-                value={filterByToEdit.categories}
-                onChange={handleChange}
-                ref={elInputRef}
-              />
-              <button className="btn-index-search">
-                <span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="white">
-                    <path d="m15.89 14.653-3.793-3.794a.37.37 0 0 0-.266-.109h-.412A6.499 6.499 0 0 0 6.5 0C2.91 0 0 2.91 0 6.5a6.499 6.499 0 0 0 10.75 4.919v.412c0 .1.04.194.11.266l3.793 3.794a.375.375 0 0 0 .531 0l.707-.707a.375.375 0 0 0 0-.53ZM6.5 11.5c-2.763 0-5-2.238-5-5 0-2.763 2.237-5 5-5 2.762 0 5 2.237 5 5 0 2.762-2.238 5-5 5Z"></path>
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </form>
+        <Logo/>
+        <IndexHeaderSearchBar/>
           <div className="links ">
             <Link to="/gig" onClick={onExploreClick}>
               <span className='explore-btn'>Explore</span>
@@ -232,12 +142,6 @@ export function IndexHeader() {
                 {(windowSize > 900) && <div className="user-header-img">
                   <img src={user.imgUrl}
                     alt='user'
-                    style={{
-                      borderRadius: '50%',
-                      width: '2em',
-                      height: '2em',
-                      cursor: 'pointer',
-                    }}
                     onClick={() => {
                       setIsOrder(false)
                       setIsDropdown(!isDropdown)

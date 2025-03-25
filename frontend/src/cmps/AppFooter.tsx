@@ -1,3 +1,5 @@
+import { Logo } from './Logo'
+
 const FooterLinkList = ({ title, links }: { title: string; links: string[] }) => (
     <div className="item">
         <ul>
@@ -18,16 +20,16 @@ export function AppFooter() {
         'Graphics & Design', 'Digital Marketing', 'Writing & Translation', 'Video & Animation', 'Music & Audio',
         'Programming & Tech', 'AI Services', 'Consulting', 'Data', 'Business', 'Personal Growth & Hobbies',
         'Finance', 'Photography', 'End-to-End Projects', 'Service Catalog'
-    ];
+    ]
 
     const forClients = [
         'Visit Example', 'How finderr Works', 'Customer Success Stories', 'Trust & Safety', 'Quality Guide',
         'finderr Learn', 'finderr Guides', 'finderr Answers'
-    ];
+    ]
 
     const forFreelancers = [
         'Become a finderr Freelancer', 'Become an Agency', 'Kickstart', 'Community Hub', 'Forum', 'Events'
-    ];
+    ]
 
     const businessSolutions = [
         'finderr Pro', 'Project Management Service', 'ClearVoice Content Marketing', 'Working Not Working Creative Talent',
@@ -54,10 +56,7 @@ export function AppFooter() {
                     <hr />
                     <div className="bottom">
                         <div className="left">
-                            <div className="logo">
-                                <span className="logo-text">finderr</span>
-                                <span className="logo-dot">.</span>
-                            </div>
+                            <Logo/>
                             <span className="footer-logo">© finderr International Ltd. 2024</span>
                         </div>
                         <div className="right">

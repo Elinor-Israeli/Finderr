@@ -10,78 +10,6 @@
     .index-header-container {
         padding: 20px 0px;
         transition: all 0.3s ease; 
-        
-        .logo {
-            justify-content: flex-start;
-            font-size: 45px;
-            font-weight: 900;
-            letter-spacing: -3px;
-            color:#020202;
-            padding: 10px;
-
-            .logo-dot {
-                color: #1dbf73;
-                font-size: 60px;
-
-            }
-        }
-
-
-        .index-search {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: white;
-            border-radius: 5px;
-            width: 70%; 
-            max-width: 600px; 
-            font-size: 14px;
-            padding: 0 10px; 
-
-            .search-index-input {
-                display: flex;
-                align-items: center;
-                width: 100%;
-                border-color: #c5c6c9;
-                color: #62646a;
-                border-radius: 5px;
-                
-
-                input {
-                    width: 100%; 
-                    height: 45px; 
-                    outline: none;
-                    padding: 0 10px; 
-                    border: 0.3px solid #c5c6c9;
-                    border-right: white;
-                }
-
-                input::placeholder{
-                    font-family: 'Macan';
-                    font-size: 16px;
-
-                }
-            }
-
-            .btn-index-search {
-                width: 50px;
-                height: 45px; 
-                background-color: #222325;
-                border-color: #c5c6c9;
-                color: white;
-                cursor: pointer;
-                border-radius: 0 4px 4px 0;
-
-                svg {
-                    color: white;
-                }
-                &:hover {
-                    cursor: pointer;
-                    color: #17A55A;
-                }
-            }
-        }
-
         .links {
             display: flex;
             align-items: center;
@@ -105,6 +33,17 @@
                 border-radius: 8px;
                 &:hover {
                     background-color: #fafafa; 
+                    cursor: pointer;
+                }
+            }
+
+            .user-header-img {
+                position: relative;
+               
+                img {
+                    border-radius: 50%;
+                    width: em(32px, 16px);
+                    height: em(32px, 16px);
                     cursor: pointer;
                 }
             }
@@ -209,6 +148,15 @@
 }
 
 .always-visible {
-    display: block !important;  /* Force it to always be shown */
+    display: block !important;  
   }
   
+.sticky-toolbar {
+    position: fixed;
+    top: clamp(60px, 10vh, 91px);
+    right: 10px;
+    width: 100%;
+    background-color: white;
+    z-index: 1000; 
+    border-bottom: 1px solid #e4e5e7;
+}

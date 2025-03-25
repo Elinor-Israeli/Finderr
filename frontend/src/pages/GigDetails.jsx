@@ -8,11 +8,14 @@ import { GigBreadcrumbs } from '../cmps/GigBreadcrumbs'
 import { UserInfo } from '../cmps/gig-details-items/UserInfo'
 import {PricingTable }from '../cmps/gig-details-items/PricingTable'
 import { Loader } from '../cmps/Loader'
+import { GigCategoryToolBar } from '../cmps/GigCategoryToolBar'
+import useOnSetFilter from '../utils/hooks'
 
 export function GigDetails() {
     const { gigId } = useParams()
     const navigate = useNavigate()
     const [gig, setGig] = useState()
+    const onSetFilter = useOnSetFilter()
 
     useEffect(() => {
         async function loadGig() {
@@ -39,6 +42,9 @@ export function GigDetails() {
     return <section className="gig-details">
         <div className="gig-details-container">
             <div className="left">
+                 <div className="sticky-toolbar main-layout">
+                            <GigCategoryToolBar onSetFilter={onSetFilter} />
+                        </div>
                 <GigBreadcrumbs categories={gig.tags} />
                 <h1 className='gig-details-title'>{gig.title}</h1>
                 <UserInfo user_id={gig.owner_id} compact={true} />

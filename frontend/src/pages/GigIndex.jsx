@@ -9,6 +9,7 @@ import { loadGigs } from '../store/actions/gig.actions'
 import { SET_FILTER } from '../store/reducers/gig.reducer'
 import { Loader } from '../cmps/Loader'
 import { getCategoryName } from '../utils/ui'
+import { GigCategoryToolBar } from '../cmps/GigCategoryToolBar'
 
 export function GigIndex() {
     const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
@@ -89,11 +90,14 @@ export function GigIndex() {
         loadGigs(filterBy)
     }, [filterBy])
 
-    
-    const categories = searchParams.get('categories').split(',')
+
+    const categories = searchParams.get('categories')?.split(',')
 
     return (
         <section className="gig-index full ">
+          <div className="sticky-toolbar main-layout">
+            <GigCategoryToolBar onSetFilter={onSetFilter} />
+        </div>
             <GigBreadcrumbs />
             <h1 className='headline-name'>
                 {

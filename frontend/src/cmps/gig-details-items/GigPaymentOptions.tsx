@@ -117,15 +117,16 @@ export function GigPaymentOptions(props: GigPaymentOptionsProps) {
                 Continue
               </Link>
             </div>
-          </div>
-    
-          <a href="/compare-packages" className="center-container">
+            <a href="/compare-packages" className="center-container">
             <button className="compare-packages-button">
               <a style={{ scrollBehavior: 'smooth', fontFamily: 'Macan', color: '#404145' }} href="#Compare packages">
                 Compare packages
               </a>
             </button>
           </a>
+          </div>
+    
+         
         </div>
       )
     }

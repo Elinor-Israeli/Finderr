@@ -120,7 +120,6 @@
 }
 
 .slide-btn {
-    z-index: 2;
     color: $clr5;
     background-color: $clr3;
     border-radius: 50%;
@@ -170,7 +169,6 @@ div.card-content {
     margin: 10px 0 0 0;
     padding: 0 10px;
     position: relative;
-    z-index: 1;
     cursor: pointer;
 
     h4 {

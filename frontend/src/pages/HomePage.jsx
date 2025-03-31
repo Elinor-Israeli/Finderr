@@ -31,7 +31,7 @@ export function HomePage() {
     return (
         <section >
             {pathname === "/" && (
-                <div className={`home-category ${isVisible ? 'block main-layout' : 'hidden'}`} style={{ borderBottom: '1px solid #e4e5e7' }}>
+                <div className={`home-category ${isVisible ? 'block ' : 'hidden'}`} style={{ borderBottom: '1px solid #e4e5e7' }}>
                     <GigCategoryToolBar onSetFilter={onSetFilter} />
                 </div>
             )}

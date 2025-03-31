@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import type {Credentials} from '../types/User'
+import type { Credentials } from '../../types/User'
 
 interface LoginSignupProps {
     onCloseModal: () => void

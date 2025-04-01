@@ -10,7 +10,7 @@ const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
 /* eslint-disable no-undef */
-const BASE_URL = process.env.NODE_ENV === 'production'  
+const BASE_URL = import.meta.env.NODE_ENV === 'production'  
     ? import.meta.env.VITE_API_URL
     : '//localhost:3033/'
 
@@ -40,7 +40,7 @@ function createSocketService() {
     emit(eventName, data) {
       socket.emit(eventName, data)
     },
-    login(userId) {
+    login(userId:string) {
       socket.emit(SOCKET_EMIT_LOGIN, userId)
     },
     logout() {

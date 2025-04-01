@@ -45,12 +45,12 @@ export async function removeGig(gigId:string):Promise<void> {
 }
 
 export async function loadUserGigs(userId:string):Promise<void> {
-
     store.dispatch({ type: LOADING_START })
 
     try {
-        
-        let userGigs = await gigService.query({ userId })
+        const filter = { ...gigService.getDefaultFilter(), userId }
+
+        let userGigs = await gigService.query(filter)
         
         store.dispatch({ type: SET_USER_GIGS, userGigs })
 
@@ -85,7 +85,7 @@ export async function updateGig(gig:Gig):Promise<void> {
     }
 }
 
-export async function addAndRemoveToWishlist(gigId:string):Promise<void> {
+export async function addAndRemoveToWishlist(gigId:string):Promise<Gig> {
     try {
         const updatedGig = await gigService.toggleWishlist(gigId)
 

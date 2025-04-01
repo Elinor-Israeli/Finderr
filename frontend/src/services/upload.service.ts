@@ -1,7 +1,13 @@
 export const uploadService = {
 	uploadImg
 }
-function uploadImg(ev) {
+
+interface UploadResponse {
+    url: string;
+    public_id: string;
+}
+
+function uploadImg(ev: React.ChangeEvent<HTMLInputElement>): Promise<UploadResponse>{
 	const CLOUD_NAME = "dmw7dxabv"
 	const UPLOAD_PRESET = "finder-images"
 	const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`

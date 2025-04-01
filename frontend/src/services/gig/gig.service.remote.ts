@@ -1,4 +1,5 @@
 import { httpService } from '../http.service'
+import { Gig } from '../../types/Gig'
 
 export const gigService = {
     query,
@@ -10,7 +11,6 @@ export const gigService = {
     getDefaultFilter,
     toggleWishlist
 }
-window.cs = gigService
 
 function getDefaultFilter() {
     return { categories: [], daysToMake: '', minPrice: '', maxPrice: '' , userId:'' }
@@ -20,31 +20,30 @@ async function query(filterBy = getDefaultFilter()) {
     return httpService.get(`gig`, filterBy)
 }
 
-function getById(gigId) {
+function getById(gigId: string) {
     return httpService.get(`gig/${gigId}`)
 }
 
-async function remove(gigId) {
+async function remove(gigId: string) {
     return httpService.delete(`gig/${gigId}`)
 }
 
-async function add(gig) {
+async function add(gig:Gig) {
     var addedGig
     addedGig = await httpService.post('gig', gig)
     return addedGig
 }
 
-async function update(gig) {
+async function update(gig:Gig) {
     var updatedGig
     updatedGig = await httpService.put(`gig/${gig._id}`, gig)
     return updatedGig
 }
 
-async function toggleWishlist(gigId) {
+async function toggleWishlist(gigId: string): Promise<Gig> {
     try {
         const gig = { gigId }
-        const response = await httpService.put('gig/wishlist', gig)
-
+        const response: Gig = await httpService.put<Gig>('gig/wishlist', gig) 
         return response
     } catch (error) {
         console.error('Failed to update wishlist', error)

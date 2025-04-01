@@ -12,23 +12,16 @@ export const userService = {
     getById,
     remove,
     update,
-    getUserReviews
+    
 }
-
-window.userService = userService
 
 function getUsers() {
     return httpService.get(`user`)
 }
 
-async function getById(userId) {
+async function getById(userId:string) {
     const user = await httpService.get(`user/${userId}`)
     return user
-}
-
-async function getUserReviews(userId) {
-    const user = await httpService.get(`user/${userId}`)
-    return user.reviews
 }
 
 function remove(userId) {

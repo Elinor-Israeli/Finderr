@@ -2,16 +2,21 @@ import { useEffect, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { gigService } from '../../services/gig/gig.service.remote'
+import { Filter } from '../../types/Filter'
 
-export function SortBudgetAndDelivery({ onSetFilter }) {
-    const filterByFromStore = useSelector((storeState) => storeState.gigModule.filterBy)
+interface SortBudgetAndDeliveryProps {
+    onSetFilter: (filter: Filter) => void
+}
+
+export function SortBudgetAndDelivery({ onSetFilter }: SortBudgetAndDeliveryProps) {
+    const filterByFromStore: Filter = useSelector((storeState: any) => storeState.gigModule.filterBy);
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
-    const [isPriceFilterShown, setIsPriceFilterShown] = useState(false)
-    const [isDeliveryShown, setIsDeliveryShown] = useState(false)
-    const [selectedDelivery, setSelectedDelivery] = useState(null)  
+    const [isPriceFilterShown, setIsPriceFilterShown] = useState<boolean>(false)
+    const [isDeliveryShown, setIsDeliveryShown] = useState<boolean>(false)
+    const [selectedDelivery, setSelectedDelivery] = useState<string | null>(null)
 
-    const ref = useRef()
-    const deliveryRef = useRef()
+    const ref = useRef<HTMLDivElement>(null)
+    const deliveryRef = useRef<HTMLDivElement>(null)
     const checkedDelivery = filterByFromStore.daysToMake
     const navigate = useNavigate()
     const location = useLocation()    
@@ -19,23 +24,27 @@ export function SortBudgetAndDelivery({ onSetFilter }) {
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search)
         const categories = queryParams.get('categories')
-            ? queryParams.get('categories').split(',').filter(cat => cat.trim() !== '')
-            : []      
+            ? queryParams.get('categories')!.split(',').filter(cat => cat.trim() !== '')
+            : [];
         const minPrice = queryParams.get('minPrice') || ''
         const maxPrice = queryParams.get('maxPrice') || ''
         const daysToMake = queryParams.get('daysToMake') || ''
-
-        setFilterByToEdit({ categories, minPrice, maxPrice, daysToMake })        
+        
+        setFilterByToEdit({
+            categories,
+            minPrice,
+            maxPrice,
+            daysToMake,
+            userId: filterByToEdit.userId || '' 
+        })
     }, [location.search])
 
-    const handleChangePrice = (ev) => {
-        const { target } = ev
-        let { value, name: field, type } = target
-        value = type === 'number' ? +value : value
-        setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+    const handleChangePrice = (ev: React.ChangeEvent<HTMLInputElement>) => {
+        const { value, name: field, type } = ev.target
+        setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: type === 'number' ? +value : value }))
     }
 
-    const handleChangeDelivery = (ev) => {
+    const handleChangeDelivery = (ev: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = ev.target
         setSelectedDelivery(value) 
     }

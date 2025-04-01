@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { GigPreview } from '../cmps/GigPreview'
 import { loadGigs } from '../store/actions/gig.actions'
 
-function UserWishList() {
+export function UserWishList() {
   const navigate = useNavigate()
   const user = useSelector((storeState) => storeState.userModule.user)
   let gigs = useSelector((storeState) => storeState.gigModule.gigs)
@@ -47,4 +47,3 @@ function UserWishList() {
   )
 }
 
-export default UserWishList

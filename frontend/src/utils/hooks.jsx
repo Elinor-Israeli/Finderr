@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { SET_FILTER } from '../store/reducers/gig.reducer'
+import { SET_FILTER } from '../types/Gig'
 
 const useOnSetFilter = () => {
   const dispatch = useDispatch()

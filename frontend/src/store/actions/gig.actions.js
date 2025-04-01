@@ -1,5 +1,5 @@
 import { store } from '../store'
-import { ADD_GIG, REMOVE_GIG, SET_GIGS,SET_USER_GIGS, UPDATE_GIG } from '../reducers/gig.reducer'
+import { ADD_GIG, REMOVE_GIG, SET_GIGS,SET_USER_GIGS, UPDATE_GIG } from '../../types/Gig'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { gigService } from '../../services/gig/gig.service.remote'
 
@@ -97,3 +97,5 @@ export async function addAndRemoveToWishlist(gigId) {
         throw err
     }
 }
+
+  

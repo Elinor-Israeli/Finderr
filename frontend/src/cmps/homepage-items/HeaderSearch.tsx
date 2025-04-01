@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, ChangeEvent, FormEvent } from 'react'
-import { gigService } from '../../services/gig/gig.service.remote'
+import { gigService } from '../../services/gig/gig.service.remote.js'
 import useOnSetFilter from '../../utils/hooks'
 
 interface Filter {

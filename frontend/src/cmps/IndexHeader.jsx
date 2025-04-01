@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { SET_FILTER } from '../store/reducers/gig.reducer'
+import { SET_FILTER } from '../types/Gig'
 import { useEffect, useState, useMemo, useCallback } from 'react'
 import { userService } from '../services/user/user.service.remote'
 import { gigService } from '../services/gig/gig.service.remote'

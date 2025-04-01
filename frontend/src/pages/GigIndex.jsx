@@ -6,7 +6,7 @@ import { GigBreadcrumbs } from '../cmps/GigBreadcrumbs'
 import { GigList } from '../cmps/gig-index-items/GigList'
 import { SortBudgetAndDelivery } from '../cmps/gig-index-items/SortBudgetAndDelivery'
 import { loadGigs } from '../store/actions/gig.actions'
-import { SET_FILTER } from '../store/reducers/gig.reducer'
+import { SET_FILTER } from '../types/Gig'
 import { Loader } from '../cmps/Loader'
 import { getCategoryName } from '../utils/ui'
 import { GigCategoryToolBar } from '../cmps/GigCategoryToolBar'
@@ -63,29 +63,6 @@ export function GigIndex() {
 
     }, [dispatch, navigate])
 
-
-    useEffect(() => {
-        function renderParams() {
-            if (searchParams.getAll('categories').length != 0) {
-                filterBy.categories = searchParams.getAll('categories')[0].split(',')
-            }
-
-            if (searchParams.get('minPrice')) {
-                filterBy.minPrice = searchParams.get('minPrice')
-            }
-
-            if (searchParams.get('maxPrice')) {
-                filterBy.maxPrice = searchParams.get('maxPrice')
-            }
-
-            if (searchParams.get('daysToMake')) {
-                filterBy.daysToMake = searchParams.get('daysToMake')
-            }
-            onSetFilter(filterBy)
-        }
-        renderParams()
-    }, [filterBy, onSetFilter, searchParams])
-
     useEffect(() => {
         loadGigs(filterBy)
     }, [filterBy])
@@ -96,7 +73,7 @@ export function GigIndex() {
     return (
         <section className="gig-index full ">
           <div className="sticky-toolbar main-layout">
-            <GigCategoryToolBar onSetFilter={onSetFilter} />
+            <GigCategoryToolBar />
         </div>
             <GigBreadcrumbs />
             <h1 className='headline-name'>

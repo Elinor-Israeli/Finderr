@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router'
+import { Routes, Route, useLocation } from 'react-router-dom'
 
 import { HomePage } from './pages/HomePage'
 import { GigIndex } from './pages/GigIndex'
@@ -8,7 +8,7 @@ import { IndexHeader} from './cmps/IndexHeader'
 import { GigEdit } from './pages/GigEdit'
 import { GigPayment } from './pages/GigPayment'
 import { UserIndex } from './pages/UserIndex'
-import UserWishList from './pages/UserWishList'
+import {UserWishList} from './pages/UserWishList'
 import { UserMsg } from './cmps/UserMsg'
 import Dashboard from './pages/Dashboard'
 

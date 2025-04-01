@@ -1,5 +1,5 @@
 import { store } from '../store' 
-import { ADD_ORDER_BUYER,ADD_ORDER_SELLER, SET_ORDERS_BUYER, SET_ORDERS_SELLER, UPDATE_ORDER_SELLER,UPDATE_ORDER_BUYER  } from '../reducers/order.reducer'
+import { ADD_ORDER_BUYER,ADD_ORDER_SELLER, SET_ORDERS_BUYER, SET_ORDERS_SELLER, UPDATE_ORDER_SELLER,UPDATE_ORDER_BUYER  } from '../../types/Order'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { orderService } from '../../services/order/order.service.remote'
 

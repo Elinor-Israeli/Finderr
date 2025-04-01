@@ -1,28 +1,30 @@
 import { store } from '../store'
-import { ADD_GIG, REMOVE_GIG, SET_GIGS,SET_USER_GIGS, UPDATE_GIG } from '../../types/Gig'
+import { ADD_GIG, REMOVE_GIG, SET_GIGS,SET_USER_GIGS, UPDATE_GIG, Gig, FilterBy } from '../../types/Gig'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { gigService } from '../../services/gig/gig.service.remote'
 
-export function getActionRemoveGig(gigId) {
+export function getActionRemoveGig(gigId:string) {
     return {
         type: REMOVE_GIG,
         gigId
     }
 }
-export function getActionAddGig(gig) {
+
+export function getActionAddGig(gig:Gig) {
     return {
         type: ADD_GIG,
         gig
     }
 }
-export function getActionUpdateGig(gig) {
+
+export function getActionUpdateGig(gig:Gig) {
     return {
         type: UPDATE_GIG,
         gig
     }
 }
 
-export async function loadGigs(filterBy) {
+export async function loadGigs(filterBy:FilterBy):Promise<void> {
     store.dispatch({ type: LOADING_START })
     try {
         const gigs = await gigService.query(filterBy)
@@ -32,7 +34,7 @@ export async function loadGigs(filterBy) {
     }
 }
 
-export async function removeGig(gigId) {
+export async function removeGig(gigId:string):Promise<void> {
     try {
         await gigService.remove(gigId)
         store.dispatch(getActionRemoveGig(gigId))
@@ -42,7 +44,7 @@ export async function removeGig(gigId) {
     }
 }
 
-export async function loadUserGigs(userId) {
+export async function loadUserGigs(userId:string):Promise<void> {
 
     store.dispatch({ type: LOADING_START })
 
@@ -59,8 +61,7 @@ export async function loadUserGigs(userId) {
     }
 }
 
-
-export async function addGig(gig) {
+export async function addGig(gig:Gig):Promise<void> {
     try {
         const addedGig = await gigService.add(gig)
         console.log('Added Gig', addedGig)
@@ -72,7 +73,7 @@ export async function addGig(gig) {
     }
 }
 
-export async function updateGig(gig) {
+export async function updateGig(gig:Gig):Promise<void> {
     try {
         const updatedGig = await gigService.update(gig)
         console.log('Updated Gig action store:', updatedGig)
@@ -84,7 +85,7 @@ export async function updateGig(gig) {
     }
 }
 
-export async function addAndRemoveToWishlist(gigId) {
+export async function addAndRemoveToWishlist(gigId:string):Promise<void> {
     try {
         const updatedGig = await gigService.toggleWishlist(gigId)
 

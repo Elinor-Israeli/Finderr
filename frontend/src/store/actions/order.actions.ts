@@ -1,34 +1,34 @@
 import { store } from '../store' 
-import { ADD_ORDER_BUYER,ADD_ORDER_SELLER, SET_ORDERS_BUYER, SET_ORDERS_SELLER, UPDATE_ORDER_SELLER,UPDATE_ORDER_BUYER  } from '../../types/Order'
+import { ADD_ORDER_BUYER,ADD_ORDER_SELLER, SET_ORDERS_BUYER, SET_ORDERS_SELLER, UPDATE_ORDER_SELLER,UPDATE_ORDER_BUYER, Order  } from '../../types/Order'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { orderService } from '../../services/order/order.service.remote'
 
-export function getActionAddOrderBuyer(buyerOrder) {
+export function getActionAddOrderBuyer(buyerOrder:Order) {
     return {
         type: ADD_ORDER_BUYER,
         buyerOrder
     }
 }
-export function getActionAddOrderSeller(sellerOrder) {
+export function getActionAddOrderSeller(sellerOrder:Order) {
     return {
         type: ADD_ORDER_SELLER,
         sellerOrder
     }
 }
-export function getActionUpdateOrderSeller(sellerOrder) {
+export function getActionUpdateOrderSeller(sellerOrder:Order) {
     return {
         type: UPDATE_ORDER_SELLER,
         sellerOrder
     }
 }
-export function getActionUpdateOrderBuyer(buyerOrder) {
+export function getActionUpdateOrderBuyer(buyerOrder:Order) {
     return {
         type: UPDATE_ORDER_BUYER,
         buyerOrder
     }
 }
 
-export async function loadOrdersBuyer() {
+export async function loadOrdersBuyer(): Promise<void>  {
     store.dispatch({type: LOADING_START})
      try {
         const buyerOrders = await orderService.query('buyer')
@@ -42,7 +42,7 @@ export async function loadOrdersBuyer() {
     }
 }
 
-export async function loadOrdersSeller() {
+export async function loadOrdersSeller(): Promise<void>  {
     store.dispatch({type: LOADING_START})
     try {
        const sellerOrders = await orderService.query('seller')
@@ -56,7 +56,7 @@ export async function loadOrdersSeller() {
 }
 }
 
-export async function addOrderBuyer(order) {
+export async function addOrderBuyer(order:Order): Promise<void>  {
     try {
         const savedOrder = await orderService.save(order)
         store.dispatch(getActionAddOrderBuyer(savedOrder))
@@ -67,7 +67,7 @@ export async function addOrderBuyer(order) {
         throw err
     }
 }
-export async function addOrderSeller(order) {
+export async function addOrderSeller(order:Order): Promise<void>  {
     try {
         const savedOrder = await orderService.save(order)
         store.dispatch(getActionAddOrderSeller(savedOrder))
@@ -79,7 +79,7 @@ export async function addOrderSeller(order) {
     }
 }
 
-export async function updateOrderSeller(order) {
+export async function updateOrderSeller(order:Order):Promise<void>  {
     try {
         const savedOrder = await orderService.save(order)
         store.dispatch(getActionUpdateOrderSeller(savedOrder))
@@ -90,7 +90,7 @@ export async function updateOrderSeller(order) {
     }
 }
 
-export async function updateOrderBuyer(order) {
+export async function updateOrderBuyer(order:Order): Promise<void>  {
     try {
         const savedOrder = await orderService.save(order)
         store.dispatch(getActionUpdateOrderBuyer(savedOrder))

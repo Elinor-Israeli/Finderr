@@ -1,12 +1,12 @@
 import { store } from '../store'
-import {  SET_USER, UPDATE_USER } from '../../types/User'
+import {  SET_USER, UPDATE_USER, User, Credentials } from '../../types/User'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { userService } from '../../services/user/user.service.remote'
 import { showErrorMsg } from '../../services/event-bus.service' 
 import { socketService } from '../../services/socket.service'
 
 
-export async function updateUser(user) {
+export async function updateUser(user: User): Promise<void>  {
     try {
         await userService.update(user)
         store.dispatch({ type: UPDATE_USER, user })
@@ -17,7 +17,7 @@ export async function updateUser(user) {
     }
 }
 
-export async function login(credentials) {
+export async function login(credentials: Credentials): Promise<void>  {
     try {
         const user = await userService.login(credentials)
         store.dispatch({
@@ -32,7 +32,7 @@ export async function login(credentials) {
     }
 }
 
-export async function signup(credentials) {
+export async function signup(credentials: Credentials): Promise<void> {
     try {
         const user = await userService.signup(credentials)
         store.dispatch({
@@ -47,7 +47,7 @@ export async function signup(credentials) {
     }
 }
 
-export async function logout() {
+export async function logout(): Promise<void>  {
     try {
         await userService.logout()
         store.dispatch({
@@ -61,7 +61,7 @@ export async function logout() {
     }
 }
 
-export async function loadUser(userId) {
+export async function loadUser(userId:string): Promise<void>  {
     store.dispatch({type: LOADING_START})
 
     try {

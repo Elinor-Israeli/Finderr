@@ -8,7 +8,8 @@ export {
     RemoveGigAction,
     AddGigAction,
     UpdateGigAction,
-    SetFilterAction
+    SetFilterAction,
+    FilterBy
 } 
 
 export const SET_GIGS = 'SET_GIGS'

@@ -15,7 +15,6 @@ export function UserIndex() {
     const loggedinUser = useSelector(storeState => storeState.userModule.user)
     const gigs = useSelector(storeState => storeState.gigModule.userGigs)
     const { userId } = useParams()
-    const [, setTime] = useState('')
     const [user, setUser] = useState()
 
     useEffect(() => {
@@ -36,21 +35,6 @@ export function UserIndex() {
     }, [userId, loggedinUser])
 
     const displayedUser = loggedinUser?._id === userId ? loggedinUser : user
-
-    useEffect(() => {
-        const updateTime = () => {
-            const currentDate = new Date()
-            const hours = currentDate.getHours()
-            const minutes = currentDate.getMinutes()
-            const AmPm = hours >= 12 ? 'PM' : 'AM'
-            const formattedTime = `${hours % 12 || 12}:${minutes < 10 ? '0' + minutes : minutes} ${AmPm} local time`
-            setTime(formattedTime)
-        }
-
-        updateTime()
-        const intervalId = setInterval(updateTime, 60000)
-        return () => clearInterval(intervalId)
-    }, [])
 
     async function onRemoveGig(gigId) {
         try {

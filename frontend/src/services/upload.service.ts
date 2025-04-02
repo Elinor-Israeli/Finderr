@@ -5,7 +5,11 @@ export const uploadService = {
 interface UploadResponse {
     url: string;
     public_id: string;
+	height:number
+	width:number
 }
+
+
 
 function uploadImg(ev: React.ChangeEvent<HTMLInputElement>): Promise<UploadResponse>{
 	const CLOUD_NAME = "dmw7dxabv"

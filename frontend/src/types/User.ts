@@ -26,7 +26,9 @@ type LoginUser = {
 interface User {
   _id: string
   fullname: string
+  username: string
   imgUrl: string
+  aboutMe?: string
   level: number
   rate: number
   reviews: any[]

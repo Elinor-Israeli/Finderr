@@ -6,11 +6,18 @@ import { SlideGigPreview } from './SlideGigPreview'
 import { showSuccessMsg } from '../services/event-bus.service'
 import { userService } from '../services/user/user.service.remote'
 import { eventBus } from '../services/event-bus.service'
+import { Gig } from '../types/Gig'
+import { User } from '../types/User'
+import { RootState } from '../store/store'
 
-export function GigPreview({ gig }) {
-    const user = useSelector((storeState) => storeState.userModule.user)
-    const [heart, setHeart] = useState(false)
-    const [owner, setOwner] = useState(null)
+type GigPreviewProps = {
+    gig: Gig
+}
+
+export function GigPreview({ gig }: GigPreviewProps) {
+    const user = useSelector((storeState: RootState) => storeState.userModule.user)
+    const [heart, setHeart] = useState<boolean>(false)
+    const [owner, setOwner] = useState< User | null >(null)
 
     useEffect(() => {
         if (user) {
@@ -25,7 +32,7 @@ export function GigPreview({ gig }) {
 
         async function loadOwner() {
             try {
-                const owner = await userService.getById(gig.owner_id)
+                const owner = await userService.getById(gig.owner_id) as User
                 setOwner(owner)
                 if (!Array.isArray(gig.wishList)) {
                     gig.wishList = []

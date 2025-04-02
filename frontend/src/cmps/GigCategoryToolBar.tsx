@@ -1,15 +1,16 @@
 import { useEffect, useRef, useState } from "react"
 import useOnSetFilter from '../utils/hooks'
 import { categoriesToolBar } from "../utils/ui"
+import { Category } from '../types/Category'
 
-export function GigCategoryToolBar() {
-    const CategorySliderRef = useRef(null)
-    const [isLeftDisabled, setIsLeftDisabled] = useState(true)
-    const [isRightDisabled, setIsRightDisabled] = useState(true)
+export function GigCategoryToolBar(): JSX.Element {
+    const CategorySliderRef = useRef<HTMLUListElement | null>(null)
+    const [isLeftDisabled, setIsLeftDisabled] = useState<boolean>(true)
+    const [isRightDisabled, setIsRightDisabled] = useState<boolean>(true)
     const onSetFilter = useOnSetFilter()
 
     useEffect(() => {
-        function updateScrollButtons() {
+        function updateScrollButtons(): void {
             if (CategorySliderRef.current) {
                 const { scrollLeft, scrollWidth, clientWidth } = CategorySliderRef.current
                 setIsLeftDisabled(scrollLeft <= 0)
@@ -28,13 +29,13 @@ export function GigCategoryToolBar() {
         }
     }, [])
 
-    function slideLeft() {
+    function slideLeft(): void {
         if (CategorySliderRef.current) {
             CategorySliderRef.current.scrollBy({ left: -220, behavior: "smooth" })
         }
     }
 
-    function slideRight() {
+    function slideRight(): void {
         if (CategorySliderRef.current) {
             CategorySliderRef.current.scrollBy({ left: 220, behavior: "smooth" })
         }

@@ -1,17 +1,22 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ChangeEvent  } from 'react'
 import { IoLocationOutline } from "react-icons/io5"
 import { updateUser } from '../../store/actions/user.actions'
 import { userService } from '../../services/user/user.service.remote'
 import { uploadService } from '../../services/upload.service'
+import { User } from '../../types/User'
 
-export function UserProfile({ user }) {
+interface UserProfileProps {
+  user: User
+}
 
-  const loginUser = userService.getLoggedinUser()
-  const [aboutMe, setAboutMe] = useState('')
-  const [isEditingProfile, setIsEditingProfile] = useState(false)
-  const [isEditingImage, setIsEditingImage] = useState(false)
-  const [profileImage, setProfileImage] = useState(user?.imgUrl || '')
-  const [fileName,] = useState('')
+export function UserProfile({ user }: UserProfileProps) {
+
+  const loginUser = userService.getLoggedinUser() as User | null
+  const [aboutMe, setAboutMe] = useState<string>('')
+  const [isEditingProfile, setIsEditingProfile] = useState<boolean>(false)
+  const [isEditingImage, setIsEditingImage] = useState<boolean>(false)
+  const [profileImage, setProfileImage] = useState<string>(user?.imgUrl || '')
+  const [fileName,setFileName] = useState<string>('')
 
   const isSameUser = user._id === loginUser?._id
 
@@ -19,7 +24,7 @@ export function UserProfile({ user }) {
     setProfileImage(user?.imgUrl || '')
   }, [user])
 
-  function onAboutMeChange(event) {
+  function onAboutMeChange(event: ChangeEvent<HTMLTextAreaElement>) {
     setAboutMe(event.target.value)
   }
 
@@ -46,14 +51,14 @@ export function UserProfile({ user }) {
     setIsEditingImage(!isEditingImage)
   }
 
-  async function onImageChange(event) {
+  async function onImageChange(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files[0]
     if (!file) return
 
     try {
-      const { secure_url } = await uploadService.uploadImg(event)
-
-      setProfileImage(secure_url)
+      const { url } = await uploadService.uploadImg(event)
+      setFileName(file.name)
+      setProfileImage(url)
 
     } catch (error) {
       console.error('Error uploading image:', error)
@@ -69,7 +74,6 @@ export function UserProfile({ user }) {
       await updateUser(updatedUser)
       setIsEditingImage(false)
       console.log('close');
-
     } catch (err) {
       console.error("Error updating user image:", err)
     }

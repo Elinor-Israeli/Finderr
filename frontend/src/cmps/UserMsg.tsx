@@ -3,9 +3,14 @@ import { HiMiniXMark } from "react-icons/hi2"
 import { eventBus,  showSuccessMsg } from '../services/event-bus.service' 
 import { socketService, SOCKET_EVENT_ORDER_ADDED_TO_DASHBOARD, SOCKET_EVENT_ORDER_UPDATE_STATUS } from '../services/socket.service' 
 
+interface Message {
+  txt: string;
+  type: string;
+}
+
 export function UserMsg() {
-  const [msg, setMsg] = useState(null)
-  const timeoutIdRef = useRef()
+  const [msg, setMsg] =useState<Message | null>(null)
+  const timeoutIdRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const unsubscribe = eventBus.on('show-msg', (msg) => {

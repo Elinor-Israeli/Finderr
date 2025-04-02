@@ -18,17 +18,6 @@ export function GigIndex() {
     const dispatch = useDispatch()
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
-    const [filterAndSort, setFilterAndSort] = useState('')
-
-    useEffect(() => {
-        function handleScroll() {
-            if (window.scrollY >= 140) setFilterAndSort('filter-sort full  filter-sort-shadow')
-            else setFilterAndSort('filter-sort full ')
-        }
-        window.addEventListener("scroll", handleScroll)
-        handleScroll()
-        return () => window.removeEventListener("scroll", handleScroll)
-    }, [])
 
     const onSetFilter = useCallback((filterBy) => {
         dispatch({ type: SET_FILTER, filterBy })
@@ -90,7 +79,7 @@ export function GigIndex() {
                         : getCategoryName([])?.secondHeadline
                 }
             </p>
-            <div className={`${filterAndSort}`}>
+            <div className="filter-sort">
                 <div className="filter-sort-container">
                     <SortBudgetAndDelivery onSetFilter={onSetFilter} />
                 </div>

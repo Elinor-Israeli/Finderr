@@ -3,28 +3,35 @@ import { gigService } from '../../services/gig/gig.service.remote'
 import useOnSetFilter from '../../utils/hooks'
 import { getPopularServices, categoryColors} from '../../utils/ui'
 
+interface Slide {
+    category: string;
+    desc: string;
+    url: string;
+  }
+  
+
 export function PopularServicesCarousel() {
     const slides = getPopularServices()
-    const sliderRef = useRef()
+    const sliderRef =  useRef<HTMLUListElement | null>(null)
     const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
-    const [isAtStart, setIsAtStart] = useState(true)
-    const [isAtEnd, setIsAtEnd] = useState(false)
+    const [isAtStart, setIsAtStart] = useState<boolean>(true)
+    const [isAtEnd, setIsAtEnd] = useState<boolean>(false)
     const onSetFilter = useOnSetFilter()
 
-    function filterByCategory( categories) {
+    function filterByCategory( categories:string[]): void {
         const updatedFilter = { ...filterByToEdit,  categories }
         setFilterByToEdit(updatedFilter)
         onSetFilter(updatedFilter)
     }
 
-    function slideLeft() {
+    function slideLeft(): void {
         const slider = sliderRef.current
         if (slider.scrollLeft > 0) {
             slider.scrollLeft -= 500
         }
     }
     
-    function slideRight() {
+    function slideRight(): void  {
         const slider = sliderRef.current
         const maxScrollLeft = slider.scrollWidth - slider.clientWidth
     
@@ -33,7 +40,7 @@ export function PopularServicesCarousel() {
         }
     }
 
-    function checkSliderPosition() {
+    function checkSliderPosition(): void  {
         const slider = sliderRef.current
         const maxScrollLeft = slider.scrollWidth - slider.clientWidth
         const isAtStart = slider.scrollLeft === 0

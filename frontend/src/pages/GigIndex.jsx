@@ -49,13 +49,13 @@ export function GigIndex() {
         }
 
         navigate(`/gig?${queryParams.toString()}`, { replace: true }) //This prevents the filter updates from cluttering the browser history, making the back button behave as expected.
+        console.log('queryParams', queryParams)
 
     }, [dispatch, navigate])
 
     useEffect(() => {
         loadGigs(filterBy)
     }, [filterBy])
-
 
     const categories = searchParams.get('categories')?.split(',')
 

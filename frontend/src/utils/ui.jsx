@@ -1,7 +1,5 @@
 
 export function getCategoryName(categoryList) {
-console.log('categoryList', categoryList);
-
     switch (true) {
         case categoryList.includes('graphic-design') || categoryList.includes('design') || categoryList.includes('logo-design') || categoryList.includes('logo'):
             return {

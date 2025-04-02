@@ -5,11 +5,14 @@ export const ADD_ORDER_SELLER = 'ADD_ORDER_SELLER'
 export const UPDATE_ORDER_SELLER = 'UPDATE_ORDER_SELLER'
 export const UPDATE_ORDER_BUYER = 'UPDATE_ORDER_BUYER' 
 
+import { Gig } from './Gig'
+
 export interface Order {
     _id: string
     buyerId: string
     sellerId: string
     gigId: string
+    gig:Gig
     status: 'pending' | 'approved' | 'rejected'
     createdAt: number
 }

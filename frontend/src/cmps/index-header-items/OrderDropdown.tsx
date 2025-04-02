@@ -2,16 +2,18 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import moment from 'moment'
+import * as moment from 'moment'
 import { getActionAddOrderBuyer } from '../../store/actions/order.actions'
 import { loadOrdersBuyer } from '../../store/actions/order.actions'
 import { Loader } from '../Loader'
 import { socketService , SOCKET_EVENT_ORDER_UPDATED} from '../../services/socket.service'
+import { RootState } from '../../store/store'
+import { Order } from '../../types/Order'
 
 
 export function OrderDropdown() {
-  let orders = useSelector((storeState) => storeState.orderModule.buyerOrders)
-  const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
+  let orders: Order[] = useSelector((state: RootState) => state.orderModule.buyerOrders)
+  const isLoading: boolean = useSelector((state: RootState) => state.systemModule.isLoading)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -20,7 +22,7 @@ export function OrderDropdown() {
   }, [])
 
   useEffect(() => {
-    socketService.on(SOCKET_EVENT_ORDER_UPDATED, (order) =>  {
+    socketService.on(SOCKET_EVENT_ORDER_UPDATED, (order: Order) =>  {
       dispatch(getActionAddOrderBuyer(order))
     })
 

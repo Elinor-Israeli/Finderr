@@ -1,5 +1,4 @@
 import { Logo } from './Logo'
-
 const FooterLinkList = ({ title, links }: { title: string; links: string[] }) => (
     <div className="item">
         <ul>

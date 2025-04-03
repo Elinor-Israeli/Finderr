@@ -16,7 +16,7 @@ function getDefaultFilter() {
     return { categories: [], daysToMake: '', minPrice: '', maxPrice: '' , userId:'' }
 }
 
-async function query(filterBy = getDefaultFilter()) {
+async function query(filterBy = getDefaultFilter()): Promise<Gig[]> {
     return httpService.get(`gig`, filterBy)
 }
 

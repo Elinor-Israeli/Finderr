@@ -9,7 +9,7 @@ import { login, logout, signup } from '../store/actions/user.actions'
 import { ModalLogin } from './index-header-items/ModalLogin'
 import { DropdownLogin } from './index-header-items/DropdownLogin'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { loadGigs } from '../store/actions/gig.actions'
+import { loadWishListGigs } from '../store/actions/gig.actions'
 import { Logo } from './Logo'
 import { IndexHeaderSearchBar } from '../../src/cmps/index-header-items/IndexHeaderSearchBar'
 
@@ -24,11 +24,8 @@ export function IndexHeader() {
   const [isSignup, setIsSignup] = useState(false)
   const { pathname } = window.location
   const [windowSize, setWindowSize] = useState(null)
-  const gigs = useSelector(storeState => storeState.gigModule.gigs)
-  const wishListGigs = useMemo(() => {
-    return gigs.filter(gig => gig.wishList?.includes(user?._id))
-  }, [gigs, user])
-
+  const wishlistGigs = useSelector(storeState => storeState.gigModule.wishlistGigs)
+  
   useEffect(() => {
   
     function handleResize() {
@@ -61,9 +58,9 @@ export function IndexHeader() {
 
   useEffect(() => {
     if (user) {
-      loadGigs()
+      loadWishListGigs(user._id)
     }
-  }, [user])
+  }, [user, user._id])
 
   const onExploreClick = useCallback(() => {
     const resetFilter = gigService.getDefaultFilter()
@@ -133,7 +130,7 @@ export function IndexHeader() {
                 </div>}
                 <Link to="/wishlist" className="heart" title="save to list">
                   <img
-                    src={wishListGigs.length > 0 ? "/img/red_heart.png" : "/img/gray_heart.png"}
+                    src={wishlistGigs.length > 0 ? "/img/red_heart.png" : "/img/gray_heart.png"}
                     alt="Heart"
                     className="heart-img"
                     style={{ aspectRatio: 'unset' }}

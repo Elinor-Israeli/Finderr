@@ -1,10 +1,11 @@
 import { gigService } from "../../services/gig/gig.service.remote"
-import { GigActionTypes, GigState, SetGigsAction, SetUserGigsAction, RemoveGigAction, AddGigAction, UpdateGigAction, SetFilterAction } from '../../types/Gig'
-import {SET_GIGS, SET_USER_GIGS, REMOVE_GIG, ADD_GIG, UPDATE_GIG, SET_FILTER } from '../../types/Gig'
+import { GigActionTypes, GigState, SetGigsAction, SetUserGigsAction, RemoveGigAction, AddGigAction, UpdateGigAction, SetFilterAction, SetWishListGigsAction } from '../../types/Gig'
+import { SET_GIGS, SET_USER_GIGS, REMOVE_GIG, ADD_GIG, UPDATE_GIG, SET_FILTER, SET_WISHLIST_GIGS } from '../../types/Gig'
 
 const initialState = {
     gigs: [],
     userGigs: [],
+    wishlistGigs:[],
     lastRemovedGig: null,
     filterBy: gigService.getDefaultFilter(),
 }
@@ -17,6 +18,10 @@ export function gigReducer(
         case SET_GIGS:
             const SetGigsAction = action as SetGigsAction
             return { ...state, gigs: SetGigsAction.gigs }
+        
+        case SET_WISHLIST_GIGS:
+            const SetWishListGigsAction = action as SetWishListGigsAction            
+            return { ...state, wishlistGigs: SetWishListGigsAction.wishlistGigs }
 
         case SET_USER_GIGS:
             const SetUserGigsAction = action as SetUserGigsAction

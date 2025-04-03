@@ -49,20 +49,36 @@ export function GigIndex() {
         }
 
         navigate(`/gig?${queryParams.toString()}`, { replace: true }) //This prevents the filter updates from cluttering the browser history, making the back button behave as expected.
-        console.log('queryParams', queryParams)
 
     }, [dispatch, navigate])
 
     useEffect(() => {
-        loadGigs(filterBy)
-    }, [filterBy])
+        const categories = searchParams.get('categories')?.split(',')
+        const minPrice = searchParams.get('minPrice')
+        const maxPrice = searchParams.get('maxPrice')
+        const daysToMake = searchParams.get('daysToMake')
+
+        const filter = {
+            categories: categories || [],
+            minPrice: minPrice || '',
+            maxPrice: maxPrice || '',
+            daysToMake: daysToMake || '',
+            userId: '',
+        }
+        if (filterBy !== filter) {
+            dispatch({ type: SET_FILTER, filterBy: filter })
+        }
+
+        loadGigs(filter)
+
+    }, [searchParams, dispatch])
 
     const categories = searchParams.get('categories')?.split(',')
 
     return (
         <section className="gig-index full ">
           <div className="sticky-toolbar main-layout">
-            <GigCategoryToolBar />
+            <GigCategoryToolBar  />
         </div>
             <GigBreadcrumbs />
             <h1 className='headline-name'>

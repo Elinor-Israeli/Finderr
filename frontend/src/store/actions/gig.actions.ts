@@ -1,5 +1,5 @@
 import { store } from '../store'
-import { ADD_GIG, REMOVE_GIG, SET_GIGS,SET_USER_GIGS, UPDATE_GIG, Gig, FilterBy } from '../../types/Gig'
+import { ADD_GIG, REMOVE_GIG, SET_GIGS,SET_USER_GIGS, UPDATE_GIG,SET_WISHLIST_GIGS, Gig, FilterBy } from '../../types/Gig'
 import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { gigService } from '../../services/gig/gig.service.remote'
 
@@ -29,6 +29,19 @@ export async function loadGigs(filterBy:FilterBy):Promise<void> {
     try {
         const gigs = await gigService.query(filterBy)
         store.dispatch({ type: SET_GIGS, gigs })
+    } finally {
+        store.dispatch({ type: LOADING_DONE })
+    }
+}
+
+export async function loadWishListGigs(userId:string):Promise<void> {    
+    store.dispatch({ type: LOADING_START })
+    try {
+        const gigs = await gigService.query()
+        const wishlistGigs = gigs.filter(gig => gig.wishList?.includes(userId))
+        
+        store.dispatch({ type: SET_WISHLIST_GIGS, wishlistGigs: wishlistGigs })
+
     } finally {
         store.dispatch({ type: LOADING_DONE })
     }

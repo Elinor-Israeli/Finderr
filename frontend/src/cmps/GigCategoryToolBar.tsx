@@ -52,7 +52,7 @@ export function GigCategoryToolBar(): JSX.Element {
 
                 <ul className="categories categories-menu-package__categories nav-links" ref={CategorySliderRef}>
                     {categoriesToolBar.map(({ name, filters }) => (
-                        <li onClick={() => onSetFilter({ categories: filters })}>
+                        <li key={name} onClick={() => onSetFilter({ categories: filters })}>
                             <a className="menu-title">{name}</a>
                         </li>
                     ))}

@@ -9,12 +9,13 @@ export {
     AddGigAction,
     UpdateGigAction,
     SetFilterAction,
+    SetWishListGigsAction,
     FilterBy
 } 
 
 export const SET_GIGS = 'SET_GIGS'
 export const SET_USER_GIGS = 'SET_USER_GIGS'
-
+export const SET_WISHLIST_GIGS = 'SET_WISHLIST_GIGS'
 export const REMOVE_GIG = 'REMOVE_GIG'
 export const ADD_GIG = 'ADD_GIG'
 export const UPDATE_GIG = 'UPDATE_GIG'
@@ -42,6 +43,7 @@ interface FilterBy {
 interface GigState {
     gigs: Gig[]
     userGigs: Gig[]
+    wishlistGigs: Gig[]
     lastRemovedGig: Gig | null
     filterBy: FilterBy
 }
@@ -49,6 +51,11 @@ interface GigState {
 interface SetGigsAction {
     type: typeof SET_GIGS
     gigs: Gig[]
+}
+
+interface SetWishListGigsAction {
+    type: typeof SET_WISHLIST_GIGS
+    wishlistGigs: Gig[]
 }
 interface SetUserGigsAction {
     type: typeof SET_USER_GIGS
@@ -80,4 +87,5 @@ type GigActionTypes =
     | AddGigAction 
     | UpdateGigAction 
     | SetFilterAction
+    | SetWishListGigsAction
 

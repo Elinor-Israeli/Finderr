@@ -37,11 +37,11 @@ export async function loadGigs(filterBy:FilterBy):Promise<void> {
 export async function loadWishListGigs(userId:string):Promise<void> {    
     store.dispatch({ type: LOADING_START })
     try {
-        const gigs = await gigService.query()
-        const wishlistGigs = gigs.filter(gig => gig.wishList?.includes(userId))
-        
+        const wishlistGigs = await gigService.getWishlistGigs(userId)        
         store.dispatch({ type: SET_WISHLIST_GIGS, wishlistGigs: wishlistGigs })
 
+    } catch (err) {
+        console.error('Error loading wishlist gigs', err)
     } finally {
         store.dispatch({ type: LOADING_DONE })
     }

@@ -9,7 +9,8 @@ export const gigService = {
     remove,
     getEmptyGig,
     getDefaultFilter,
-    toggleWishlist
+    toggleWishlist,
+    getWishlistGigs
 }
 
 function getDefaultFilter() {
@@ -22,6 +23,10 @@ async function query(filterBy = getDefaultFilter()): Promise<Gig[]> {
 
 function getById(gigId: string) {
     return httpService.get(`gig/${gigId}`)
+}
+
+async function getWishlistGigs(userId: string): Promise<Gig[]> {
+    return httpService.get(`gig/wishlist/${userId}`)
 }
 
 async function remove(gigId: string) {

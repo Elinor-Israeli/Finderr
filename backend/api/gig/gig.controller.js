@@ -1,4 +1,5 @@
 const gigService = require('./gig.service.js')
+const userService = require('../user/user.service')
 const logger = require('../../services/logger.service')
 
 async function getGigs(req, res) {
@@ -21,6 +22,29 @@ async function getGigs(req, res) {
     res.status(400).send({ err: 'Failed to get gigs' })
   }
 }
+
+async function getUserWishlistGigs(req, res) {
+  try {
+    const userId = req.params.userId
+
+    if (!userId) {
+      return res.status(400).send({ err: 'User ID is required' })
+    }
+
+    const user = await userService.getById(userId)
+    if (!user || !user.wishList || user.wishList.length === 0) {
+      return res.json([]) 
+    }
+
+    const gigs = await gigService.getByIds(user.wishList) 
+    res.json(gigs)
+
+  } catch (err) {
+    logger.error('Failed to get wishlist gigs', err)
+    res.status(500).send({ err: 'Failed to get wishlist gigs' })
+  }
+}
+
 
 async function getGigById(req, res) {
   try {
@@ -87,37 +111,47 @@ async function AddAndRemoveToWishlist(req, res) {
   }
   try {
     const { gigId } = req.body
+    console.log('gigId', gigId)
+
     if (!gigId) {
       return res.status(400).send({ err: 'Gig ID is required' })
     }
-    const gigDb = await gigService.getById(gigId)
-    if (!gigDb) {
+    const gig = await gigService.getById(gigId)
+    if (!gig) {
       return res.status(404).send({ err: 'Gig not found' })
     }
-    if (!gigDb.wishList) {
-      gigDb.wishList = []
+    const user = await userService.getById(req.loggedinUser._id)
+    if (!user) {
+      return res.status(404).send({ err: 'User not found' })
     }
-    if (gigDb.wishList.includes(req.loggedinUser._id)) {
-      gigDb.wishList = gigDb.wishList.filter(id => id !== req.loggedinUser._id)
-      const gigRemoved = await gigService.update(gigDb)
+    if (!user.wishList) {
+      user.wishList = []
+    }
+    console.log('user before update', user)
+
+    if (user.wishList.includes(gig._id)) {
+      user.wishList = user.wishList.filter(id => id !== gig._id)
+      const updatedUser = await userService.update(user)
+      console.log('updatedUser', updatedUser)
 
       logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
-      return res.json(gigRemoved)
+      return res.json({ msg: 'Removed from wishlist', wishlist: updatedUser.wishList })
 
     }
-
-    gigDb.wishList.push(req.loggedinUser._id)
-    const gigAdded = await gigService.update(gigDb)
+    user.wishList.push(gig._id)
+    const updatedUser = await userService.update(user)
+    console.log('updatedUser', updatedUser)
 
     logger.info(`Gig added successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
-    res.json(gigAdded)
+    return res.json({ msg: 'Added to wishlist', wishlist: updatedUser.wishList })
+
+
 
   } catch (err) {
     logger.error('Failed to update gig', err)
     res.status(500).send({ err: 'Failed to update gig' })
   }
 }
-
 
 async function removeGig(req, res) {
   if (!req.loggedinUser) {
@@ -149,4 +183,5 @@ module.exports = {
   updateGig,
   removeGig,
   AddAndRemoveToWishlist,
+  getUserWishlistGigs
 }

@@ -93,10 +93,18 @@ async function update(gig) {
     }
 }
 
+async function getByIds(gigIds) {
+    const collection = await dbService.getCollection('gig_db')
+    const objectIds = gigIds.map(id => new ObjectId(id))
+    return collection.find({ _id: { $in: objectIds } }).toArray()
+  }
+  
+
 module.exports = {
     remove,
     query,
     getById,
     add,
     update,
+    getByIds
 }

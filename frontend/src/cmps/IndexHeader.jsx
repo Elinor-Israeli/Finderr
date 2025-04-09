@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { SET_FILTER } from '../types/Gig'
-import { useEffect, useState, useMemo, useCallback } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { userService } from '../services/user/user.service.remote'
 import { gigService } from '../services/gig/gig.service.remote'
 import { useDispatch, useSelector } from 'react-redux'

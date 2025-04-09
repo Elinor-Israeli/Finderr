@@ -9,7 +9,7 @@ router.get('/', log, getGigs)
 router.get('/:id', getGigById)
 router.post('/',  addGig) 
 router.put('/wishlist',AddAndRemoveToWishlist)
-router.get('/wishlist/:userId', getUserWishlistGigs)
+router.get('/wishlist', getUserWishlistGigs)
 router.put('/:id', updateGig)
 router.delete('/:id', removeGig)
 

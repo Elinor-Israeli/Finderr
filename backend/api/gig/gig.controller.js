@@ -25,7 +25,7 @@ async function getGigs(req, res) {
 
 async function getUserWishlistGigs(req, res) {
   try {
-    const userId = req.params.userId
+    const userId = req.loggedinUser._id
 
     if (!userId) {
       return res.status(400).send({ err: 'User ID is required' })
@@ -111,8 +111,6 @@ async function AddAndRemoveToWishlist(req, res) {
   }
   try {
     const { gigId } = req.body
-    console.log('gigId', gigId)
-
     if (!gigId) {
       return res.status(400).send({ err: 'Gig ID is required' })
     }
@@ -127,12 +125,10 @@ async function AddAndRemoveToWishlist(req, res) {
     if (!user.wishList) {
       user.wishList = []
     }
-    console.log('user before update', user)
 
     if (user.wishList.includes(gig._id)) {
       user.wishList = user.wishList.filter(id => id !== gig._id)
       const updatedUser = await userService.update(user)
-      console.log('updatedUser', updatedUser)
 
       logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
       return res.json({ msg: 'Removed from wishlist', wishlist: updatedUser.wishList })
@@ -140,12 +136,9 @@ async function AddAndRemoveToWishlist(req, res) {
     }
     user.wishList.push(gig._id)
     const updatedUser = await userService.update(user)
-    console.log('updatedUser', updatedUser)
 
     logger.info(`Gig added successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
     return res.json({ msg: 'Added to wishlist', wishlist: updatedUser.wishList })
-
-
 
   } catch (err) {
     logger.error('Failed to update gig', err)

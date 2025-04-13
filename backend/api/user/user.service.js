@@ -7,7 +7,8 @@ module.exports = {
     getById,
     getByUsername,
     update,
-    add
+    add,
+    getManyByIds
 }
 
 async function query() {
@@ -85,3 +86,6 @@ async function add(user) {
     }
 }
 
+async function getManyByIds(ids) {
+    return User.find({ _id: { $in: ids } }, { password: 0 }) // exclude password field
+}

@@ -25,11 +25,12 @@ async function getGigs(req, res) {
 
 async function getUserWishlistGigs(req, res) {
   try {
-    const userId = req.loggedinUser._id
+    const userId = req.params.userId
 
     if (!userId) {
       return res.status(400).send({ err: 'User ID is required' })
     }
+
 
     const user = await userService.getById(userId)
     if (!user || !user.wishList || user.wishList.length === 0) {
@@ -37,6 +38,8 @@ async function getUserWishlistGigs(req, res) {
     }
 
     const gigs = await gigService.getByIds(user.wishList) 
+    console.log('gigs',gigs)
+    
     res.json(gigs)
 
   } catch (err) {

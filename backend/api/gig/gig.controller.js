@@ -26,7 +26,6 @@ async function getGigs(req, res) {
 async function getUserWishlistGigs(req, res) {
   try {
     const userId = req.params.userId
-
     if (!userId) {
       return res.status(400).send({ err: 'User ID is required' })
     }
@@ -51,7 +50,6 @@ async function getGigById(req, res) {
   try {
     const gigId = req.params.id
     const gig = await gigService.getById(gigId)
-
     const userInfo = req.loggedinUser ? ` by user ${req.loggedinUser.fullname}` : ''
     logger.info(`Gig fetched successfully: ${gig._id}${userInfo}`)
     res.json(gig)

@@ -11,6 +11,7 @@
     "dev:local:win": "set VITE_LOCAL=true&&vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "type-check": "tsc --noEmit",
     "preview": "vite preview"
   },
   "dependencies": {

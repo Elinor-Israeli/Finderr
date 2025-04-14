@@ -12,11 +12,11 @@ export function UserWishList() {
   
   useEffect(() => {
     if (user) {
-      loadWishListGigs(user._id)
+      loadWishListGigs()
     } else {
       navigate("/gig")
     }
-  }, [user, navigate, user._id]) 
+  }, [user, navigate]) 
  
   return (
     <div className="wish-list">

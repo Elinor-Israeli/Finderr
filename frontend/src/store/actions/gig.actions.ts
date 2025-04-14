@@ -34,10 +34,10 @@ export async function loadGigs(filterBy:FilterBy):Promise<void> {
     }
 }
 
-export async function loadWishListGigs(userId:string):Promise<void> {    
+export async function loadWishListGigs():Promise<void> {    
     store.dispatch({ type: LOADING_START })
     try {
-        const wishlistGigs = await gigService.getWishlistGigs(userId)        
+        const wishlistGigs = await gigService.getWishlistGigs()        
         store.dispatch({ type: SET_WISHLIST_GIGS, wishlistGigs: wishlistGigs })
 
     } catch (err) {

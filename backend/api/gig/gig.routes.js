@@ -4,12 +4,11 @@ const { log } = require('../../middlewares/logger.middleware.js')
 const { getGigs, getGigById, addGig, updateGig, removeGig, AddAndRemoveToWishlist, getUserWishlistGigs} = require('./gig.controller')
 const router = express.Router()
 
-
+router.put('/wishlist',AddAndRemoveToWishlist)
+router.get('/wishlist', getUserWishlistGigs)
 router.get('/', log, getGigs)
 router.get('/:id', getGigById)
 router.post('/',  addGig) 
-router.put('/wishlist',AddAndRemoveToWishlist)
-router.get('/wishlist/:userId', getUserWishlistGigs)
 router.put('/:id', updateGig)
 router.delete('/:id', removeGig)
 

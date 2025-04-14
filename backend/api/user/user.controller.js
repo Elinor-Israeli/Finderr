@@ -14,7 +14,7 @@ async function getUser(req, res) {
 }
 
 async function updateUser(req, res) {
-    if (!req.loggedinUser) {
+    if (!req.loggedinUser) {        
         return res.status(401).send({ err: 'Not user found' })
     }
 

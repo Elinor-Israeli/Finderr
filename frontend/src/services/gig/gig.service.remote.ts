@@ -53,8 +53,8 @@ async function toggleWishlist(gigId: string): Promise<Gig> {
     }
 }
 
-async function getWishlistGigs(userId: string): Promise<Gig[]> {
-    return httpService.get(`gig/wishlist/${userId}`)
+async function getWishlistGigs(): Promise<Gig[]> {
+    return httpService.get('gig/wishlist')
 }
 
 

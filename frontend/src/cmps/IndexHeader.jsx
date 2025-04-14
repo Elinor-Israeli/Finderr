@@ -58,9 +58,9 @@ export function IndexHeader() {
 
   useEffect(() => {
     if (user) {
-      loadWishListGigs(user._id)
+      loadWishListGigs()
     }
-  }, [user, user?._id])
+  }, [user])
 
   const onExploreClick = useCallback(() => {
     const resetFilter = gigService.getDefaultFilter()

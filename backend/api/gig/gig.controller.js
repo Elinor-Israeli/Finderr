@@ -24,19 +24,22 @@ async function getGigs(req, res) {
 }
 
 async function getUserWishlistGigs(req, res) {
+  if (!req.loggedinUser) {
+    res.status(401).send({ err: 'User not found' })
+    return
+  }
+
   try {
-    const userId = req.params.userId
-    if (!userId) {
-      return res.status(400).send({ err: 'User ID is required' })
-    }
-
-
-    const user = await userService.getById(userId)
-    if (!user || !user.wishList || user.wishList.length === 0) {
+    const user = await userService.getById(req.loggedinUser._id)
+    console.log('user', user);
+    
+   if (!user || !user.wishList || user.wishList.length === 0) {
       return res.json([]) 
     }
 
-    const gigs = await gigService.getByIds(user.wishList)     
+    const gigs = await gigService.getByIds(user.wishList)   
+    console.log('gigs', gigs);
+      
     res.json(gigs)
 
   } catch (err) {
@@ -109,9 +112,7 @@ async function AddAndRemoveToWishlist(req, res) {
     return
   }
   try {
-    const {gigId}  = req.body
-    console.log('gigId', gigId);
-    
+    const {gigId}  = req.body    
     if (!gigId) {
       return res.status(400).send({ err: 'Gig ID is required' })
     }

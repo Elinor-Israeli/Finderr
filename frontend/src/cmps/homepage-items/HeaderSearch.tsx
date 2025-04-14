@@ -3,7 +3,7 @@ import { gigService } from '../../services/gig/gig.service.remote.js'
 import useOnSetFilter from '../../utils/hooks'
 
 interface Filter {
-    categories: string
+    categories: string[]
 }
 
 export function HeaderSearch() {

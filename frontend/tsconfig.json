@@ -1,16 +1,25 @@
 {
-    "compilerOptions": {
-      "module": "ESNext",
-      "jsx": "react-jsx",
-      "skipLibCheck": true,
-      "moduleResolution": "Node", 
+  "compilerOptions": {
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "moduleResolution": "Node",
     "target": "ESNext",
-    "types": ["vite/client"]
-    },
-    "target": "esnext",
-    "lib": ["esnext", "dom"],
-    "strict": true,
-    "esModuleInterop": true,
-    "include": ["src"],
-    "exclude": ["node_modules"]
+    "types": [
+      "vite/client", "node"
+    ],
+  },
+  "target": "esnext",
+  "lib": [
+    "esnext",
+    "dom"
+  ],
+  "strict": true,
+  "esModuleInterop": true,
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

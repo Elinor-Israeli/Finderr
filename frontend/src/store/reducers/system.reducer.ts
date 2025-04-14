@@ -1,7 +1,7 @@
 export const LOADING_START = 'LOADING_START'
 export const LOADING_DONE = 'LOADING_DONE'
 
-interface SystemState {
+export interface SystemState {
   isLoading: boolean
 }
 

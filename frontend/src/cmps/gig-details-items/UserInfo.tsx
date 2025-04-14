@@ -16,7 +16,7 @@ export function UserInfo(props: UserInfoProps) {
     const loadUser = useCallback(async () => {
         try {
             const user = await userService.getById(props.user_id)
-            setUser(user)
+            setUser(user as User)
         } catch (err) {
             console.log('user =>', err)
         }

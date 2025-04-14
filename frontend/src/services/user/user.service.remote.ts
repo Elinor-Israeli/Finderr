@@ -1,4 +1,5 @@
 import { httpService } from "../http.service"
+import { User } from "../../types/User"
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -24,7 +25,7 @@ async function getById(userId:string) {
     return user
 }
 
-function remove(userId) {
+function remove(userId: string) {
     return httpService.delete(`user/${userId}`)
 }
 
@@ -54,11 +55,21 @@ async function logout() {
 }
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl }
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, wishlist: user.wishList }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
-function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+function getLoggedinUser(): User | null {
+  const user = JSON.parse(sessionStorage.getItem('user') || 'null')
+
+  if (!user) return null
+
+  // Normalize wishlist field name
+  if (user.wishlist && !user.wishList) {
+    user.wishList = user.wishlist
+    delete user.wishlist
+  }
+
+  return user
 }

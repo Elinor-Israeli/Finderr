@@ -6,13 +6,27 @@ async function query(filterBy) {
     try {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('gig_db')
-        var gigs = await collection.find(criteria).toArray()
+
+        const gigs = await collection.aggregate([
+            { $match: criteria },
+            {
+                $lookup: {
+                    from: 'user', 
+                    localField: 'owner_id',
+                    foreignField: '_id',
+                    as: 'owner'
+                }
+            },
+            { $unwind: '$owner' } 
+        ]).toArray()
+
         return gigs
     } catch (err) {
         logger.error('cannot find gigs', err)
         throw err
     }
 }
+
 
 function _buildCriteria(filterBy) {
     let criteria = {}
@@ -82,7 +96,6 @@ async function update(gig) {
             tags: gig.tags,
             daysToMake: gig.daysToMake,
             imgUrl: gig.imgUrl,
-            wishList: gig.wishList,
         }
         const collection = await dbService.getCollection('gig_db')
         await collection.updateOne({ _id: ObjectId(gig._id) }, { $set: gigToSave })

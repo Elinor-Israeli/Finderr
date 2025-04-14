@@ -31,6 +31,14 @@ type Gig = {
     wishList: string[]
     daysToMake: number
     imgUrl: string[]
+    owner : {
+        _id: string
+        imgUrl: string
+        level : number
+        rate: number
+        fullname: string
+
+    }
 }
 
 interface FilterBy {

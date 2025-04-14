@@ -11,22 +11,19 @@ export const gigService = {
     getDefaultFilter,
     toggleWishlist,
     getWishlistGigs
+    
 }
 
 function getDefaultFilter() {
     return { categories: [], daysToMake: '', minPrice: '', maxPrice: '' , userId:'' }
 }
 
-async function query(filterBy = getDefaultFilter()): Promise<Gig[]> {
+async function query(filterBy = getDefaultFilter()) : Promise<Gig[]> {
     return httpService.get(`gig`, filterBy)
 }
 
 function getById(gigId: string) {
     return httpService.get(`gig/${gigId}`)
-}
-
-async function getWishlistGigs(userId: string): Promise<Gig[]> {
-    return httpService.get(`gig/wishlist/${userId}`)
 }
 
 async function remove(gigId: string) {
@@ -54,6 +51,10 @@ async function toggleWishlist(gigId: string): Promise<Gig> {
         console.error('Failed to update wishlist', error)
         throw new Error('Failed to update wishlist')
     }
+}
+
+async function getWishlistGigs(userId: string): Promise<Gig[]> {
+    return httpService.get(`gig/wishlist/${userId}`)
 }
 
 

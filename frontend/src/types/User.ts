@@ -21,6 +21,7 @@ type Credentials = {
 type LoginUser = {
   _id: string
   username?: string
+  wishlist?: string[]
 }
 
 interface User {
@@ -30,6 +31,7 @@ interface User {
   imgUrl: string
   aboutMe?: string
   level: number
+  wishList: string[]
   rate: number
   reviews: any[]
 }
@@ -55,5 +57,7 @@ interface Owner {
   level?: string
   rate?: number
   reviews?: any[]
+  wishList?: string[]
+
 }
 

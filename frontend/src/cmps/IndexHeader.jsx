@@ -60,7 +60,7 @@ export function IndexHeader() {
     if (user) {
       loadWishListGigs(user._id)
     }
-  }, [user, user._id])
+  }, [user, user?._id])
 
   const onExploreClick = useCallback(() => {
     const resetFilter = gigService.getDefaultFilter()

@@ -4,10 +4,8 @@ import { useEffect, useState } from 'react'
 import { addAndRemoveToWishlist } from '../store/actions/gig.actions'
 import { SlideGigPreview } from './SlideGigPreview'
 import { showSuccessMsg } from '../services/event-bus.service'
-import { userService } from '../services/user/user.service.remote'
 import { eventBus } from '../services/event-bus.service'
 import { Gig } from '../types/Gig'
-import { User } from '../types/User'
 import { RootState } from '../store/store'
 
 type GigPreviewProps = {
@@ -17,11 +15,10 @@ type GigPreviewProps = {
 export function GigPreview({ gig }: GigPreviewProps) {
     const user = useSelector((storeState: RootState) => storeState.userModule.user)
     const [heart, setHeart] = useState<boolean>(false)
-    const [owner, setOwner] = useState< User | null >(null)
-
+    
     useEffect(() => {
         if (user) {
-            if (Array.isArray(gig.wishList) && gig.wishList.includes(user._id)) {
+            if (Array.isArray(user.wishList) && user.wishList.includes(gig._id)) {
                 setHeart(true)
             } else {
                 setHeart(false)
@@ -29,56 +26,36 @@ export function GigPreview({ gig }: GigPreviewProps) {
         } else {
             setHeart(false)
         }
-
-        async function loadOwner() {
-            try {
-                const owner = await userService.getById(gig.owner_id) as User
-                setOwner(owner)
-                if (!Array.isArray(gig.wishList)) {
-                    gig.wishList = []
-                }
-            } catch (err) {
-                console.log('owner =>', err)
-            }
-        }
-        loadOwner()
     }, [user, gig])
 
-    const onHandleHeart = async (ev) => {
+    const onHandleHeart = async (ev: React.MouseEvent<HTMLButtonElement>) => {
         ev.preventDefault()
         ev.stopPropagation()
-
-        if(!user){
-            eventBus.emit ('show-msg', {txt: 'Sign in or Join to add to wishlist'})
+    
+        if (!user) {
+            eventBus.emit('show-msg', { txt: 'Sign in or Join to add to wishlist' })
             return
-        } 
-
+        }
+    
         try {
-            const updatedGig = { ...gig }
-            if (!Array.isArray(updatedGig.wishList)) {
-                updatedGig.wishList = []
-            }
-            const userIndex = updatedGig.wishList.indexOf(user._id)
-            if (userIndex != -1) {
-                updatedGig.wishList.splice(userIndex, 1)
-                setHeart(false)
-                showSuccessMsg(`Removed from ${user.fullname}'s wishlist`)
-            } else {
-                updatedGig.wishList.push(user._id)
-                setHeart(true)
-                showSuccessMsg(`Added to ${user.fullname}'s wishlist`)
-            }
-
-            await addAndRemoveToWishlist(updatedGig._id)
+            const { wishList } = await addAndRemoveToWishlist(gig._id) 
+    
+            const isInWishlist = wishList.includes(gig._id)
+            setHeart(isInWishlist)
+    
+            const actionMsg = isInWishlist ? 'Added to' : 'Removed from'
+            showSuccessMsg(`${actionMsg} ${user.fullname}'s wishlist`)
+            
         } catch (err) {
-            console.log("Error updating wishlist:", err)
+            console.error("Error updating wishlist:", err)
         }
     }
-    const getTxtToShow = (txt, length) => {
+    
+    const getTxtToShow = (txt:string, length:number) => {
         return txt.length < length ? txt : `${txt.substring(0, length)}...`
     }
 
-    function renderLevelStars(levelNumber) {
+    function renderLevelStars(levelNumber: number) {
         return [...Array(3)].map((_, idx) => (
             <svg // level icons
                 key={idx}
@@ -93,7 +70,7 @@ export function GigPreview({ gig }: GigPreviewProps) {
             </svg>
         ))
     }
-
+    const owner = gig.owner
     if (!owner) return <div className="loader-container">
         <div className="loader"></div>
     </div>

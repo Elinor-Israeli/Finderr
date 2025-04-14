@@ -4,6 +4,7 @@ import { LOADING_DONE, LOADING_START } from '../reducers/system.reducer'
 import { userService } from '../../services/user/user.service.remote'
 import { showErrorMsg } from '../../services/event-bus.service' 
 import { socketService } from '../../services/socket.service'
+import { httpService } from '../../services/http.service'
 
 
 export async function updateUser(user: User): Promise<void>  {
@@ -20,6 +21,7 @@ export async function updateUser(user: User): Promise<void>  {
 export async function login(credentials: Credentials): Promise<void>  {
     try {
         const user = await userService.login(credentials)
+        console.log('Fetched user from server:', user)
         store.dispatch({
             type: SET_USER,
             user
@@ -74,4 +76,17 @@ export async function loadUser(userId:string): Promise<void>  {
         store.dispatch({ type: LOADING_DONE })
     }
 }
+
+// export async function toggleGigInWishlist(gigId: string): Promise<User> {
+//     const user = await userService.getLoggedinUser()
+//     if (!user) throw new Error('Not logged in')
+
+//     const idx = user.wishList.indexOf(gigId)
+//     if (idx !== -1) user.wishList.splice(idx, 1)
+//     else user.wishList.push(gigId)
+
+//     const updatedUser = await httpService.put<User>(`user/${user._id}/wishlist`, { wishList: user.wishList })
+//     userService.saveLocalUser(updatedUser)
+//     return updatedUser
+// }
 

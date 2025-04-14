@@ -37,9 +37,7 @@ async function getUserWishlistGigs(req, res) {
       return res.json([]) 
     }
 
-    const gigs = await gigService.getByIds(user.wishList) 
-    console.log('gigs',gigs)
-    
+    const gigs = await gigService.getByIds(user.wishList)     
     res.json(gigs)
 
   } catch (err) {
@@ -107,41 +105,46 @@ async function updateGig(req, res) {
   }
 }
 
-async function AddAndRemoveToWishlist(req, res) {
+async function AddAndRemoveToWishlist(req, res) {  
   if (!req.loggedinUser) {
     res.status(401).send({ err: 'User not found' })
     return
   }
   try {
-    const { gigId } = req.body
+    const {gigId}  = req.body
+    console.log('gigId', gigId);
+    
     if (!gigId) {
       return res.status(400).send({ err: 'Gig ID is required' })
     }
     const gig = await gigService.getById(gigId)
+    
     if (!gig) {
       return res.status(404).send({ err: 'Gig not found' })
     }
     const user = await userService.getById(req.loggedinUser._id)
+    
     if (!user) {
       return res.status(404).send({ err: 'User not found' })
     }
     if (!user.wishList) {
       user.wishList = []
     }
-
-    if (user.wishList.includes(gig._id)) {
-      user.wishList = user.wishList.filter(id => id !== gig._id)
+   
+    if (user.wishList.includes(gig._id.toString())) {
+      
+      user.wishList = user.wishList.filter(id => id !== gig._id.toString())
       const updatedUser = await userService.update(user)
 
       logger.info(`Gig removed successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
-      return res.json({ msg: 'Removed from wishlist', wishlist: updatedUser.wishList })
+      return res.json({ msg: 'Removed from wishlist', wishList: updatedUser.wishList })
 
     }
-    user.wishList.push(gig._id)
+    user.wishList.push(gig._id.toString())
     const updatedUser = await userService.update(user)
 
     logger.info(`Gig added successfully: ${gig._id} by user ${req.loggedinUser.fullname}`)
-    return res.json({ msg: 'Added to wishlist', wishlist: updatedUser.wishList })
+    return res.json({ msg: 'Added to wishlist', wishList: updatedUser.wishList })
 
   } catch (err) {
     logger.error('Failed to update gig', err)

@@ -4,6 +4,8 @@
     "jsx": "react-jsx",
     "skipLibCheck": true,
     "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "target": "ESNext",
     "types": [
       "vite/client", "node"

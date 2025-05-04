@@ -27,6 +27,8 @@ export function UserIndex() {
     useEffect(() => {
         async function fetchData() {
             const userInfo = await userService.getById(userId)
+            console.log('userId', userId);
+            
             setUser(userInfo)
         }
         if (loggedinUser?._id !== userId) {

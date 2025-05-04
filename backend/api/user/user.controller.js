@@ -3,7 +3,9 @@ const logger = require('../../services/logger.service')
 
 async function getUser(req, res) {
     try {
-        const user = await userService.getById(req.params.id)
+        const user = await userService.getById(req.loggedinUser._id)
+        console.log('user111',user);
+        
         const userInfo = req.loggedinUser ? ` by user ${req.loggedinUser.fullname}` : ''
         logger.info(`User fetched successfully: ${user._id}${userInfo}`)
         res.send(user)

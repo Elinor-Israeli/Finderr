@@ -13,7 +13,7 @@ export const userService = {
     getById,
     remove,
     update,
-    
+        
 }
 
 function getUsers() {
@@ -61,7 +61,9 @@ function saveLocalUser(user) {
 }
 
 function getLoggedinUser(): User | null {
-  const user = JSON.parse(sessionStorage.getItem('user') || 'null')
+  const user = JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || 'null')
+  console.log('user123', user);
+  
 
   if (!user) return null
 

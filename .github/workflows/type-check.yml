@@ -11,7 +11,7 @@ on:
 jobs:
   type-check:
     runs-on: ubuntu-latest
-  
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -28,3 +28,4 @@ jobs:
       - name: Run TypeScript Check
         run: |
           cd frontend && npm run type-check
+                                            
